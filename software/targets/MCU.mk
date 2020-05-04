@@ -35,7 +35,7 @@ CONFIGS = debug release
 
 # configuration specific flags
 CFLAGS += -std=gnu11 -Wall -Wextra -Wno-main -fno-common -c -ffunction-sections -fdata-sections
-CFLAGS_debug += -O0 -g3
+CFLAGS_debug += -Og -g3
 CFLAGS_release += -Os -g
 CXXFLAGS += -std=c++17 -Wall -Wextra -Wno-main -fno-common -c -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions
 CXXFLAGS_debug += -Og -g3

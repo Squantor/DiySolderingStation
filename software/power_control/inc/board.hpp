@@ -24,6 +24,9 @@ SOFTWARE.
 #ifndef BOARD_HPP
 #define BOARD_HPP
 
+// how many ticks per second
+#define TICKS_PER_S         (100)
+
 #define IOCON_XTAL_IN       IOCON_PIO8
 #define IOCON_XTAL_OUT      IOCON_PIO9
 

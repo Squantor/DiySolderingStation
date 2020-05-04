@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2020 Bart Bilos
+Copyright (c) 2019 Bart Bilos
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,40 +21,34 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+#ifndef TIME_DELAY_HPP
+#define TIME_DELAY_HPP
 
-/*
-Simple uart example
-*/
-
+#include <stdint.h>
 #include <board.hpp>
-#include <mcu_ll.h>
-#include <stream_uart.hpp>
-#include <strings.hpp>
-#include <print.h>
-#include <time_delay.hpp>
 
+typedef uint32_t timeTicks;
+typedef struct {
+    timeTicks timeDelayDuration;
+    // at what time to trigger
+    timeTicks timeDelayTrigger;
+} timeDelay_t;
 
-int main()
-{
-    uint8_t character;
-    timeDelay_t statusPrint;
-    timeDelayInit(statusPrint, SEC2TICKS(1));
-    boardInit();
-    dsPuts(&streamUart, strHello);
-    while (1) 
-    {
-        if((UartGetStatus(UART_DEBUG) & UART_STAT_RXRDY) != 0) 
-        {
-            character = UartReadByte(UART_DEBUG);
-            while((UartGetStatus(UART_DEBUG) & UART_STAT_TXRDY) == 0) 
-                ;
-            UartSendByte(UART_DEBUG, character);
-        }
-        if(timeDelayCheck(statusPrint) != delayNotReached)
-        {
-            dsPuts(&streamUart, strStatus);
-            timeDelayInit(statusPrint, SEC2TICKS(1));
-        }
+typedef enum {
+    delayNotReached, // we have not reached the delay yet
+    delayReached,    // we are at just the right time
+    delayExceeded,   // we have exceeded the delay
+} resultDelay_t;
 
-    }
-}
+#define SEC2TICKS(sec) ((timeTicks)(sec * TICKS_PER_S))
+
+extern volatile timeTicks ticks;
+
+// initialize the time delay structure
+void timeDelayInit(timeDelay_t &delayData, timeTicks delay);
+// non blocking check if we have a reached a time interval
+resultDelay_t timeDelayCheck(timeDelay_t &delayData);
+// blocking delay
+void timeDelaySimple(timeTicks delay);
+
+#endif

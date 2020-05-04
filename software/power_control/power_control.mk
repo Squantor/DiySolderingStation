@@ -38,7 +38,8 @@ BOARD ?= nuclone_board
 FILES +=  $(PROJECT)/src/strings.cpp \
 $(PROJECT)/src/$(BOARD).cpp \
 $(PROJECT)/src/stream_uart.cpp \
-$(PROJECT)/src/main.cpp
+$(PROJECT)/src/main.cpp \
+$(PROJECT)/src/time_delay.cpp
 
 LIBS += -lgcc
 INCLUDES += -IlibMcuLL/inc -I$(PROJECT)/inc

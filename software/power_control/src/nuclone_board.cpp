@@ -59,4 +59,6 @@ void boardInit(void)
     UartSetBaud(UART_DEBUG, UART_BAUD_RATE);
     UartEnable(UART_DEBUG);
     UartTXEnable(UART_DEBUG);
+
+    SysTick_Config(CLOCK_AHB / TICKS_PER_S);
 }
