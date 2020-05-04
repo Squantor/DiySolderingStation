@@ -1,0 +1,6 @@
+# build outputs
+build/
+bin/
+
+# log files
+*.log

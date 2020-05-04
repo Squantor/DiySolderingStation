@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "test.h": "c",
+        "cstddef": "cpp",
+        "cstdlib": "cpp"
+    },
+    "C_Cpp.default.cppStandard": "c++20",
+    "C_Cpp.default.cStandard": "c11",
+    "C_Cpp.default.intelliSenseMode": "gcc-x64",
+    "C_Cpp.default.systemIncludePath": [],
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/power_control/inc",
+        "${workspaceFolder}/libMcuLL/inc/",
+        "${workspaceFolder}/squantorLibC/inc/",
+        "${workspaceFolder}/squantorLibC/inc_internal/",
+        "${workspaceFolder}/squantorLibEmbeddedC/inc/"
+    ],
+    "editor.detectIndentation": false
+}

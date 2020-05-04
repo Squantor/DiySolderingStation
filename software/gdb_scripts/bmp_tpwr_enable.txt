@@ -1,0 +1,3 @@
+target extended-remote /dev/ttyBmpGdb0
+mon tpwr enable
+quit

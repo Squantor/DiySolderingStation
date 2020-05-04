@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/power_control/inc",
+                "${workspaceFolder}/libMcuLL/inc/",
+                "${workspaceFolder}/squantorLibC/inc/",
+                "${workspaceFolder}/squantorLibC/inc_internal/",
+                "${workspaceFolder}/squantorLibEmbeddedC/inc/"
+            ],
+            "defines": [
+                "MCU_LPC812M101JDH20",
+                "DEBUG"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": false,
+                "path": [
+                    "${workspaceFolder}/**"
+                ]
+            },
+            "compilerPath": "/home/abilos/programs/gcc-arm-none-eabi-9-2019-q4-major/bin/arm-none-eabi-gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
