@@ -24,16 +24,6 @@ SOFTWARE.
 
 #include <time_delay.hpp>
 
-volatile timeTicks ticks = 0;
-
-extern "C"
-{
-    void SysTick_Handler(void)
-    {
-        ticks++;
-    }
-}
-
 // initialize a time delay structure/object
 void timeDelayInit(timeDelay_t &delayData, timeTicks delay)
 {
