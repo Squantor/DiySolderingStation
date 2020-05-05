@@ -28,21 +28,21 @@ SOFTWARE.
 void timeDelayInit(timeDelay_t &delayData, timeTicks delay)
 {
     delayData.timeDelayDuration = delay;
-    delayData.timeDelayTrigger = ticks + delayData.timeDelayDuration;
+    delayData.timeDelayTrigger = currentTicks + delayData.timeDelayDuration;
 }
 
 resultDelay_t timeDelayCheck(timeDelay_t &delayData)
 {
-    if(delayData.timeDelayTrigger > ticks)
+    if(delayData.timeDelayTrigger > currentTicks)
         return delayNotReached;
-    else if(delayData.timeDelayTrigger == ticks)
+    else if(delayData.timeDelayTrigger == currentTicks)
     {
-        delayData.timeDelayTrigger = ticks + delayData.timeDelayDuration;
+        delayData.timeDelayTrigger = currentTicks + delayData.timeDelayDuration;
         return delayReached;
     }
     else 
     {
-        delayData.timeDelayTrigger = ticks + delayData.timeDelayDuration;
+        delayData.timeDelayTrigger = currentTicks + delayData.timeDelayDuration;
         return delayExceeded;
     }
 }

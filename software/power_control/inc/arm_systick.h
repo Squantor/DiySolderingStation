@@ -32,7 +32,7 @@ extern "C" {
 
 typedef uint32_t timeTicks;
 
-extern volatile timeTicks ticks;
+extern volatile timeTicks currentTicks;
 
 #ifdef __cplusplus
 }

@@ -28,9 +28,9 @@ Central gathering place for systick handling
 
 #include <arm_systick.h>
 
-volatile timeTicks ticks = 0;
+volatile timeTicks currentTicks = 0;
 
 void SysTick_Handler(void)
 {
-    ticks++;
+    currentTicks++;
 }
