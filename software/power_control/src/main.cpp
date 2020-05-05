@@ -32,13 +32,13 @@ Soldering station power control demo
 #include <strings.hpp>
 #include <print.h>
 #include <time_delay.hpp>
-#include <delay.hpp>
+#include <time_interval.hpp>
 
 
 int main()
 {
     uint8_t character;
-    delay statusPrint(SEC2TICKS(1));
+    timeInterval statusInterval(SEC2TICKS(1));
     boardInit();
     dsPuts(&streamUart, strHello);
     while (1) 
@@ -56,7 +56,7 @@ int main()
                 ;
             UartSendByte(UART_DEBUG, character);
         }
-        statusPrint.start();
-        dsPuts(&streamUart, strStatus);
+        if(statusInterval.elapsed())
+            dsPuts(&streamUart, strStatus);
     }
 }
