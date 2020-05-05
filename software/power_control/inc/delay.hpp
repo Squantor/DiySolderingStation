@@ -27,6 +27,15 @@ Simple delay class, just blocks and delays
 #ifndef DELAY_HPP
 #define DELAY_HPP
 
+#include <arm_systick.h>
 
+class delay
+{
+public:
+    delay(timeTicks duration);
+    void start(void);
+private:
+    timeTicks Duration;
+};
 
 #endif

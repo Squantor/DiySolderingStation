@@ -27,3 +27,15 @@ Simple delay class, just blocks and delays
 
 #include <delay.hpp>
 
+delay::delay(timeTicks duration) :
+Duration{duration}
+{
+
+}
+
+void delay::start(void)
+{
+    timeTicks triggerTicks = Duration + currentTicks;
+    while(triggerTicks != currentTicks)
+        ;
+}
