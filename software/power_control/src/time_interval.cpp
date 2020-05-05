@@ -26,19 +26,19 @@ Time interval class to measure elapsing of defined time intervals
 */
 #include <time_interval.hpp>
 
-time_interval::time_interval(timeTicks duration) :
+timeInterval::timeInterval(timeTicks duration) :
 Duration{duration}
 {
     TriggerMoment = duration + currentTicks;
 }
 
-void time_interval::reset(void)
+void timeInterval::reset(void)
 {
     TriggerMoment = Duration + currentTicks;
 }
 
 
-bool time_interval::elapsed(void)
+bool timeInterval::elapsed(void)
 {
     if(TriggerMoment > currentTicks)
     {

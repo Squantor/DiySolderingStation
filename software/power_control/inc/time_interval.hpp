@@ -29,10 +29,10 @@ Time interval class to measure elapsing of defined time intervals
 
 #include <arm_systick.h>
 
-class time_interval
+class timeInterval
 {
 public:
-    time_interval(timeTicks duration);
+    timeInterval(timeTicks duration);
     void reset(void);
     bool elapsed(void);
 private:
