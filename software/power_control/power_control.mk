@@ -40,6 +40,7 @@ $(PROJECT)/src/$(BOARD).cpp \
 $(PROJECT)/src/stream_uart.cpp \
 $(PROJECT)/src/main.cpp \
 $(PROJECT)/src/time_delay.cpp \
+$(PROJECT)/src/delay.cpp \
 $(PROJECT)/src/arm_systick.c
 
 LIBS += -lgcc

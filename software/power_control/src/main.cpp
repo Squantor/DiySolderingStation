@@ -23,7 +23,7 @@ SOFTWARE.
 */
 
 /*
-Simple uart example
+Soldering station power control demo
 */
 
 #include <board.hpp>
@@ -32,17 +32,23 @@ Simple uart example
 #include <strings.hpp>
 #include <print.h>
 #include <time_delay.hpp>
+#include <delay.hpp>
 
 
 int main()
 {
     uint8_t character;
-    timeDelay_t statusPrint;
-    timeDelayInit(statusPrint, SEC2TICKS(1));
+    delay statusPrint(SEC2TICKS(1));
     boardInit();
     dsPuts(&streamUart, strHello);
     while (1) 
     {
+        // did we get a zero crossing?
+            // increment zero cross trigger accumulator
+            // do we need to activate the power controller?
+                // activate for this zero cross 
+                // reset trigger accumulator
+        
         if((UartGetStatus(UART_DEBUG) & UART_STAT_RXRDY) != 0) 
         {
             character = UartReadByte(UART_DEBUG);
@@ -50,11 +56,7 @@ int main()
                 ;
             UartSendByte(UART_DEBUG, character);
         }
-        if(timeDelayCheck(statusPrint) != delayNotReached)
-        {
-            dsPuts(&streamUart, strStatus);
-            timeDelayInit(statusPrint, SEC2TICKS(1));
-        }
-
+        statusPrint.start();
+        dsPuts(&streamUart, strStatus);
     }
 }
