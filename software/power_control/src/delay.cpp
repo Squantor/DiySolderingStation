@@ -30,7 +30,6 @@ Simple delay class, just blocks and delays
 delay::delay(timeTicks duration) :
 Duration{duration}
 {
-
 }
 
 void delay::start(void)

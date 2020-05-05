@@ -35,7 +35,7 @@ public:
     delay(timeTicks duration);
     void start(void);
 private:
-    timeTicks Duration;
+    const timeTicks Duration;
 };
 
 #endif
