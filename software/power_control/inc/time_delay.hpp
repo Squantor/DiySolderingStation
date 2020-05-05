@@ -27,6 +27,11 @@ SOFTWARE.
 #include <arm_systick.h>
 #include <board.hpp>
 
+#if !defined(TICKS_PER_S)
+    #warning Ticks per second (TICKS_PER_S) is not defined!
+    #define TICKS_PER_S     (100u)
+#endif
+
 typedef struct {
     timeTicks timeDelayDuration;
     // at what time to trigger
