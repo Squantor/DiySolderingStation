@@ -28,6 +28,7 @@ extern "C"
 {
     void PININT0_IRQHandler(void)
     {
+        PinintClearIntStatus(LPC_PININT, PININTCH(PININT_ZEROCROSS));
         __NOP();
     }
 }
