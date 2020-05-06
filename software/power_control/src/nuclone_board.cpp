@@ -39,6 +39,7 @@ void boardInit(void)
     SwmMovablePinAssign(SWM_U0_RXD_I, PIN_UART_RX);
     ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
     IoconPinSetMode(LPC_IOCON, IOCON_ZEROCROSS_DET, PIN_MODE_INACTIVE);
+    IoconPinSetHysteresis(LPC_IOCON, IOCON_ZEROCROSS_DET, true);
 
     // setup system clocks
     ClockSetPLLBypass(false, false);
@@ -62,6 +63,7 @@ void boardInit(void)
     SysTick_Config(CLOCK_AHB / TICKS_PER_S);
     SysctlSetPinInterrupt(PININT_ZEROCROSS, PIN_ZEROCROSS_DET);
     GpioSetPinDIRInput(LPC_GPIO_PORT, 0, PIN_ZEROCROSS_DET);
+    
     PinintInit();
     PinintSetPinModeEdge(LPC_PININT, PININTCH(PININT_ZEROCROSS));
 	PinintEnableIntLow(LPC_PININT, PININTCH(PININT_ZEROCROSS));
