@@ -24,21 +24,29 @@ SOFTWARE.
 #include <board.hpp>
 #include <mcu_ll.h>
 
+extern "C" 
+{
+    void PININT0_IRQHandler(void)
+    {
+        __NOP();
+    }
+}
+
 void boardInit(void)
 {
     ClockEnablePeriphClock(SYSCTL_CLOCK_SWM);
     ClockEnablePeriphClock(SYSCTL_CLOCK_IOCON);
-    // crystal oscillator pin setup
+    ClockEnablePeriphClock(SYSCTL_CLOCK_GPIO);
     SwmFixedPinEnable(SWM_FIXED_XTALIN, true);
     SwmFixedPinEnable(SWM_FIXED_XTALOUT, true);
     IoconPinSetMode(LPC_IOCON, IOCON_XTAL_IN, PIN_MODE_INACTIVE);
     IoconPinSetMode(LPC_IOCON, IOCON_XTAL_OUT, PIN_MODE_INACTIVE);
-    // TODO setup uart pins
     IoconPinSetMode(LPC_IOCON, IOCON_UART_RX, PIN_MODE_PULLUP);
     IoconPinSetMode(LPC_IOCON, IOCON_UART_TX, PIN_MODE_INACTIVE);
     SwmMovablePinAssign(SWM_U0_TXD_O, PIN_UART_TX);
     SwmMovablePinAssign(SWM_U0_RXD_I, PIN_UART_RX);
     ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
+    IoconPinSetMode(LPC_IOCON, IOCON_ZEROCROSS_DET, PIN_MODE_INACTIVE);
 
     // setup system clocks
     ClockSetPLLBypass(false, false);
@@ -52,7 +60,6 @@ void boardInit(void)
     ClockSetSysClockDiv(2);
     ClockSetMainClockSource(SYSCTL_MAINCLKSRC_PLLOUT);
 
-    // setup UART peripheral
     UartInit(UART_DEBUG);
     UartConfigData(UART_DEBUG, UART_CFG_DATALEN_8 | UART_CFG_PARITY_NONE | UART_CFG_STOPLEN_1);
     ClockSetUSARTNBaseClockRate((UART_BAUD_RATE * 16), true);
@@ -61,4 +68,10 @@ void boardInit(void)
     UartTXEnable(UART_DEBUG);
 
     SysTick_Config(CLOCK_AHB / TICKS_PER_S);
+    SysctlSetPinInterrupt(PININT_ZEROCROSS, PIN_ZEROCROSS_DET);
+    GpioSetPinDIRInput(LPC_GPIO_PORT, 0, PIN_ZEROCROSS_DET);
+    PinintInit();
+    PinintSetPinModeEdge(LPC_PININT, PININTCH(PININT_ZEROCROSS));
+	PinintEnableIntLow(LPC_PININT, PININTCH(PININT_ZEROCROSS));
+    NVIC_EnableIRQ(PININT0_IRQn);
 }
