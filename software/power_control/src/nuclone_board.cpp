@@ -24,15 +24,6 @@ SOFTWARE.
 #include <board.hpp>
 #include <mcu_ll.h>
 
-extern "C" 
-{
-    void PININT0_IRQHandler(void)
-    {
-        PinintClearIntStatus(LPC_PININT, PININTCH(PININT_ZEROCROSS));
-        __NOP();
-    }
-}
-
 void boardInit(void)
 {
     ClockEnablePeriphClock(SYSCTL_CLOCK_SWM);

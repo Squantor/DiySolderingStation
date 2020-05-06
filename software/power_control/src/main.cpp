@@ -34,6 +34,16 @@ Soldering station power control demo
 #include <time_delay.hpp>
 #include <time_interval.hpp>
 
+volatile uint32_t zerocrosses = 0;
+
+extern "C" 
+{
+    void PININT0_IRQHandler(void)
+    {
+        PinintClearIntStatus(LPC_PININT, PININTCH(PININT_ZEROCROSS));
+        zerocrosses++;
+    }
+}
 
 int main()
 {
@@ -57,6 +67,10 @@ int main()
             UartSendByte(UART_DEBUG, character);
         }
         if(statusInterval.elapsed())
-            dsPuts(&streamUart, strStatus);
+        {
+            dsPuts(&streamUart, strZerocrosses);
+            printDecU32(&streamUart, zerocrosses);
+            dsPuts(&streamUart, strCrLf);
+        }
     }
 }

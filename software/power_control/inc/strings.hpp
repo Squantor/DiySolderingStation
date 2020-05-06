@@ -30,5 +30,6 @@ Common used strings
 extern const char strHello[];
 extern const char strCrLf[];
 extern const char strStatus[];
+extern const char strZerocrosses[];
 
 #endif
