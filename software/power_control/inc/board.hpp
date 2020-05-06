@@ -24,7 +24,6 @@ SOFTWARE.
 #ifndef BOARD_HPP
 #define BOARD_HPP
 
-// how many ticks per second
 #define TICKS_PER_S         (100)
 
 #define IOCON_XTAL_IN       IOCON_PIO8
@@ -35,11 +34,14 @@ SOFTWARE.
 #define IOCON_UART_RX       IOCON_PIO17
 #define PIN_UART_RX         (17u)
 
+#define IOCON_ZEROCROSS_DET IOCON_PIO15
+#define PIN_ZEROCROSS_DET   (15u)
+
 #define UART_DEBUG          LPC_USART0
 #define UART_BAUD_RATE      (115200u)
 
-#define CLOCK_MAIN_SOURCE   SYSCTL_MAINCLKSRC_PLLOUT
 
+#define CLOCK_MAIN_SOURCE   SYSCTL_MAINCLKSRC_PLLOUT
 #define CLOCK_XTAL          (12000000u)
 #define CLOCK_EXT_IN        (0u)
 #define CLOCK_CPU           (30000000u)
