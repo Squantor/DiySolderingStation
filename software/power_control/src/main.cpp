@@ -42,23 +42,39 @@ extern "C"
     {
         PinintClearIntStatus(LPC_PININT, PININTCH(PININT_ZEROCROSS));
         zerocrosses++;
+        // clear solid state relay output
     }
 }
 
 int main()
 {
     uint8_t character;
+    uint32_t zerocrossCount = 0;
+    uint8_t accumulator = 0;
+    uint8_t increment = 7;
+    uint8_t endValue = 100;
+    uint16_t count = 0;
     timeInterval statusInterval(SEC2TICKS(1));
     boardInit();
     dsPuts(&streamUart, strHello);
     while (1) 
     {
         // did we get a zero crossing?
+        if(zerocrossCount != zerocrosses)
+        {
             // increment zero cross trigger accumulator
+            accumulator += increment;
             // do we need to activate the power controller?
+            if(accumulator > endValue)
+            {
                 // activate for this zero cross 
+                count++;
                 // reset trigger accumulator
-        
+                accumulator -= endValue;
+            }
+            zerocrossCount = zerocrosses;
+        }     
+
         if((UartGetStatus(UART_DEBUG) & UART_STAT_RXRDY) != 0) 
         {
             character = UartReadByte(UART_DEBUG);
@@ -70,7 +86,10 @@ int main()
         {
             dsPuts(&streamUart, strZerocrosses);
             printDecU32(&streamUart, zerocrosses);
+            dsPuts(&streamUart, strAccumulator);
+            printDecU16(&streamUart, count);
             dsPuts(&streamUart, strCrLf);
+            count = 0;
         }
     }
 }

@@ -28,6 +28,7 @@ Common used strings
 #include <strings.hpp>
 
 const char strHello[] = "AC power control\r\n";
-const char strZerocrosses[] = "Zerocross count:";
+const char strZerocrosses[] = "Zerocrosses:";
+const char strAccumulator[] = " Accumulator:";
 const char strStatus[] = "Status:";
 const char strCrLf[] = "\r\n";

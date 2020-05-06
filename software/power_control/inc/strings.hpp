@@ -31,5 +31,6 @@ extern const char strHello[];
 extern const char strCrLf[];
 extern const char strStatus[];
 extern const char strZerocrosses[];
+extern const char strAccumulator[];
 
 #endif
