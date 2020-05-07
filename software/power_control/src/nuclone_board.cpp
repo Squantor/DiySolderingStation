@@ -75,3 +75,8 @@ void boardInit(void)
 	PinintEnableIntLow(LPC_PININT, PININTCH(PININT_ZEROCROSS));
     NVIC_EnableIRQ(PININT0_IRQn);
 }
+
+void boardSsrSetState(bool state)
+{
+    GpioSetPinState(LPC_GPIO_PORT, 0, PIN_SSR_CTRL, state);
+}

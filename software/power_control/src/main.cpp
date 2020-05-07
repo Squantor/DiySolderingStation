@@ -43,6 +43,7 @@ extern "C"
         PinintClearIntStatus(LPC_PININT, PININTCH(PININT_ZEROCROSS));
         zerocrosses++;
         // clear solid state relay output
+        boardSsrSetState(false);
     }
 }
 
@@ -51,7 +52,7 @@ int main()
     uint8_t character;
     uint32_t zerocrossCount = 0;
     uint8_t accumulator = 0;
-    uint8_t increment = 7;
+    uint8_t increment = 1;
     uint8_t endValue = 100;
     uint16_t count = 0;
     timeInterval statusInterval(SEC2TICKS(1));
@@ -68,6 +69,7 @@ int main()
             if(accumulator > endValue)
             {
                 // activate for this zero cross 
+                boardSsrSetState(true);
                 count++;
                 // reset trigger accumulator
                 accumulator -= endValue;
@@ -90,6 +92,9 @@ int main()
             printDecU16(&streamUart, count);
             dsPuts(&streamUart, strCrLf);
             count = 0;
+            increment++;
+            if(increment > 100)
+                increment = 0;
         }
     }
 }

@@ -53,5 +53,6 @@ SOFTWARE.
 #define CLOCK_MAIN          (60000000u)
 
 void boardInit(void);
+void boardSsrSetState(bool state);
 
 #endif
