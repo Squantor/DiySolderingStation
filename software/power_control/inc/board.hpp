@@ -37,6 +37,9 @@ SOFTWARE.
 #define IOCON_ZEROCROSS_DET IOCON_PIO15
 #define PIN_ZEROCROSS_DET   (15u)
 
+#define IOCON_SSR_CTRL      IOCON_PIO7
+#define PIN_SSR_CTRL        (7u)
+
 #define UART_DEBUG          LPC_USART0
 #define UART_BAUD_RATE      (115200u)
 

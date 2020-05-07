@@ -29,6 +29,7 @@ void boardInit(void)
     ClockEnablePeriphClock(SYSCTL_CLOCK_SWM);
     ClockEnablePeriphClock(SYSCTL_CLOCK_IOCON);
     ClockEnablePeriphClock(SYSCTL_CLOCK_GPIO);
+    // set up all pin related things
     SwmFixedPinEnable(SWM_FIXED_XTALIN, true);
     SwmFixedPinEnable(SWM_FIXED_XTALOUT, true);
     IoconPinSetMode(LPC_IOCON, IOCON_XTAL_IN, PIN_MODE_INACTIVE);
@@ -37,9 +38,14 @@ void boardInit(void)
     IoconPinSetMode(LPC_IOCON, IOCON_UART_TX, PIN_MODE_INACTIVE);
     SwmMovablePinAssign(SWM_U0_TXD_O, PIN_UART_TX);
     SwmMovablePinAssign(SWM_U0_RXD_I, PIN_UART_RX);
-    ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
+    
     IoconPinSetMode(LPC_IOCON, IOCON_ZEROCROSS_DET, PIN_MODE_INACTIVE);
     IoconPinSetHysteresis(LPC_IOCON, IOCON_ZEROCROSS_DET, true);
+    IoconPinSetMode(LPC_IOCON, IOCON_SSR_CTRL, PIN_MODE_INACTIVE);
+    GpioSetPinState(LPC_GPIO_PORT, 0, PIN_SSR_CTRL, false);
+    GpioSetPinDIROutput(LPC_GPIO_PORT, 0, PIN_SSR_CTRL);
+
+    ClockDisablePeriphClock(SYSCTL_CLOCK_SWM);
 
     // setup system clocks
     ClockSetPLLBypass(false, false);
