@@ -26,28 +26,3 @@ Pulse Density Modulation generator. Generates a pulse train that corresponds
 to a requested pulse density. 
 */
 #include <pdm_generator.hpp>
-
-PdmGenerator::PdmGenerator(uint16_t limit) :
-Limit{limit}
-{
-
-}
-
-bool PdmGenerator::check()
-{
-    if(Accumulator > Limit)
-        return true;
-    else
-        return false;    
-}
-
-void PdmGenerator::increment(uint16_t value)
-{
-    // some kind of assertion needed!
-    // if(value > Limit)
-    if(Accumulator > Limit)
-    {
-        Accumulator -= Limit;
-    }
-    Accumulator += value;
-}

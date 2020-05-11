@@ -30,18 +30,37 @@ to a requested pulse density.
 
 #include <stdint.h>
 
-// TODO ideal to make into a template!
+template <class T>
 class PdmGenerator
 {
     public:
-    PdmGenerator(uint16_t limit);
+    PdmGenerator(T limit) :
+    Limit{limit}
+    {
+
+    }
+
     // returns PDM state
-    bool check(void);
+    bool check(void )
+    {
+        if(Accumulator > Limit)
+            return true;
+        else
+            return false;    
+    }
+
     // add value to PDM
-    void increment(uint16_t value);
+    void increment(T value)
+    {
+        // some kind of assertion needed!
+        // if(value > Limit)
+        if(Accumulator > Limit)
+            Accumulator -= Limit;
+        Accumulator += value;
+    }
     private:
-    const uint16_t Limit;
-    uint16_t Accumulator;
+    const T Limit;
+    T Accumulator;
 };
 
 #endif

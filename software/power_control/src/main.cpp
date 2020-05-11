@@ -55,7 +55,7 @@ int main()
     uint8_t increment = 1;
     uint16_t count = 0;
     timeInterval statusInterval(SEC2TICKS(1));
-    PdmGenerator triacControl(100);
+    PdmGenerator<uint16_t> triacControl(100);
     boardInit();
     dsPuts(&streamUart, strHello);
     while (1) 
