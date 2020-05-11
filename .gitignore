@@ -4,3 +4,10 @@ bin/
 
 # log files
 *.log
+
+#kicad temporaries
+*.kicad_pcb-bak
+*.sch-bak
+*.net
+*.tmp
+*.bak
