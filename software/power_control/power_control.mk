@@ -42,7 +42,8 @@ $(PROJECT)/src/main.cpp \
 $(PROJECT)/src/time_delay.cpp \
 $(PROJECT)/src/delay.cpp \
 $(PROJECT)/src/time_interval.cpp \
-$(PROJECT)/src/arm_systick.c
+$(PROJECT)/src/arm_systick.c \
+$(PROJECT)/src/pdm_generator.cpp
 
 LIBS += -lgcc
 INCLUDES += -IlibMcuLL/inc -I$(PROJECT)/inc

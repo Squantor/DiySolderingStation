@@ -33,6 +33,7 @@ Soldering station power control demo
 #include <print.h>
 #include <time_delay.hpp>
 #include <time_interval.hpp>
+#include <pdm_generator.hpp>
 
 volatile uint32_t zerocrosses = 0;
 
@@ -51,29 +52,23 @@ int main()
 {
     uint8_t character;
     uint32_t zerocrossCount = 0;
-    uint8_t accumulator = 0;
     uint8_t increment = 1;
-    uint8_t endValue = 100;
     uint16_t count = 0;
     timeInterval statusInterval(SEC2TICKS(1));
+    PdmGenerator triacControl(100);
     boardInit();
     dsPuts(&streamUart, strHello);
     while (1) 
-    {
+    {        
         // did we get a zero crossing?
         if(zerocrossCount != zerocrosses)
         {
-            // increment zero cross trigger accumulator
-            accumulator += increment;
-            // do we need to activate the power controller?
-            if(accumulator > endValue)
+            if(triacControl.check())
             {
-                // activate for this zero cross 
                 boardSsrSetState(true);
                 count++;
-                // reset trigger accumulator
-                accumulator -= endValue;
             }
+            triacControl.increment(increment);
             zerocrossCount = zerocrosses;
         }     
 
