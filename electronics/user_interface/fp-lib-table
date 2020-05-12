@@ -1,6 +1,5 @@
 (fp_lib_table
   (lib (name SquantorAtmel)(type KiCad)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorAtmel.pretty)(options "")(descr ""))
-  (lib (name SquantorButtons)(type KiCad)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorButtons.pretty)(options "")(descr ""))
   (lib (name SquantorConnectors)(type KiCad)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorConnectors.pretty)(options "")(descr ""))
   (lib (name SquantorCrystal)(type KiCad)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorCrystal.pretty)(options "")(descr ""))
   (lib (name SquantorDiodes)(type KiCad)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorDiodes.pretty)(options "")(descr ""))
@@ -23,4 +22,5 @@
   (lib (name SquantorUsb)(type KiCad)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorUsb.pretty)(options "")(descr ""))
   (lib (name SquantorWinbond)(type KiCad)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorWinbond.pretty)(options "")(descr ""))
   (lib (name SquantorConnectorsNamed)(type KiCad)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorConnectorsNamed.pretty)(options "")(descr ""))
+  (lib (name MX_Only)(type KiCad)(uri ${KIPRJMOD}/../MX_Alps_Hybrid/MX_Only.pretty)(options "")(descr ""))
 )
