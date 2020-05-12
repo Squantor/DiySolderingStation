@@ -25,42 +25,33 @@ SOFTWARE.
 Pulse Density Modulation generator. Generates a pulse train that corresponds
 to a requested pulse density. 
 */
-#ifndef PDM_GENERATOR_HPP
-#define PDM_GENERATOR_HPP
+#pragma once
 
 #include <stdint.h>
+#include <utility>
 
 template <class T>
 class PdmGenerator
 {
-    public:
-    PdmGenerator(T limit) :
-    Limit{limit}
-    {
-
-    }
+public:
+    PdmGenerator(T limit) : limit(std::move(limit)) {}
 
     // returns PDM state
-    bool check(void )
+    bool getModulatorState()
     {
-        if(Accumulator > Limit)
-            return true;
-        else
-            return false;    
+        return (Accumulator > limit);
     }
 
     // add value to PDM
     void increment(T value)
     {
         // some kind of assertion needed!
-        // if(value > Limit)
-        if(Accumulator > Limit)
-            Accumulator -= Limit;
+        // if(value > limit)
+        if(Accumulator > limit)
+            Accumulator -= limit;
         Accumulator += value;
     }
-    private:
-    const T Limit;
+private:
+    const T limit;
     T Accumulator;
 };
-
-#endif

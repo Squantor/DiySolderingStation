@@ -63,7 +63,7 @@ int main()
         // did we get a zero crossing?
         if(zerocrossCount != zerocrosses)
         {
-            if(triacControl.check())
+            if(triacControl.getModulatorState())
             {
                 boardSsrSetState(true);
                 count++;
