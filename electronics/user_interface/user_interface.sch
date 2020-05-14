@@ -36,71 +36,138 @@ F 3 "" H 850 7350 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x06 J?
+L Connector_Generic:Conn_01x06 J1
 U 1 1 5EBB1AC4
-P 700 1000
-F 0 "J?" H 618 1417 50  0000 C CNN
-F 1 "Conn_01x06" H 618 1326 50  0000 C CNN
-F 2 "" H 700 1000 50  0001 C CNN
-F 3 "~" H 700 1000 50  0001 C CNN
-	1    700  1000
+P 750 850
+F 0 "J1" H 750 1150 50  0000 C CNN
+F 1 "Conn_01x06" H 750 450 50  0000 C CNN
+F 2 "Connector_JST:JST_PH_S6B-PH-K_1x06_P2.00mm_Horizontal" H 750 850 50  0001 C CNN
+F 3 "~" H 750 850 50  0001 C CNN
+	1    750  850 
 	-1   0    0    -1  
 $EndComp
-Text Label 950  1000 0    50   ~ 0
+Text Label 1000 850  0    50   ~ 0
 VSS
-Text Label 2050 900  0    50   ~ 0
+Text Label 3000 950  0    50   ~ 0
 VDD
-Text Label 950  800  0    50   ~ 0
+Text Label 1000 650  0    50   ~ 0
 VDD_BACKLIGHT
-Text Label 950  1100 0    50   ~ 0
+Text Label 1000 950  0    50   ~ 0
 SDA
-Text Label 950  1200 0    50   ~ 0
+Text Label 1000 1050 0    50   ~ 0
 SCL
-Text Label 950  1300 0    50   ~ 0
+Text Label 1000 1150 0    50   ~ 0
 !INT
 Wire Wire Line
-	900  800  950  800 
+	950  650  1000 650 
 Wire Wire Line
-	900  1000 950  1000
+	950  850  1000 850 
 Wire Wire Line
-	950  1100 900  1100
+	1000 950  950  950 
 Wire Wire Line
-	900  1200 950  1200
+	950  1050 1000 1050
 Wire Wire Line
-	950  1300 900  1300
+	1000 1150 950  1150
 $Comp
-L Device:Ferrite_Bead_Small FB?
+L Device:Ferrite_Bead_Small FB1
 U 1 1 5EBDBD2C
-P 1500 900
-F 0 "FB?" V 1450 800 50  0000 C CNN
-F 1 "Ferrite_Bead_Small" V 1600 900 50  0000 C CNN
-F 2 "SquantorRcl:L_0603" V 1430 900 50  0001 C CNN
-F 3 "~" H 1500 900 50  0001 C CNN
-	1    1500 900 
+P 2750 950
+F 0 "FB1" V 2700 850 50  0000 C CNN
+F 1 "600" V 2800 1050 50  0000 C CNN
+F 2 "SquantorRcl:L_0603" V 2680 950 50  0001 C CNN
+F 3 "~" H 2750 950 50  0001 C CNN
+	1    2750 950 
+	0    1    1    0   
+$EndComp
+Text Label 2550 1150 2    50   ~ 0
+VSS
+Wire Wire Line
+	2650 1150 2550 1150
+$Comp
+L Connector_Generic:Conn_02x05_Odd_Even J?
+U 1 1 5EBE0632
+P 1050 1700
+F 0 "J?" H 1100 2000 50  0000 C CNN
+F 1 "Conn_02x05_Odd_Even" H 1050 1400 50  0000 C CNN
+F 2 "SquantorConnectors:Header-0254-2X05-H010" H 1050 1700 50  0001 C CNN
+F 3 "~" H 1050 1700 50  0001 C CNN
+	1    1050 1700
+	1    0    0    -1  
+$EndComp
+Text Label 850  2150 0    50   ~ 0
+VSS
+Wire Wire Line
+	850  1500 800  1500
+Wire Wire Line
+	800  1500 800  1600
+Wire Wire Line
+	800  2150 850  2150
+Wire Wire Line
+	850  1900 800  1900
+Connection ~ 800  1900
+Wire Wire Line
+	800  1900 800  2150
+Wire Wire Line
+	850  1800 800  1800
+Connection ~ 800  1800
+Wire Wire Line
+	800  1800 800  1900
+Wire Wire Line
+	850  1700 800  1700
+Connection ~ 800  1700
+Wire Wire Line
+	800  1700 800  1800
+Wire Wire Line
+	850  1600 800  1600
+Connection ~ 800  1600
+Wire Wire Line
+	800  1600 800  1700
+Text Label 1400 1500 0    50   ~ 0
+VDD_BACKLIGHT
+Wire Wire Line
+	950  750  1000 750 
+Text Label 1000 750  0    50   ~ 0
+VDD_RAW
+Text Label 1400 1600 0    50   ~ 0
+VDD_RAW
+Text Label 1400 1700 0    50   ~ 0
+SDA
+Text Label 1400 1800 0    50   ~ 0
+SCL
+Text Label 1400 1900 0    50   ~ 0
+!INT
+Wire Wire Line
+	1350 1500 1400 1500
+Wire Wire Line
+	1400 1600 1350 1600
+Wire Wire Line
+	1350 1700 1400 1700
+Wire Wire Line
+	1400 1800 1350 1800
+Wire Wire Line
+	1350 1900 1400 1900
+Text Label 2550 950  2    50   ~ 0
+VDD_RAW
+Wire Wire Line
+	2650 950  2550 950 
+Wire Wire Line
+	2850 950  2950 950 
+$Comp
+L Device:C_Small C?
+U 1 1 5EBF6E62
+P 2750 1150
+F 0 "C?" V 2700 1050 50  0000 C CNN
+F 1 "10u" V 2800 1250 50  0000 C CNN
+F 2 "SquantorRcl:C_0805" H 2750 1150 50  0001 C CNN
+F 3 "~" H 2750 1150 50  0001 C CNN
+	1    2750 1150
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	900  900  1400 900 
+	2850 1150 2950 1150
 Wire Wire Line
-	1600 900  2000 900 
-Text Label 2000 1350 0    50   ~ 0
-VSS
-$Comp
-L Device:C C?
-U 1 1 5EBDD85D
-P 2000 1100
-F 0 "C?" H 1900 1200 50  0000 L CNN
-F 1 "10u" H 2115 1055 50  0000 L CNN
-F 2 "SquantorRcl:C_0603" H 2038 950 50  0001 C CNN
-F 3 "~" H 2000 1100 50  0001 C CNN
-	1    2000 1100
-	1    0    0    -1  
-$EndComp
+	2950 1150 2950 950 
+Connection ~ 2950 950 
 Wire Wire Line
-	2000 1250 2000 1350
-Wire Wire Line
-	2000 950  2000 900 
-Connection ~ 2000 900 
-Wire Wire Line
-	2000 900  2050 900 
+	2950 950  3000 950 
 $EndSCHEMATC
