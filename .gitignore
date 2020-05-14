@@ -11,3 +11,4 @@ bin/
 *.net
 *.tmp
 *.bak
+_autosave*
