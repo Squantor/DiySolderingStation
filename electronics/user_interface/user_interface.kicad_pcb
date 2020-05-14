@@ -1064,7 +1064,7 @@
     (fp_text reference N2 (at 0 2) (layer F.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value V20180826 (at 0 0) (layer F.SilkS)
+    (fp_text value V20200514 (at 0 0) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
   )
