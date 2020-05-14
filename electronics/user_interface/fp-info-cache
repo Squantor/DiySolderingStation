@@ -1,4 +1,4 @@
-19749906767025779
+19753085748255779
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -75978,6 +75978,13 @@ SOT89-ViaTab-Microchip-MB
 10
 4
 SquantorIC
+SOT162-1-NXP
+
+
+0
+0
+0
+SquantorIC
 SOT223-3-Microchip_DB
 
 
@@ -80562,6 +80569,13 @@ net tie
 0
 2
 2
+SquantorSpecial
+hugepad_35X25hole
+
+
+0
+1
+1
 SquantorSpecial
 hugepad_50X15hole
 
