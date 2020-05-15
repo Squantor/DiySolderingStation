@@ -456,10 +456,10 @@ VDD
 Wire Wire Line
 	3800 2500 3900 2500
 $Comp
-L SquantorPCBOutline:Drill_Hole_no_metal H?
+L SquantorPCBOutline:Drill_Hole_no_metal H2
 U 1 1 5EBF62F7
 P 1500 7550
-F 0 "H?" H 1250 7650 60  0000 L CNN
+F 0 "H2" H 1250 7650 60  0000 L CNN
 F 1 "M3" H 1650 7450 60  0000 L CNN
 F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 1500 7550 60  0001 C CNN
 F 3 "" H 1500 7550 60  0001 C CNN
@@ -467,10 +467,10 @@ F 3 "" H 1500 7550 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SquantorPCBOutline:Drill_Hole_no_metal H?
+L SquantorPCBOutline:Drill_Hole_no_metal H1
 U 1 1 5EBF718B
 P 1500 7200
-F 0 "H?" H 1250 7300 60  0000 L CNN
+F 0 "H1" H 1250 7300 60  0000 L CNN
 F 1 "M3" H 1650 7100 60  0000 L CNN
 F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 1500 7200 60  0001 C CNN
 F 3 "" H 1500 7200 60  0001 C CNN
@@ -478,10 +478,10 @@ F 3 "" H 1500 7200 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SquantorPCBOutline:Drill_Hole_no_metal H?
+L SquantorPCBOutline:Drill_Hole_no_metal H3
 U 1 1 5EBF7413
 P 1950 7200
-F 0 "H?" H 1700 7300 60  0000 L CNN
+F 0 "H3" H 1700 7300 60  0000 L CNN
 F 1 "M3" H 2100 7100 60  0000 L CNN
 F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 1950 7200 60  0001 C CNN
 F 3 "" H 1950 7200 60  0001 C CNN
@@ -489,10 +489,10 @@ F 3 "" H 1950 7200 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SquantorPCBOutline:Drill_Hole_no_metal H?
+L SquantorPCBOutline:Drill_Hole_no_metal H4
 U 1 1 5EBF8235
 P 1950 7550
-F 0 "H?" H 1700 7650 60  0000 L CNN
+F 0 "H4" H 1700 7650 60  0000 L CNN
 F 1 "M3" H 2100 7450 60  0000 L CNN
 F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 1950 7550 60  0001 C CNN
 F 3 "" H 1950 7550 60  0001 C CNN
