@@ -16,23 +16,23 @@ $EndDescr
 $Comp
 L SquantorLabels:VYYYYMMDD N2
 U 1 1 5A1357A5
-P 850 7700
-F 0 "N2" H 850 7800 60  0000 C CNN
-F 1 "V20200514" H 850 7700 60  0000 C CNN
-F 2 "SquantorLabels:Label_version" H 850 7700 60  0001 C CNN
-F 3 "" H 850 7700 60  0001 C CNN
-	1    850  7700
+P 900 7650
+F 0 "N2" H 900 7750 60  0000 C CNN
+F 1 "V20200514" H 900 7650 60  0000 C CNN
+F 2 "SquantorLabels:Label_version" H 900 7650 60  0001 C CNN
+F 3 "" H 900 7650 60  0001 C CNN
+	1    900  7650
 	1    0    0    -1  
 $EndComp
 $Comp
 L SquantorLabels:OHWLOGO N1
 U 1 1 5A135869
-P 850 7350
-F 0 "N1" H 850 7500 60  0000 C CNN
-F 1 "OHWLOGO" H 850 7200 60  0000 C CNN
-F 2 "Symbols:OSHW-Symbol_6.7x6mm_SilkScreen" H 850 7350 60  0001 C CNN
-F 3 "" H 850 7350 60  0001 C CNN
-	1    850  7350
+P 900 7300
+F 0 "N1" H 900 7450 60  0000 C CNN
+F 1 "OHWLOGO" H 900 7150 60  0000 C CNN
+F 2 "Symbols:OSHW-Symbol_6.7x6mm_SilkScreen" H 900 7300 60  0001 C CNN
+F 3 "" H 900 7300 60  0001 C CNN
+	1    900  7300
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -455,4 +455,48 @@ Text Label 3800 2500 2    50   ~ 0
 VDD
 Wire Wire Line
 	3800 2500 3900 2500
+$Comp
+L SquantorPCBOutline:Drill_Hole_no_metal H?
+U 1 1 5EBF62F7
+P 1500 7550
+F 0 "H?" H 1250 7650 60  0000 L CNN
+F 1 "M3" H 1650 7450 60  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 1500 7550 60  0001 C CNN
+F 3 "" H 1500 7550 60  0001 C CNN
+	1    1500 7550
+	1    0    0    -1  
+$EndComp
+$Comp
+L SquantorPCBOutline:Drill_Hole_no_metal H?
+U 1 1 5EBF718B
+P 1500 7200
+F 0 "H?" H 1250 7300 60  0000 L CNN
+F 1 "M3" H 1650 7100 60  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 1500 7200 60  0001 C CNN
+F 3 "" H 1500 7200 60  0001 C CNN
+	1    1500 7200
+	1    0    0    -1  
+$EndComp
+$Comp
+L SquantorPCBOutline:Drill_Hole_no_metal H?
+U 1 1 5EBF7413
+P 1950 7200
+F 0 "H?" H 1700 7300 60  0000 L CNN
+F 1 "M3" H 2100 7100 60  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 1950 7200 60  0001 C CNN
+F 3 "" H 1950 7200 60  0001 C CNN
+	1    1950 7200
+	1    0    0    -1  
+$EndComp
+$Comp
+L SquantorPCBOutline:Drill_Hole_no_metal H?
+U 1 1 5EBF8235
+P 1950 7550
+F 0 "H?" H 1700 7650 60  0000 L CNN
+F 1 "M3" H 2100 7450 60  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 1950 7550 60  0001 C CNN
+F 3 "" H 1950 7550 60  0001 C CNN
+	1    1950 7550
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
