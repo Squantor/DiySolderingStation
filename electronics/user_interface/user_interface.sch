@@ -964,10 +964,10 @@ Wire Wire Line
 Wire Wire Line
 	1500 4950 1350 4950
 $Comp
-L SquantorSwitches:Rotary_Encoder_Switch SW?
+L SquantorSwitches:Rotary_Encoder_Switch SW1
 U 1 1 5EC17384
 P 4200 6250
-F 0 "SW?" V 4500 6100 50  0000 C CNN
+F 0 "SW1" V 4500 6100 50  0000 C CNN
 F 1 "ALPS_EC11E18244A5" V 3700 6250 50  0000 C CNN
 F 2 "SquantorSwitches:ALPS_EC11E_style5" V 4040 6100 50  0001 C CNN
 F 3 "~" V 3940 6250 50  0001 C CNN
@@ -985,10 +985,10 @@ Rotary_shield
 Text Label 5900 5600 0    50   ~ 0
 Rotary_shield
 $Comp
-L Device:D_Zener D?
+L Device:D_Zener D15
 U 1 1 5EC29DDE
 P 5650 5500
-F 0 "D?" H 5750 5450 50  0000 C CNN
+F 0 "D15" H 5750 5450 50  0000 C CNN
 F 1 "5V" H 5500 5550 50  0000 C CNN
 F 2 "SquantorDiodes:SOD-523" H 5650 5500 50  0001 C CNN
 F 3 "~" H 5650 5500 50  0001 C CNN
@@ -996,10 +996,10 @@ F 3 "~" H 5650 5500 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:C_Small C?
+L Device:C_Small C11
 U 1 1 5EC2A428
 P 5650 5700
-F 0 "C?" V 5700 5800 50  0000 C CNN
+F 0 "C11" V 5700 5800 50  0000 C CNN
 F 1 "100n" V 5600 5550 50  0000 C CNN
 F 2 "SquantorRcl:C_0603" H 5650 5700 50  0001 C CNN
 F 3 "~" H 5650 5700 50  0001 C CNN
@@ -1031,10 +1031,10 @@ Connection ~ 5450 5600
 Wire Wire Line
 	5450 5600 5450 5500
 $Comp
-L Device:R R?
+L Device:R R22
 U 1 1 5EC8BB23
 P 2150 5450
-F 0 "R?" V 2100 5300 50  0000 C CNN
+F 0 "R22" V 2100 5300 50  0000 C CNN
 F 1 "TBD" V 2150 5450 50  0000 C CNN
 F 2 "SquantorRcl:R_0603_hand" V 2080 5450 50  0001 C CNN
 F 3 "~" H 2150 5450 50  0001 C CNN
@@ -1042,10 +1042,10 @@ F 3 "~" H 2150 5450 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R19
 U 1 1 5EC8BB2D
 P 1650 5450
-F 0 "R?" V 1600 5300 50  0000 C CNN
+F 0 "R19" V 1600 5300 50  0000 C CNN
 F 1 "TBD" V 1650 5450 50  0000 C CNN
 F 2 "SquantorRcl:R_0603_hand" V 1580 5450 50  0001 C CNN
 F 3 "~" H 1650 5450 50  0001 C CNN
@@ -1059,10 +1059,10 @@ Wire Wire Line
 Wire Wire Line
 	2000 5450 1950 5450
 $Comp
-L Device:C_Small C?
+L Device:C_Small C8
 U 1 1 5EC8BB3A
 P 2500 5450
-F 0 "C?" V 2550 5550 50  0000 C CNN
+F 0 "C8" V 2550 5550 50  0000 C CNN
 F 1 "100n" V 2450 5300 50  0000 C CNN
 F 2 "SquantorRcl:C_0603" H 2500 5450 50  0001 C CNN
 F 3 "~" H 2500 5450 50  0001 C CNN
@@ -1078,10 +1078,10 @@ Wire Wire Line
 Wire Wire Line
 	2600 5450 2650 5450
 $Comp
-L Device:D D?
+L Device:D D12
 U 1 1 5EC8BB48
 P 2150 5250
-F 0 "D?" H 2050 5200 50  0000 C CNN
+F 0 "D12" H 2050 5200 50  0000 C CNN
 F 1 "RB521S-30" H 2150 5124 50  0000 C CNN
 F 2 "SquantorDiodes:SOD-523" H 2150 5250 50  0001 C CNN
 F 3 "~" H 2150 5250 50  0001 C CNN
@@ -1109,10 +1109,10 @@ Wire Wire Line
 	2400 5250 2350 5250
 Connection ~ 2350 5250
 $Comp
-L Device:D_Zener D?
+L Device:D_Zener D9
 U 1 1 5EC8BB5E
 P 1650 5600
-F 0 "D?" H 1750 5550 50  0000 C CNN
+F 0 "D9" H 1750 5550 50  0000 C CNN
 F 1 "5V" H 1500 5650 50  0000 C CNN
 F 2 "SquantorDiodes:SOD-523" H 1650 5600 50  0001 C CNN
 F 3 "~" H 1650 5600 50  0001 C CNN
@@ -1128,10 +1128,10 @@ Wire Wire Line
 Wire Wire Line
 	1500 5600 1350 5600
 $Comp
-L Device:R R?
+L Device:R R23
 U 1 1 5ECA5BE7
 P 2150 6150
-F 0 "R?" V 2100 6000 50  0000 C CNN
+F 0 "R23" V 2100 6000 50  0000 C CNN
 F 1 "TBD" V 2150 6150 50  0000 C CNN
 F 2 "SquantorRcl:R_0603_hand" V 2080 6150 50  0001 C CNN
 F 3 "~" H 2150 6150 50  0001 C CNN
@@ -1139,10 +1139,10 @@ F 3 "~" H 2150 6150 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R20
 U 1 1 5ECA5BF1
 P 1650 6150
-F 0 "R?" V 1600 6000 50  0000 C CNN
+F 0 "R20" V 1600 6000 50  0000 C CNN
 F 1 "TBD" V 1650 6150 50  0000 C CNN
 F 2 "SquantorRcl:R_0603_hand" V 1580 6150 50  0001 C CNN
 F 3 "~" H 1650 6150 50  0001 C CNN
@@ -1156,10 +1156,10 @@ Wire Wire Line
 Wire Wire Line
 	2000 6150 1950 6150
 $Comp
-L Device:C_Small C?
+L Device:C_Small C9
 U 1 1 5ECA5BFE
 P 2500 6150
-F 0 "C?" V 2550 6250 50  0000 C CNN
+F 0 "C9" V 2550 6250 50  0000 C CNN
 F 1 "100n" V 2450 6000 50  0000 C CNN
 F 2 "SquantorRcl:C_0603" H 2500 6150 50  0001 C CNN
 F 3 "~" H 2500 6150 50  0001 C CNN
@@ -1175,10 +1175,10 @@ Wire Wire Line
 Wire Wire Line
 	2600 6150 2650 6150
 $Comp
-L Device:D D?
+L Device:D D13
 U 1 1 5ECA5C0C
 P 2150 5950
-F 0 "D?" H 2050 5900 50  0000 C CNN
+F 0 "D13" H 2050 5900 50  0000 C CNN
 F 1 "RB521S-30" H 2150 5824 50  0000 C CNN
 F 2 "SquantorDiodes:SOD-523" H 2150 5950 50  0001 C CNN
 F 3 "~" H 2150 5950 50  0001 C CNN
@@ -1194,8 +1194,6 @@ Wire Wire Line
 Wire Wire Line
 	2350 5950 2350 6150
 Connection ~ 2350 6150
-Text Label 2400 5950 0    50   ~ 0
-Button_03
 Wire Wire Line
 	1900 5950 1950 5950
 Connection ~ 1950 5950
@@ -1206,10 +1204,10 @@ Wire Wire Line
 	2400 5950 2350 5950
 Connection ~ 2350 5950
 $Comp
-L Device:D_Zener D?
+L Device:D_Zener D10
 U 1 1 5ECA5C22
 P 1650 6300
-F 0 "D?" H 1750 6250 50  0000 C CNN
+F 0 "D10" H 1750 6250 50  0000 C CNN
 F 1 "5V" H 1500 6350 50  0000 C CNN
 F 2 "SquantorDiodes:SOD-523" H 1650 6300 50  0001 C CNN
 F 3 "~" H 1650 6300 50  0001 C CNN
@@ -1225,10 +1223,10 @@ Wire Wire Line
 Wire Wire Line
 	1500 6300 1350 6300
 $Comp
-L Device:R R?
+L Device:R R24
 U 1 1 5ECA5C3C
 P 2150 6800
-F 0 "R?" V 2100 6650 50  0000 C CNN
+F 0 "R24" V 2100 6650 50  0000 C CNN
 F 1 "TBD" V 2150 6800 50  0000 C CNN
 F 2 "SquantorRcl:R_0603_hand" V 2080 6800 50  0001 C CNN
 F 3 "~" H 2150 6800 50  0001 C CNN
@@ -1236,10 +1234,10 @@ F 3 "~" H 2150 6800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R21
 U 1 1 5ECA5C46
 P 1650 6800
-F 0 "R?" V 1600 6650 50  0000 C CNN
+F 0 "R21" V 1600 6650 50  0000 C CNN
 F 1 "TBD" V 1650 6800 50  0000 C CNN
 F 2 "SquantorRcl:R_0603_hand" V 1580 6800 50  0001 C CNN
 F 3 "~" H 1650 6800 50  0001 C CNN
@@ -1253,10 +1251,10 @@ Wire Wire Line
 Wire Wire Line
 	2000 6800 1950 6800
 $Comp
-L Device:C_Small C?
+L Device:C_Small C10
 U 1 1 5ECA5C53
 P 2500 6800
-F 0 "C?" V 2550 6900 50  0000 C CNN
+F 0 "C10" V 2550 6900 50  0000 C CNN
 F 1 "100n" V 2450 6650 50  0000 C CNN
 F 2 "SquantorRcl:C_0603" H 2500 6800 50  0001 C CNN
 F 3 "~" H 2500 6800 50  0001 C CNN
@@ -1272,10 +1270,10 @@ Wire Wire Line
 Wire Wire Line
 	2600 6800 2650 6800
 $Comp
-L Device:D D?
+L Device:D D14
 U 1 1 5ECA5C61
 P 2150 6600
-F 0 "D?" H 2050 6550 50  0000 C CNN
+F 0 "D14" H 2050 6550 50  0000 C CNN
 F 1 "RB521S-30" H 2150 6474 50  0000 C CNN
 F 2 "SquantorDiodes:SOD-523" H 2150 6600 50  0001 C CNN
 F 3 "~" H 2150 6600 50  0001 C CNN
@@ -1291,8 +1289,6 @@ Wire Wire Line
 Wire Wire Line
 	2350 6600 2350 6800
 Connection ~ 2350 6800
-Text Label 2400 6600 0    50   ~ 0
-Button_03
 Wire Wire Line
 	1900 6600 1950 6600
 Connection ~ 1950 6600
@@ -1303,10 +1299,10 @@ Wire Wire Line
 	2400 6600 2350 6600
 Connection ~ 2350 6600
 $Comp
-L Device:D_Zener D?
+L Device:D_Zener D11
 U 1 1 5ECA5C77
 P 1650 6950
-F 0 "D?" H 1750 6900 50  0000 C CNN
+F 0 "D11" H 1750 6900 50  0000 C CNN
 F 1 "5V" H 1500 7000 50  0000 C CNN
 F 2 "SquantorDiodes:SOD-523" H 1650 6950 50  0001 C CNN
 F 3 "~" H 1650 6950 50  0001 C CNN
@@ -1333,4 +1329,73 @@ Wire Wire Line
 	3850 6150 3900 6150
 Wire Wire Line
 	3900 6350 3850 6350
+Wire Wire Line
+	4550 6250 4500 6250
+Text Label 4550 6350 0    50   ~ 0
+Rotary_A
+Text Label 4550 6150 0    50   ~ 0
+Rotary_B
+Wire Wire Line
+	4500 6150 4550 6150
+Wire Wire Line
+	4550 6350 4500 6350
+Text Label 1900 5250 2    50   ~ 0
+Rotary_push
+Text Label 1900 5950 2    50   ~ 0
+Rotary_A
+Text Label 1900 6600 2    50   ~ 0
+Rotary_B
+Text Label 2400 5950 0    50   ~ 0
+Rotary_A_filtered
+Text Label 2400 6600 0    50   ~ 0
+Rotary_B_filtered
+Text Label 4900 3000 0    50   ~ 0
+Rotary_A_filtered
+Text Label 4900 3100 0    50   ~ 0
+Rotary_B_filtered
+Wire Wire Line
+	4900 2900 4850 2900
+Wire Wire Line
+	4850 3000 4900 3000
+Wire Wire Line
+	4900 3100 4850 3100
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 5ED8E672
+P 2700 700
+F 0 "#FLG0101" H 2700 775 50  0001 C CNN
+F 1 "PWR_FLAG" V 2700 828 50  0000 L CNN
+F 2 "" H 2700 700 50  0001 C CNN
+F 3 "~" H 2700 700 50  0001 C CNN
+	1    2700 700 
+	0    1    1    0   
+$EndComp
+Text Label 2650 700  2    50   ~ 0
+VSS
+Text Label 2650 800  2    50   ~ 0
+VDD
+$Comp
+L power:PWR_FLAG #FLG0102
+U 1 1 5ED8FA16
+P 2700 800
+F 0 "#FLG0102" H 2700 875 50  0001 C CNN
+F 1 "PWR_FLAG" V 2700 928 50  0000 L CNN
+F 2 "" H 2700 800 50  0001 C CNN
+F 3 "~" H 2700 800 50  0001 C CNN
+	1    2700 800 
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2650 700  2700 700 
+Wire Wire Line
+	2700 800  2650 800 
+NoConn ~ 4850 3200
+NoConn ~ 4250 1400
+NoConn ~ 4250 1500
+NoConn ~ 4250 1600
+NoConn ~ 4250 1700
+NoConn ~ 4850 1800
+NoConn ~ 4850 1700
+NoConn ~ 4850 1600
+NoConn ~ 4850 1500
 $EndSCHEMATC
