@@ -519,7 +519,7 @@ L Device:R R12
 U 1 1 5EC0EE14
 P 2150 3050
 F 0 "R12" V 2100 2900 50  0000 C CNN
-F 1 "1K" V 2150 3050 50  0000 C CNN
+F 1 "TBD" V 2150 3050 50  0000 C CNN
 F 2 "SquantorRcl:R_0603_hand" V 2080 3050 50  0001 C CNN
 F 3 "~" H 2150 3050 50  0001 C CNN
 	1    2150 3050
@@ -530,7 +530,7 @@ L Device:R R11
 U 1 1 5EC0F669
 P 1650 3050
 F 0 "R11" V 1600 2900 50  0000 C CNN
-F 1 "10K" V 1650 3050 50  0000 C CNN
+F 1 "TBD" V 1650 3050 50  0000 C CNN
 F 2 "SquantorRcl:R_0603_hand" V 1580 3050 50  0001 C CNN
 F 3 "~" H 1650 3050 50  0001 C CNN
 	1    1650 3050
@@ -545,27 +545,27 @@ Wire Wire Line
 $Comp
 L Device:C_Small C4
 U 1 1 5EC166D4
-P 2350 3200
-F 0 "C4" H 2300 3100 50  0000 C CNN
-F 1 "1u" H 2400 3300 50  0000 C CNN
-F 2 "SquantorRcl:C_0603" H 2350 3200 50  0001 C CNN
-F 3 "~" H 2350 3200 50  0001 C CNN
-	1    2350 3200
-	-1   0    0    1   
+P 2500 3050
+F 0 "C4" V 2450 2950 50  0000 C CNN
+F 1 "1u" V 2550 3150 50  0000 C CNN
+F 2 "SquantorRcl:C_0603" H 2500 3050 50  0001 C CNN
+F 3 "~" H 2500 3050 50  0001 C CNN
+	1    2500 3050
+	0    -1   -1   0   
 $EndComp
-Text Label 2350 3400 0    50   ~ 0
+Text Label 2650 3050 0    50   ~ 0
 VSS
 Wire Wire Line
 	2300 3050 2350 3050
 Wire Wire Line
-	2350 3050 2350 3100
+	2350 3050 2400 3050
 Wire Wire Line
-	2350 3300 2350 3400
+	2600 3050 2650 3050
 $Comp
 L Device:D D1
 U 1 1 5EC1C3D1
 P 2150 2850
-F 0 "D1" H 2150 2633 50  0000 C CNN
+F 0 "D1" H 2050 2800 50  0000 C CNN
 F 1 "RB521S-30" H 2150 2724 50  0000 C CNN
 F 2 "SquantorDiodes:SOD-523" H 2150 2850 50  0001 C CNN
 F 3 "~" H 2150 2850 50  0001 C CNN
@@ -581,7 +581,7 @@ Wire Wire Line
 Wire Wire Line
 	2350 2850 2350 3050
 Connection ~ 2350 3050
-Text Label 2350 2850 0    50   ~ 0
+Text Label 2400 2850 0    50   ~ 0
 Button_00
 Wire Wire Line
 	1900 2850 1950 2850
@@ -605,5 +605,286 @@ Wire Wire Line
 	3950 3000 4250 3000
 Wire Wire Line
 	4250 3100 3950 3100
+Wire Wire Line
+	2400 2850 2350 2850
 Connection ~ 2350 2850
+$Comp
+L SquantorSwitches:2pin_tact_switch S?
+U 1 1 5EC685E5
+P 1650 3300
+F 0 "S?" H 1500 3400 60  0000 C CNN
+F 1 "Cherry Blue" H 1650 3250 60  0000 C CNN
+F 2 "MX_Only:MXOnly-1U-NoLED" H 1650 3300 60  0001 C CNN
+F 3 "" H 1650 3300 60  0001 C CNN
+	1    1650 3300
+	1    0    0    -1  
+$EndComp
+Text Label 1350 3300 2    50   ~ 0
+VSS
+Wire Wire Line
+	1350 3300 1400 3300
+$Comp
+L Device:R R?
+U 1 1 5EC685F1
+P 2150 3500
+F 0 "R?" V 2100 3350 50  0000 C CNN
+F 1 "TBD" V 2150 3500 50  0000 C CNN
+F 2 "SquantorRcl:R_0603_hand" V 2080 3500 50  0001 C CNN
+F 3 "~" H 2150 3500 50  0001 C CNN
+	1    2150 3500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5EC685FB
+P 1650 3500
+F 0 "R?" V 1600 3350 50  0000 C CNN
+F 1 "TBD" V 1650 3500 50  0000 C CNN
+F 2 "SquantorRcl:R_0603_hand" V 1580 3500 50  0001 C CNN
+F 3 "~" H 1650 3500 50  0001 C CNN
+	1    1650 3500
+	0    1    1    0   
+$EndComp
+Text Label 1350 3500 2    50   ~ 0
+VDD
+Wire Wire Line
+	1350 3500 1500 3500
+Wire Wire Line
+	2000 3500 1950 3500
+$Comp
+L Device:C_Small C?
+U 1 1 5EC68608
+P 2500 3500
+F 0 "C?" V 2450 3400 50  0000 C CNN
+F 1 "1u" V 2550 3600 50  0000 C CNN
+F 2 "SquantorRcl:C_0603" H 2500 3500 50  0001 C CNN
+F 3 "~" H 2500 3500 50  0001 C CNN
+	1    2500 3500
+	0    -1   -1   0   
+$EndComp
+Text Label 2650 3500 0    50   ~ 0
+VSS
+Wire Wire Line
+	2300 3500 2350 3500
+Wire Wire Line
+	2350 3500 2400 3500
+Wire Wire Line
+	2600 3500 2650 3500
+$Comp
+L Device:D D?
+U 1 1 5EC68616
+P 2150 3300
+F 0 "D?" H 2050 3250 50  0000 C CNN
+F 1 "RB521S-30" H 2150 3174 50  0000 C CNN
+F 2 "SquantorDiodes:SOD-523" H 2150 3300 50  0001 C CNN
+F 3 "~" H 2150 3300 50  0001 C CNN
+	1    2150 3300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1950 3500 1950 3300
+Wire Wire Line
+	1950 3300 2000 3300
+Wire Wire Line
+	2300 3300 2350 3300
+Wire Wire Line
+	2350 3300 2350 3500
+Connection ~ 2350 3500
+Text Label 2400 3300 0    50   ~ 0
+Button_01
+Wire Wire Line
+	1900 3300 1950 3300
+Connection ~ 1950 3300
+Wire Wire Line
+	1950 3500 1800 3500
+Connection ~ 1950 3500
+Wire Wire Line
+	2400 3300 2350 3300
+Connection ~ 2350 3300
+$Comp
+L SquantorSwitches:2pin_tact_switch S?
+U 1 1 5EC702DD
+P 1650 3750
+F 0 "S?" H 1500 3850 60  0000 C CNN
+F 1 "Cherry Blue" H 1650 3700 60  0000 C CNN
+F 2 "MX_Only:MXOnly-1U-NoLED" H 1650 3750 60  0001 C CNN
+F 3 "" H 1650 3750 60  0001 C CNN
+	1    1650 3750
+	1    0    0    -1  
+$EndComp
+Text Label 1350 3750 2    50   ~ 0
+VSS
+Wire Wire Line
+	1350 3750 1400 3750
+$Comp
+L Device:R R?
+U 1 1 5EC702E9
+P 2150 3950
+F 0 "R?" V 2100 3800 50  0000 C CNN
+F 1 "TBD" V 2150 3950 50  0000 C CNN
+F 2 "SquantorRcl:R_0603_hand" V 2080 3950 50  0001 C CNN
+F 3 "~" H 2150 3950 50  0001 C CNN
+	1    2150 3950
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5EC702F3
+P 1650 3950
+F 0 "R?" V 1600 3800 50  0000 C CNN
+F 1 "TBD" V 1650 3950 50  0000 C CNN
+F 2 "SquantorRcl:R_0603_hand" V 1580 3950 50  0001 C CNN
+F 3 "~" H 1650 3950 50  0001 C CNN
+	1    1650 3950
+	0    1    1    0   
+$EndComp
+Text Label 1350 3950 2    50   ~ 0
+VDD
+Wire Wire Line
+	1350 3950 1500 3950
+Wire Wire Line
+	2000 3950 1950 3950
+$Comp
+L Device:C_Small C?
+U 1 1 5EC70300
+P 2500 3950
+F 0 "C?" V 2450 3850 50  0000 C CNN
+F 1 "1u" V 2550 4050 50  0000 C CNN
+F 2 "SquantorRcl:C_0603" H 2500 3950 50  0001 C CNN
+F 3 "~" H 2500 3950 50  0001 C CNN
+	1    2500 3950
+	0    -1   -1   0   
+$EndComp
+Text Label 2650 3950 0    50   ~ 0
+VSS
+Wire Wire Line
+	2300 3950 2350 3950
+Wire Wire Line
+	2350 3950 2400 3950
+Wire Wire Line
+	2600 3950 2650 3950
+$Comp
+L Device:D D?
+U 1 1 5EC7030E
+P 2150 3750
+F 0 "D?" H 2050 3700 50  0000 C CNN
+F 1 "RB521S-30" H 2150 3624 50  0000 C CNN
+F 2 "SquantorDiodes:SOD-523" H 2150 3750 50  0001 C CNN
+F 3 "~" H 2150 3750 50  0001 C CNN
+	1    2150 3750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1950 3950 1950 3750
+Wire Wire Line
+	1950 3750 2000 3750
+Wire Wire Line
+	2300 3750 2350 3750
+Wire Wire Line
+	2350 3750 2350 3950
+Connection ~ 2350 3950
+Text Label 2400 3750 0    50   ~ 0
+Button_02
+Wire Wire Line
+	1900 3750 1950 3750
+Connection ~ 1950 3750
+Wire Wire Line
+	1950 3950 1800 3950
+Connection ~ 1950 3950
+Wire Wire Line
+	2400 3750 2350 3750
+Connection ~ 2350 3750
+$Comp
+L SquantorSwitches:2pin_tact_switch S?
+U 1 1 5EC70324
+P 1650 4200
+F 0 "S?" H 1500 4300 60  0000 C CNN
+F 1 "Cherry Blue" H 1650 4150 60  0000 C CNN
+F 2 "MX_Only:MXOnly-1U-NoLED" H 1650 4200 60  0001 C CNN
+F 3 "" H 1650 4200 60  0001 C CNN
+	1    1650 4200
+	1    0    0    -1  
+$EndComp
+Text Label 1350 4200 2    50   ~ 0
+VSS
+Wire Wire Line
+	1350 4200 1400 4200
+$Comp
+L Device:R R?
+U 1 1 5EC70330
+P 2150 4400
+F 0 "R?" V 2100 4250 50  0000 C CNN
+F 1 "TBD" V 2150 4400 50  0000 C CNN
+F 2 "SquantorRcl:R_0603_hand" V 2080 4400 50  0001 C CNN
+F 3 "~" H 2150 4400 50  0001 C CNN
+	1    2150 4400
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5EC7033A
+P 1650 4400
+F 0 "R?" V 1600 4250 50  0000 C CNN
+F 1 "TBD" V 1650 4400 50  0000 C CNN
+F 2 "SquantorRcl:R_0603_hand" V 1580 4400 50  0001 C CNN
+F 3 "~" H 1650 4400 50  0001 C CNN
+	1    1650 4400
+	0    1    1    0   
+$EndComp
+Text Label 1350 4400 2    50   ~ 0
+VDD
+Wire Wire Line
+	1350 4400 1500 4400
+Wire Wire Line
+	2000 4400 1950 4400
+$Comp
+L Device:C_Small C?
+U 1 1 5EC70347
+P 2500 4400
+F 0 "C?" V 2450 4300 50  0000 C CNN
+F 1 "1u" V 2550 4500 50  0000 C CNN
+F 2 "SquantorRcl:C_0603" H 2500 4400 50  0001 C CNN
+F 3 "~" H 2500 4400 50  0001 C CNN
+	1    2500 4400
+	0    -1   -1   0   
+$EndComp
+Text Label 2650 4400 0    50   ~ 0
+VSS
+Wire Wire Line
+	2300 4400 2350 4400
+Wire Wire Line
+	2350 4400 2400 4400
+Wire Wire Line
+	2600 4400 2650 4400
+$Comp
+L Device:D D?
+U 1 1 5EC70355
+P 2150 4200
+F 0 "D?" H 2050 4150 50  0000 C CNN
+F 1 "RB521S-30" H 2150 4074 50  0000 C CNN
+F 2 "SquantorDiodes:SOD-523" H 2150 4200 50  0001 C CNN
+F 3 "~" H 2150 4200 50  0001 C CNN
+	1    2150 4200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1950 4400 1950 4200
+Wire Wire Line
+	1950 4200 2000 4200
+Wire Wire Line
+	2300 4200 2350 4200
+Wire Wire Line
+	2350 4200 2350 4400
+Connection ~ 2350 4400
+Text Label 2400 4200 0    50   ~ 0
+Button_03
+Wire Wire Line
+	1900 4200 1950 4200
+Connection ~ 1950 4200
+Wire Wire Line
+	1950 4400 1800 4400
+Connection ~ 1950 4400
+Wire Wire Line
+	2400 4200 2350 4200
+Connection ~ 2350 4200
 $EndSCHEMATC
