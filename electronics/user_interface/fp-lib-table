@@ -23,4 +23,5 @@
   (lib (name SquantorWinbond)(type KiCad)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorWinbond.pretty)(options "")(descr ""))
   (lib (name SquantorConnectorsNamed)(type KiCad)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorConnectorsNamed.pretty)(options "")(descr ""))
   (lib (name MX_Only)(type KiCad)(uri ${KIPRJMOD}/../MX_Alps_Hybrid/MX_Only.pretty)(options "")(descr ""))
+  (lib (name SquantorSwitches)(type KiCad)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorSwitches.pretty)(options "")(descr ""))
 )
