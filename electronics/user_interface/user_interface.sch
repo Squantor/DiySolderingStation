@@ -499,4 +499,111 @@ F 3 "" H 1950 7550 60  0001 C CNN
 	1    1950 7550
 	1    0    0    -1  
 $EndComp
+$Comp
+L SquantorSwitches:2pin_tact_switch S1
+U 1 1 5EC01DC3
+P 1650 2850
+F 0 "S1" H 1500 2950 60  0000 C CNN
+F 1 "Cherry Blue" H 1650 2800 60  0000 C CNN
+F 2 "MX_Only:MXOnly-1U-NoLED" H 1650 2850 60  0001 C CNN
+F 3 "" H 1650 2850 60  0001 C CNN
+	1    1650 2850
+	1    0    0    -1  
+$EndComp
+Text Label 1350 2850 2    50   ~ 0
+VSS
+Wire Wire Line
+	1350 2850 1400 2850
+$Comp
+L Device:R R12
+U 1 1 5EC0EE14
+P 2150 3050
+F 0 "R12" V 2100 2900 50  0000 C CNN
+F 1 "1K" V 2150 3050 50  0000 C CNN
+F 2 "SquantorRcl:R_0603_hand" V 2080 3050 50  0001 C CNN
+F 3 "~" H 2150 3050 50  0001 C CNN
+	1    2150 3050
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R11
+U 1 1 5EC0F669
+P 1650 3050
+F 0 "R11" V 1600 2900 50  0000 C CNN
+F 1 "10K" V 1650 3050 50  0000 C CNN
+F 2 "SquantorRcl:R_0603_hand" V 1580 3050 50  0001 C CNN
+F 3 "~" H 1650 3050 50  0001 C CNN
+	1    1650 3050
+	0    1    1    0   
+$EndComp
+Text Label 1350 3050 2    50   ~ 0
+VDD
+Wire Wire Line
+	1350 3050 1500 3050
+Wire Wire Line
+	2000 3050 1950 3050
+$Comp
+L Device:C_Small C4
+U 1 1 5EC166D4
+P 2350 3200
+F 0 "C4" H 2300 3100 50  0000 C CNN
+F 1 "1u" H 2400 3300 50  0000 C CNN
+F 2 "SquantorRcl:C_0603" H 2350 3200 50  0001 C CNN
+F 3 "~" H 2350 3200 50  0001 C CNN
+	1    2350 3200
+	-1   0    0    1   
+$EndComp
+Text Label 2350 3400 0    50   ~ 0
+VSS
+Wire Wire Line
+	2300 3050 2350 3050
+Wire Wire Line
+	2350 3050 2350 3100
+Wire Wire Line
+	2350 3300 2350 3400
+$Comp
+L Device:D D1
+U 1 1 5EC1C3D1
+P 2150 2850
+F 0 "D1" H 2150 2633 50  0000 C CNN
+F 1 "RB521S-30" H 2150 2724 50  0000 C CNN
+F 2 "SquantorDiodes:SOD-523" H 2150 2850 50  0001 C CNN
+F 3 "~" H 2150 2850 50  0001 C CNN
+	1    2150 2850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1950 3050 1950 2850
+Wire Wire Line
+	1950 2850 2000 2850
+Wire Wire Line
+	2300 2850 2350 2850
+Wire Wire Line
+	2350 2850 2350 3050
+Connection ~ 2350 3050
+Text Label 2350 2850 0    50   ~ 0
+Button_00
+Wire Wire Line
+	1900 2850 1950 2850
+Connection ~ 1950 2850
+Wire Wire Line
+	1950 3050 1800 3050
+Connection ~ 1950 3050
+Text Label 3950 2800 2    50   ~ 0
+Button_00
+Text Label 3950 2900 2    50   ~ 0
+Button_01
+Text Label 3950 3000 2    50   ~ 0
+Button_02
+Text Label 3950 3100 2    50   ~ 0
+Button_03
+Wire Wire Line
+	3950 2800 4250 2800
+Wire Wire Line
+	4250 2900 3950 2900
+Wire Wire Line
+	3950 3000 4250 3000
+Wire Wire Line
+	4250 3100 3950 3100
+Connection ~ 2350 2850
 $EndSCHEMATC

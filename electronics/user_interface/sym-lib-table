@@ -23,6 +23,7 @@
   (lib (name SquantorRCL)(type Legacy)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorRCL.lib)(options "")(descr ""))
   (lib (name SquantorSpecial)(type Legacy)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorSpecial.lib)(options "")(descr ""))
   (lib (name SquantorST)(type Legacy)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorST.lib)(options "")(descr ""))
+  (lib (name SquantorSwitches)(type Legacy)(uri /home/abilos/projects/my_public/DiySolderingStation/electronics/squantorPcbLibrary/SquantorSwitches.lib)(options "")(descr ""))
   (lib (name SquantorTexasInstruments)(type Legacy)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorTexasInstruments.lib)(options "")(descr ""))
   (lib (name SquantorTransformer)(type Legacy)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorTransformer.lib)(options "")(descr ""))
   (lib (name SquantorUsb)(type Legacy)(uri ${KIPRJMOD}/../squantorPcbLibrary/SquantorUsb.lib)(options "")(descr ""))
