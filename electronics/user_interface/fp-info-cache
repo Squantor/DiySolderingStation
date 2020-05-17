@@ -1,4 +1,4 @@
-19760620608033482
+19762210313412482
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -76341,6 +76341,13 @@ TT-(SOT23)
 0
 3
 3
+SquantorModules
+LCM1602K
+
+
+0
+0
+0
 SquantorModules
 SquantorModules-SPI_CARD
 
