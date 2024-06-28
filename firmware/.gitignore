@@ -1,0 +1,37 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+build/
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+bin/
+
+# miscellanious generated files
+*.log
+disassemblies/
+compile_commands.json
+
+# doxygen output
+doxyOutput/
+
+#vscode files that are better ignored
+settings.json
+
+#cortex debug temporaries
+.cortex-debug*
