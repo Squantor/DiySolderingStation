@@ -497,11 +497,18 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [],
-    "pinned_symbol_libs": []
+    "pinned_footprint_libs": [
+      "SquantorResistor",
+      "SquantorCapacitor"
+    ],
+    "pinned_symbol_libs": [
+      "Connector_Generic",
+      "SquantorConnectors",
+      "Device"
+    ]
   },
   "meta": {
-    "filename": "Aisler_simple_2_layer.kicad_pro",
+    "filename": "T245_sense_protoboard.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -563,7 +570,28 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "Power",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/-5V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/+3.3V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/+5V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/+8V"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
