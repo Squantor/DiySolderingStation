@@ -9,7 +9,7 @@
 	url = https://github.com/Squantor/squantorLibC.git
 [submodule "electronics/squantorPcbLibrary"]
 	path = electronics/squantorPcbLibrary
-	url = https://github.com/Squantor/squantorPcbLibrary.git
+	url = git@github.com:Squantor/squantorPcbLibrary.git
 [submodule "electronics/MX_Alps_Hybrid"]
 	path = electronics/MX_Alps_Hybrid
 	url = https://github.com/Squantor/MX_Alps_Hybrid.git
