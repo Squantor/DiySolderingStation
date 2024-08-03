@@ -1,15 +1,18 @@
-[submodule "software/libMcuLL"]
-	path = firmware/libMcuLL
-	url = https://github.com/Squantor/libMcuLL.git
-[submodule "software/squantorLibEmbeddedC"]
-	path = firmware/squantorLibEmbeddedC
-	url = https://github.com/Squantor/squantorLibEmbeddedC.git
-[submodule "software/squantorLibC"]
-	path = firmware/squantorLibC
-	url = https://github.com/Squantor/squantorLibC.git
 [submodule "electronics/squantorPcbLibrary"]
 	path = electronics/squantorPcbLibrary
 	url = git@github.com:Squantor/squantorPcbLibrary.git
 [submodule "electronics/MX_Alps_Hybrid"]
 	path = electronics/MX_Alps_Hybrid
 	url = https://github.com/Squantor/MX_Alps_Hybrid.git
+[submodule "firmware/libraries/libMcu"]
+	path = firmware/libraries/libMcu
+	url = git@github.com:Squantor/libMcu.git
+[submodule "firmware/libraries/squantorLibEmbedded"]
+	path = firmware/libraries/squantorLibEmbedded
+	url = git@github.com:Squantor/squantorLibEmbedded.git
+[submodule "firmware/libraries/squantorMinUnit"]
+	path = firmware/libraries/squantorMinUnit
+	url = git@github.com:Squantor/squantorMinUnit.git
+[submodule "firmware/libraries/squantorLibC"]
+	path = firmware/libraries/squantorLibC
+	url = git@github.com:Squantor/squantorLibC.git

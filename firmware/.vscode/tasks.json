@@ -1,25 +1,28 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build",
-            "type": "shell",
-            "command": "make -j16 PROJECT=power_control CONFIG=debug",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": "$gcc"
-        },
-        {
-            "label": "clean",
-            "type": "shell",
-            "command": "make  PROJECT=power_control clean",
-            "problemMatcher": [
-                "$gcc"
-            ]
-        }
-    ]
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "clean",
+      "type": "shell",
+      "command": "make clean",
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "build release LPC845 diysolder",
+      "type": "shell",
+      "command": "compiledb make PROJECT=DIYSOLDER_LPC845 CONFIG=release_size -j20",
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "build debug LPC845 diysolder",
+      "type": "shell",
+      "command": "compiledb make PROJECT=DIYSOLDER_LPC845 CONFIG=debug -j20",
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+  ]
 }

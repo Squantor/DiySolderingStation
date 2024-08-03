@@ -1,0 +1,5 @@
+# doxygen settings to override from the default config
+PROJECT_NAME = "PC template"
+OUTPUT_DIRECTORY = documentation/PC
+INCLUDE_PATH = PC/inc
+INPUT = PC/src PC/inc
