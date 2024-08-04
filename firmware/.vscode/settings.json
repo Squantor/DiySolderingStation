@@ -10,5 +10,6 @@
   "C_Cpp.default.intelliSenseMode": "gcc-x64",
   "C_Cpp.default.systemIncludePath": [],
   "C_Cpp.default.includePath": [],
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "cortex-debug.variableUseNaturalFormat": false
 }

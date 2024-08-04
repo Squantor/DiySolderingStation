@@ -42,7 +42,7 @@
       ],
       "preRestartCommands": [],
       "preLaunchTask": "build debug temperature sensing POC",
-      "svdFile": "${workspaceFolder}/libraries/libMcuLL/svd/nxp/LPC845.svd",
+      "svdFile": "${workspaceFolder}/libraries/libMcu/svd/nxp/LPC845.svd",
       "debuggerArgs": [],
     },
   ]

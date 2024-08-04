@@ -5,16 +5,13 @@
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * @brief main entry point for Diy Solder
+ * @brief main application entry point
  */
 #include <POC_temp_sense_nuclone.hpp>
 #include <application.hpp>
 
-application::application controller;
-
-int main() {
-  boardInit();
-  while (1) {
-    controller.progress();
-  }
+namespace application {
+void application::progress() {
+  std::uint32_t firstCount = systickPeripheral.getCount();
 }
+}  // namespace application

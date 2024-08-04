@@ -23,6 +23,6 @@ int main() {
   } else {
     minunitReport("All tests passed\n");
   }
-  printf("executed %d tests with %d checked where %d failed\n", minunitTestState.executed, minunitTestState.checks,
+  printf("executed %d tests with %d checks where %d failed\n", minunitTestState.executed, minunitTestState.checks,
          minunitTestState.failures);
 }
