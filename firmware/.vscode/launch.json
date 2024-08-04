@@ -5,10 +5,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "(gdb) Launch",
+      "name": "debug debug unittests",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/bin/PC/debug/PC.elf",
+      "program": "${workspaceFolder}/bin/unittests/debug/unittests.elf",
       "args": [],
       "stopAtEntry": true,
       "cwd": "${workspaceFolder}",
@@ -22,7 +22,7 @@
           "ignoreFailures": true
         }
       ],
-      "preLaunchTask": "build PC example",
+      "preLaunchTask": "build debug unittests",
     },
     {
       "name": "debug debug temperature sensing POC",

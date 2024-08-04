@@ -1,13 +1,14 @@
 {
-    "files.associations": {
-      "test.h": "c",
-      "cstddef": "cpp",
-      "iostream": "cpp"
-    },
-    "C_Cpp.default.cppStandard": "c++20",
-    "C_Cpp.default.cStandard": "c11",
-    "C_Cpp.default.intelliSenseMode": "gcc-x64",
-    "C_Cpp.default.systemIncludePath": [],
-    "C_Cpp.default.includePath": [],
-    "editor.formatOnSave": true
+  "files.associations": {
+    "test.h": "c",
+    "cstddef": "cpp",
+    "iostream": "cpp",
+    "cstdio": "cpp"
+  },
+  "C_Cpp.default.cppStandard": "c++20",
+  "C_Cpp.default.cStandard": "c11",
+  "C_Cpp.default.intelliSenseMode": "gcc-x64",
+  "C_Cpp.default.systemIncludePath": [],
+  "C_Cpp.default.includePath": [],
+  "editor.formatOnSave": true
 }

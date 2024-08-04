@@ -11,6 +11,13 @@
       "problemMatcher": "$gcc"
     },
     {
+      "label": "build debug unittests",
+      "type": "shell",
+      "command": "compiledb make PROJECT=unittests CONFIG=debug -j28",
+      "group": "build",
+      "problemMatcher": "$gcc"
+    },
+    {
       "label": "build release temperature sensing POC",
       "type": "shell",
       "command": "compiledb make PROJECT=POC_temp_sense CONFIG=release_size -j28",
