@@ -11,11 +11,19 @@
 #include <application.hpp>
 
 namespace application {
+void application::init() {
+  usartPeripheral.claim();
+}
 void application::progress() {
-  if (usartPeripheral.status() & libMcu::ll::usart::RXRDY) {
-    std::uint8_t data;
-    usartPeripheral.read(data);
-    usartPeripheral.write(data);
-  }
+  libMcu::results status;
+  std::array<std::uint8_t, 10> line;
+  usartPeripheral.startRead(line);
+  do {
+    status = usartPeripheral.progressRead();
+  } while (status != libMcu::results::DONE);
+  usartPeripheral.startWrite(line);
+  do {
+    status = usartPeripheral.progressWrite();
+  } while (status != libMcu::results::DONE);
 }
 }  // namespace application

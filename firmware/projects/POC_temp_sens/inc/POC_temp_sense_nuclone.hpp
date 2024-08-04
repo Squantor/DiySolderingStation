@@ -17,6 +17,7 @@
 #define CLOCK_MAIN (60'000'000u)
 
 #include <nxp/libmcu_LPC845M301BD48.hpp>
+#include <LPC84X_uart_hal_async.hpp>
 
 #define TICKS_PER_S 100
 
@@ -57,8 +58,8 @@ extern libMcu::ll::iocon::iocon<libMcu::hw::ioconAddress> ioconPeripheral;
 extern libMcu::ll::swm::swm<libMcu::hw::swmAddress> swmPeriperhal;
 extern libMcu::ll::gpio::gpio<libMcu::hw::gpioAddress> gpioPeripheral;
 extern libMcu::ll::syscon::syscon<libMcu::hw::sysconAddress> sysconPeripheral;
-extern libMcu::ll::usart::usart<libMcu::hw::usart0Address, std::uint8_t> usartPeripheral;
 extern libMcu::ll::systick::systick<libMcu::hw::systickAddress> systickPeripheral;
+extern libMcu::hal::usart::uartAsync<libMcu::hw::usart0Address, std::uint8_t> usartPeripheral;
 
 void boardInit(void);
 

@@ -14,6 +14,7 @@ application::application controller;
 
 int main() {
   boardInit();
+  controller.init();
   while (1) {
     controller.progress();
   }

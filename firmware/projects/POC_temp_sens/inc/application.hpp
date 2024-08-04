@@ -12,6 +12,7 @@
 namespace application {
 struct application {
   application() {}
+  void init();
   void progress();
 };
 }  // namespace application
