@@ -5,9 +5,9 @@
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * @brief code for LPC845 small nuclone LL tester
+ * @brief board support code for temperature sensing proof of concept board
  */
-#include <nuclone_LPC845BD48_small.hpp>
+#include <POC_temp_sense_nuclone.hpp>
 
 libMcu::ll::iocon::iocon<libMcu::hw::ioconAddress> ioconPeripheral;
 libMcu::ll::swm::swm<libMcu::hw::swmAddress> swmPeriperhal;
@@ -39,10 +39,5 @@ void boardInit(void) {
     ;
   sysconPeripheral.setSystemClockDivider(2);
   // switch mainclock
-  // sysconPeripheral.selectMainClock(libMcu::ll::syscon::mainClockSources::EXT); // for selecting crystal oscillator
   sysconPeripheral.selectMainPllClock(libMcu::ll::syscon::mainClockPllSources::SYSPLL);
-  // setup clock out test pin
-  swmPeriperhal.setup(testPin, clockOutFunction);
-  // setup clock output
-  sysconPeripheral.setClockOutput(libMcu::ll::syscon::clockOutSources::MAIN, 10u);
 }

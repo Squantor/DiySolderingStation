@@ -7,7 +7,7 @@
 /**
  * @brief main entry point for Diy Solder
  */
-#include <nuclone_LPC845BD48_small.hpp>
+#include <POC_temp_sense_nuclone.hpp>
 
 int main() {
   boardInit();

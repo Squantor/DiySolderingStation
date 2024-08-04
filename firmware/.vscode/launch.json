@@ -25,10 +25,10 @@
       "preLaunchTask": "build PC example",
     },
     {
-      "name": "debug debug LPC845 diysolder",
+      "name": "debug debug temperature sensing POC",
       "cwd": "${workspaceRoot}",
       "gdbPath": "/usr/bin/gdb-multiarch",
-      "executable": "${workspaceFolder}/bin/DIYSOLDER_LPC845/debug/DIYSOLDER_LPC845.elf",
+      "executable": "${workspaceFolder}/bin/POC_temp_sense/debug/POC_temp_sense.elf",
       "request": "launch",
       "type": "cortex-debug",
       "servertype": "bmp",
@@ -41,7 +41,7 @@
         "compare-sections"
       ],
       "preRestartCommands": [],
-      "preLaunchTask": "build debug LPC845 diysolder",
+      "preLaunchTask": "build debug temperature sensing POC",
       "svdFile": "${workspaceFolder}/libraries/libMcuLL/svd/nxp/LPC845.svd",
       "debuggerArgs": [],
     },

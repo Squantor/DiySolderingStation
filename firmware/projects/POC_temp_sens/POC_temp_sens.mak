@@ -8,8 +8,8 @@
 PROJ_DIR := $(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
 
 # project settings
-NAME := DIYSOLDER_LPC845
-BOARD := nuclone_LPC845BD48_small
+NAME := POC_temp_sense
+BOARD := POC_temp_sense_nuclone
 $(NAME)_TARGET := MCU
 $(NAME)_MCU := LPC845M301BD48
 $(NAME)_DEFINES += 

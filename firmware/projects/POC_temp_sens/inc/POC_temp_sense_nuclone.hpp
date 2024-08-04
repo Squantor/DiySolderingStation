@@ -5,10 +5,10 @@
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * @brief definitions for LPC845 small nuclone LL tester
+ * @brief board support code for temperature sensing proof of concept board
  */
-#ifndef NUCLONE_LPC845BD48_SMALL_LL_HPP
-#define NUCLONE_LPC845BD48_SMALL_LL_HPP
+#ifndef POC_TEMP_SENSE_NUCLONE_HPP
+#define POC_TEMP_SENSE_NUCLONE_HPP
 
 #define CLOCK_XTAL (12'000'000u)
 #define CLOCK_EXT_IN (0u)
@@ -24,7 +24,6 @@
 // Crystal osillator pins
 using xtalInPinType = libMcu::hw::pin<libMcu::hw::IOports::PORT0, libMcu::hw::IOpins::PIN08>;
 using xtalOutPinType = libMcu::hw::pin<libMcu::hw::IOports::PORT0, libMcu::hw::IOpins::PIN09>;
-using testPinType = libMcu::hw::pin<libMcu::hw::IOports::PORT1, libMcu::hw::IOpins::PIN05>;
 // connected pin 1 and 2 via 3.3K resistors, links UART RX/TX, PIN1 on board
 using pin1Type = libMcu::hw::pin<libMcu::hw::IOports::PORT1, libMcu::hw::IOpins::PIN08>;
 using pin1PortType = libMcu::hw::port<libMcu::hw::IOports::PORT1>;
@@ -62,7 +61,6 @@ using mainUartRxFunctionType = libMcu::hw::swm::pinFunction<libMcu::hw::swm::pin
 // pin instances
 constexpr xtalInPinType xtalInPin;
 constexpr xtalOutPinType xtalOutPin;
-constexpr testPinType testPin;
 constexpr i2cSclPinType i2cSclPin;
 constexpr i2cSdaPinType i2cSdaPin;
 constexpr pin1Type testPin1;
