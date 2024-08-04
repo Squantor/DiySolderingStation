@@ -16,13 +16,6 @@ libMcu::ll::syscon::syscon<libMcu::hw::sysconAddress> sysconPeripheral;
 libMcu::ll::usart::usart<libMcu::hw::usart0Address, std::uint8_t> usartPeripheral;
 libMcu::ll::systick::systick<libMcu::hw::systickAddress> systickPeripheral;
 
-static constexpr libMcu::hwAddressType nvicAddress = libMcu::hw::nvicAddress;
-libMcu::hw::nvic::peripheral *const nvicDutRegisters{reinterpret_cast<libMcu::hw::nvic::peripheral *>(nvicAddress)};
-static constexpr libMcu::hwAddressType scbAddress = libMcu::hw::scbAddress;
-libMcu::hw::scb::peripheral *const scbDutRegisters{reinterpret_cast<libMcu::hw::scb::peripheral *>(scbAddress)};
-static constexpr libMcu::hwAddressType systickAddress = libMcu::hw::systickAddress;
-libMcu::hw::systick::peripheral *const systickRegisters{reinterpret_cast<libMcu::hw::systick::peripheral *>(systickAddress)};
-
 extern "C" {
 void SysTick_Handler(void) {
   systickPeripheral.isr();
@@ -67,4 +60,7 @@ void boardInit(void) {
   // setup systick
   systickPeripheral.init(CLOCK_CPU / TICKS_PER_S);
   systickPeripheral.start(systickIsrLambda);
+  // setup UART
+  sysconPeripheral.peripheralClockSource(libMcu::ll::syscon::clockSourceSelects::UART0, libMcu::ll::syscon::clockSources::MAIN);
+  usartPeripheral.init(9600);
 }

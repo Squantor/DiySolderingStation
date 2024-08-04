@@ -27,7 +27,7 @@ using pinXtalOutType = libMcu::hw::pin<libMcu::hw::IOports::PORT0, libMcu::hw::I
 // bootloader and uart pins
 using pinBootloaderType = libMcu::hw::pin<libMcu::hw::IOports::PORT0, libMcu::hw::IOpins::PIN12>;
 using pinDebugUartTxType = libMcu::hw::pin<libMcu::hw::IOports::PORT0, libMcu::hw::IOpins::PIN25>;
-using pinDebugUartRxType = libMcu::hw::pin<libMcu::hw::IOports::PORT0, libMcu::hw::IOpins::PIN25>;
+using pinDebugUartRxType = libMcu::hw::pin<libMcu::hw::IOports::PORT0, libMcu::hw::IOpins::PIN24>;
 // 5V presence detection via 5.6K 10K ohm resistive divider
 // multiplexer 1
 // multiplexer 2

@@ -12,6 +12,10 @@
 
 namespace application {
 void application::progress() {
-  std::uint32_t firstCount = systickPeripheral.getCount();
+  if (usartPeripheral.status() & libMcu::ll::usart::RXRDY) {
+    std::uint8_t data;
+    usartPeripheral.read(data);
+    usartPeripheral.write(data);
+  }
 }
 }  // namespace application
