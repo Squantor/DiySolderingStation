@@ -14,11 +14,15 @@ libMcu::ll::swm::swm<libMcu::hw::swmAddress> swmPeriperhal;
 libMcu::ll::gpio::gpio<libMcu::hw::gpioAddress> gpioPeripheral;
 libMcu::ll::syscon::syscon<libMcu::hw::sysconAddress> sysconPeripheral;
 libMcu::ll::systick::systick<libMcu::hw::systickAddress> systickPeripheral;
-libMcu::hal::usart::uartAsync<libMcu::hw::usart0Address, std::uint8_t> usartPeripheral;
+libMcu::hal::usart::uartSync<libMcu::hw::usart0Address, libMcu::hw::nvicAddress, std::uint8_t> usartPeripheral;
 
 extern "C" {
 void SysTick_Handler(void) {
   systickPeripheral.isr();
+}
+
+void USART0_IRQHandler(void) {
+  usartPeripheral.isr();
 }
 }
 
@@ -62,5 +66,5 @@ void boardInit(void) {
   systickPeripheral.start(systickIsrLambda);
   // setup UART
   sysconPeripheral.peripheralClockSource(libMcu::ll::syscon::clockSourceSelects::UART0, libMcu::ll::syscon::clockSources::MAIN);
-  usartPeripheral.init(9600);
+  usartPeripheral.init(115200);
 }

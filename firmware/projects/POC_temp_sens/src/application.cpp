@@ -11,19 +11,6 @@
 #include <application.hpp>
 
 namespace application {
-void application::init() {
-  usartPeripheral.claim();
-}
-void application::progress() {
-  libMcu::results status;
-  std::array<std::uint8_t, 10> line;
-  usartPeripheral.startRead(line);
-  do {
-    status = usartPeripheral.progressRead();
-  } while (status != libMcu::results::DONE);
-  usartPeripheral.startWrite(line);
-  do {
-    status = usartPeripheral.progressWrite();
-  } while (status != libMcu::results::DONE);
-}
+void application::init() {}
+void application::progress() {}
 }  // namespace application

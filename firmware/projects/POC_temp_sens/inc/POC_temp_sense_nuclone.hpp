@@ -60,7 +60,7 @@ extern libMcu::ll::swm::swm<libMcu::hw::swmAddress> swmPeriperhal;
 extern libMcu::ll::gpio::gpio<libMcu::hw::gpioAddress> gpioPeripheral;
 extern libMcu::ll::syscon::syscon<libMcu::hw::sysconAddress> sysconPeripheral;
 extern libMcu::ll::systick::systick<libMcu::hw::systickAddress> systickPeripheral;
-extern libMcu::hal::usart::uartAsync<libMcu::hw::usart0Address, std::uint8_t> usartPeripheral;
+extern libMcu::hal::usart::uartSync<libMcu::hw::usart0Address, libMcu::hw::nvicAddress, std::uint8_t> usartPeripheral;
 
 void boardInit(void);
 

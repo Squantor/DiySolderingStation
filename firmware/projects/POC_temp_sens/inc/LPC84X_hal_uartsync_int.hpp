@@ -14,13 +14,14 @@
 
 namespace libMcu::hal::usart {
 namespace hardware = libMcu::hw::usart;
+namespace nvic = libMcu::hw::nvic;
 
-template <libMcu::uartBaseAddress const& uartBaseAddress_, typename transferType>
+template <libMcu::uartBaseAddress const& uartBaseAddress_, libMcu::nvicBaseAddress const& nvicBaseAddress_, typename transferType>
 struct uartSync {
   /**
    * @brief Construct a new asynchronous uart
    */
-  uartSync() : transactionWriteState{detail::synchonousStates::IDLE}, transactionReadState{detail::synchonousStates::IDLE} {}
+  uartSync() {}
   /**
    * @brief Initialize
    */
@@ -53,132 +54,37 @@ struct uartSync {
     return CLOCK_MAIN / 16 / baudDivider;
   }
   /**
-   * @brief Claim the Usart interface
-   * @return IN_USE when already in use
-   * @return CLAIMED when the claim has been successful
+   * @brief
+   * @param buffer data to transmit via uart
    */
-  constexpr libMcu::results claim(void) {
-    if ((transactionWriteState != detail::synchonousStates::IDLE) && (transactionReadState != detail::synchonousStates::IDLE)) {
-      return libMcu::results::IN_USE;
-    }
-    transactionWriteState = detail::synchonousStates::CLAIMED;
-    transactionReadState = detail::synchonousStates::CLAIMED;
-    return libMcu::results::CLAIMED;
+  constexpr void transmit(std::span<transferType> buffer) {
+    // Copy data
   }
   /**
-   * @brief Unclaim the Usart interface
-   * @return ERROR when already idle or inconsistent, possible programming error!
-   * @return BUSY when still executing a transaction
-   * @return UNCLAIMED when unclaim sucessful
+   * @brief UART interrupt service routine
    */
-  constexpr libMcu::results unclaim(void) {
-    if ((transactionWriteState == detail::synchonousStates::TRANSACTING) ||
-        (transactionReadState == detail::synchonousStates::TRANSACTING)) {
-      return libMcu::results::BUSY;
-    } else if ((transactionWriteState == detail::synchonousStates::CLAIMED) &&
-               (transactionReadState == detail::synchonousStates::CLAIMED)) {
-      transactionWriteState = detail::synchonousStates::IDLE;
-      transactionReadState = detail::synchonousStates::IDLE;
-      return libMcu::results::UNCLAIMED;
-    } else {
-      return libMcu::results::ERROR;
-    }
-  }
-  /**
-   * @brief Start a read transaction
-   * @param buffer buffer of data to read
-   * @return ERROR if not claimed interface or busy
-   * @return STARTED when transaction started
-   */
-  constexpr libMcu::results startRead(std::span<transferType> buffer) {
-    if (transactionReadState != detail::synchonousStates::CLAIMED) {
-      return libMcu::results::ERROR;
-    }
-    // store transaction information
-    transactionReadIndex = 0u;
-    transactionReadData = buffer;
-    transactionReadState = detail::synchonousStates::TRANSACTING;
-    return libMcu::results::STARTED;
-  }
-  /**
-   * @brief Start a write transaction
-   * @param buffer buffer of data to read
-   * @return ERROR if not claimed interface or busy
-   * @return STARTED when transaction started
-   */
-  constexpr libMcu::results startWrite(std::span<transferType> buffer) {
-    if (transactionWriteState != detail::synchonousStates::CLAIMED) {
-      return libMcu::results::ERROR;
-    }
-    // store transaction information
-    transactionWriteIndex = 0u;
-    transactionWriteData = buffer;
-    transactionWriteState = detail::synchonousStates::TRANSACTING;
-    // TODO write first data in UART register
-    return libMcu::results::STARTED;
-  }
-  /**
-   * @brief continue started read transaction
-   * @return ERROR if transaction has not started
-   * @return BUSY if transaction is still in progress
-   * @return DONE if transaction is done and buffer filled with data
-   */
-  constexpr libMcu::results progressRead(void) {
-    if (transactionReadState != detail::synchonousStates::TRANSACTING) {
-      return libMcu::results::ERROR;
-    }
-    if (usartPeripheral()->STAT & hardware::STAT::RXRDY) {
-      transactionReadData[transactionReadIndex] = static_cast<transferType>(usartPeripheral()->RXDAT);
-      transactionReadIndex++;
-      if (transactionReadData.size() == transactionReadIndex) {
-        transactionReadState = detail::synchonousStates::CLAIMED;
-        return libMcu::results::DONE;
-      }
-    }
-    return libMcu::results::BUSY;
-  }
-  /**
-   * @brief continue started write transaction
-   * @return ERROR if transaction has not started
-   * @return BUSY if transaction is still in progress
-   * @return DONE if transaction is done and buffer of data has been written
-   */
-  constexpr libMcu::results progressWrite(void) {
-    if (transactionWriteState != detail::synchonousStates::TRANSACTING) {
-      return libMcu::results::ERROR;
-    }
-    std::uint32_t status = usartPeripheral()->STAT;
-    if (status & hardware::STAT::TXRDY) {
-      if (transactionWriteData.size() > transactionWriteIndex) {
-        usartPeripheral()->TXDAT = static_cast<std::uint32_t>(transactionWriteData[transactionWriteIndex]);
-        transactionWriteIndex++;
-      } else {
-        if (status & hardware::STAT::TXIDLE) {
-          transactionWriteState = detail::synchonousStates::CLAIMED;
-          return libMcu::results::DONE;
-        }
-      }
-    }
-    return libMcu::results::BUSY;
-  }
+  constexpr void isr() {}
 
  private:
   /**
-   * @brief get registers from peripheral
+   * @brief access uart registers
    * @return return pointer to peripheral
    */
   static hardware::peripheral* usartPeripheral() {
     return reinterpret_cast<hardware::peripheral*>(uartBaseAddress);
   }
+  /**
+   * @brief access nvic registers
+   * @return return pointer to peripheral
+   */
+  static nvic::peripheral* nvicPeripheral() {
+    return reinterpret_cast<nvic::peripheral*>(nvicBaseAddress);
+  }
 
-  static constexpr hwAddressType uartBaseAddress = uartBaseAddress_; /**< uart peripheral address */
-  detail::synchonousStates transactionWriteState;                    /**< usart write transaction state */
-  detail::synchonousStates transactionReadState;                     /**< usart read transaction state */
-  std::size_t transactionWriteIndex;                                 /**< transaction write buffer index */
-  std::size_t transactionReadIndex;                                  /**< transaction read buffer index */
-  std::span<transferType> transactionWriteData;                      /**< data to write */
-  std::span<transferType> transactionReadData;                       /**< where to put read data in */
-};
+  static constexpr hwAddressType uartBaseAddress = uartBaseAddress_; /**< UART peripheral address */
+  static constexpr hwAddressType nvicBaseAddress = nvicBaseAddress_; /**< NVIC peripheral address */
+  // needs a circular buffer datastructure
+};  // namespace libMcu::hw::nvic
 }  // namespace libMcu::hal::usart
 
 #endif
