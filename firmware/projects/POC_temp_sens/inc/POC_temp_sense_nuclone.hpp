@@ -17,7 +17,8 @@
 #define CLOCK_MAIN (60'000'000u)
 
 #include <nxp/libmcu_LPC845M301BD48.hpp>
-#include <LPC84X_uart_hal_async.hpp>
+#include <LPC84X_hal_uartasync_pol.hpp>
+#include <LPC84X_hal_uartsync_int.hpp>
 
 #define TICKS_PER_S 100
 
