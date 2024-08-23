@@ -22,7 +22,7 @@ CFLAGS_debug += -O0 -g3
 CFLAGS_debug_size += -Og -g3
 CFLAGS_release_size += -Os -g -flto
 CFLAGS_release_speed += -O2 -g -flto
-CXXFLAGS += -std=gnu++2b -Wall -Wextra -Wno-main -fno-common -c -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions
+CXXFLAGS += -std=gnu++2b -Wall -Wextra -Wno-main -fno-common -c -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics
 CXXFLAGS_debug += -O0 -g3
 CXXFLAGS_debug_size += -Og -g3
 CXXFLAGS_release_size += -Os -g

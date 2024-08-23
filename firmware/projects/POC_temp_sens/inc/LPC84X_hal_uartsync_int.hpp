@@ -16,7 +16,8 @@ namespace libMcu::hal::usart {
 namespace hardware = libMcu::hw::usart;
 namespace nvic = libMcu::hw::nvic;
 
-template <libMcu::uartBaseAddress const& uartBaseAddress_, libMcu::nvicBaseAddress const& nvicBaseAddress_, typename transferType>
+template <libMcu::uartBaseAddress const& uartBaseAddress_, libMcu::nvicBaseAddress const& nvicBaseAddress_, typename transferType,
+          std::size_t bufSize>
 struct uartSync {
   /**
    * @brief Construct a new asynchronous uart
@@ -58,12 +59,37 @@ struct uartSync {
    * @param buffer data to transmit via uart
    */
   constexpr void transmit(std::span<transferType> buffer) {
-    // Copy data
+    std::size_t bufferIndex = 0;
+    while (bufferIndex != buffer.size()) {
+      if (!txBuffer.full()) {
+        txBuffer.pushFront(buffer[bufferIndex]);
+        bufferIndex++;
+      }
+      // are we currently transmitting?
+      if (!(usartPeripheral()->INTENSET & hardware::INTENSET::TXRDYEN)) {
+        // no, lets start the whole transmit chain
+        transferType data = 0;
+        if (txBuffer.popBack(data)) {
+          usartPeripheral()->TXDAT = data;
+          usartPeripheral()->INTENSET = hardware::INTENSET::TXRDYEN;
+        }
+      }
+    }
   }
   /**
    * @brief UART interrupt service routine
    */
-  constexpr void isr() {}
+  constexpr void isr() {
+    if (usartPeripheral()->INTSTAT & hardware::INTSTAT::TXRDY) {
+      if (txBuffer.empty()) {
+        usartPeripheral()->INTENCLR = hardware::INTENCLR::TXRDYCLR;
+      } else {
+        transferType data;
+        txBuffer.popBack(data);
+        usartPeripheral()->TXDAT = data;
+      }
+    }
+  }
 
  private:
   /**
@@ -83,7 +109,8 @@ struct uartSync {
 
   static constexpr hwAddressType uartBaseAddress = uartBaseAddress_; /**< UART peripheral address */
   static constexpr hwAddressType nvicBaseAddress = nvicBaseAddress_; /**< NVIC peripheral address */
-  // needs a circular buffer datastructure
+  libMcu::RingBuffer<transferType, bufSize> txBuffer;
+  libMcu::RingBuffer<transferType, bufSize> rxBuffer;
 };  // namespace libMcu::hw::nvic
 }  // namespace libMcu::hal::usart
 

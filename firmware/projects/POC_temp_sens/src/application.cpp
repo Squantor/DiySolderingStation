@@ -12,5 +12,12 @@
 
 namespace application {
 void application::init() {}
-void application::progress() {}
+void application::progress() {
+  static std::uint32_t currentTicks = ticks;
+  static std::array<std::uint8_t, 6> transmitBuffer{"test\n"};
+  if (currentTicks + 100 < ticks) {
+    usartPeripheral.transmit(transmitBuffer);
+    currentTicks = ticks;
+  }
+}
 }  // namespace application

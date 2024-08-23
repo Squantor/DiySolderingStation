@@ -11,9 +11,9 @@
  */
 #include <MinUnit.h>
 #include <stdint.h>
-#include <ringbuf.hpp>
+#include <ringbuffer.hpp>
 
-libmcu::RingBuffer<uint16_t, 10> RingBufferDutU16;
+libMcu::RingBuffer<uint16_t, 10> RingBufferDutU16;
 
 MINUNIT_ADD(RingBufferCppEmpty, NULL, NULL) {
   RingBufferDutU16.reset();

@@ -16,7 +16,7 @@
 #include <array>
 #include <cstdint>
 
-namespace libmcu {
+namespace libMcu {
 template <typename T, std::size_t N>
 class RingBuffer {
  public:
@@ -95,6 +95,6 @@ class RingBuffer {
   iterator back;             /**< last element of the ringbuffer */
   std::array<T, N + 1> data; /**< ringbuffer data, one element is added as we need always one element free */
 };
-}  // namespace libmcu
+}  // namespace libMcu
 
 #endif

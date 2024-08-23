@@ -16,6 +16,7 @@
 #define CLOCK_AHB (30'000'000u)
 #define CLOCK_MAIN (60'000'000u)
 
+#include <ringbuffer.hpp>
 #include <nxp/libmcu_LPC845M301BD48.hpp>
 #include <LPC84X_hal_uartasync_pol.hpp>
 #include <LPC84X_hal_uartsync_int.hpp>
@@ -60,7 +61,9 @@ extern libMcu::ll::swm::swm<libMcu::hw::swmAddress> swmPeriperhal;
 extern libMcu::ll::gpio::gpio<libMcu::hw::gpioAddress> gpioPeripheral;
 extern libMcu::ll::syscon::syscon<libMcu::hw::sysconAddress> sysconPeripheral;
 extern libMcu::ll::systick::systick<libMcu::hw::systickAddress> systickPeripheral;
-extern libMcu::hal::usart::uartSync<libMcu::hw::usart0Address, libMcu::hw::nvicAddress, std::uint8_t> usartPeripheral;
+extern libMcu::hal::usart::uartSync<libMcu::hw::usart0Address, libMcu::hw::nvicAddress, std::uint8_t, 128> usartPeripheral;
+
+extern volatile std::uint32_t ticks;  // amount of ticks passed sinds startup
 
 void boardInit(void);
 

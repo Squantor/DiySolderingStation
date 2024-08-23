@@ -14,7 +14,10 @@ libMcu::ll::swm::swm<libMcu::hw::swmAddress> swmPeriperhal;
 libMcu::ll::gpio::gpio<libMcu::hw::gpioAddress> gpioPeripheral;
 libMcu::ll::syscon::syscon<libMcu::hw::sysconAddress> sysconPeripheral;
 libMcu::ll::systick::systick<libMcu::hw::systickAddress> systickPeripheral;
-libMcu::hal::usart::uartSync<libMcu::hw::usart0Address, libMcu::hw::nvicAddress, std::uint8_t> usartPeripheral;
+libMcu::ll::nvic::nvic<libMcu::hw::nvicAddress, libMcu::hw::scbAddress> nvicPeripheral;
+libMcu::hal::usart::uartSync<libMcu::hw::usart0Address, libMcu::hw::nvicAddress, std::uint8_t, 128> usartPeripheral;
+
+volatile std::uint32_t ticks;
 
 extern "C" {
 void SysTick_Handler(void) {
@@ -27,10 +30,11 @@ void USART0_IRQHandler(void) {
 }
 
 auto systickIsrLambda = []() {
-  libMcu::ll::nop();
+  ticks = ticks + 1;
 };
 
 void boardInit(void) {
+  ticks = 0;
   // clock enables and resets
   sysconPeripheral.enablePeripheralClocks(
     libMcu::ll::syscon::peripheralClocks0::SWM | libMcu::ll::syscon::peripheralClocks0::IOCON |
@@ -67,4 +71,5 @@ void boardInit(void) {
   // setup UART
   sysconPeripheral.peripheralClockSource(libMcu::ll::syscon::clockSourceSelects::UART0, libMcu::ll::syscon::clockSources::MAIN);
   usartPeripheral.init(115200);
+  nvicPeripheral.enable(libMcu::hw::interrupts::uart0);
 }
