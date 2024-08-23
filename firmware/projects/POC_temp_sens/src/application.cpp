@@ -16,15 +16,7 @@ void application::init() {}
 void application::progress() {
   static std::uint32_t currentTicks = ticks;
   if (currentTicks + 100 < ticks) {
-    Print("test: ");
-    Print(12345);
-    Print(" ");
-    Print(print::Hex{0x12AB});
-    Print(" ");
-    Print(currentTicks);
-    Print(" ");
-    Print(print::Hex{currentTicks});
-    Print("\n");
+    Print("test:\t", currentTicks, "\t", print::Hex{currentTicks}, "\n");
     currentTicks = ticks;
   }
   // echo characters
