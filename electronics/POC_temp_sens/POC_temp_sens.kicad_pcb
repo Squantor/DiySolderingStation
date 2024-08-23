@@ -206,7 +206,7 @@
 	(net 72 "unconnected-(J4-Pin_7-Pad7)")
 	(net 73 "unconnected-(J4-Pin_4-Pad4)")
 	(net 74 "unconnected-(J4-Pin_5-Pad5)")
-	(net 75 "unconnected-(J5-Pin_6-Pad6)")
+	(net 75 "Net-(U5-!E)")
 	(net 76 "unconnected-(J5-Pin_12-Pad12)")
 	(net 77 "unconnected-(J5-Pin_15-Pad15)")
 	(net 78 "unconnected-(J5-Pin_7-Pad7)")
@@ -221,7 +221,7 @@
 	(net 87 "unconnected-(J5-Pin_10-Pad10)")
 	(net 88 "unconnected-(J5-Pin_20-Pad20)")
 	(net 89 "unconnected-(J5-Pin_13-Pad13)")
-	(net 90 "unconnected-(J5-Pin_5-Pad5)")
+	(net 90 "Net-(U1-!E)")
 	(net 91 "unconnected-(J5-Pin_3-Pad3)")
 	(net 92 "unconnected-(J5-Pin_14-Pad14)")
 	(net 93 "unconnected-(J5-Pin_1-Pad1)")
@@ -293,7 +293,7 @@
 		)
 		(path "/00000000-0000-0000-0000-00005ee12bf3")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.5 0.6)
@@ -374,7 +374,7 @@
 		)
 		(path "/00000000-0000-0000-0000-00005ee13678")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr exclude_from_pos_files)
 		(fp_poly
 			(pts
@@ -530,7 +530,7 @@
 		(property ki_fp_filters "MountingHole*")
 		(path "/73f4b653-1204-478f-b50a-6efd6fa3fff2")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_circle
 			(center 0 0)
@@ -696,7 +696,7 @@
 		)
 		(path "/e8d58e3c-5d33-44c8-8c80-7eb889074b84")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 1.16 19.11)
@@ -921,7 +921,7 @@
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 2 "GND")
+			(net 75 "Net-(U5-!E)")
 			(pinfunction "!E")
 			(pintype "input")
 			(uuid "250dabf6-04d2-44d8-a3d3-35bdf4080b3d")
@@ -1115,7 +1115,7 @@
 		(property ki_fp_filters "MountingHole*")
 		(path "/912bba6d-fc7f-4b8b-950c-002eb7256487")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_circle
 			(center 0 0)
@@ -1282,7 +1282,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/cd175266-8e46-4904-be0e-ddd9d73809f0")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 14.08 -3.03)
@@ -1852,7 +1852,7 @@
 		(property ki_fp_filters "Connector*:*_2x??_*")
 		(path "/f944b625-1f61-40f0-ab78-21560028a919")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr through_hole exclude_from_pos_files)
 		(fp_line
 			(start 12.065 -2.54)
@@ -2876,7 +2876,7 @@
 		(property ki_fp_filters "MountingHole*")
 		(path "/ccafd2c1-cea2-4afa-ba67-afae2b17eb13")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_circle
 			(center 0 0)
@@ -3041,7 +3041,7 @@
 		(property ki_fp_filters "Connector*:*_2x??_*")
 		(path "/ff7b7b28-4bb5-42e5-a791-df7da1c551f2")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr through_hole exclude_from_pos_files)
 		(fp_line
 			(start 12.065 -2.54)
@@ -3816,7 +3816,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 90 "unconnected-(J5-Pin_5-Pad5)")
+			(net 2 "GND")
 			(pinfunction "Pin_5")
 			(pintype "passive")
 			(uuid "bfc0a0f8-2b8d-46c5-86dd-880aa097d7b8")
@@ -3827,7 +3827,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 75 "unconnected-(J5-Pin_6-Pad6)")
+			(net 2 "GND")
 			(pinfunction "Pin_6")
 			(pintype "passive")
 			(uuid "0411771e-3a99-4765-b9d6-22b28606217f")
@@ -4065,7 +4065,7 @@
 		(property ki_fp_filters "MountingHole*")
 		(path "/6820a8e1-dc5f-4e11-9574-b273e5523afc")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_circle
 			(center 0 0)
@@ -4231,7 +4231,7 @@
 		)
 		(path "/e1092a5e-5fef-4bbc-897f-fd81b34999aa")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 1.16 8.95)
@@ -4564,7 +4564,7 @@
 		)
 		(path "/1da3bdae-ad63-41d0-8962-67439a5b9eac")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 1.16 8.95)
@@ -4897,7 +4897,7 @@
 		)
 		(path "/c8262d49-f817-4467-8290-864a9c7e3203")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 1.16 19.11)
@@ -5122,7 +5122,7 @@
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 2 "GND")
+			(net 90 "Net-(U1-!E)")
 			(pinfunction "!E")
 			(pintype "input")
 			(uuid "7325fe3d-d58e-4133-a347-1412b76b64c8")
@@ -5256,7 +5256,7 @@
 		(descr "JST XH series connector, B5B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST XH vertical")
 		(property "Reference" "J3"
-			(at 5 -3.55 360)
+			(at 5 -3.55 0)
 			(layer "F.SilkS")
 			(uuid "9b6be932-ae9b-417d-ae30-2df1c00808e1")
 			(effects
@@ -5267,7 +5267,7 @@
 			)
 		)
 		(property "Value" "Conn_01x05"
-			(at 5 4.6 360)
+			(at 5 4.6 0)
 			(layer "F.Fab")
 			(uuid "f511ff19-f484-42ae-a982-30518d203e8c")
 			(effects
@@ -5319,7 +5319,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/b26efb86-2409-4dea-9ca1-24cae1d9202c")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -2.85 -2.75)
@@ -5662,7 +5662,7 @@
 			(uuid "5ed5d226-bd80-4a42-aef0-8a2eb8f7494e")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 5 2.7 360)
+			(at 5 2.7 0)
 			(layer "F.Fab")
 			(uuid "e0bcbe25-94c6-4751-8ef9-74ab63f034ae")
 			(effects
@@ -5747,7 +5747,7 @@
 		(descr "JST XH series connector, B6B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST XH vertical")
 		(property "Reference" "J2"
-			(at 6.25 -3.55 360)
+			(at 6.25 -3.55 0)
 			(layer "F.SilkS")
 			(uuid "e4fa56ce-ed3b-40e6-aef5-72dea41c2c42")
 			(effects
@@ -5758,7 +5758,7 @@
 			)
 		)
 		(property "Value" "Conn_01x06"
-			(at 6.25 4.6 360)
+			(at 6.25 4.6 0)
 			(layer "F.Fab")
 			(uuid "4253baac-a5c9-498f-b68e-0bab39ade77a")
 			(effects
@@ -5810,7 +5810,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/c5231747-33d0-4931-a0c0-f6213717e660")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -2.85 -2.75)
@@ -6153,7 +6153,7 @@
 			(uuid "f78ef648-a1b7-4be0-b76b-821aa708db5c")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 6.25 2.7 360)
+			(at 6.25 2.7 0)
 			(layer "F.Fab")
 			(uuid "38f323bf-7602-4e84-901c-38f6c4e1eeb8")
 			(effects
@@ -6314,7 +6314,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/82b09031-bb63-4aa9-b3a6-e05cec51948a")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.15)
@@ -6518,7 +6518,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/72855ce3-9a1d-417c-9b12-a740bb323ea7")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -6712,7 +6712,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/e3b5de48-099f-47c4-a8c6-4540e24208d9")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -6906,7 +6906,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/8daa8cb1-5e45-4a3a-b51a-e5d7b16c180e")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -7100,7 +7100,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/f4d6e210-cc1a-4b43-8142-bd932661facf")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -7294,7 +7294,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/e5a5ee41-9750-40e0-b0c0-e7af827ae912")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -7423,7 +7423,7 @@
 		(descr "Capacitor SMD 0603, reflow soldering, AVX (see smccp.pdf)")
 		(tags "capacitor 0603")
 		(property "Reference" "C8"
-			(at 0 1.1 360)
+			(at 0 1.1 0)
 			(layer "B.SilkS")
 			(uuid "b75dad82-d161-464f-96bd-43ece5935e3b")
 			(effects
@@ -7435,7 +7435,7 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 0 -1.2 360)
+			(at 0 -1.2 0)
 			(layer "B.Fab")
 			(uuid "ddd80156-aca2-4f82-9e5f-fdfb26060553")
 			(effects
@@ -7447,7 +7447,7 @@
 			)
 		)
 		(property "Footprint" "SquantorCapacitor:C_0603"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "61714741-dad2-4d43-b361-15b881faf913")
@@ -7460,7 +7460,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "34d9c483-873f-472f-b73f-97a80c37b9b8")
@@ -7473,7 +7473,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "46883891-490e-4885-a8ac-1f40ee251d72")
@@ -7488,7 +7488,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/90f5d786-8909-4a30-8610-cb80b30148ba")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.15)
@@ -7622,6 +7622,200 @@
 	)
 	(footprint "SquantorResistor:R_0603_hand"
 		(layer "B.Cu")
+		(uuid "2928e8e2-324f-463a-ae5a-d744c2f338cc")
+		(at 68.58 39.37 90)
+		(descr "Resistor SMD 0603, reflow soldering, Vishay (see dcrcw.pdf)")
+		(tags "resistor 0603")
+		(property "Reference" "R30"
+			(at 0 1.2 90)
+			(layer "B.SilkS")
+			(uuid "b0f81d12-a254-4340-826b-2e94e0973990")
+			(effects
+				(font
+					(size 0.8 0.8)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Value" "47K"
+			(at 0 -1.2 90)
+			(layer "B.Fab")
+			(uuid "caa9750e-78ca-4aec-952d-9ef0fe141d05")
+			(effects
+				(font
+					(size 0.8 0.8)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Footprint" "SquantorResistor:R_0603_hand"
+			(at 0 0 90)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "cbd42607-4bcd-426b-8cbe-712a41e138d3")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 90)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "55e57dee-d74e-45e1-959a-d4451db11d69")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 0 0 90)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "152812e6-3dd2-4338-b2e1-80c5b54c7152")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property ki_fp_filters "R_*")
+		(path "/12af2d31-09b0-40b0-8e46-d3e11751a645")
+		(sheetname "Root")
+		(sheetfile "POC_temp_sens.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -0.2)
+			(end 0 0.2)
+			(stroke
+				(width 0.15)
+				(type solid)
+			)
+			(layer "B.SilkS")
+			(uuid "b0a93329-6648-496a-b624-1e5e5cefa120")
+		)
+		(fp_line
+			(start 1.4 -0.65)
+			(end -1.4 -0.65)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "B.CrtYd")
+			(uuid "13458575-c7c0-41f0-8284-6012ec3ed705")
+		)
+		(fp_line
+			(start 1.4 -0.65)
+			(end 1.4 0.65)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "B.CrtYd")
+			(uuid "2afafe08-6a5d-4c1c-80c2-d7cdb2b4a389")
+		)
+		(fp_line
+			(start -1.4 -0.65)
+			(end -1.4 0.65)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "B.CrtYd")
+			(uuid "0d8c2852-379c-4f3f-9f7c-97154226b5d0")
+		)
+		(fp_line
+			(start 1.4 0.65)
+			(end -1.4 0.65)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "B.CrtYd")
+			(uuid "659b8eb5-c384-4589-b31e-4758251177f4")
+		)
+		(fp_line
+			(start 0.8 -0.4)
+			(end 0.8 0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "B.Fab")
+			(uuid "52925d69-a74b-4f30-9edd-527cda0b639d")
+		)
+		(fp_line
+			(start -0.8 -0.4)
+			(end 0.8 -0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "B.Fab")
+			(uuid "820f7ae4-a791-42ee-bd79-20b55b7cedba")
+		)
+		(fp_line
+			(start 0.8 0.4)
+			(end -0.8 0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "B.Fab")
+			(uuid "15115184-b698-46a7-acaf-7c7e1989dd01")
+		)
+		(fp_line
+			(start -0.8 0.4)
+			(end -0.8 -0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "B.Fab")
+			(uuid "aa03f3a5-a352-45e5-af8d-5659b5659951")
+		)
+		(pad "1" smd roundrect
+			(at -0.85 0 90)
+			(size 0.7 0.9)
+			(layers "B.Cu" "B.Paste" "B.Mask")
+			(roundrect_rratio 0.1428571429)
+			(net 2 "GND")
+			(pintype "passive")
+			(uuid "521e00d3-f5b5-4e02-8037-39b30c990f03")
+		)
+		(pad "2" smd roundrect
+			(at 0.85 0 90)
+			(size 0.7 0.9)
+			(layers "B.Cu" "B.Paste" "B.Mask")
+			(roundrect_rratio 0.1428571429)
+			(net 75 "Net-(U5-!E)")
+			(pintype "passive")
+			(uuid "a4715316-4c1d-4da3-be8a-bf2109937a0d")
+		)
+		(model "${KICAD7_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "SquantorResistor:R_0603_hand"
+		(layer "B.Cu")
 		(uuid "45f59f7a-c05b-4940-9878-44237445c250")
 		(at 50.8 46.99 90)
 		(descr "Resistor SMD 0603, reflow soldering, Vishay (see dcrcw.pdf)")
@@ -7692,7 +7886,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/7d0f99af-092c-4d41-b02a-763a8b0f47c8")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -7886,7 +8080,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/abe844fc-60d2-4bf0-8b50-0e7def4467a6")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -8015,7 +8209,7 @@
 		(descr "Resistor SMD 0603, reflow soldering, Vishay (see dcrcw.pdf)")
 		(tags "resistor 0603")
 		(property "Reference" "R8"
-			(at 0 1.2 360)
+			(at 0 1.2 0)
 			(layer "B.SilkS")
 			(uuid "332b8fa0-39a5-49b4-989c-d9b183e1e0e7")
 			(effects
@@ -8027,7 +8221,7 @@
 			)
 		)
 		(property "Value" "2K7"
-			(at 0 -1.2 360)
+			(at 0 -1.2 0)
 			(layer "B.Fab")
 			(uuid "620f0a06-0ac0-406f-8f1b-a79f3f1dec71")
 			(effects
@@ -8039,7 +8233,7 @@
 			)
 		)
 		(property "Footprint" "SquantorResistor:R_0603_hand"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "0c14c27c-1d5c-4e67-b7f7-85339082052c")
@@ -8052,7 +8246,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "0db811e0-55ea-4172-ba5d-bbb54af66a60")
@@ -8065,7 +8259,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "51b63f99-2395-4aed-be57-89aa0629c5dc")
@@ -8080,7 +8274,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/bf9577bc-c3ce-4b40-8dc9-0e2f0feb13ae")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -8274,7 +8468,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/c7260e15-fb6f-4ab7-9ad0-43ee9b2df45f")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 0.375)
@@ -8478,7 +8672,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/3924278f-fa17-49b1-a42e-c77a2ba20793")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -8672,7 +8866,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/fca2cf09-465a-40a8-b8fd-73f7d55b21a0")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -8866,7 +9060,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/8827e193-bf8a-4983-afb3-9a514c37e005")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -8995,7 +9189,7 @@
 		(descr "Capacitor SMD 0603, reflow soldering, AVX (see smccp.pdf)")
 		(tags "capacitor 0603")
 		(property "Reference" "C1"
-			(at 0 1.1 360)
+			(at 0 1.1 0)
 			(layer "B.SilkS")
 			(uuid "8a35f319-29e7-48a1-af18-4fa2c4273633")
 			(effects
@@ -9007,7 +9201,7 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 0 -1.2 360)
+			(at 0 -1.2 0)
 			(layer "B.Fab")
 			(uuid "1db9c3ba-b704-42ad-bb43-db03fcc59ee0")
 			(effects
@@ -9019,7 +9213,7 @@
 			)
 		)
 		(property "Footprint" "SquantorCapacitor:C_0603"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "03f17cff-2e6c-410d-abc6-31358ac1a9f6")
@@ -9032,7 +9226,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "a6e7d55e-e432-4169-b7b9-2d586d60bb43")
@@ -9045,7 +9239,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "1421424e-2358-4d81-9278-4c0e25010ef7")
@@ -9060,7 +9254,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/ccfb7a59-ee94-4cd8-9ba7-c6cdd453ce5c")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.15)
@@ -9199,7 +9393,7 @@
 		(descr "Capacitor SMD 0603, reflow soldering, AVX (see smccp.pdf)")
 		(tags "capacitor 0603")
 		(property "Reference" "C6"
-			(at 0 1.1 360)
+			(at 0 1.1 0)
 			(layer "B.SilkS")
 			(uuid "8bf5579a-1270-4544-90ec-0dfe475adc13")
 			(effects
@@ -9211,7 +9405,7 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 0 -1.2 360)
+			(at 0 -1.2 0)
 			(layer "B.Fab")
 			(uuid "02ef6374-45c1-41cb-83f8-d82d8b3d0634")
 			(effects
@@ -9223,7 +9417,7 @@
 			)
 		)
 		(property "Footprint" "SquantorCapacitor:C_0603"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "f41d38ef-1eba-4e65-b437-328473cdab19")
@@ -9236,7 +9430,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "e92b9f64-30e6-49e8-8f2f-b560fde43394")
@@ -9249,7 +9443,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "138d9940-9ed5-4d21-8395-cec2d2eef5f2")
@@ -9264,7 +9458,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/ea3c69f3-5baf-40e6-a66c-0302e62e0298")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 0.375)
@@ -9468,7 +9662,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/f6085516-7fa7-4082-81d3-68211e447a4c")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -9662,7 +9856,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/e9be29a1-94ae-42dc-8380-4aa4475e3f8b")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.15)
@@ -9801,7 +9995,7 @@
 		(descr "Resistor SMD 0603, reflow soldering, Vishay (see dcrcw.pdf)")
 		(tags "resistor 0603")
 		(property "Reference" "R10"
-			(at 0 1.2 360)
+			(at 0 1.2 0)
 			(layer "B.SilkS")
 			(uuid "a2c79f9b-7189-40cb-a40d-ee10025c4e43")
 			(effects
@@ -9813,7 +10007,7 @@
 			)
 		)
 		(property "Value" "22K6"
-			(at -6.36 -7.96 360)
+			(at -6.36 -7.96 0)
 			(layer "B.Fab")
 			(uuid "d101e2a1-cf31-47a2-94c2-8d051a7ede3a")
 			(effects
@@ -9825,7 +10019,7 @@
 			)
 		)
 		(property "Footprint" "SquantorResistor:R_0603_hand"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "407be05b-726d-4428-97fd-4694538b9ef5")
@@ -9838,7 +10032,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "ccc87e63-859a-45f1-9c8d-bae4c71f235a")
@@ -9851,7 +10045,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "04b54f1c-b407-44b4-b187-15973b8017d8")
@@ -9866,7 +10060,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/814fb073-32ee-4034-a477-bd191e046e50")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -10060,7 +10254,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/23d0577b-b6d5-487e-a17c-b33fef89a225")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -10254,7 +10448,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/6f5df46e-1dfb-4a2d-b820-45d357b6bc96")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -10448,7 +10642,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/65d0182a-bd48-447a-b1fc-7419fba552ff")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -10642,7 +10836,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/c551511d-bac1-4c0b-97cd-72a38a26d3b0")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -10771,7 +10965,7 @@
 		(descr "Capacitor SMD 0603, reflow soldering, AVX (see smccp.pdf)")
 		(tags "capacitor 0603")
 		(property "Reference" "C3"
-			(at 0 1.1 360)
+			(at 0 1.1 0)
 			(layer "B.SilkS")
 			(uuid "b59d8ebf-5527-441b-adc3-3dfefc234848")
 			(effects
@@ -10783,7 +10977,7 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 0 -1.2 360)
+			(at 0 -1.2 0)
 			(layer "B.Fab")
 			(uuid "85454792-b2ce-420e-84d4-974cfa09b20a")
 			(effects
@@ -10795,7 +10989,7 @@
 			)
 		)
 		(property "Footprint" "SquantorCapacitor:C_0603"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "92ab0163-08c3-49cc-b057-61f2e0a20360")
@@ -10808,7 +11002,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "df033934-5614-4f49-839c-00f5a9fc407c")
@@ -10821,7 +11015,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "9a8b698b-bea0-490f-a9e9-a62fe2fb398e")
@@ -10836,7 +11030,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/cce8bbeb-1b3f-49f0-8ae0-4e19f4b26ff1")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.15)
@@ -11040,7 +11234,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/91f05210-3204-44b4-b062-2ff17011baf4")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -11234,7 +11428,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/070c1875-ece8-4e9d-960c-d28d28349c8f")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -11428,7 +11622,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/5b30c662-439c-48fd-8616-f7f9c5f141d6")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -11622,7 +11816,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/021a5ea0-a175-47cf-8cbd-0b456304ed06")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -11744,6 +11938,200 @@
 			)
 		)
 	)
+	(footprint "SquantorResistor:R_0603_hand"
+		(layer "B.Cu")
+		(uuid "af1bf4b3-5a62-462e-92ef-d78d747c8424")
+		(at 45.72 39.37 90)
+		(descr "Resistor SMD 0603, reflow soldering, Vishay (see dcrcw.pdf)")
+		(tags "resistor 0603")
+		(property "Reference" "R31"
+			(at 0 1.2 90)
+			(layer "B.SilkS")
+			(uuid "f379a0dc-38f4-4817-b07c-e5bb82a032b8")
+			(effects
+				(font
+					(size 0.8 0.8)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Value" "47K"
+			(at 0 -1.2 90)
+			(layer "B.Fab")
+			(uuid "f0f88e0d-df75-4685-b776-e1d50792ea83")
+			(effects
+				(font
+					(size 0.8 0.8)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Footprint" "SquantorResistor:R_0603_hand"
+			(at 0 0 90)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "803a7fdd-bef0-4ead-b04d-b6ba363cfcdc")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 90)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "2f6f4cda-18d4-4ec3-95ef-d92c69e25f12")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 0 0 90)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d87b897b-661c-4996-8341-428ecacbf407")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property ki_fp_filters "R_*")
+		(path "/56d0a4e6-68d5-452e-888f-3b0e78143091")
+		(sheetname "Root")
+		(sheetfile "POC_temp_sens.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -0.2)
+			(end 0 0.2)
+			(stroke
+				(width 0.15)
+				(type solid)
+			)
+			(layer "B.SilkS")
+			(uuid "16e7101c-2990-4728-9364-92f54172be00")
+		)
+		(fp_line
+			(start 1.4 -0.65)
+			(end -1.4 -0.65)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "B.CrtYd")
+			(uuid "d7642a32-69cb-4854-b3ed-54b46c62a91c")
+		)
+		(fp_line
+			(start 1.4 -0.65)
+			(end 1.4 0.65)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "B.CrtYd")
+			(uuid "0411947c-4e8c-446a-8eb0-677803c2d467")
+		)
+		(fp_line
+			(start -1.4 -0.65)
+			(end -1.4 0.65)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "B.CrtYd")
+			(uuid "0252148b-7828-45f8-b465-52883e4929d8")
+		)
+		(fp_line
+			(start 1.4 0.65)
+			(end -1.4 0.65)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "B.CrtYd")
+			(uuid "4c0b6387-9844-407d-bc44-812acc755861")
+		)
+		(fp_line
+			(start 0.8 -0.4)
+			(end 0.8 0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "B.Fab")
+			(uuid "cb5bbdac-c280-4c83-882e-49ec34a64e95")
+		)
+		(fp_line
+			(start -0.8 -0.4)
+			(end 0.8 -0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "B.Fab")
+			(uuid "5cb05e18-26bc-4d10-846f-459f5e166d2f")
+		)
+		(fp_line
+			(start 0.8 0.4)
+			(end -0.8 0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "B.Fab")
+			(uuid "bb129a38-a4a9-46ff-b49a-719c0b3d3bce")
+		)
+		(fp_line
+			(start -0.8 0.4)
+			(end -0.8 -0.4)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "B.Fab")
+			(uuid "6eeb0a2b-523a-464d-8d45-67fea8cba2dc")
+		)
+		(pad "1" smd roundrect
+			(at -0.85 0 90)
+			(size 0.7 0.9)
+			(layers "B.Cu" "B.Paste" "B.Mask")
+			(roundrect_rratio 0.1428571429)
+			(net 2 "GND")
+			(pintype "passive")
+			(uuid "cf2027e0-78d2-4a6c-9ee1-f4d9c3b6b5ab")
+		)
+		(pad "2" smd roundrect
+			(at 0.85 0 90)
+			(size 0.7 0.9)
+			(layers "B.Cu" "B.Paste" "B.Mask")
+			(roundrect_rratio 0.1428571429)
+			(net 90 "Net-(U1-!E)")
+			(pintype "passive")
+			(uuid "1747c88b-3fdc-4562-8c6b-ab3c749f97a0")
+		)
+		(model "${KICAD7_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "SquantorCapacitor:C_0603"
 		(layer "B.Cu")
 		(uuid "b7735b7f-bf07-4078-af8b-195c5523252c")
@@ -11816,7 +12204,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/6a97c927-5f1f-448a-95ff-499194eb1bde")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 0.375)
@@ -12020,7 +12408,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/21b93862-ecbb-4286-be1e-252b304eceb9")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -12214,7 +12602,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/400f0ac1-0977-4801-9506-3bd61d38bca4")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -12408,7 +12796,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/a72fe597-a320-4663-815f-f9c44ebcf26c")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -12602,7 +12990,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/942e169f-1cba-4a77-aefb-6deb3fce04a8")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -12796,7 +13184,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/7cb8e732-8709-4514-aa65-3e9b1ab056af")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -12988,7 +13376,7 @@
 		)
 		(path "/07173371-039b-48a5-b925-5e8c66c6e69a")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -1.8 1.7)
@@ -13248,7 +13636,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/89a0ec53-df55-4307-a905-163ad395eb0c")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -13442,7 +13830,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/3c0f8ef8-6ec9-4777-bc2f-99d9ae0211b9")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -13636,7 +14024,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/79c11747-4fc0-4fa0-9307-31c57a9f6047")
 		(sheetname "Root")
-		(sheetfile "T245_sense_protoboard.kicad_sch")
+		(sheetfile "POC_temp_sens.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -0.2)
@@ -28567,6 +28955,38 @@
 		(uuid "39a1b9e9-0371-41e6-b9ec-a8a74889a99b")
 	)
 	(segment
+		(start 88.9 35.56)
+		(end 88.9 45.72)
+		(width 0.6)
+		(layer "F.Cu")
+		(net 1)
+		(uuid "4af91ed6-8d9c-4908-ac40-62c5b52457ce")
+	)
+	(segment
+		(start 66.04 35.56)
+		(end 88.9 35.56)
+		(width 0.6)
+		(layer "F.Cu")
+		(net 1)
+		(uuid "687dd89e-89e6-412e-afbb-650d4939046b")
+	)
+	(segment
+		(start 66.04 35.56)
+		(end 43.18 35.56)
+		(width 0.6)
+		(layer "F.Cu")
+		(net 1)
+		(uuid "6eb3060d-10f7-45c3-8a98-e782a539780f")
+	)
+	(segment
+		(start 63.5 50.8)
+		(end 88.9 50.8)
+		(width 0.6)
+		(layer "F.Cu")
+		(net 1)
+		(uuid "90e707d0-5624-481f-bdc2-b32bcb5094e4")
+	)
+	(segment
 		(start 50.8 53.34)
 		(end 50.8 50.8)
 		(width 0.6)
@@ -28583,20 +29003,36 @@
 		(uuid "c40f5122-4640-4b79-b389-9863fd58cc4d")
 	)
 	(segment
-		(start 63.5 50.8)
-		(end 74.93 50.8)
-		(width 0.6)
-		(layer "F.Cu")
-		(net 1)
-		(uuid "dd44b29a-84a5-4cc3-a13c-677a011a24e1")
-	)
-	(segment
 		(start 50.8 53.34)
 		(end 50.8 55.88)
 		(width 0.6)
 		(layer "F.Cu")
 		(net 1)
 		(uuid "f3cf83e2-2f5a-4938-84aa-6d5e10280b61")
+	)
+	(segment
+		(start 66.04 38.1)
+		(end 66.04 35.56)
+		(width 0.6)
+		(layer "F.Cu")
+		(net 1)
+		(uuid "f5a642ef-a486-47d4-bca6-f56bd440b827")
+	)
+	(segment
+		(start 43.18 35.56)
+		(end 43.18 38.1)
+		(width 0.6)
+		(layer "F.Cu")
+		(net 1)
+		(uuid "ffa40bbe-2210-496f-bad2-1fb12182c6c1")
+	)
+	(via
+		(at 88.9 45.72)
+		(size 1)
+		(drill 0.6)
+		(layers "F.Cu" "B.Cu")
+		(net 1)
+		(uuid "44328937-d1f3-42c6-ae6b-6b2fa3774bd3")
 	)
 	(via
 		(at 50.8 55.88)
@@ -28606,29 +29042,21 @@
 		(net 1)
 		(uuid "8d7ca731-3201-4a16-b3e4-1f9337c61234")
 	)
-	(segment
-		(start 66.04 40.64)
-		(end 83.82 40.64)
-		(width 0.6)
-		(layer "B.Cu")
+	(via
+		(at 88.9 50.8)
+		(size 1)
+		(drill 0.6)
+		(layers "F.Cu" "B.Cu")
 		(net 1)
-		(uuid "10c84dbc-3764-43ae-89e2-02da6c901876")
+		(uuid "ceae657a-b792-4207-9848-99c63f3106dc")
 	)
 	(segment
-		(start 66.04 38.1)
-		(end 66.04 40.64)
+		(start 88.9 45.72)
+		(end 88.9 50.8)
 		(width 0.6)
 		(layer "B.Cu")
 		(net 1)
-		(uuid "1d66c76a-6db6-40b7-8957-8f3ffe3ae255")
-	)
-	(segment
-		(start 43.18 40.64)
-		(end 66.04 40.64)
-		(width 0.6)
-		(layer "B.Cu")
-		(net 1)
-		(uuid "2cd685a8-e2b2-402b-a088-31847175a218")
+		(uuid "23e0c2b9-fcb3-49af-b259-226b62113b9b")
 	)
 	(segment
 		(start 50.8 55.88)
@@ -28639,84 +29067,36 @@
 		(uuid "5026baf0-b97e-438c-96ae-b33eae018c16")
 	)
 	(segment
-		(start 43.18 38.1)
-		(end 43.18 40.64)
+		(start 88.9 50.8)
+		(end 88.9 71.12)
 		(width 0.6)
 		(layer "B.Cu")
 		(net 1)
-		(uuid "facdfad8-72c7-4ed0-998d-4ca53f0c0cd0")
+		(uuid "a3e33799-7a15-435e-bb0f-e89c3db8a028")
 	)
 	(segment
-		(start 68.58 38.1)
-		(end 68.58 43.18)
+		(start 81.28 58.42)
+		(end 91.44 58.42)
 		(width 0.6)
 		(layer "F.Cu")
 		(net 2)
-		(uuid "0fbb7b81-47b4-4815-8a5a-f8f8fb349134")
-	)
-	(segment
-		(start 63.5 38.1)
-		(end 63.5 43.18)
-		(width 0.6)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "157c5e1b-f76e-4b07-83db-2b0acef70e76")
-	)
-	(segment
-		(start 45.72 38.1)
-		(end 45.72 43.18)
-		(width 0.6)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "2ba00c32-3ff1-4712-b91f-a467027e3576")
+		(uuid "f31ddb28-9428-4000-add5-327fef81e4bf")
 	)
 	(via
-		(at 45.72 43.18)
+		(at 81.28 58.42)
 		(size 1)
 		(drill 0.6)
 		(layers "F.Cu" "B.Cu")
 		(net 2)
-		(uuid "14a4b9b0-d01f-43ca-a0e9-50fef8f94604")
+		(uuid "087353ad-7d84-44df-8255-8c9a8b0eb59f")
 	)
 	(via
-		(at 68.58 43.18)
+		(at 91.44 58.42)
 		(size 1)
 		(drill 0.6)
 		(layers "F.Cu" "B.Cu")
 		(net 2)
-		(uuid "7ed5a787-ac34-4ee4-9ca2-f7515dc09080")
-	)
-	(via
-		(at 63.5 43.18)
-		(size 1)
-		(drill 0.6)
-		(layers "F.Cu" "B.Cu")
-		(net 2)
-		(uuid "898b3fb2-1bf1-4483-b5cf-f9b160d39c1e")
-	)
-	(segment
-		(start 68.58 43.18)
-		(end 81.28 43.18)
-		(width 0.6)
-		(layer "B.Cu")
-		(net 2)
-		(uuid "056b1006-9903-46d7-9016-6f251519c16a")
-	)
-	(segment
-		(start 66.04 58.42)
-		(end 71.12 58.42)
-		(width 0.6)
-		(layer "B.Cu")
-		(net 2)
-		(uuid "133241cf-45af-4dde-a907-5cc949a36f54")
-	)
-	(segment
-		(start 71.12 58.42)
-		(end 73.66 58.42)
-		(width 0.6)
-		(layer "B.Cu")
-		(net 2)
-		(uuid "1d468013-0762-4f1a-9c0d-e44f294c8947")
+		(uuid "916b8054-f746-4429-9a61-d56d7ae551ae")
 	)
 	(segment
 		(start 60.96 58.42)
@@ -28727,12 +29107,36 @@
 		(uuid "325048a8-2d92-4104-b25a-70cf415ab6cb")
 	)
 	(segment
+		(start 66.04 58.42)
+		(end 81.28 58.42)
+		(width 0.6)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "3a0478cb-9869-459a-bb98-f2eaa93082d4")
+	)
+	(segment
 		(start 63.5 43.18)
 		(end 68.58 43.18)
 		(width 0.6)
 		(layer "B.Cu")
 		(net 2)
 		(uuid "44ca94d8-3cd2-4a19-b8f3-61a00cd9a2ce")
+	)
+	(segment
+		(start 68.58 43.18)
+		(end 91.44 43.18)
+		(width 0.6)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "5eecf87b-87d7-4e46-82be-ba9e37384266")
+	)
+	(segment
+		(start 63.5 38.1)
+		(end 63.5 43.18)
+		(width 0.6)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "6a1b39d7-c891-469c-be25-76fb8ec28a80")
 	)
 	(segment
 		(start 45.72 43.18)
@@ -28743,12 +29147,36 @@
 		(uuid "6bf4eb72-9692-4421-a901-42f805fc238d")
 	)
 	(segment
+		(start 91.44 91.44)
+		(end 83.82 91.44)
+		(width 0.6)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "86221c62-795e-42b2-a8eb-4538e31dd863")
+	)
+	(segment
+		(start 91.44 43.18)
+		(end 91.44 58.42)
+		(width 0.6)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "8c7e7306-d8e4-47e1-8792-200ff3e0c77a")
+	)
+	(segment
 		(start 40.64 43.18)
 		(end 45.72 43.18)
 		(width 0.6)
 		(layer "B.Cu")
 		(net 2)
 		(uuid "a4cab887-1683-4316-9ba6-ac30cc2da09d")
+	)
+	(segment
+		(start 91.44 91.44)
+		(end 104.14 91.44)
+		(width 0.6)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "b2494d65-8084-4b21-9a11-4ca1de43a016")
 	)
 	(segment
 		(start 53.34 55.46)
@@ -28767,12 +29195,28 @@
 		(uuid "cc75a47d-8801-4333-b96e-f79f27071d6a")
 	)
 	(segment
-		(start 81.28 43.18)
-		(end 83.82 43.18)
+		(start 68.58 43.18)
+		(end 68.58 40.22)
 		(width 0.6)
 		(layer "B.Cu")
 		(net 2)
-		(uuid "d05398fc-3e37-4ca7-8756-a02f8abdb584")
+		(uuid "d0f6da3e-d47b-4a59-9c74-9a348e40b19e")
+	)
+	(segment
+		(start 91.44 58.42)
+		(end 91.44 91.44)
+		(width 0.6)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "df9c6266-1738-4e19-b46f-fdb66d912e96")
+	)
+	(segment
+		(start 45.72 40.22)
+		(end 45.72 43.18)
+		(width 0.6)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "dfa866e4-8a9f-4019-829b-d7c50d889bf2")
 	)
 	(segment
 		(start 53.34 58.42)
@@ -28791,6 +29235,62 @@
 		(uuid "f7a03010-24b5-4e70-8bfd-3768917b9667")
 	)
 	(segment
+		(start 81.28 48.26)
+		(end 58.42 48.26)
+		(width 0.6)
+		(layer "F.Cu")
+		(net 3)
+		(uuid "2eefd5d6-7eb3-4e45-9d50-f448089f7253")
+	)
+	(segment
+		(start 81.28 48.26)
+		(end 86.36 48.26)
+		(width 0.6)
+		(layer "F.Cu")
+		(net 3)
+		(uuid "83464c4d-7c1b-4282-96d6-f3bea232c56e")
+	)
+	(segment
+		(start 58.42 48.26)
+		(end 58.42 45.72)
+		(width 0.6)
+		(layer "F.Cu")
+		(net 3)
+		(uuid "d9c33b96-eda3-434f-b6cc-d4489dae7545")
+	)
+	(segment
+		(start 81.28 45.72)
+		(end 81.28 48.26)
+		(width 0.6)
+		(layer "F.Cu")
+		(net 3)
+		(uuid "e6aba0e0-5179-4203-84a4-dcf2d045dfe0")
+	)
+	(via
+		(at 86.36 48.26)
+		(size 1)
+		(drill 0.6)
+		(layers "F.Cu" "B.Cu")
+		(net 3)
+		(uuid "4dfa7051-b270-411c-9493-6d9ac3e9363d")
+	)
+	(segment
+		(start 86.36 48.26)
+		(end 86.36 71.12)
+		(width 0.6)
+		(layer "B.Cu")
+		(net 3)
+		(uuid "67cd8655-5928-4e1e-b4e8-d6ddc994ec2e")
+	)
+	(segment
+		(start 71.12 63.5)
+		(end 83.82 63.5)
+		(width 0.6)
+		(layer "F.Cu")
+		(net 6)
+		(uuid "26435daf-442e-4643-a9fe-29d67b61114b")
+	)
+	(segment
 		(start 63.5 55.88)
 		(end 63.5 58.42)
 		(width 0.6)
@@ -28805,6 +29305,14 @@
 		(layer "F.Cu")
 		(net 6)
 		(uuid "6b360940-e8e3-4f4c-8e24-3c8df561007a")
+	)
+	(segment
+		(start 71.12 60.96)
+		(end 71.12 63.5)
+		(width 0.6)
+		(layer "F.Cu")
+		(net 6)
+		(uuid "986d0cf1-948f-464f-9a0f-c9b0c1005c09")
 	)
 	(segment
 		(start 55.88 58.42)
@@ -28845,6 +29353,22 @@
 		(layers "F.Cu" "B.Cu")
 		(net 6)
 		(uuid "95902fa2-94cb-431e-9c61-bb5b9203d7e7")
+	)
+	(via
+		(at 83.82 63.5)
+		(size 1)
+		(drill 0.6)
+		(layers "F.Cu" "B.Cu")
+		(net 6)
+		(uuid "e9fc5ecd-27a1-478b-8dca-3ed50e520dbe")
+	)
+	(segment
+		(start 83.82 63.5)
+		(end 83.82 71.12)
+		(width 0.6)
+		(layer "B.Cu")
+		(net 6)
+		(uuid "5871784c-ad24-45b5-ab31-552171efc90e")
 	)
 	(segment
 		(start 50.8 57.9)
