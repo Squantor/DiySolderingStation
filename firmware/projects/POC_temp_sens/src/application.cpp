@@ -9,19 +9,27 @@
  */
 #include <POC_temp_sense_nuclone.hpp>
 #include <application.hpp>
+#include <print.hpp>
 
 namespace application {
 void application::init() {}
 void application::progress() {
   static std::uint32_t currentTicks = ticks;
-  static std::array<std::uint8_t, 6> transmitBuffer{"test\n"};
   if (currentTicks + 100 < ticks) {
-    usartPeripheral.transmit(transmitBuffer);
+    Print("test: ");
+    Print(12345);
+    Print(" ");
+    Print(print::Hex{0x12AB});
+    Print(" ");
+    Print(currentTicks);
+    Print(" ");
+    Print(print::Hex{currentTicks});
+    Print("\n");
     currentTicks = ticks;
   }
   // echo characters
   if (usartPeripheral.receiveDataAvailable() > 0) {
-    static std::array<std::uint8_t, 1> data;
+    static std::array<char, 1> data;
     usartPeripheral.receive(data);
     usartPeripheral.transmit(data);
   }

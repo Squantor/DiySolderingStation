@@ -60,7 +60,7 @@ struct uartSync {
    * @brief blocking USART transmit
    * @param buffer data to transmit via USART
    */
-  constexpr void transmit(std::span<transferType> buffer) {
+  constexpr void transmit(std::span<const transferType> buffer) {
     std::size_t bufferIndex = 0;
     while (bufferIndex != buffer.size()) {
       if (!txBuffer.full()) {

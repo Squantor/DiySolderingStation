@@ -61,7 +61,7 @@ extern libMcu::ll::swm::swm<libMcu::hw::swmAddress> swmPeriperhal;
 extern libMcu::ll::gpio::gpio<libMcu::hw::gpioAddress> gpioPeripheral;
 extern libMcu::ll::syscon::syscon<libMcu::hw::sysconAddress> sysconPeripheral;
 extern libMcu::ll::systick::systick<libMcu::hw::systickAddress> systickPeripheral;
-extern libMcu::hal::usart::uartSync<libMcu::hw::usart0Address, libMcu::hw::nvicAddress, std::uint8_t, 128> usartPeripheral;
+extern libMcu::hal::usart::uartSync<libMcu::hw::usart0Address, libMcu::hw::nvicAddress, char, 128> usartPeripheral;
 
 extern volatile std::uint32_t ticks;  // amount of ticks passed sinds startup
 

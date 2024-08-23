@@ -15,7 +15,7 @@ libMcu::ll::gpio::gpio<libMcu::hw::gpioAddress> gpioPeripheral;
 libMcu::ll::syscon::syscon<libMcu::hw::sysconAddress> sysconPeripheral;
 libMcu::ll::systick::systick<libMcu::hw::systickAddress> systickPeripheral;
 libMcu::ll::nvic::nvic<libMcu::hw::nvicAddress, libMcu::hw::scbAddress> nvicPeripheral;
-libMcu::hal::usart::uartSync<libMcu::hw::usart0Address, libMcu::hw::nvicAddress, std::uint8_t, 128> usartPeripheral;
+libMcu::hal::usart::uartSync<libMcu::hw::usart0Address, libMcu::hw::nvicAddress, char, 128> usartPeripheral;
 
 volatile std::uint32_t ticks;
 
