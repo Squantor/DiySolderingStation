@@ -37,6 +37,7 @@ struct uartSync {
     usartPeripheral()->BRG = baudDivider;
     usartPeripheral()->CFG = hardware::CFG::ENABLE | static_cast<std::uint32_t>(uartLength::SIZE_8) |
                              static_cast<std::uint32_t>(uartParity::NONE) | static_cast<std::uint32_t>(uartStop::STOP_1);
+    usartPeripheral()->INTENSET = hardware::INTENSET::RXRDYEN;
     return CLOCK_MAIN / 16 / baudDivider;
   }
   /**
@@ -52,11 +53,12 @@ struct uartSync {
     usartPeripheral()->BRG = baudDivider;
     usartPeripheral()->CFG = hardware::CFG::ENABLE | static_cast<std::uint32_t>(lengthBits) | static_cast<std::uint32_t>(parity) |
                              static_cast<std::uint32_t>(stopBits);
+    usartPeripheral()->INTENSET = hardware::INTENSET::RXRDYEN;
     return CLOCK_MAIN / 16 / baudDivider;
   }
   /**
-   * @brief
-   * @param buffer data to transmit via uart
+   * @brief blocking USART transmit
+   * @param buffer data to transmit via USART
    */
   constexpr void transmit(std::span<transferType> buffer) {
     std::size_t bufferIndex = 0;
@@ -76,6 +78,23 @@ struct uartSync {
       }
     }
   }
+  /** @brief blocking USART receive
+   * @param buffer data to receive from USART
+   */
+  constexpr void receive(std::span<transferType> buffer) {
+    std::size_t bufferIndex = 0;
+    while (bufferIndex != buffer.size()) {
+      if (!rxBuffer.empty()) {
+        rxBuffer.popBack(buffer[bufferIndex]);
+        bufferIndex++;
+      }
+    }
+  }
+
+  constexpr std::uint32_t receiveDataAvailable() {
+    return rxBuffer.level();
+  }
+
   /**
    * @brief UART interrupt service routine
    */
@@ -88,6 +107,10 @@ struct uartSync {
         txBuffer.popBack(data);
         usartPeripheral()->TXDAT = data;
       }
+    }
+    if (usartPeripheral()->INTSTAT & hardware::INTSTAT::RXRDY) {
+      // TODO, what do we do if rx buffer is full?
+      rxBuffer.pushFront(usartPeripheral()->RXDAT);
     }
   }
 

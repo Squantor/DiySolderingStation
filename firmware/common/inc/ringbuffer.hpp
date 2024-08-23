@@ -40,6 +40,19 @@ class RingBuffer {
     return front == back;
   }
 
+  /**
+   * @brief returns fill level of the ringbuffer
+   * @return amount of elements in ringbuffer
+   */
+  std::size_t level() {
+    if (front > back)
+      return front - back;
+    if (back > front)
+      return N - (back - front);
+    else
+      return 0;
+  }
+
   bool pushBack(const T& p) {
     if (full())
       return false;

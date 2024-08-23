@@ -19,5 +19,11 @@ void application::progress() {
     usartPeripheral.transmit(transmitBuffer);
     currentTicks = ticks;
   }
+  // echo characters
+  if (usartPeripheral.receiveDataAvailable() > 0) {
+    static std::array<std::uint8_t, 1> data;
+    usartPeripheral.receive(data);
+    usartPeripheral.transmit(data);
+  }
 }
 }  // namespace application
