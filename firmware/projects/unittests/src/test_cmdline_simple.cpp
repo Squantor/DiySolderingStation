@@ -1,13 +1,12 @@
 /*
  * SPDX-License-Identifier: MIT
  *
- * Copyright (c) 2021 Bart Bilos
+ * Copyright (c) 2024 Bart Bilos
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * \file test_ringbuf.cpp
- *
- * All tests for the ring buffer class
+ * \file test_cmdline_simple.cpp
+ * All tests for testing the simple commandline parser class
  */
 #include <MinUnit.h>
 #include <stdint.h>

@@ -16,6 +16,8 @@ $(NAME)_FILES := $(PROJ_DIR)/src/main.cpp \
 $(PROJ_DIR)/src/test_ringbuf.cpp \
 common/src/cmdline_simple.cpp \
 $(PROJ_DIR)/src/test_cmdline_simple.cpp \
+common/src/ansi_parse.cpp \
+$(PROJ_DIR)/src/test_ansi_parse.cpp \
 $(PROJ_DIR)/src/test.cpp
 $(NAME)_INCLUDES := -I$(PROJ_DIR)/inc -Icommon/inc
 $(NAME)_PREBUILD_SCRIPT := $(PROJ_DIR)/prebuild.sh
