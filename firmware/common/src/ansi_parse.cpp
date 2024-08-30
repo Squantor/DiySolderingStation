@@ -10,7 +10,7 @@
 #include <ansi_parse.hpp>
 
 namespace squLib {
-ansiParserState ansiParse::inputChar(char c) {
+ansiParserState ansiParse::input(const char &c) {
   if ((c == '\e') && (state == detail::ansiParserState::idle)) {
     state = detail::ansiParserState::entered;
   } else if (state == detail::ansiParserState::entered) {

@@ -10,7 +10,7 @@
       "request": "launch",
       "program": "${workspaceFolder}/bin/unittests/debug/unittests.elf",
       "args": [],
-      "stopAtEntry": true,
+      // "stopAtEntry": true,
       "cwd": "${workspaceFolder}",
       "environment": [],
       "externalConsole": false,

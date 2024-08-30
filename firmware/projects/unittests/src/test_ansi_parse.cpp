@@ -28,14 +28,33 @@ MINUNIT_SETUP(ansiParseTeardown) {
  */
 MINUNIT_ADD(ansiParseStateTests, ansiParseSetup, ansiParseTeardown) {
   minUnitCheck(classUnderTest.status() == squLib::ansiParserState::idle);
-  minUnitCheck(classUnderTest.inputChar('A') == squLib::ansiParserState::idle);
-  minUnitCheck(classUnderTest.inputChar('\e') == squLib::ansiParserState::busy);
+  minUnitCheck(classUnderTest.input('A') == squLib::ansiParserState::idle);
+  minUnitCheck(classUnderTest.input('\e') == squLib::ansiParserState::busy);
   classUnderTest.reset();
   minUnitCheck(classUnderTest.status() == squLib::ansiParserState::idle);
-  minUnitCheck(classUnderTest.inputChar('\e') == squLib::ansiParserState::busy);
-  minUnitCheck(classUnderTest.inputChar('[') == squLib::ansiParserState::busy);
-  minUnitCheck(classUnderTest.inputChar('A') == squLib::ansiParserState::ready);
+  minUnitCheck(classUnderTest.input('\e') == squLib::ansiParserState::busy);
+  minUnitCheck(classUnderTest.input('[') == squLib::ansiParserState::busy);
+  minUnitCheck(classUnderTest.input('A') == squLib::ansiParserState::ready);
   minUnitCheck(classUnderTest.status() == squLib::ansiParserState::ready);
   minUnitCheck(classUnderTest.getSequence() == squLib::ansiSequence::cursorUp);
+  minUnitCheck(classUnderTest.status() == squLib::ansiParserState::idle);
+}
+
+/**
+ * @brief Check all ansi squences
+ */
+MINUNIT_ADD(ansiParseSequences, ansiParseSetup, ansiParseTeardown) {
+  minUnitCheck(classUnderTest.status() == squLib::ansiParserState::idle);
+  minUnitCheck(classUnderTest.input("\e[A") == squLib::ansiParserState::ready);
+  minUnitCheck(classUnderTest.getSequence() == squLib::ansiSequence::cursorUp);
+  minUnitCheck(classUnderTest.status() == squLib::ansiParserState::idle);
+  minUnitCheck(classUnderTest.input("\e[B") == squLib::ansiParserState::ready);
+  minUnitCheck(classUnderTest.getSequence() == squLib::ansiSequence::cursorDown);
+  minUnitCheck(classUnderTest.status() == squLib::ansiParserState::idle);
+  minUnitCheck(classUnderTest.input("\e[C") == squLib::ansiParserState::ready);
+  minUnitCheck(classUnderTest.getSequence() == squLib::ansiSequence::cursorForward);
+  minUnitCheck(classUnderTest.status() == squLib::ansiParserState::idle);
+  minUnitCheck(classUnderTest.input("\e[D") == squLib::ansiParserState::ready);
+  minUnitCheck(classUnderTest.getSequence() == squLib::ansiSequence::cursorBackward);
   minUnitCheck(classUnderTest.status() == squLib::ansiParserState::idle);
 }

@@ -9,6 +9,9 @@
  */
 #ifndef ANSI_PARSE_HPP
 #define ANSI_PARSE_HPP
+
+#include <span>
+
 namespace squLib {
 
 enum class ansiParserState {
@@ -71,7 +74,18 @@ class ansiParse {
    * @param c character to input
    * @return state the parser is in
    */
-  ansiParserState inputChar(char c);
+  ansiParserState input(const char &c);
+
+  /**
+   * @brief Inputs a buffer of characters for the ANSI parser
+   * @param buffer character buffer
+   * @return state the parser is in
+   */
+  ansiParserState input(std::span<const char> buffer) {
+    for (const auto &element : buffer)
+      input(element);
+    return status();
+  }
 
   /**
    * @brief Get the parsed squence, no checking on intermediate state
