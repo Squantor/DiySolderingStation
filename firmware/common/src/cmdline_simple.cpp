@@ -9,4 +9,4 @@
  */
 #include <cmdline_simple.hpp>
 
-namespace squLib {}
+namespace squLib {}  // namespace squLib

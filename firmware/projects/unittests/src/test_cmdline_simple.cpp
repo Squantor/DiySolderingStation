@@ -12,7 +12,10 @@
 #include <stdint.h>
 #include <cmdline_simple.hpp>
 
+squLib::commandlineSimple<6> commandlineSimpleDut;
+
 MINUNIT_SETUP(cmdlineSimpleSetup) {
+  commandlineSimpleDut.reset();
   minUnitPass();
 }
 
