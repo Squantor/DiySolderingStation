@@ -13,7 +13,7 @@
 #include <cstring>
 
 mocks::charDevice<42> charDeviceMock;
-squLib::console<32, charDeviceMock> dutConsole;
+squLib::console<20, charDeviceMock> dutConsole;
 
 /**
  * @brief setup and initialisation
@@ -54,6 +54,9 @@ MINUNIT_ADD(consoleWriteTest, consoleSetup, consoleTeardown) {
   minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "GazGazonkGazonk\n", 16) == 0);
 }
 
+/**
+ * @brief Test console read functionality
+ */
 MINUNIT_ADD(consoleReadTest, consoleSetup, consoleTeardown) {
   std::array<char, 1> singleChar;
   std::array<char, 7> testString;
@@ -71,4 +74,19 @@ MINUNIT_ADD(consoleReadTest, consoleSetup, consoleTeardown) {
   dutConsole.read(testString);
   minUnitCheck(charDeviceMock.readIndex == 7);
   minUnitCheck(std::memcmp(testString.data(), "Gazonk\n", 7) == 0);
+}
+
+/**
+ * @brief Test console write overflow functionality
+ */
+MINUNIT_ADD(consoleWriteTestOverflow, consoleSetup, consoleTeardown) {
+  std::array<char, 6> testString{"Frobs"};
+  dutConsole.write(std::span<char>(testString).first(5));
+  minUnitCheck(charDeviceMock.writeIndex == 0);
+  dutConsole.write(std::span<char>(testString).first(5));
+  dutConsole.write(std::span<char>(testString).first(5));
+  dutConsole.write(std::span<char>(testString).first(5));
+  dutConsole.write(std::span<char>(testString).first(5));
+  minUnitCheck(charDeviceMock.writeIndex == 20);
+  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "FrobsFrobsFrobsFrobs", 20) == 0);
 }
