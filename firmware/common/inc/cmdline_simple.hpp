@@ -14,6 +14,8 @@
 #include <cstdint>
 #include <array>
 #include <span>
+#include <console.hpp>
+#include <ansi_parse.hpp>
 
 namespace squLib {
 namespace detail {
@@ -22,12 +24,7 @@ enum class commandlineState {
   ansiSquence, /**< parsing an ansi squence */
 };
 }  // namespace detail
-/**
- * @brief simple commandline parser
- * Can only recall previous command, no command completion0
- * @tparam N max commandline size
- */
-template <std::size_t N>
+template <std::size_t N, auto &consoleDriver, auto &commandHandler>
 class commandlineSimple {
  public:
   commandlineSimple() : bufferIndex{0}, state{detail::commandlineState::normal} {};
@@ -54,29 +51,38 @@ class commandlineSimple {
   void input(const char &c) {
     switch (c) {
       case '\n':
-        // emit character
-        // TODO: send full string to caller
+        consoleDriver.write(c);
+        commandHandler.handle(std::span<char>(buffer).first(bufferIndex));
+        bufferIndex = 0;
+        goto done;
         break;
       case '\b':
-        // emit character sequence erasing previous one
-
-        if (bufferIndex != 0)
+        if (bufferIndex != 0) {
+          consoleDriver.write('\b');
+          consoleDriver.write(' ');
+          consoleDriver.write('\b');
           bufferIndex = bufferIndex - 1;
+        } else
+          consoleDriver.write('\a');  // send a bell
+
+        goto done;
         break;
 
       default:
         break;
     }
-    // check if we have a special sequence/character
-    // no, add to buffer
-    // yes
-    // CR/LF/backspace?
-    // handle it
     // ansi character?
     // handle it
+  normal_char:
+    consoleDriver.write(c);
+    buffer[bufferIndex] = c;
+    bufferIndex = bufferIndex + 1;
+  done:
+    return;  // added to supress warning
   }
 
  private:
+  ansiParse ansiParser;
   std::array<char, N> buffer;
   std::size_t bufferIndex;
   detail::commandlineState state;

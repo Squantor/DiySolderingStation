@@ -35,6 +35,14 @@ class charDevice {
   }
   /**
    * @brief write some data to buffer
+   * @param input data to read from
+   */
+  void write(const char &input) {
+    std::array<char, 1> inputBuffer{input};
+    write(inputBuffer);
+  }
+  /**
+   * @brief write some data to buffer
    * @param input data buffer to read from
    */
   void write(std::span<const char> input) {

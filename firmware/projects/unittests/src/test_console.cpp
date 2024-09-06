@@ -12,8 +12,8 @@
 #include <mock_char_device.hpp>
 #include <cstring>
 
-mocks::charDevice<42> charDeviceMock;
-squLib::console<20, charDeviceMock> dutConsole;
+static mocks::charDevice<42> charDeviceMock;
+static squLib::console<20, charDeviceMock> dutConsole;
 
 /**
  * @brief setup and initialisation
