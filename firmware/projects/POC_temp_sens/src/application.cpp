@@ -22,8 +22,8 @@ void application::progress() {
   // echo characters
   if (usartPeripheral.receiveDataAvailable() > 0) {
     static std::array<char, 1> data;
-    usartPeripheral.receive(data);
-    usartPeripheral.transmit(data);
+    usartPeripheral.read(data);
+    usartPeripheral.write(data);
   }
 }
 }  // namespace application

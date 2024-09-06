@@ -40,7 +40,7 @@ void WriteConsole(const char* ptr, std::size_t len) {
   // if (device::consoleDevice) {
   //    device::consoleDevice->Write(ptr, len);
   //  }
-  usartPeripheral.transmit(std::span{ptr, len});
+  usartPeripheral.write(std::span{ptr, len});
 }
 
 void Print(const char* s) {
