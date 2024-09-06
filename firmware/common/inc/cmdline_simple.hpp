@@ -5,7 +5,8 @@
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * @brief simple commandline handler class
+ * @file commandline handler class with minimum functionality
+ * @brief commandline handler that handles backspaces and recalling previous commands
  */
 #ifndef CMDLINE_SIMPLE_HPP
 #define CMDLINE_SIMPLE_HPP
@@ -39,17 +40,40 @@ class commandlineSimple {
     state = detail::commandlineState::normal;
   };
   /**
-   * @brief input one character
-   * @param c character to input
-   */
-  void input(const char &c) {}
-  /**
    * @brief input a block of characters
    * @param inputBuffer block of characters
    */
   void input(std::span<const char> inputBuffer) {
     for (const char &element : inputBuffer)
       input(element);
+  }
+  /**
+   * @brief input one character
+   * @param c character to input
+   */
+  void input(const char &c) {
+    switch (c) {
+      case '\n':
+        // emit character
+        // TODO: send full string to caller
+        break;
+      case '\b':
+        // emit character sequence erasing previous one
+
+        if (bufferIndex != 0)
+          bufferIndex = bufferIndex - 1;
+        break;
+
+      default:
+        break;
+    }
+    // check if we have a special sequence/character
+    // no, add to buffer
+    // yes
+    // CR/LF/backspace?
+    // handle it
+    // ansi character?
+    // handle it
   }
 
  private:

@@ -5,7 +5,7 @@
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * @file tests for the LPC845M301 GPIO peripheral
+ * @file test template
  */
 #include <MinUnit.h>
 
