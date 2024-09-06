@@ -51,9 +51,12 @@ class commandlineSimple {
   void input(const char &c) {
     switch (c) {
       case '\n':
-        consoleDriver.write(c);
-        commandHandler.handle(std::span<char>(buffer).first(bufferIndex));
-        bufferIndex = 0;
+      case '\r':
+        if (bufferIndex != 0) {
+          consoleDriver.write(c);
+          commandHandler.handle(std::span<char>(buffer).first(bufferIndex));
+          bufferIndex = 0;
+        }
         goto done;
         break;
       case '\b':

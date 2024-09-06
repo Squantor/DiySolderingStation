@@ -58,6 +58,14 @@ struct uartSync {
   }
   /**
    * @brief blocking USART transmit
+   * @param input data to transmit via USART
+   */
+  constexpr void write(const transferType& input) {
+    std::array<transferType, 1> inputBuffer{input};
+    write(inputBuffer);
+  }
+  /**
+   * @brief blocking USART transmit
    * @param buffer data to transmit via USART
    */
   constexpr void write(std::span<const transferType> buffer) {

@@ -11,6 +11,7 @@
 #define PRINT_HPP
 
 #include <cstdint>
+#include <span>
 
 namespace print {
 struct Hex {
@@ -19,6 +20,7 @@ struct Hex {
 
 namespace detail {
 void Print(const char*);
+void Print(std::span<const char>);
 void Print(std::uint32_t);
 void Print(Hex);
 template <typename T>

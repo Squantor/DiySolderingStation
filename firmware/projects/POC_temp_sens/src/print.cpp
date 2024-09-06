@@ -37,10 +37,11 @@ void putint(const unsigned int base, const uintmax_t n, Emitter emit) {
 namespace print::detail {
 
 void WriteConsole(const char* ptr, std::size_t len) {
-  // if (device::consoleDevice) {
-  //    device::consoleDevice->Write(ptr, len);
-  //  }
   usartPeripheral.write(std::span{ptr, len});
+}
+
+void Print(std::span<const char> buffer) {
+  WriteConsole(buffer.data(), buffer.size());
 }
 
 void Print(const char* s) {
