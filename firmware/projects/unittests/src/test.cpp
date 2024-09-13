@@ -16,10 +16,23 @@ MINUNIT_SETUP(testSetup) {
   minUnitPass();
 }
 
-MINUNIT_ADD(test1, testSetup, nullptr) {
+/**
+ * @brief Teardown
+ */
+MINUNIT_TEARDOWN(testTeardown) {
   minUnitPass();
 }
 
+/**
+ * @brief Test 1
+ */
+MINUNIT_ADD(test1, testSetup, testTeardown) {
+  minUnitPass();
+}
+
+/**
+ * @brief Test 2 with no setup/teardowns
+ */
 MINUNIT_ADD(test2, nullptr, nullptr) {
   minUnitPass();
 }
