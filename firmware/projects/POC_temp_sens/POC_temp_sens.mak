@@ -17,6 +17,8 @@ $(NAME)_LIBS := libMcuLL squantorLibC squantorLibEmbedded
 $(NAME)_FILES := $(PROJ_DIR)/src/main.cpp \
 $(PROJ_DIR)/src/application.cpp \
 $(PROJ_DIR)/src/print.cpp \
+$(PROJ_DIR)/src/command_handlers.cpp \
+common/src/parse_digit.cpp \
 $(PROJ_DIR)/src/$(BOARD).cpp
 $(NAME)_INCLUDES := -I$(PROJ_DIR)/inc -Icommon/inc
 
@@ -24,4 +26,3 @@ $(NAME)_INCLUDES := -I$(PROJ_DIR)/inc -Icommon/inc
 PROJECTS += $(NAME)
 $(NAME)_PROJECT_ROOT := $(PROJ_DIR)
 $(NAME)_BOARD := $(BOARD)
-

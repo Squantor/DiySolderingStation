@@ -9,12 +9,22 @@
  */
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
+
+#include <POC_temp_sense_nuclone.hpp>
+#include <command_interpreter_number.hpp>
+#include <command_value_stack.hpp>
+#include <command_handlers.hpp>
+
 namespace application {
 struct application {
   application() {}
   void init();
   void progress();
 };
+
+extern squLib::commandValueStack<8, usartPeripheral> commandValues;
+extern squLib::commandInterpreter<commandHandlers, commandValues, usartPeripheral> commandInterpreter;
+
 }  // namespace application
 
 #endif
