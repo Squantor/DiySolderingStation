@@ -81,12 +81,26 @@ class RingBuffer {
     return true;
   }
 
+  bool popBack() {
+    if (empty())
+      return false;
+    back = increment(back);
+    return true;
+  }
+
   bool popFront(T& p) {
     if (empty())
       return false;
     auto temp = decrement(front);
     p = *temp;
     front = temp;
+    return true;
+  }
+
+  bool popFront(void) {
+    if (empty())
+      return false;
+    front = decrement(front);
     return true;
   }
 
