@@ -8,6 +8,8 @@
  * @file Tests for command value stack interpreter
  */
 #include <MinUnit.h>
+#include <array>
+#include <results.hpp>
 #include <command_value_stack.hpp>
 #include <mock_char_device.hpp>
 
@@ -70,5 +72,22 @@ MINUNIT_ADD(testDropAndDup, commandValueStackSetup, commandValueStackTeardown) {
   minUnitCheck(value.has_value() == false);
 }
 
-// test forth primitives swap rot over
-// test parsing of values
+MINUNIT_ADD(testPushString, commandValueStackSetup, commandValueStackTeardown) {
+  // std::array<const char, 5> value1234{"1234"};
+  std::span<const char> value1234{"1234"};
+  std::span<const char> value89AB{"0x89AB"};
+  minUnitCheck(commandValueStackDut.push(value1234.subspan(0, 4)) == squLib::result::ok);
+  minUnitCheck(commandValueStackDut.push(value89AB.subspan(0, 6)) == squLib::result::ok);
+  minUnitCheck(commandValueStackDut.size() == 2);
+  std::optional<std::int32_t> value;
+  value = commandValueStackDut.pop();
+  minUnitCheck(value.has_value() == true);
+  minUnitCheck(*value == 35243);
+  value = commandValueStackDut.pop();
+  minUnitCheck(value.has_value() == true);
+  minUnitCheck(*value == 1234);
+  value = commandValueStackDut.pop();
+  minUnitCheck(value.has_value() == false);
+}
+
+// TODO: test forth primitives swap rot over

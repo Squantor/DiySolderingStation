@@ -18,6 +18,11 @@
 #include <command_handler.hpp>
 
 namespace squLib {
+/**
+ * @brief 
+ * @tparam &commandTable 
+ * @tparam &consoleDriver 
+ */
 template <std::span<const commandHandler> &commandTable, auto &consoleDriver>
 struct commandInterpreter {
   result handle(std::span<const char> command) {

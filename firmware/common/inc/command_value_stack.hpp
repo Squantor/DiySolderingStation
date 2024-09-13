@@ -17,6 +17,7 @@
 #include <array>
 #include <span>
 #include <optional>
+#include <parse_digit.hpp>
 #include <ringbuffer.hpp>
 #include <results.hpp>
 
@@ -41,9 +42,10 @@ struct commandValueStack {
     valueStack.pushFront(value);
   }
 
-  result push(std::span<char> string) {
+  result push(std::span<const char> string) {
     std::size_t index = 0;
     bool isNegative = false;
+    std::int32_t value = 0;
     if (string[index] == '-') {
       isNegative = true;
       index++;
@@ -54,9 +56,30 @@ struct commandValueStack {
     while (string[index] == '0')
       index = index + 1;
     if (string[index] == 'x') {
-      //   handle hex char
+      index = index + 1;
+      if (isNegative == true)
+        return result::error;
+      //   handle hex number
+      while (index < string.size()) {
+        std::optional<unsigned int> result = parseDigitHex(string[index]);
+        if (result.has_value() == false)
+          return result::error;
+        value = value * 16;
+        value = value + *result;
+        index = index + 1;
+      }
+      valueStack.pushFront(value);
     } else {
       // handle positive number
+      while (index < string.size()) {
+        std::optional<unsigned int> result = parseDigitDec(string[index]);
+        if (result.has_value() == false)
+          return result::error;
+        value = value * 10;
+        value = value + *result;
+        index = index + 1;
+      }
+      valueStack.pushFront(value);
     }
     return result::ok;
   }

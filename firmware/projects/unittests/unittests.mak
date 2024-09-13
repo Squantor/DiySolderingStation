@@ -21,6 +21,7 @@ $(PROJ_DIR)/src/test_console.cpp \
 $(PROJ_DIR)/src/test_ansi_parse.cpp \
 $(PROJ_DIR)/src/test_command_interpreter.cpp \
 $(PROJ_DIR)/src/test_command_value_stack.cpp \
+common/src/parse_digit.cpp \
 $(PROJ_DIR)/src/test.cpp
 $(NAME)_INCLUDES := -I$(PROJ_DIR)/inc -Icommon/inc
 $(NAME)_PREBUILD_SCRIPT := $(PROJ_DIR)/prebuild.sh
