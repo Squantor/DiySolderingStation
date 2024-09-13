@@ -26,7 +26,9 @@ struct commandInterpreter {
     if (command.size() == 0)
       return results::error;
     // handle number
-    if (isdigit(command[0]) && command[0] == '-') {
+    char c = command[0];
+    if ((isdigit(c) == true) || (c == '-')) {
+      consoleDriver.write("\n");
       return numberParser.push(command);
     }
 
