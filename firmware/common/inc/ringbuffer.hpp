@@ -8,7 +8,8 @@
  *\file ringbuffer.hpp
  *
  * Implements a ringbuffer class
- *
+ * TODO: add doxygen documentation
+ * TODO: retool to use std::optional for the pop functions
  */
 #ifndef RINGBUFFER_HPP
 #define RINGBUFFER_HPP
