@@ -44,9 +44,9 @@ struct commandValueStack {
   }
 
   results push(std::span<const char> string) {
-    std::size_t index = 0;
-    bool isNegative = false;
-    std::int32_t value = 0;
+    std::size_t index{0};
+    bool isNegative{false};
+    std::int32_t value{0};
     if (string[index] == '-') {
       isNegative = true;
       index++;
@@ -98,8 +98,7 @@ struct commandValueStack {
   void dup() {
     if (topOfStack == 0)
       return;
-    std::int32_t value = valueStack[topOfStack - 1];
-    valueStack[topOfStack] = value;
+    valueStack[topOfStack] = valueStack[topOfStack - 1];
     topOfStack = topOfStack + 1;
   }
 

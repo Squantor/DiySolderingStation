@@ -22,12 +22,9 @@ squLib::results printStack(std::span<const char> commandLine) {
   (void)commandLine;
   if (commandValues.size() == 0)
     Print("Stack is empty\n");
-  std::size_t maxIndex = commandValues.valueStack.level();
-  for (std::size_t i = 0; i < maxIndex; i++) {
-    std::int32_t value;
-    commandValues.valueStack.popBack(value);
-    Print("Index : ", i, " value : ", value, "\n");
-    commandValues.valueStack.pushFront(value);
+  for (std::size_t i = 0; i < commandValues.topOfStack; i++) {
+    std::int32_t value{commandValues.valueStack[i]};
+    Print("Index : ", i, " value : ", print::Dec{value}, "\n");
   }
   return squLib::results::ok;
 }

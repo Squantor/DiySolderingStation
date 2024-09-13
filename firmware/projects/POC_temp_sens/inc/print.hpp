@@ -17,12 +17,16 @@ namespace print {
 struct Hex {
   std::uint32_t v;
 };
+struct Dec {
+  std::int32_t v;
+};
 
 namespace detail {
 void Print(const char*);
 void Print(std::span<const char>);
 void Print(std::uint32_t);
 void Print(Hex);
+void Print(Dec);
 template <typename T>
 void Print(T* p) {
   Print(Hex{reinterpret_cast<uint32_t>(p)});

@@ -40,6 +40,10 @@ void WriteConsole(const char* ptr, std::size_t len) {
   usartPeripheral.write(std::span{ptr, len});
 }
 
+void WriteConsole(char c) {
+  usartPeripheral.write(std::span{&c, 1});
+}
+
 void Print(std::span<const char> buffer) {
   WriteConsole(buffer.data(), buffer.size());
 }
@@ -50,6 +54,17 @@ void Print(const char* s) {
 
 void Print(std::uint32_t n) {
   putint(10, n, [](const auto ch) {
+    WriteConsole(&ch, 1);
+  });
+}
+
+void Print(Dec n) {
+  int32_t value{n.v};
+  if (value < 0) {
+    WriteConsole('-');
+    value = -value;
+  }
+  putint(10, value, [](const auto ch) {
     WriteConsole(&ch, 1);
   });
 }
