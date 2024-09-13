@@ -13,7 +13,7 @@
 #include <stdint.h>
 #include <ringbuffer.hpp>
 
-libMcu::RingBuffer<uint16_t, 10> RingBufferDutU16;
+squLib::RingBuffer<uint16_t, 10> RingBufferDutU16;
 
 MINUNIT_ADD(RingBufferCppEmpty, NULL, NULL) {
   RingBufferDutU16.reset();
