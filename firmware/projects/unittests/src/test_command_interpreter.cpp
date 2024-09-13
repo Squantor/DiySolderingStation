@@ -16,22 +16,22 @@ int barCounter;
 int zagCounter;
 int helpCounter;
 
-squLib::result fooFunc(std::span<const char> commandLine) {
+squLib::results fooFunc(std::span<const char> commandLine) {
   (void)commandLine;
   fooCounter = fooCounter + 1;
-  return squLib::result::ok;
+  return squLib::results::ok;
 }
-squLib::result barFunc(std::span<const char> commandLine) {
+squLib::results barFunc(std::span<const char> commandLine) {
   (void)commandLine;
   barCounter = barCounter + 1;
-  return squLib::result::ok;
+  return squLib::results::ok;
 }
-squLib::result zagFunc(std::span<const char> commandLine) {
+squLib::results zagFunc(std::span<const char> commandLine) {
   (void)commandLine;
   zagCounter = zagCounter + 1;
-  return squLib::result::ok;
+  return squLib::results::ok;
 }
-squLib::result helpFunc(std::span<const char> commandLine);
+squLib::results helpFunc(std::span<const char> commandLine);
 
 squLib::commandHandler fooCmdHandle{"foo", "fooing the foo\n", fooFunc};
 squLib::commandHandler barCmdHandle{"bar", "barring the bar\n", barFunc};
@@ -44,11 +44,11 @@ static mocks::charDevice<200> charDeviceMock;
 
 squLib::commandInterpreter<commandHandlers, charDeviceMock> commandInterpreterDut;
 
-squLib::result helpFunc(std::span<const char> commandLine) {
+squLib::results helpFunc(std::span<const char> commandLine) {
   (void)commandLine;
   commandInterpreterDut.printHelp();
   helpCounter = helpCounter + 1;
-  return squLib::result::ok;
+  return squLib::results::ok;
 }
 
 /**
@@ -78,13 +78,13 @@ MINUNIT_ADD(commandInterpreterCommandParse, commandInterpreterSetup, commandInte
   std::array<const char, 6> InvalidCmd{"blorp"};
   std::array<const char, 4> validCmd1{"foo"};
   std::array<const char, 4> validCmd2{"zag"};
-  minUnitCheck(commandInterpreterDut.handle(singleChar) == squLib::result::notFound);
-  minUnitCheck(commandInterpreterDut.handle(InvalidCmd) == squLib::result::notFound);
+  minUnitCheck(commandInterpreterDut.handle(singleChar) == squLib::results::notFound);
+  minUnitCheck(commandInterpreterDut.handle(InvalidCmd) == squLib::results::notFound);
   minUnitCheck(fooCounter == 0);
-  minUnitCheck(commandInterpreterDut.handle(validCmd1) == squLib::result::ok);
+  minUnitCheck(commandInterpreterDut.handle(validCmd1) == squLib::results::ok);
   minUnitCheck(fooCounter == 1);
   minUnitCheck(zagCounter == 0);
-  minUnitCheck(commandInterpreterDut.handle(validCmd2) == squLib::result::ok);
+  minUnitCheck(commandInterpreterDut.handle(validCmd2) == squLib::results::ok);
   minUnitCheck(zagCounter == 1);
 }
 
@@ -93,7 +93,7 @@ MINUNIT_ADD(commandInterpreterCommandParse, commandInterpreterSetup, commandInte
  */
 MINUNIT_ADD(commandInterpreterPrintHelp, commandInterpreterSetup, commandInterpreterTeardown) {
   std::array<const char, 5> helpCmd{"help"};
-  minUnitCheck(commandInterpreterDut.handle(helpCmd) == squLib::result::ok);
+  minUnitCheck(commandInterpreterDut.handle(helpCmd) == squLib::results::ok);
   minUnitCheck(std::strlen(charDeviceMock.writeBuffer.data()) == 73);
   minUnitCheck(std::strcmp(charDeviceMock.writeBuffer.data(),
                            "Prints available commands\n"

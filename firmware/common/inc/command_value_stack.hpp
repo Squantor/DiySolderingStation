@@ -42,7 +42,7 @@ struct commandValueStack {
     valueStack.pushFront(value);
   }
 
-  result push(std::span<const char> string) {
+  results push(std::span<const char> string) {
     std::size_t index = 0;
     bool isNegative = false;
     std::int32_t value = 0;
@@ -51,19 +51,19 @@ struct commandValueStack {
       index++;
     }
     if (isdigit(string[index]) == 0)
-      return result::error;
+      return results::error;
     // strip leading zeroes
     while (string[index] == '0')
       index = index + 1;
     if (string[index] == 'x') {
       index = index + 1;
       if (isNegative == true)
-        return result::error;
+        return results::error;
       //   handle hex number
       while (index < string.size()) {
         std::optional<unsigned int> result = parseDigitHex(string[index]);
         if (result.has_value() == false)
-          return result::error;
+          return results::error;
         value = value * 16;
         value = value + *result;
         index = index + 1;
@@ -74,14 +74,14 @@ struct commandValueStack {
       while (index < string.size()) {
         std::optional<unsigned int> result = parseDigitDec(string[index]);
         if (result.has_value() == false)
-          return result::error;
+          return results::error;
         value = value * 10;
         value = value + *result;
         index = index + 1;
       }
       valueStack.pushFront(value);
     }
-    return result::ok;
+    return results::ok;
   }
 
   std::optional<std::int32_t> pop() {

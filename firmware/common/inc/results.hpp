@@ -14,7 +14,7 @@
 #include <cstdint>
 
 namespace squLib {
-enum class result : std::uint8_t {
+enum class results : std::uint8_t {
   ok = 0,   /*!< Everything okay*/
   error,    /*!< Unspecified error */
   notFound, /*!< not found */

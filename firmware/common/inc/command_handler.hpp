@@ -18,7 +18,7 @@ namespace squLib {
 struct commandHandler {
   const char* commandString;
   const char* helpString;
-  result (*handler)(std::span<const char> commandLine);
+  results (*handler)(std::span<const char> commandLine);
 };
 }  // namespace squLib
 

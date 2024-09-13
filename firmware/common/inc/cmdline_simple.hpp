@@ -16,6 +16,7 @@
 #include <span>
 #include <console.hpp>
 #include <ansi_parse.hpp>
+#include <results.hpp>
 
 namespace squLib {
 namespace detail {
@@ -54,7 +55,14 @@ class commandlineSimple {
       case '\r':
         if (bufferIndex != 0) {
           consoleDriver.write(c);
-          commandHandler.handle(std::span<char>(buffer).first(bufferIndex));
+          results status = commandHandler.handle(std::span<char>(buffer).first(bufferIndex));
+          if (status == results::notFound) {
+            consoleDriver.write("Unknown command : ");
+            consoleDriver.write(std::span<char>(buffer).first(bufferIndex));
+            consoleDriver.write("\n");
+          } else if (status == results::notFound) {
+            consoleDriver.write("command error\n");
+          };
           bufferIndex = 0;
         }
         goto done;

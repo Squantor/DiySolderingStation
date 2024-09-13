@@ -76,8 +76,8 @@ MINUNIT_ADD(testPushString, commandValueStackSetup, commandValueStackTeardown) {
   // std::array<const char, 5> value1234{"1234"};
   std::span<const char> value1234{"1234"};
   std::span<const char> value89AB{"0x89AB"};
-  minUnitCheck(commandValueStackDut.push(value1234.subspan(0, 4)) == squLib::result::ok);
-  minUnitCheck(commandValueStackDut.push(value89AB.subspan(0, 6)) == squLib::result::ok);
+  minUnitCheck(commandValueStackDut.push(value1234.subspan(0, 4)) == squLib::results::ok);
+  minUnitCheck(commandValueStackDut.push(value89AB.subspan(0, 6)) == squLib::results::ok);
   minUnitCheck(commandValueStackDut.size() == 2);
   std::optional<std::int32_t> value;
   value = commandValueStackDut.pop();

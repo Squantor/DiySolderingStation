@@ -13,7 +13,7 @@
 #include <cmdline_simple.hpp>
 #include <command_interpreter.hpp>
 
-squLib::result helpFunction(std::span<const char> commandLine);
+squLib::results helpFunction(std::span<const char> commandLine);
 
 squLib::commandHandler helpHandler{"help", "Prints out all help commands\n", helpFunction};
 
@@ -23,14 +23,16 @@ std::span<const squLib::commandHandler> commandHandlers{commandHandlerTable};
 squLib::commandInterpreter<commandHandlers, usartPeripheral> commandInterpreter;
 squLib::commandlineSimple<80, usartPeripheral, commandInterpreter> commandline;
 
-squLib::result helpFunction(std::span<const char> commandLine) {
+squLib::results helpFunction(std::span<const char> commandLine) {
   (void)commandLine;
   commandInterpreter.printHelp();
-  return squLib::result::ok;
+  return squLib::results::ok;
 }
 
 namespace application {
-void application::init() {}
+void application::init() {
+  Print("DIY soldering station POC temperature sensing\n");
+}
 void application::progress() {
   static std::uint32_t currentTicks = ticks;
   if (currentTicks + 100 < ticks) {
