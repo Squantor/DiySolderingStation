@@ -11,18 +11,23 @@
 #include <application.hpp>
 #include <print.hpp>
 #include <cmdline_simple.hpp>
+#include <command_interpreter.hpp>
 
-class commandHandle {
- public:
-  commandHandle() {}
-  void handle(std::span<const char> input) {
-    Print("command: ", input, "\n");
-  }
-};
+squLib::result helpFunction(std::span<const char> commandLine);
 
-commandHandle commandHandler;
+squLib::commandHandler helpHandler{"help", "Prints out all help commands\n", helpFunction};
 
-squLib::commandlineSimple<80, usartPeripheral, commandHandler> commandline;
+std::array<squLib::commandHandler, 1> commandHandlerTable{helpHandler};
+std::span<const squLib::commandHandler> commandHandlers{commandHandlerTable};
+
+squLib::commandInterpreter<commandHandlers, usartPeripheral> commandInterpreter;
+squLib::commandlineSimple<80, usartPeripheral, commandInterpreter> commandline;
+
+squLib::result helpFunction(std::span<const char> commandLine) {
+  (void)commandLine;
+  commandInterpreter.printHelp();
+  return squLib::result::ok;
+}
 
 namespace application {
 void application::init() {}

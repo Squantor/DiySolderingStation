@@ -10,6 +10,7 @@
 #ifndef LPC84X_HAL_UARTSYNC_INT_HPP
 #define LPC84X_HAL_UARTSYNC_INT_HPP
 
+#include <string.h>
 #include <LPC84X_hal_uart_common.hpp>
 
 namespace libMcu::hal::usart {
@@ -63,6 +64,16 @@ struct uartSync {
   constexpr void write(const transferType& input) {
     std::array<transferType, 1> inputBuffer{input};
     write(inputBuffer);
+  }
+  /**
+   * @brief blocking USART transmit
+   * @param input C style string to read from
+   */
+  void write(const char* input) {
+    std::size_t maxIndex = strlen(input);
+    for (std::size_t index = 0; index < maxIndex; index++) {
+      write(input[index]);
+    }
   }
   /**
    * @brief blocking USART transmit
@@ -140,8 +151,8 @@ struct uartSync {
 
   static constexpr hwAddressType uartBaseAddress = uartBaseAddress_; /**< UART peripheral address */
   static constexpr hwAddressType nvicBaseAddress = nvicBaseAddress_; /**< NVIC peripheral address */
-  libMcu::RingBuffer<transferType, bufSize> txBuffer;
-  libMcu::RingBuffer<transferType, bufSize> rxBuffer;
+  squLib::RingBuffer<transferType, bufSize> txBuffer;
+  squLib::RingBuffer<transferType, bufSize> rxBuffer;
 };  // namespace libMcu::hw::nvic
 }  // namespace libMcu::hal::usart
 

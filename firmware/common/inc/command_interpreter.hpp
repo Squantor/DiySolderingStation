@@ -19,9 +19,9 @@
 
 namespace squLib {
 /**
- * @brief 
- * @tparam &commandTable 
- * @tparam &consoleDriver 
+ * @brief
+ * @tparam &commandTable
+ * @tparam &consoleDriver
  */
 template <std::span<const commandHandler> &commandTable, auto &consoleDriver>
 struct commandInterpreter {
@@ -43,6 +43,8 @@ struct commandInterpreter {
 
   void printHelp() {
     for (const commandHandler &element : commandTable) {
+      consoleDriver.write(element.commandString);
+      consoleDriver.write(" :\t");
       consoleDriver.write(element.helpString);
     }
   }
