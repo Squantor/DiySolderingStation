@@ -10,6 +10,10 @@
  */
 #include <command_handlers.hpp>
 #include <application.hpp>
+#include <command_stk.hpp>
+#include <command_empty.hpp>
+#include <command_drop.hpp>
+#include <command_dup.hpp>
 
 namespace application {
 
@@ -23,7 +27,7 @@ squLib::results helpFunction(std::span<const char> commandLine) {
   return squLib::results::ok;
 }
 
-std::array<squLib::commandHandler, 1> commandHandlerTable{helpHandler};
+std::array<squLib::commandHandler, 5> commandHandlerTable{helpHandler, stkHandler, emptyHandler, dropHandler, dupHandler};
 std::span<const squLib::commandHandler> commandHandlers{commandHandlerTable};
 
 }

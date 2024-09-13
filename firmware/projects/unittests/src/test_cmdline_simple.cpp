@@ -22,11 +22,12 @@ class commandHandle {
   void reset() {
     commandSize = 0;
   }
-  void handle(std::span<const char> input) {
+  squLib::results handle(std::span<const char> input) {
     for (const char &element : input) {
       command[commandSize] = element;
       commandSize = commandSize + 1;
     }
+    return squLib::results::ok;
   }
 
   std::array<char, 32> command;

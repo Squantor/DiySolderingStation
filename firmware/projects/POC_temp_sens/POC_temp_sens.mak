@@ -19,6 +19,10 @@ $(PROJ_DIR)/src/application.cpp \
 $(PROJ_DIR)/src/print.cpp \
 $(PROJ_DIR)/src/command_handlers.cpp \
 common/src/parse_digit.cpp \
+$(PROJ_DIR)/src/command_stk.cpp \
+$(PROJ_DIR)/src/command_empty.cpp \
+$(PROJ_DIR)/src/command_drop.cpp \
+$(PROJ_DIR)/src/command_dup.cpp \
 $(PROJ_DIR)/src/$(BOARD).cpp
 $(NAME)_INCLUDES := -I$(PROJ_DIR)/inc -Icommon/inc
 
