@@ -94,10 +94,10 @@ MINUNIT_ADD(commandInterpreterCommandParse, commandInterpreterSetup, commandInte
 MINUNIT_ADD(commandInterpreterPrintHelp, commandInterpreterSetup, commandInterpreterTeardown) {
   std::array<const char, 5> helpCmd{"help"};
   minUnitCheck(commandInterpreterDut.handle(helpCmd) == squLib::results::ok);
-  minUnitCheck(std::strlen(charDeviceMock.writeBuffer.data()) == 73);
+  minUnitCheck(std::strlen(charDeviceMock.writeBuffer.data()) == 102);
   minUnitCheck(std::strcmp(charDeviceMock.writeBuffer.data(),
-                           "Prints available commands\n"
-                           "fooing the foo\n"
-                           "barring the bar\n"
-                           "zagging the zag\n") == 0);
+                           "help \t: Prints available commands\n"
+                           "foo \t: fooing the foo\n"
+                           "bar \t: barring the bar\n"
+                           "zag \t: zagging the zag\n") == 0);
 }

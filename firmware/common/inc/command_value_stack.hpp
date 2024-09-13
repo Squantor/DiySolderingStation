@@ -28,18 +28,19 @@ struct commandValueStack {
    * @brief resets stack state to empty
    */
   void reset() {
-    valueStack.reset();
+    topOfStack = 0;
   }
   /**
    * @brief returns amount of elements on the stack
    * @return amount of elements on the stack
    */
   std::size_t size() {
-    return valueStack.level();
+    return topOfStack;
   }
 
   void push(std::int32_t value) {
-    valueStack.pushFront(value);
+    valueStack[topOfStack] = value;
+    topOfStack = topOfStack + 1;
   }
 
   results push(std::span<const char> string) {
@@ -68,7 +69,7 @@ struct commandValueStack {
         value = value + *result;
         index = index + 1;
       }
-      valueStack.pushFront(value);
+      push(value);
     } else {
       // handle positive number
       while (index < string.size()) {
@@ -79,29 +80,32 @@ struct commandValueStack {
         value = value + *result;
         index = index + 1;
       }
-      valueStack.pushFront(value);
+      if (isNegative)
+        value = -value;
+      push(value);
     }
     return results::ok;
   }
 
   std::optional<std::int32_t> pop() {
-    std::int32_t value;
-    if (valueStack.popFront(value) == true) {
-      return value;
+    if (topOfStack > 0) {
+      topOfStack = topOfStack - 1;
+      return valueStack[topOfStack];
     } else
       return {};
   }
 
   void dup() {
-    std::int32_t value;
-    if (valueStack.popFront(value) == false)
+    if (topOfStack == 0)
       return;
-    valueStack.pushFront(value);
-    valueStack.pushFront(value);
+    std::int32_t value = valueStack[topOfStack - 1];
+    valueStack[topOfStack] = value;
+    topOfStack = topOfStack + 1;
   }
 
   void drop() {
-    valueStack.popFront();
+    if (topOfStack > 0)
+      topOfStack = topOfStack - 1;
   }
 
   void swap() {}
@@ -109,8 +113,8 @@ struct commandValueStack {
   void over() {}
 
   void rot() {}
-
-  squLib::RingBuffer<std::int32_t, stackSize> valueStack;
+  std::size_t topOfStack;
+  std::array<std::int32_t, stackSize> valueStack;
 };
 }  // namespace squLib
 

@@ -44,7 +44,7 @@ struct commandInterpreter {
   void printHelp() {
     for (const commandHandler &element : commandTable) {
       consoleDriver.write(element.commandString);
-      consoleDriver.write(" :\t");
+      consoleDriver.write(" \t: ");
       consoleDriver.write(element.helpString);
     }
   }
