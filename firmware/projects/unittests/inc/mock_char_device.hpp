@@ -12,6 +12,7 @@
 #define MOCK_CHAR_DEVICE_HPP
 
 #include <cstdint>
+#include <cstring>
 #include <array>
 #include <span>
 
@@ -23,6 +24,15 @@ namespace mocks {
 template <std::size_t N>
 class charDevice {
  public:
+  /**
+   * @brief reset the mock
+   */
+  void reset() {
+    readIndex = 0;
+    writeIndex = 0;
+    readBuffer.fill(0);
+    writeBuffer.fill(0);
+  }
   /**
    * @brief read some data from buffer
    * @param output data buffer to write to
@@ -51,6 +61,17 @@ class charDevice {
       writeIndex = writeIndex + 1;
     }
   }
+  /**
+   * @brief write some data to buffer
+   * @param input C style string to read from
+   */
+  void write(const char *input) {
+    std::size_t maxIndex = std::strlen(input);
+    for (std::size_t index = 0; index < maxIndex; index++) {
+      write(input[index]);
+    }
+  }
+
   std::size_t readIndex;           /*!< read index in read buffer */
   std::array<char, N> readBuffer;  /*!< buffer to read from */
   std::size_t writeIndex;          /*!< write index in write buffer */

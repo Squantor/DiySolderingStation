@@ -67,7 +67,6 @@ class commandlineSimple {
           bufferIndex = bufferIndex - 1;
         } else
           consoleDriver.write('\a');  // send a bell
-
         goto done;
         break;
 
@@ -75,8 +74,9 @@ class commandlineSimple {
         break;
     }
     // ansi character?
-    // handle it
-  normal_char:
+    //   yes, parse and dont print
+    //   done parsing and it is a ansi sequence? then handle it
+    // nothing special to handle, normal char
     consoleDriver.write(c);
     buffer[bufferIndex] = c;
     bufferIndex = bufferIndex + 1;

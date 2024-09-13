@@ -40,9 +40,8 @@ static squLib::commandlineSimple<6, charDeviceMock, commandHandleMock> dutComman
 
 MINUNIT_SETUP(cmdlineSimpleSetup) {
   dutCommandlineSimple.reset();
+  charDeviceMock.reset();
   commandHandleMock.commandSize = 0;
-  charDeviceMock.readIndex = 0;
-  charDeviceMock.writeIndex = 0;
   minUnitPass();
 }
 
