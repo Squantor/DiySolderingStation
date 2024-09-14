@@ -20,6 +20,8 @@ namespace application {
 squLib::results helpFunction(std::span<const char> commandLine);
 
 squLib::commandHandler helpHandler{"help", "Prints out all help commands\n", helpFunction};
+squLib::commandHandler numberHandler{"0??", "Any integer will get pushed on the stack\n", nullptr};
+squLib::commandHandler hexNumHandler{"0x0?", "Any hex unsigned integer will get pushed on the stack\n", nullptr};
 
 squLib::results helpFunction(std::span<const char> commandLine) {
   (void)commandLine;
@@ -27,7 +29,8 @@ squLib::results helpFunction(std::span<const char> commandLine) {
   return squLib::results::ok;
 }
 
-std::array<squLib::commandHandler, 5> commandHandlerTable{helpHandler, stkHandler, emptyHandler, dropHandler, dupHandler};
+std::array<squLib::commandHandler, 7> commandHandlerTable{helpHandler,  numberHandler, hexNumHandler, stkHandler,
+                                                          emptyHandler, dropHandler,   dupHandler};
 std::span<const squLib::commandHandler> commandHandlers{commandHandlerTable};
 
-}
+}  // namespace application
