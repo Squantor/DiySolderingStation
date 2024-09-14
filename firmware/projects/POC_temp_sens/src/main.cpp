@@ -10,12 +10,14 @@
 #include <POC_temp_sense_nuclone.hpp>
 #include <application.hpp>
 
-application::application controller;
+namespace application {
+application controller;
+}
 
 int main() {
   boardInit();
-  controller.init();
+  application::controller.init();
   while (1) {
-    controller.progress();
+    application::controller.progress();
   }
 }

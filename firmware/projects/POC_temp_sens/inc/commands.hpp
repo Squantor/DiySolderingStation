@@ -18,6 +18,7 @@ extern squLib::commandHandler stkHandler;
 extern squLib::commandHandler emptyHandler;
 extern squLib::commandHandler dupHandler;
 extern squLib::commandHandler dropHandler;
+extern squLib::commandHandler statHandler;
 }  // namespace application
 
 #endif

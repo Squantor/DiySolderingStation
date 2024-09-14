@@ -16,14 +16,27 @@
 #include <command_handlers.hpp>
 
 namespace application {
+
+enum class applicationState : std::uint8_t {
+  usbPowered,  /*!< USB powered only */
+  ready,       /*!< fully powered and ready */
+  operational, /*!< iron is heating */
+  standby      /*!< iron is on standby */
+};
+
 struct application {
-  application() {}
+  application() : state{applicationState::usbPowered} {}
   void init();
   void progress();
+  applicationState getState() {
+    return state;
+  }
+  applicationState state;
 };
 
 extern squLib::commandValueStack<8, usartPeripheral> commandValues;
 extern squLib::commandInterpreter<commandHandlers, commandValues, usartPeripheral> commandInterpreter;
+extern application controller;
 
 }  // namespace application
 
