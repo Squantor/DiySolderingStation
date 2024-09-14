@@ -32,9 +32,17 @@ using pinBootloaderType = libMcu::hw::pin<libMcu::hw::IOports::PORT0, libMcu::hw
 using pinDebugUartTxType = libMcu::hw::pin<libMcu::hw::IOports::PORT0, libMcu::hw::IOpins::PIN25>;
 using pinDebugUartRxType = libMcu::hw::pin<libMcu::hw::IOports::PORT0, libMcu::hw::IOpins::PIN24>;
 // 5V presence detection via 5.6K 10K ohm resistive divider
+using pinPowerDetectType = libMcu::hw::pin<libMcu::hw::IOports::PORT0, libMcu::hw::IOpins::PIN04>;
 // multiplexer 1
+using pinMux1s0Type = libMcu::hw::pin<libMcu::hw::IOports::PORT1, libMcu::hw::IOpins::PIN00>;
+using pinMux1s1Type = libMcu::hw::pin<libMcu::hw::IOports::PORT1, libMcu::hw::IOpins::PIN01>;
+using pinMux1s2Type = libMcu::hw::pin<libMcu::hw::IOports::PORT1, libMcu::hw::IOpins::PIN02>;
 // multiplexer 2
+using pinMux2s0Type = libMcu::hw::pin<libMcu::hw::IOports::PORT1, libMcu::hw::IOpins::PIN05>;
+using pinMux2s1Type = libMcu::hw::pin<libMcu::hw::IOports::PORT1, libMcu::hw::IOpins::PIN06>;
+using pinMux2s2Type = libMcu::hw::pin<libMcu::hw::IOports::PORT1, libMcu::hw::IOpins::PIN07>;
 // differential amplifier ADC pin
+using pinDiffAmpInputType = libMcu::hw::pin<libMcu::hw::IOports::PORT0, libMcu::hw::IOpins::PIN07>;
 
 // function types
 using functionXtalInType = libMcu::hw::swm::pinFunction<libMcu::hw::swm::pinFunctions::XTALIN>;
@@ -48,6 +56,14 @@ constexpr pinXtalOutType xtalOutPin;
 constexpr pinBootloaderType bootloadPin;
 constexpr pinDebugUartTxType debugUartTxPin;
 constexpr pinDebugUartRxType debugUartRxPin;
+constexpr pinPowerDetectType PowerDetectPin;
+constexpr pinMux1s0Type mux1s0Pin;
+constexpr pinMux1s1Type mux1s1Pin;
+constexpr pinMux1s2Type mux1s2Pin;
+constexpr pinMux2s0Type mux2s0Pin;
+constexpr pinMux2s1Type mux2s1Pin;
+constexpr pinMux2s2Type mux2s2Pin;
+constexpr pinDiffAmpInputType diffAmpInputPin;
 
 // function instances
 constexpr functionXtalInType xtalInFunction;
@@ -66,5 +82,11 @@ extern libMcu::hal::usart::uartSync<libMcu::hw::usart0Address, libMcu::hw::nvicA
 extern volatile std::uint32_t ticks;  // amount of ticks passed sinds startup
 
 void boardInit(void);
+/**
+ * @brief checks if mains power is present
+ * @return true mains power present
+ * @return false mains power not present
+ */
+bool isMainsPresent(void);
 
 #endif

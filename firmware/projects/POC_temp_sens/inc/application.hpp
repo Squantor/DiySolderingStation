@@ -18,10 +18,10 @@
 namespace application {
 
 enum class applicationState : std::uint8_t {
-  usbPowered,  /*!< USB powered only */
-  ready,       /*!< fully powered and ready */
-  operational, /*!< iron is heating */
-  standby      /*!< iron is on standby */
+  usbPowered, /*!< USB powered only */
+  ready,      /*!< fully powered and ready */
+  operating,  /*!< an iron is heating */
+  error       /*!< error state */
 };
 
 struct application {

@@ -33,5 +33,28 @@ void application::progress() {
     usartPeripheral.read(data);
     commandline.input(data);
   }
+  // state handling
+  switch (state) {
+    case applicationState::usbPowered:
+      if (isMainsPresent())
+        state = applicationState::ready;
+      break;
+    case applicationState::ready:
+      if (!isMainsPresent())
+        state = applicationState::usbPowered;
+      break;
+    case applicationState::operating:
+      if (!isMainsPresent())
+        state = applicationState::usbPowered;
+      break;
+    case applicationState::error:
+      if (!isMainsPresent())
+        state = applicationState::usbPowered;
+      break;
+
+    default:
+      Print("Unknown state!!!");
+      break;
+  }
 }
 }  // namespace application

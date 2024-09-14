@@ -25,12 +25,12 @@ squLib::results stat(std::span<const char> commandLine) {
       Print("System fully operational\n");
       break;
 
-    case applicationState::standby:
-      Print("One or more irons is in standby\n");
+    case applicationState::operating:
+      Print("Power stage is operating\n");
       break;
 
-    case applicationState::operational:
-      Print("One iron is being heated\n");
+    case applicationState::error:
+      Print("We are in an error state\n");
       break;
 
     default:
