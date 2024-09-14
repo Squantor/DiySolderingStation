@@ -5,16 +5,19 @@
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * @file command handler printing the stack definitions
- * @brief definitions for printing the stack
+ * @file gathering place for all command handlers
+ * @brief definitions for all command handlers
  */
-#ifndef COMMAND_STK_HPP
-#define COMMAND_STK_HPP
+#ifndef COMMANDS_HPP
+#define COMMANDS_HPP
 
 #include <command_handler.hpp>
 
 namespace application {
 extern squLib::commandHandler stkHandler;
+extern squLib::commandHandler emptyHandler;
+extern squLib::commandHandler dupHandler;
+extern squLib::commandHandler dropHandler;
 }  // namespace application
 
 #endif

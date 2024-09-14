@@ -10,10 +10,7 @@
  */
 #include <command_handlers.hpp>
 #include <application.hpp>
-#include <command_stk.hpp>
-#include <command_empty.hpp>
-#include <command_drop.hpp>
-#include <command_dup.hpp>
+#include <commands.hpp>
 
 namespace application {
 
