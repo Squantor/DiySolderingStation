@@ -6,8 +6,8 @@ JBC T245 handle thermocouple sensing circuit as copied/adapted from the [reverse
 * Pin 0_24: UART RX connected to CH340B TX
 * Pin 0_25: UART TX connected to CH340B RX
 * Pin 0_12: Bootloader pin connected to switch with 10K pullup and 100nF capacitor, switch impedance is 100Ohm.
-* Pin X_XX: 5V presence detection done with a resistive divider with 5.6K from 5V to 10K to ground
-* Pin X_XX, Pin X_XX, Pin X_XX: 74HC4053 multiplexer 1
+* Pin 0_04: 5V presence detection done with a resistive divider with 5.6K from 5V to 10K to ground
+* Pin 1_00, Pin 1_01, Pin 1_02: 74HC4053 multiplexer 1, pulled down by 100K resistor
   * Mux setting 0:
   * Mux setting 1:
   * Mux setting 2:
@@ -16,7 +16,7 @@ JBC T245 handle thermocouple sensing circuit as copied/adapted from the [reverse
   * Mux setting 5:
   * Mux setting 6:
   * Mux setting 7:
-* Pin X_XX, Pin X_XX, Pin X_XX: 74HC4053 multiplexer 2
+* Pin 1_05, Pin 1_06, Pin 1_07: 74HC4053 multiplexer 2, pulled down by 100K resistor
   * Mux setting 0:
   * Mux setting 1:
   * Mux setting 2:
@@ -25,7 +25,7 @@ JBC T245 handle thermocouple sensing circuit as copied/adapted from the [reverse
   * Mux setting 5:
   * Mux setting 6:
   * Mux setting 7:
-* Pin X_XX: Differential voltage with gain X from multiplexer 1 and 2, range X V and filtered by X kohm with X nF
+* Pin 0_07: Differential voltage with gain X from multiplexer 1 and 2, range X V and filtered by X kohm with X nF
 # TODO's
 * Building up prototype
 * Test & characterise
