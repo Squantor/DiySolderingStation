@@ -18,6 +18,7 @@ $(NAME)_FILES := $(PROJ_DIR)/src/main.cpp \
 $(PROJ_DIR)/src/application.cpp \
 $(PROJ_DIR)/src/print.cpp \
 $(PROJ_DIR)/src/command_handlers.cpp \
+$(PROJ_DIR)/src/console.cpp \
 common/src/parse_digit.cpp \
 $(PROJ_DIR)/src/command_stk.cpp \
 $(PROJ_DIR)/src/command_empty.cpp \

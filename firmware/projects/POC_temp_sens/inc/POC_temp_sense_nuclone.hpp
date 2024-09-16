@@ -16,10 +16,7 @@
 #define CLOCK_AHB (30'000'000u)
 #define CLOCK_MAIN (60'000'000u)
 
-#include <ringbuffer.hpp>
-#include <nxp/libmcu_LPC845M301BD48.hpp>
-#include <LPC84X_hal_uartasync_pol.hpp>
-#include <LPC84X_hal_uartsync_int.hpp>
+#include <nxp/libmcu_LPC845M301BD48_hal.hpp>
 
 #define TICKS_PER_S 100
 

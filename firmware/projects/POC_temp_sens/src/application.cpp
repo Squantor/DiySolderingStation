@@ -11,12 +11,14 @@
 #include <application.hpp>
 #include <print.hpp>
 #include <cmdline_simple.hpp>
+#include <console.hpp>
 
 namespace application {
 
-squLib::commandValueStack<8, usartPeripheral> commandValues;
-squLib::commandInterpreter<commandHandlers, commandValues, usartPeripheral> commandInterpreter;
-squLib::commandlineSimple<80, usartPeripheral, commandInterpreter> commandline;
+console<usartPeripheral> debugConsole;
+squLib::commandValueStack<8, debugConsole> commandValues;
+squLib::commandInterpreter<commandHandlers, commandValues, debugConsole> commandInterpreter;
+squLib::commandlineSimple<80, debugConsole, commandInterpreter> commandline;
 
 void application::init() {
   Print("DIY soldering station POC temperature sensing\n");

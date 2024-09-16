@@ -14,6 +14,7 @@
 #include <command_interpreter_number.hpp>
 #include <command_value_stack.hpp>
 #include <command_handlers.hpp>
+#include <console.hpp>
 
 namespace application {
 
@@ -34,8 +35,9 @@ struct application {
   applicationState state;
 };
 
-extern squLib::commandValueStack<8, usartPeripheral> commandValues;
-extern squLib::commandInterpreter<commandHandlers, commandValues, usartPeripheral> commandInterpreter;
+extern console<usartPeripheral> debugConsole;
+extern squLib::commandValueStack<8, debugConsole> commandValues;
+extern squLib::commandInterpreter<commandHandlers, commandValues, debugConsole> commandInterpreter;
 extern application controller;
 
 }  // namespace application
