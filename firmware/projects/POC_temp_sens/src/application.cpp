@@ -9,19 +9,18 @@
  */
 
 #include <application.hpp>
-#include <print.hpp>
 #include <cmdline_simple.hpp>
 #include <console.hpp>
 
 namespace application {
 
-console<usartPeripheral> debugConsole;
-squLib::commandValueStack<8, debugConsole> commandValues;
-squLib::commandInterpreter<commandHandlers, commandValues, debugConsole> commandInterpreter;
-squLib::commandlineSimple<80, debugConsole, commandInterpreter> commandline;
+squLib::console<usartPeripheral> commandConsole;
+squLib::commandValueStack<8, commandConsole> commandValues;
+squLib::commandInterpreter<commandHandlers, commandValues, commandConsole> commandInterpreter;
+squLib::commandlineSimple<80, commandConsole, commandInterpreter> commandline;
 
 void application::init() {
-  Print("DIY soldering station POC temperature sensing\n");
+  commandConsole.print("DIY soldering station POC temperature sensing\n");
 }
 void application::progress() {
   static std::uint32_t currentTicks = ticks;
@@ -55,7 +54,7 @@ void application::progress() {
       break;
 
     default:
-      Print("Unknown state!!!");
+      commandConsole.print("Unknown state!!!");
       break;
   }
 }

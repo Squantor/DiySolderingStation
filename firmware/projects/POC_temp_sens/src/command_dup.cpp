@@ -10,7 +10,6 @@
  */
 #include <commands.hpp>
 #include <application.hpp>
-#include <print.hpp>
 
 namespace application {
 
@@ -21,11 +20,11 @@ squLib::commandHandler dupHandler{"dup", "Duplicates top of the stack\n", dup};
 squLib::results dup(std::span<const char> commandLine) {
   (void)commandLine;
   if (commandValues.size() == 0) {
-    Print("Stack is empty\n");
+    commandConsole.print("Stack is empty\n");
     return squLib::results::error;
   }
   commandValues.dup();
-  Print("\n");
+  commandConsole.print("\n");
   return squLib::results::ok;
 }
 

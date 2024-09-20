@@ -10,7 +10,6 @@
  */
 #include <commands.hpp>
 #include <application.hpp>
-#include <print.hpp>
 
 namespace application {
 
@@ -20,7 +19,7 @@ squLib::commandHandler emptyHandler{"empty", "Does nothing\n", empty};
 
 squLib::results empty(std::span<const char> commandLine) {
   (void)commandLine;
-  Print("Your command interpreter works perfectly!\n");
+  commandConsole.print("Your command interpreter works perfectly!\n");
   return squLib::results::ok;
 }
 

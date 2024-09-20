@@ -35,9 +35,9 @@ struct application {
   applicationState state;
 };
 
-extern console<usartPeripheral> debugConsole;
-extern squLib::commandValueStack<8, debugConsole> commandValues;
-extern squLib::commandInterpreter<commandHandlers, commandValues, debugConsole> commandInterpreter;
+extern squLib::console<usartPeripheral> commandConsole;
+extern squLib::commandValueStack<8, commandConsole> commandValues;
+extern squLib::commandInterpreter<commandHandlers, commandValues, commandConsole> commandInterpreter;
 extern application controller;
 
 }  // namespace application
