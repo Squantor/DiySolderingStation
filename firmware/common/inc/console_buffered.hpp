@@ -14,6 +14,7 @@
 #include <cstdint>
 #include <array>
 #include <span>
+#include "console_common.hpp"
 
 namespace squLib {
 /**

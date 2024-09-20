@@ -12,9 +12,12 @@
 #define CONSOLE_HPP
 
 #include <span>
+#include <cstdint>
 #include <string.h>
+#include "console_common.hpp"
 
-namespace application {
+namespace squLib {
+
 template <auto &driver>
 struct console {
   constexpr void write(const char *s) {
@@ -29,7 +32,20 @@ struct console {
   constexpr void write(const char &c) {
     driver.write(c);
   }
+  void print(const char *) {}
+  void print(std::span<const char>) {}
+  void print(std::uint32_t) {}
+  void print() {}
+  void print(Dec) {}
+  template <typename T>
+  void print(T *p) {
+    print(Hex{reinterpret_cast<uint32_t>(p)});
+  }
+  template <typename... Ts>
+  void print(Ts... t) {
+    (print(t), ...);
+  }
 };
-}  // namespace application
+}  // namespace squLib
 
 #endif
