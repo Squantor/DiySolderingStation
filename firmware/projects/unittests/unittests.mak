@@ -16,6 +16,7 @@ $(NAME)_FILES := $(PROJ_DIR)/src/main.cpp \
 common/src/cmdline_simple.cpp \
 $(PROJ_DIR)/src/test_cmdline_simple.cpp \
 common/src/ansi_parse.cpp \
+common/src/toascii.cpp \
 $(PROJ_DIR)/src/test_console_buffered.cpp \
 $(PROJ_DIR)/src/test_console.cpp \
 $(PROJ_DIR)/src/test_ansi_parse.cpp \

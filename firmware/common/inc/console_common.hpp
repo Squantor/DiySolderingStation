@@ -13,19 +13,6 @@
 
 #include <cstdint>
 
-namespace squLib {
-/**
- * @brief wrapper for printing hex numbers in the console
- */
-struct Hex {
-  std::uint32_t v;
-};
-/**
- * @brief wrapper for printing decimal numbers in the console
- */
-struct Dec {
-  std::int32_t v;
-};
-}  // namespace squLib
+namespace squLib {}  // namespace squLib
 
 #endif

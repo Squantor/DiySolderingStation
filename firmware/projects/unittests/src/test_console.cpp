@@ -8,12 +8,12 @@
  * @file Tests for character based console driver
  */
 #include <MinUnit.h>
-#include <console_buffered.hpp>
+#include <console.hpp>
 #include <mock_char_device.hpp>
 #include <cstring>
 
 static mocks::charDevice<42> charDeviceMock;
-static squLib::console<charDeviceMock, 20> dutConsole;
+static squLib::console<charDeviceMock> dutConsole;
 
 /**
  * @brief setup and initialisation
@@ -40,15 +40,15 @@ MINUNIT_ADD(consoleWriteTest, consoleSetup, consoleTeardown) {
   std::array<char, 8> testString{"Gazonk\n"};
   singleChar[0] = 'F';
   dutConsole.write(singleChar);
-  minUnitCheck(charDeviceMock.writeIndex == 0);
+  minUnitCheck(charDeviceMock.writeIndex == 1);
   singleChar[0] = '\n';
   dutConsole.write(singleChar);
   minUnitCheck(charDeviceMock.writeIndex == 2);
   minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "F\n", 2) == 0);
-  charDeviceMock.writeIndex = 0;
+  charDeviceMock.reset();
   dutConsole.write(std::span<char>(testString).first(3u));
   dutConsole.write(std::span<char>(testString).first(6u));
-  minUnitCheck(charDeviceMock.writeIndex == 0);
+  minUnitCheck(charDeviceMock.writeIndex == 9);
   dutConsole.write(std::span<char>(testString).first(7u));
   minUnitCheck(charDeviceMock.writeIndex == 16);
   minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "GazGazonkGazonk\n", 16) == 0);
@@ -77,16 +77,88 @@ MINUNIT_ADD(consoleReadTest, consoleSetup, consoleTeardown) {
 }
 
 /**
- * @brief Test console write overflow functionality
+ * @brief Test console character and string print functionality
  */
-MINUNIT_ADD(consoleWriteTestOverflow, consoleSetup, consoleTeardown) {
-  std::array<char, 6> testString{"Frobs"};
-  dutConsole.write(std::span<char>(testString).first(5));
-  minUnitCheck(charDeviceMock.writeIndex == 0);
-  dutConsole.write(std::span<char>(testString).first(5));
-  dutConsole.write(std::span<char>(testString).first(5));
-  dutConsole.write(std::span<char>(testString).first(5));
-  dutConsole.write(std::span<char>(testString).first(5));
-  minUnitCheck(charDeviceMock.writeIndex == 20);
-  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "FrobsFrobsFrobsFrobs", 20) == 0);
+MINUNIT_ADD(consolePrintCharString, consoleSetup, consoleTeardown) {
+  char singleChar;
+  singleChar = 'F';
+  dutConsole.print(singleChar);
+  minUnitCheck(charDeviceMock.writeIndex == 1);
+  singleChar = '\n';
+  dutConsole.print(singleChar);
+  minUnitCheck(charDeviceMock.writeIndex == 2);
+  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "F\n", 2) == 0);
+  charDeviceMock.reset();
+  dutConsole.print("blub");
+  dutConsole.print("florp");
+  minUnitCheck(charDeviceMock.writeIndex == 9);
+  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "blubflorp", 9) == 0);
+}
+
+/**
+ * @brief Test console character span printing functionality
+ */
+MINUNIT_ADD(consolePrintSpan, consoleSetup, consoleTeardown) {
+  std::array<char, 8> testString{"Gazonk\n"};
+  dutConsole.print(std::span<char>(testString).first(3u));
+  dutConsole.print(std::span<char>(testString).first(6u));
+  minUnitCheck(charDeviceMock.writeIndex == 9);
+  dutConsole.print(std::span<char>(testString).first(7u));
+  minUnitCheck(charDeviceMock.writeIndex == 16);
+  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "GazGazonkGazonk\n", 16) == 0);
+}
+
+/**
+ * @brief Test console uint32_t printing functionality
+ */
+MINUNIT_ADD(consolePrintUint32, consoleSetup, consoleTeardown) {
+  std::uint32_t value = 0;
+  dutConsole.print(value);
+  minUnitCheck(charDeviceMock.writeIndex == 1);
+  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "0", 1) == 0);
+  charDeviceMock.reset();
+  value = 1234;
+  dutConsole.print(value);
+  minUnitCheck(charDeviceMock.writeIndex == 4);
+  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "1234", 4) == 0);
+}
+
+/**
+ * @brief Test console hex printing functionality
+ */
+MINUNIT_ADD(consolePrintHex, consoleSetup, consoleTeardown) {
+  squLib::Hex value{0};
+  dutConsole.print(value);
+  minUnitCheck(charDeviceMock.writeIndex == 1);
+  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "0", 1) == 0);
+  charDeviceMock.reset();
+  value.v = 0x1234;
+  dutConsole.print(value);
+  minUnitCheck(charDeviceMock.writeIndex == 4);
+  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "1234", 4) == 0);
+  charDeviceMock.reset();
+  value.v = 0x89AB;
+  dutConsole.print(value);
+  minUnitCheck(charDeviceMock.writeIndex == 4);
+  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "89ab", 4) == 0);
+}
+
+/**
+ * @brief Test console decimal printing functionality
+ */
+MINUNIT_ADD(consolePrintDec, consoleSetup, consoleTeardown) {
+  squLib::Dec value{0};
+  dutConsole.print(value);
+  minUnitCheck(charDeviceMock.writeIndex == 1);
+  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "0", 1) == 0);
+  charDeviceMock.reset();
+  value.v = 1234;
+  dutConsole.print(value);
+  minUnitCheck(charDeviceMock.writeIndex == 4);
+  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "1234", 4) == 0);
+  charDeviceMock.reset();
+  value.v = -5678;
+  dutConsole.print(value);
+  minUnitCheck(charDeviceMock.writeIndex == 5);
+  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "-5678", 5) == 0);
 }
