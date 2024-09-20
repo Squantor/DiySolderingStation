@@ -5,7 +5,7 @@
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * @file character based console class
+ * @file buffered character based console class
  * @brief console that supports single line buffering and transfers
  */
 #ifndef CONSOLE_HPP
@@ -17,11 +17,11 @@
 
 namespace squLib {
 /**
- * @brief console handler class
- * @tparam N size of buffer
+ * @brief buffered console handler class
  * @tparam ioDevice device to read/write from
+ * @tparam N size of buffer
  */
-template <std::size_t N, auto &ioDevice>
+template <auto &ioDevice, std::size_t N>
 class console {
  public:
   /**

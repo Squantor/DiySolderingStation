@@ -5,8 +5,8 @@
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * @file
- * @brief
+ * @file character based console class
+ * @brief console with zero buffering and immediate passthrough
  */
 #ifndef CONSOLE_HPP
 #define CONSOLE_HPP

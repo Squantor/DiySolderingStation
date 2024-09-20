@@ -13,10 +13,10 @@ $(NAME)_TARGET := PC
 $(NAME)_DEFINES := -DMINUNIT_MAX_TESTS=1000
 $(NAME)_LIBS := squantorMinUnit
 $(NAME)_FILES := $(PROJ_DIR)/src/main.cpp \
-$(PROJ_DIR)/src/test_ringbuf.cpp \
 common/src/cmdline_simple.cpp \
 $(PROJ_DIR)/src/test_cmdline_simple.cpp \
 common/src/ansi_parse.cpp \
+$(PROJ_DIR)/src/test_console_buffered.cpp \
 $(PROJ_DIR)/src/test_console.cpp \
 $(PROJ_DIR)/src/test_ansi_parse.cpp \
 $(PROJ_DIR)/src/test_command_interpreter.cpp \
