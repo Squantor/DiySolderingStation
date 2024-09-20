@@ -7,6 +7,7 @@
 /**
  * @file various type to ascii string converters definitions
  * @brief various converters for various types to ascii spans/strings
+ * TODO: documentation
  */
 #ifndef TOASCII_HPP
 #define TOASCII_HPP
@@ -55,42 +56,51 @@ struct Chr {
   char c;
 };
 
-template <auto& charDevice>
-struct toascii {
-  void convert(const char* s) {
-    charDevice.write(std::span{s, strlen(s)});
+template <auto &charDevice>
+void toascii(const char *s) {
+  charDevice.write(std::span{s, strlen(s)});
+}
+
+template <auto &charDevice>
+void toascii(std::span<const char> buf) {
+  charDevice.write(buf);
+}
+
+template <auto &charDevice>
+void toascii(std::uint32_t num) {
+  detail::putint(10, num, [](const auto ch) {
+    charDevice.write(ch);
+  });
+}
+
+template <auto &charDevice>
+void toascii(Hex num) {
+  detail::putint(16, num.v, [](const auto ch) {
+    charDevice.write(ch);
+  });
+}
+
+template <auto &charDevice>
+void toascii(Dec num) {
+  int32_t value{num.v};
+  if (value < 0) {
+    charDevice.write('-');
+    value = -value;
   }
-  void convert(std::span<const char> buf) {
-    charDevice.write(buf);
-  }
-  void convert(std::uint32_t num) {
-    detail::putint(10, num, [](const auto ch) {
-      charDevice.write(ch);
-    });
-  }
-  void convert(Hex num) {
-    detail::putint(16, num.v, [](const auto ch) {
-      charDevice.write(ch);
-    });
-  }
-  void convert(Dec num) {
-    int32_t value{num.v};
-    if (value < 0) {
-      charDevice.write('-');
-      value = -value;
-    }
-    detail::putint(10, value, [](const auto ch) {
-      charDevice.write(ch);
-    });
-  }
-  void convert(Chr c) {
-    charDevice.write(c.c);
-  }
-  template <typename T>
-  void convert(T* p) {
-    convert(Hex{reinterpret_cast<uint32_t>(p)});
-  }
-};
+  detail::putint(10, value, [](const auto ch) {
+    charDevice.write(ch);
+  });
+}
+
+template <auto &charDevice>
+void toascii(Chr c) {
+  charDevice.write(c.c);
+}
+
+template <auto &charDevice, typename T>
+void toascii(T *p) {
+  toascii<charDevice>(Hex{reinterpret_cast<uint32_t>(p)});
+}
 
 }  // namespace squLib
 

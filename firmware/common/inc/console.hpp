@@ -44,9 +44,8 @@ struct console {
 
   template <typename... Ts>
   void print(Ts... t) {
-    (converter.convert(t), ...);
+    (toascii<driver>(t), ...);
   }
-  toascii<driver> converter;
 };
 }  // namespace squLib
 
