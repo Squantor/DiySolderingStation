@@ -5,7 +5,8 @@
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * @brief simple print functionality taken from https://github.com/zhmu/dogfood/blob/develop/kernel/lib.h
+ * @file various type to ascii string converters definitions
+ * @brief various converters for various types to ascii spans/strings
  */
 #ifndef TOASCII_HPP
 #define TOASCII_HPP
@@ -47,12 +48,15 @@ struct Hex {
 struct Dec {
   std::int32_t v;
 };
+/**
+ * @brief wrapper for writing a single character
+ */
+struct Chr {
+  char c;
+};
 
 template <auto& charDevice>
 struct toascii {
-  void convert(const char& c) {
-    charDevice.write(std::span{&c, 1});
-  }
   void convert(const char* s) {
     charDevice.write(std::span{s, strlen(s)});
   }
@@ -79,12 +83,13 @@ struct toascii {
       charDevice.write(ch);
     });
   }
-  /*
+  void convert(Chr c) {
+    charDevice.write(c.c);
+  }
   template <typename T>
   void convert(T* p) {
     convert(Hex{reinterpret_cast<uint32_t>(p)});
   }
-  */
 };
 
 }  // namespace squLib

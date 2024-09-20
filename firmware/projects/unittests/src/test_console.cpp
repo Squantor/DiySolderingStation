@@ -80,11 +80,11 @@ MINUNIT_ADD(consoleReadTest, consoleSetup, consoleTeardown) {
  * @brief Test console character and string print functionality
  */
 MINUNIT_ADD(consolePrintCharString, consoleSetup, consoleTeardown) {
-  char singleChar;
-  singleChar = 'F';
+  squLib::Chr singleChar{0};
+  singleChar.c = 'F';
   dutConsole.print(singleChar);
   minUnitCheck(charDeviceMock.writeIndex == 1);
-  singleChar = '\n';
+  singleChar.c = '\n';
   dutConsole.print(singleChar);
   minUnitCheck(charDeviceMock.writeIndex == 2);
   minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "F\n", 2) == 0);
