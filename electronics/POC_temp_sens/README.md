@@ -8,21 +8,21 @@ JBC T245 handle thermocouple sensing circuit as copied/adapted from the [reverse
 * Pin 0_12: Bootloader pin connected to switch with 10K pullup and 100nF capacitor, switch impedance is 100Ohm.
 * Pin 0_04: 5V presence detection done with a resistive divider with 5.6K from 5V to 10K to ground
 * Pin 1_00, Pin 1_01, Pin 1_02: 74HC4053 multiplexer 1, pulled down by 100K resistor
-  * Mux setting 0:
-  * Mux setting 1:
-  * Mux setting 2:
-  * Mux setting 3:
-  * Mux setting 4:
-  * Mux setting 5:
+  * Mux setting 0: NT115 connector pin 1, C1 connection through 22K 1% resistor
+  * Mux setting 1: NT115 connector pin 4, C2 connection through 22K 1% resistor
+  * Mux setting 2: NT115 connector pin 3, C3 connection through 22K 1% resistor
+  * Mux setting 3: T245 connector pin 1, C1 connection through 22K 1% resistor
+  * Mux setting 4: T245 connector pin 5, C2 connection through 22K 1% resistor
+  * Mux setting 5: T245 connector pin 2, C3 connection through 22K 1% resistor
   * Mux setting 6:
   * Mux setting 7:
 * Pin 1_05, Pin 1_06, Pin 1_07: 74HC4053 multiplexer 2, pulled down by 100K resistor
-  * Mux setting 0:
-  * Mux setting 1:
-  * Mux setting 2:
-  * Mux setting 3:
-  * Mux setting 4:
-  * Mux setting 5:
+  * Mux setting 0: NT115 connector pin 5, C1 connection through 22K 1% resistor
+  * Mux setting 1: NT115 connector pin 4, C2 connection through 22K 1% resistor
+  * Mux setting 2: NT115 connector pin 3, C3 connection through 22K 1% resistor
+  * Mux setting 3: T245 connector pin 1, C1 connection through 22K 1% resistor
+  * Mux setting 4: T245 connector pin 5, C2 connection through 22K 1% resistor
+  * Mux setting 5: T245 connector pin 2, C3 connection through 22K 1% resistor
   * Mux setting 6:
   * Mux setting 7:
 * Pin 0_07: Differential voltage with gain X from multiplexer 1 and 2, range X V and filtered by X kohm with X nF
