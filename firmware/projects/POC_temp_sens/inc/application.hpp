@@ -25,13 +25,17 @@ enum class applicationState : std::uint8_t {
   error       /*!< error state */
 };
 
-struct application {
+class application {
+ public:
   application() : state{applicationState::usbPowered} {}
   void init();
   void progress();
   applicationState getState() {
     return state;
   }
+
+ private:
+  void setUsbPoweredState();
   applicationState state;
 };
 

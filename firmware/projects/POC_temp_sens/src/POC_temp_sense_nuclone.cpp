@@ -99,3 +99,17 @@ bool isMainsPresent(void) {
   std::uint32_t state{gpioPeripheral.get(PowerDetectPin)};
   return state == 1u ? true : false;
 }
+
+void setSafeUsbPowered(void) {
+  setMultiplexers(0, 0);
+}
+
+void setMultiplexers(std::uint32_t mux1, std::uint32_t mux2) {
+  uint32_t mask{mux1s0Pin.gpioPinMask | mux1s1Pin.gpioPinMask | mux1s2Pin.gpioPinMask | mux2s0Pin.gpioPinMask |
+                mux2s1Pin.gpioPinMask | mux2s2Pin.gpioPinMask};
+  // clamp mux values
+  mux1 = mux1 & 0x7;
+  mux2 = mux2 & 0x7;
+  uint32_t portValue{(mux1 << mux1s0Pin.gpioPinIndex) | (mux2 << mux2s0Pin.gpioPinIndex)};
+  gpioPeripheral.portSet(muxPort, portValue, mask);
+}

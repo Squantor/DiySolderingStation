@@ -42,20 +42,25 @@ void application::progress() {
       break;
     case applicationState::ready:
       if (!isMainsPresent())
-        state = applicationState::usbPowered;
+        setUsbPoweredState();
       break;
     case applicationState::operating:
       if (!isMainsPresent())
-        state = applicationState::usbPowered;
+        setUsbPoweredState();
       break;
     case applicationState::error:
       if (!isMainsPresent())
-        state = applicationState::usbPowered;
+        setUsbPoweredState();
       break;
 
     default:
       commandConsole.print("Unknown state!!!");
       break;
   }
+}
+
+void application::setUsbPoweredState() {
+  setSafeUsbPowered();
+  state = applicationState::usbPowered;
 }
 }  // namespace application

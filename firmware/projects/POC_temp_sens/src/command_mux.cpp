@@ -27,7 +27,9 @@ squLib::results mux(std::span<const char> commandLine) {
     commandConsole.print("cant switch when running on USB power\n");
     return squLib::results::error;
   }
-
+  std::uint32_t value1 = commandValues.pop().value_or(0);
+  std::uint32_t value2 = commandValues.pop().value_or(0);
+  setMultiplexers(value1, value2);
   return squLib::results::ok;
 }
 
