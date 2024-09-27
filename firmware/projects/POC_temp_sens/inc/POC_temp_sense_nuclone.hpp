@@ -22,33 +22,33 @@
 
 // pin types
 // Crystal osillator pins
-using pinXtalInType = libMcuLL::hw::pin<libMcuLL::hw::IOports::PORT0, libMcuLL::hw::IOpins::PIN08>;
-using pinXtalOutType = libMcuLL::hw::pin<libMcuLL::hw::IOports::PORT0, libMcuLL::hw::IOpins::PIN09>;
+using pinXtalInType = libMcuHw::pin<libMcuHw::IOports::PORT0, libMcuHw::IOpins::PIN08>;
+using pinXtalOutType = libMcuHw::pin<libMcuHw::IOports::PORT0, libMcuHw::IOpins::PIN09>;
 // bootloader and uart pins
-using pinBootloaderType = libMcuLL::hw::pin<libMcuLL::hw::IOports::PORT0, libMcuLL::hw::IOpins::PIN12>;
-using pinDebugUartTxType = libMcuLL::hw::pin<libMcuLL::hw::IOports::PORT0, libMcuLL::hw::IOpins::PIN25>;
-using pinDebugUartRxType = libMcuLL::hw::pin<libMcuLL::hw::IOports::PORT0, libMcuLL::hw::IOpins::PIN24>;
+using pinBootloaderType = libMcuHw::pin<libMcuHw::IOports::PORT0, libMcuHw::IOpins::PIN12>;
+using pinDebugUartTxType = libMcuHw::pin<libMcuHw::IOports::PORT0, libMcuHw::IOpins::PIN25>;
+using pinDebugUartRxType = libMcuHw::pin<libMcuHw::IOports::PORT0, libMcuHw::IOpins::PIN24>;
 // 5V presence detection via 5.6K 10K ohm resistive divider
-using pinPowerDetectType = libMcuLL::hw::pin<libMcuLL::hw::IOports::PORT0, libMcuLL::hw::IOpins::PIN04>;
+using pinPowerDetectType = libMcuHw::pin<libMcuHw::IOports::PORT0, libMcuHw::IOpins::PIN04>;
 // multiplexer port
-using portMuxType = libMcuLL::hw::port<libMcuLL::hw::IOports::PORT1>;
+using portMuxType = libMcuHw::port<libMcuHw::IOports::PORT1>;
 // multiplexer 1
-using pinMux1s0Type = libMcuLL::hw::pin<libMcuLL::hw::IOports::PORT1, libMcuLL::hw::IOpins::PIN00>;
-using pinMux1s1Type = libMcuLL::hw::pin<libMcuLL::hw::IOports::PORT1, libMcuLL::hw::IOpins::PIN01>;
-using pinMux1s2Type = libMcuLL::hw::pin<libMcuLL::hw::IOports::PORT1, libMcuLL::hw::IOpins::PIN02>;
+using pinMux1s0Type = libMcuHw::pin<libMcuHw::IOports::PORT1, libMcuHw::IOpins::PIN00>;
+using pinMux1s1Type = libMcuHw::pin<libMcuHw::IOports::PORT1, libMcuHw::IOpins::PIN01>;
+using pinMux1s2Type = libMcuHw::pin<libMcuHw::IOports::PORT1, libMcuHw::IOpins::PIN02>;
 // multiplexer 2
-using pinMux2s0Type = libMcuLL::hw::pin<libMcuLL::hw::IOports::PORT1, libMcuLL::hw::IOpins::PIN05>;
-using pinMux2s1Type = libMcuLL::hw::pin<libMcuLL::hw::IOports::PORT1, libMcuLL::hw::IOpins::PIN06>;
-using pinMux2s2Type = libMcuLL::hw::pin<libMcuLL::hw::IOports::PORT1, libMcuLL::hw::IOpins::PIN07>;
+using pinMux2s0Type = libMcuHw::pin<libMcuHw::IOports::PORT1, libMcuHw::IOpins::PIN05>;
+using pinMux2s1Type = libMcuHw::pin<libMcuHw::IOports::PORT1, libMcuHw::IOpins::PIN06>;
+using pinMux2s2Type = libMcuHw::pin<libMcuHw::IOports::PORT1, libMcuHw::IOpins::PIN07>;
 
 // differential amplifier ADC pin
-using pinDiffAmpInputType = libMcuLL::hw::pin<libMcuLL::hw::IOports::PORT0, libMcuLL::hw::IOpins::PIN07>;
+using pinDiffAmpInputType = libMcuHw::pin<libMcuHw::IOports::PORT0, libMcuHw::IOpins::PIN07>;
 
 // function types
-using functionXtalInType = libMcuLL::hw::swm::pinFunction<libMcuLL::hw::swm::pinFunctions::XTALIN>;
-using functionXtalOutType = libMcuLL::hw::swm::pinFunction<libMcuLL::hw::swm::pinFunctions::XTALOUT>;
-using functionUartDebugTxType = libMcuLL::hw::swm::pinFunction<libMcuLL::hw::swm::pinFunctions::U0_TXD_O>;
-using functionUartDebugRxType = libMcuLL::hw::swm::pinFunction<libMcuLL::hw::swm::pinFunctions::U0_RXD_I>;
+using functionXtalInType = libMcuHw::swm::pinFunction<libMcuHw::swm::pinFunctions::XTALIN>;
+using functionXtalOutType = libMcuHw::swm::pinFunction<libMcuHw::swm::pinFunctions::XTALOUT>;
+using functionUartDebugTxType = libMcuHw::swm::pinFunction<libMcuHw::swm::pinFunctions::U0_TXD_O>;
+using functionUartDebugRxType = libMcuHw::swm::pinFunction<libMcuHw::swm::pinFunctions::U0_RXD_I>;
 
 // pin instances
 constexpr pinXtalInType xtalInPin;
@@ -74,12 +74,12 @@ constexpr functionUartDebugTxType uartDebugTxFunction;
 constexpr functionUartDebugRxType uartDebugRxFunction;
 
 // peripheral externs
-extern libMcuLL::iocon::iocon<libMcuLL::hw::ioconAddress> ioconPeripheral;
-extern libMcuLL::swm::swm<libMcuLL::hw::swmAddress> swmPeriperhal;
-extern libMcuLL::gpio::gpio<libMcuLL::hw::gpioAddress> gpioPeripheral;
-extern libMcuLL::syscon::syscon<libMcuLL::hw::sysconAddress> sysconPeripheral;
-extern libMcuLL::systick::systick<libMcuLL::hw::systickAddress> systickPeripheral;
-extern libMcuHal::usart::uartSync<libMcuLL::hw::usart0Address, libMcuLL::hw::nvicAddress, char, 128> usartPeripheral;
+extern libMcuLL::iocon::iocon<libMcuHw::ioconAddress> ioconPeripheral;
+extern libMcuLL::swm::swm<libMcuHw::swmAddress> swmPeriperhal;
+extern libMcuLL::gpio::gpio<libMcuHw::gpioAddress> gpioPeripheral;
+extern libMcuLL::syscon::syscon<libMcuHw::sysconAddress> sysconPeripheral;
+extern libMcuLL::systick::systick<libMcuHw::systickAddress> systickPeripheral;
+extern libMcuHal::usart::uartSync<libMcuHw::usart0Address, libMcuHw::nvicAddress, char, 128> usartPeripheral;
 
 extern volatile std::uint32_t ticks;  // amount of ticks passed sinds startup
 

@@ -9,13 +9,13 @@
  */
 #include <POC_temp_sense_nuclone.hpp>
 
-libMcuLL::iocon::iocon<libMcuLL::hw::ioconAddress> ioconPeripheral;
-libMcuLL::swm::swm<libMcuLL::hw::swmAddress> swmPeriperhal;
-libMcuLL::gpio::gpio<libMcuLL::hw::gpioAddress> gpioPeripheral;
-libMcuLL::syscon::syscon<libMcuLL::hw::sysconAddress> sysconPeripheral;
-libMcuLL::systick::systick<libMcuLL::hw::systickAddress> systickPeripheral;
-libMcuLL::nvic::nvic<libMcuLL::hw::nvicAddress, libMcuLL::hw::scbAddress> nvicPeripheral;
-libMcuHal::usart::uartSync<libMcuLL::hw::usart0Address, libMcuLL::hw::nvicAddress, char, 128> usartPeripheral;
+libMcuLL::iocon::iocon<libMcuHw::ioconAddress> ioconPeripheral;
+libMcuLL::swm::swm<libMcuHw::swmAddress> swmPeriperhal;
+libMcuLL::gpio::gpio<libMcuHw::gpioAddress> gpioPeripheral;
+libMcuLL::syscon::syscon<libMcuHw::sysconAddress> sysconPeripheral;
+libMcuLL::systick::systick<libMcuHw::systickAddress> systickPeripheral;
+libMcuLL::nvic::nvic<libMcuHw::nvicAddress, libMcuHw::scbAddress> nvicPeripheral;
+libMcuHal::usart::uartSync<libMcuHw::usart0Address, libMcuHw::nvicAddress, char, 128> usartPeripheral;
 
 volatile std::uint32_t ticks;
 
@@ -72,7 +72,7 @@ void boardInit(void) {
   gpioPeripheral.output(mux2s1Pin);
   gpioPeripheral.output(mux2s2Pin);
   // setup crystal oscillator
-  sysconPeripheral.setSysOscControl(libMcuLL::hw::syscon::SYSOSCCTRL::NO_BYPASS | libMcuLL::hw::syscon::SYSOSCCTRL::FREQ_1_20MHz);
+  sysconPeripheral.setSysOscControl(libMcuHw::syscon::SYSOSCCTRL::NO_BYPASS | libMcuHw::syscon::SYSOSCCTRL::FREQ_1_20MHz);
   sysconPeripheral.powerPeripherals(libMcuLL::syscon::powerOptions::SYSOSC);
   libMcu::sw::delay(3000);
   // setup PLL
@@ -91,7 +91,7 @@ void boardInit(void) {
   // setup UART
   sysconPeripheral.peripheralClockSource(libMcuLL::syscon::clockSourceSelects::UART0, libMcuLL::syscon::clockSources::MAIN);
   usartPeripheral.init(115200);
-  nvicPeripheral.enable(libMcuLL::hw::interrupts::uart0);
+  nvicPeripheral.enable(libMcuHw::interrupts::uart0);
 }
 
 bool isMainsPresent(void) {
