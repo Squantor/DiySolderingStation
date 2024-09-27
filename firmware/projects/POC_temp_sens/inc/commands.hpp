@@ -20,6 +20,7 @@ extern squLib::commandHandler dupHandler;
 extern squLib::commandHandler dropHandler;
 extern squLib::commandHandler statHandler;
 extern squLib::commandHandler muxHandler;
+extern squLib::commandHandler tcHandler;
 }  // namespace application
 
 #endif

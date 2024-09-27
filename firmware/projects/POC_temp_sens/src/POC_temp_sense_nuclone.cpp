@@ -98,8 +98,7 @@ void boardInit(void) {
   usartPeripheral.init(115200);
   nvicPeripheral.enable(libMcuHw::interrupts::uart0);
   // setup ADC
-  adcPeripheral.init(1200000);
-  adcPeripheral.sample(TcAmpPin);
+  adcPeripheral.init(100000);
 }
 
 bool isMainsPresent(void) {

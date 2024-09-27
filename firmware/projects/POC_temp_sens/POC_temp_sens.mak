@@ -24,6 +24,7 @@ $(PROJ_DIR)/src/command_drop.cpp \
 $(PROJ_DIR)/src/command_dup.cpp \
 $(PROJ_DIR)/src/command_stat.cpp \
 $(PROJ_DIR)/src/command_mux.cpp \
+$(PROJ_DIR)/src/command_tc.cpp \
 $(PROJ_DIR)/src/$(BOARD).cpp
 $(NAME)_INCLUDES := -I$(PROJ_DIR)/inc -Icommon/inc
 

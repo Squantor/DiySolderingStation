@@ -13,14 +13,12 @@
 
 namespace application {
 
-squLib::results empty(std::span<const char> commandLine);
-
-squLib::commandHandler emptyHandler{"empty", "Does nothing\n", empty};
-
 squLib::results empty(std::span<const char> commandLine) {
   (void)commandLine;
   commandConsole.print("Your command interpreter works perfectly!\n");
   return squLib::results::ok;
 }
+
+squLib::commandHandler emptyHandler{"empty", "Does nothing\n", empty};
 
 }  // namespace application
