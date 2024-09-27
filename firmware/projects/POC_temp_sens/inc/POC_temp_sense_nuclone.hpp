@@ -42,13 +42,14 @@ using pinMux2s1Type = libMcuHw::pin<libMcuHw::IOports::PORT1, libMcuHw::IOpins::
 using pinMux2s2Type = libMcuHw::pin<libMcuHw::IOports::PORT1, libMcuHw::IOpins::PIN07>;
 
 // differential amplifier ADC pin
-using pinDiffAmpInputType = libMcuHw::pin<libMcuHw::IOports::PORT0, libMcuHw::IOpins::PIN07>;
+using pinTcAmpType = libMcuHw::pin<libMcuHw::IOports::PORT0, libMcuHw::IOpins::PIN07>;
 
 // function types
 using functionXtalInType = libMcuHw::swm::pinFunction<libMcuHw::swm::pinFunctions::XTALIN>;
 using functionXtalOutType = libMcuHw::swm::pinFunction<libMcuHw::swm::pinFunctions::XTALOUT>;
 using functionUartDebugTxType = libMcuHw::swm::pinFunction<libMcuHw::swm::pinFunctions::U0_TXD_O>;
 using functionUartDebugRxType = libMcuHw::swm::pinFunction<libMcuHw::swm::pinFunctions::U0_RXD_I>;
+using functionAdcTcAmpType = libMcuHw::swm::pinFunction<libMcuHw::swm::pinFunctions::ADC_0_I>;
 
 // pin instances
 constexpr pinXtalInType xtalInPin;
@@ -63,7 +64,7 @@ constexpr pinMux1s2Type mux1s2Pin;
 constexpr pinMux2s0Type mux2s0Pin;
 constexpr pinMux2s1Type mux2s1Pin;
 constexpr pinMux2s2Type mux2s2Pin;
-constexpr pinDiffAmpInputType diffAmpInputPin;
+constexpr pinTcAmpType TcAmpPin;
 // port instances
 constexpr portMuxType muxPort;
 
@@ -72,6 +73,7 @@ constexpr functionXtalInType xtalInFunction;
 constexpr functionXtalOutType xtalOutFunction;
 constexpr functionUartDebugTxType uartDebugTxFunction;
 constexpr functionUartDebugRxType uartDebugRxFunction;
+constexpr functionAdcTcAmpType adcTcAmpFunction;
 
 // peripheral externs
 extern libMcuLL::iocon::iocon<libMcuHw::ioconAddress> ioconPeripheral;

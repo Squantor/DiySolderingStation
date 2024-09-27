@@ -16,6 +16,7 @@ libMcuLL::syscon::syscon<libMcuHw::sysconAddress> sysconPeripheral;
 libMcuLL::systick::systick<libMcuHw::systickAddress> systickPeripheral;
 libMcuLL::nvic::nvic<libMcuHw::nvicAddress, libMcuHw::scbAddress> nvicPeripheral;
 libMcuHal::usart::uartSync<libMcuHw::usart0Address, libMcuHw::nvicAddress, char, 128> usartPeripheral;
+libMcuLL::adc::adc<libMcuHw::adc0Address> adcPeripheral;
 
 volatile std::uint32_t ticks;
 
@@ -35,10 +36,12 @@ auto systickIsrLambda = []() {
 
 void boardInit(void) {
   ticks = 0;
-  // clock enables and resets
+  // clock, power and reset enables/clears
+  sysconPeripheral.powerPeripherals(libMcuLL::syscon::powerOptions::SYSOSC | libMcuLL::syscon::powerOptions::ADC);
   sysconPeripheral.enablePeripheralClocks(libMcuLL::syscon::peripheralClocks0::SWM | libMcuLL::syscon::peripheralClocks0::IOCON |
                                             libMcuLL::syscon::peripheralClocks0::GPIO0 |
-                                            libMcuLL::syscon::peripheralClocks0::GPIO1 | libMcuLL::syscon::peripheralClocks0::UART0,
+                                            libMcuLL::syscon::peripheralClocks0::GPIO1 |
+                                            libMcuLL::syscon::peripheralClocks0::UART0 | libMcuLL::syscon::peripheralClocks0::ADC,
                                           0);
   // setup pins
   ioconPeripheral.setup(xtalInPin, libMcuLL::iocon::pullModes::INACTIVE);
@@ -53,11 +56,12 @@ void boardInit(void) {
   ioconPeripheral.setup(mux2s0Pin, libMcuLL::iocon::pullModes::INACTIVE);
   ioconPeripheral.setup(mux2s1Pin, libMcuLL::iocon::pullModes::INACTIVE);
   ioconPeripheral.setup(mux2s2Pin, libMcuLL::iocon::pullModes::INACTIVE);
-  ioconPeripheral.setup(diffAmpInputPin, libMcuLL::iocon::pullModes::INACTIVE);
+  ioconPeripheral.setup(TcAmpPin, libMcuLL::iocon::pullModes::INACTIVE);
   swmPeriperhal.setup(xtalInPin, xtalInFunction);
   swmPeriperhal.setup(xtalOutPin, xtalOutFunction);
   swmPeriperhal.setup(debugUartRxPin, uartDebugRxFunction);
   swmPeriperhal.setup(debugUartTxPin, uartDebugTxFunction);
+  swmPeriperhal.setup(TcAmpPin, adcTcAmpFunction);
   gpioPeripheral.input(PowerDetectPin);
   gpioPeripheral.low(mux1s0Pin);
   gpioPeripheral.low(mux1s1Pin);
@@ -73,7 +77,8 @@ void boardInit(void) {
   gpioPeripheral.output(mux2s2Pin);
   // setup crystal oscillator
   sysconPeripheral.setSysOscControl(libMcuHw::syscon::SYSOSCCTRL::NO_BYPASS | libMcuHw::syscon::SYSOSCCTRL::FREQ_1_20MHz);
-  sysconPeripheral.powerPeripherals(libMcuLL::syscon::powerOptions::SYSOSC);
+
+  libMcuLL::adc::adc<libMcuHw::adc0Address> adcPeripheral;
   libMcu::sw::delay(3000);
   // setup PLL
   sysconPeripheral.selectPllClock(libMcuLL::syscon::pllClockSources::EXT);
@@ -92,6 +97,9 @@ void boardInit(void) {
   sysconPeripheral.peripheralClockSource(libMcuLL::syscon::clockSourceSelects::UART0, libMcuLL::syscon::clockSources::MAIN);
   usartPeripheral.init(115200);
   nvicPeripheral.enable(libMcuHw::interrupts::uart0);
+  // setup ADC
+  adcPeripheral.init(1200000);
+  adcPeripheral.sample(TcAmpPin);
 }
 
 bool isMainsPresent(void) {
