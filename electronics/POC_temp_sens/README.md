@@ -1,4 +1,4 @@
-# Proof of concept JBC T245 and T115 temperatature sensing circuit
+# Proof of concept JBC T245 and T115 temperature sensing circuit
 JBC T245 handle thermocouple sensing circuit as copied/adapted from the [reverse engineered CD-2BC](https://www.eevblog.com/forum/testgear/jbc-soldering-station-cd-2bc-complete-schematic-analysis/) schematic. The PCB is made to imitate a 2.54mm pitch prototyping board cut to size to fit the prototype. On top of this protoboard a small size nuclone with LPC845 microcontroller is put on top.
 # HSI (Hardware Software Interface)
 * ADC voltage reference is 3V REF3030AIDBZT
