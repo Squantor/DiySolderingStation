@@ -499,7 +499,8 @@
   "libraries": {
     "pinned_footprint_libs": [
       "SquantorDiodes",
-      "SquantorIC"
+      "SquantorIC",
+      "SquantorConnectors"
     ],
     "pinned_symbol_libs": [
       "SquantorDevice",
