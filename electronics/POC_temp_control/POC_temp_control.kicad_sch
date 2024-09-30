@@ -3695,6 +3695,16 @@
 	)
 	(wire
 		(pts
+			(xy 27.94 128.27) (xy 40.64 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0cfc9c6e-9934-4291-84fd-ba1f6b67427e")
+	)
+	(wire
+		(pts
 			(xy 55.88 60.96) (xy 55.88 59.69)
 		)
 		(stroke
@@ -3862,6 +3872,16 @@
 			(type default)
 		)
 		(uuid "2624e9a0-972a-4afd-bc21-1487921fddd0")
+	)
+	(polyline
+		(pts
+			(xy 224.79 13.97) (xy 224.79 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "266c7174-2b65-436a-a293-008d9ec22ca5")
 	)
 	(polyline
 		(pts
@@ -4145,6 +4165,16 @@
 	)
 	(polyline
 		(pts
+			(xy 224.79 80.01) (xy 283.21 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "59c56b11-a4fc-4b55-af93-6dc4994e52fd")
+	)
+	(polyline
+		(pts
 			(xy 81.28 39.37) (xy 69.85 39.37)
 		)
 		(stroke
@@ -4302,6 +4332,16 @@
 			(type default)
 		)
 		(uuid "76b82333-538a-4e4d-8a90-9a32d0640f3b")
+	)
+	(polyline
+		(pts
+			(xy 273.05 76.2) (xy 273.05 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77def4b3-de98-4bdc-aa2a-57e71b107412")
 	)
 	(wire
 		(pts
@@ -4573,6 +4613,16 @@
 		)
 		(uuid "ade226e4-e164-4e96-8672-e8814ad362b7")
 	)
+	(polyline
+		(pts
+			(xy 283.21 13.97) (xy 224.79 13.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aef158f1-0e7e-4d87-9122-27d9f40220f8")
+	)
 	(wire
 		(pts
 			(xy 69.85 59.69) (xy 74.93 59.69)
@@ -4693,6 +4743,16 @@
 		)
 		(uuid "be459aec-ff00-4059-acf5-e64085a2f652")
 	)
+	(polyline
+		(pts
+			(xy 283.21 76.2) (xy 273.05 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be85e13c-4cc0-4954-9bbb-b0cb9ead5b03")
+	)
 	(wire
 		(pts
 			(xy 66.04 33.02) (xy 67.31 33.02)
@@ -4792,6 +4852,16 @@
 			(type default)
 		)
 		(uuid "d27e7f83-266f-49b1-9913-24747fbdac36")
+	)
+	(polyline
+		(pts
+			(xy 283.21 80.01) (xy 283.21 13.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d47826aa-fb3f-4d00-98de-7dc92f4ad1d8")
 	)
 	(wire
 		(pts
@@ -5005,7 +5075,7 @@
 	)
 	(wire
 		(pts
-			(xy 246.38 24.13) (xy 251.46 24.13)
+			(xy 240.03 21.59) (xy 245.11 21.59)
 		)
 		(stroke
 			(width 0)
@@ -5254,6 +5324,16 @@
 		)
 		(uuid "d4875a05-1b16-4e87-aba8-9f9d65d9fef8")
 	)
+	(text "Nuclone"
+		(exclude_from_sim no)
+		(at 278.13 78.74 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "dc127043-f56d-46f5-9029-829e80717df7")
+	)
 	(text "TC sensing"
 		(exclude_from_sim no)
 		(at 161.29 181.61 0)
@@ -5287,7 +5367,7 @@
 		(uuid "0d7cb7a7-ef7a-4ccf-81e9-35fa78242398")
 	)
 	(label "GND"
-		(at 274.32 26.67 0)
+		(at 267.97 24.13 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5363,6 +5443,17 @@
 		)
 		(uuid "1beb9df4-4ea1-4c57-8e0c-9b4a48820e40")
 	)
+	(label "+5VD"
+		(at 20.32 128.27 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1e54a800-5a9a-42c0-a238-45ae97266e92")
+	)
 	(label "GND"
 		(at 63.5 99.06 180)
 		(fields_autoplaced yes)
@@ -5386,7 +5477,7 @@
 		(uuid "23f3dc4d-17cb-49bb-8f13-2b2f535ee402")
 	)
 	(label "+5VD"
-		(at 238.76 24.13 180)
+		(at 232.41 21.59 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5485,7 +5576,7 @@
 		(uuid "5b29656f-6c24-4491-8428-6eea528ec47d")
 	)
 	(label "VBUS"
-		(at 274.32 24.13 0)
+		(at 267.97 21.59 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5507,7 +5598,7 @@
 		(uuid "6631e1cc-e641-42ae-8a45-6e6959c6c2a8")
 	)
 	(label "GND"
-		(at 251.46 26.67 180)
+		(at 245.11 24.13 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5529,7 +5620,7 @@
 		(uuid "71dbb83f-1191-4be4-8bca-bfa95e94e503")
 	)
 	(label "VD3.3V+"
-		(at 251.46 55.88 180)
+		(at 245.11 49.53 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5584,6 +5675,17 @@
 		(uuid "8743381c-62dd-4474-8b23-bcb69b7ff324")
 	)
 	(label "GND"
+		(at 48.26 128.27 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "891570f4-ee4e-4dba-9bd1-054630439cf4")
+	)
+	(label "GND"
 		(at 107.95 35.56 180)
 		(fields_autoplaced yes)
 		(effects
@@ -5617,7 +5719,7 @@
 		(uuid "945cbd42-98fe-4da1-8605-7f2396963bdb")
 	)
 	(label "VD3.3V+"
-		(at 274.32 55.88 0)
+		(at 267.97 49.53 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5716,7 +5818,7 @@
 		(uuid "ad8577eb-6d60-4855-92f3-9b56ac953575")
 	)
 	(label "GND"
-		(at 251.46 58.42 180)
+		(at 245.11 52.07 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5727,7 +5829,7 @@
 		(uuid "adef8939-d196-4218-8d88-1afa85ef1a54")
 	)
 	(label "GND"
-		(at 274.32 58.42 0)
+		(at 267.97 52.07 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5738,7 +5840,7 @@
 		(uuid "b5111df0-c621-4a44-9f36-e8fc445e1d8c")
 	)
 	(label "VD3.3V+"
-		(at 251.46 21.59 180)
+		(at 245.11 19.05 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5802,6 +5904,17 @@
 			(justify right bottom)
 		)
 		(uuid "cf024987-b335-44de-84f6-54d1e94cd007")
+	)
+	(label "POWER_SENSE"
+		(at 267.97 29.21 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d29d1971-0c07-4bd2-b701-33eaa46d4c04")
 	)
 	(label "LINE"
 		(at 24.13 25.4 0)
@@ -5880,8 +5993,19 @@
 		)
 		(uuid "e96f3354-85cd-45bc-81c2-7ecfecd7f0eb")
 	)
+	(label "POWER_SENSE"
+		(at 27.94 128.27 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "eaa7d6b3-683d-4202-ae13-56183b477442")
+	)
 	(label "VD3.3V+"
-		(at 274.32 21.59 0)
+		(at 267.97 19.05 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5892,7 +6016,7 @@
 		(uuid "f704c837-7fba-4b5e-9c59-dfe43d8a2d4e")
 	)
 	(label "VBUS"
-		(at 251.46 24.13 180)
+		(at 245.11 21.59 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7700,16 +7824,15 @@
 	)
 	(symbol
 		(lib_id "SquantorNuclone:nuclone_small_LPC845")
-		(at 262.89 67.31 0)
+		(at 256.54 60.96 0)
 		(unit 2)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "7296e74a-05c8-4c61-a461-558ff6ea702b")
 		(property "Reference" "U3"
-			(at 262.89 49.53 0)
+			(at 250.19 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7717,15 +7840,15 @@
 			)
 		)
 		(property "Value" "~"
-			(at 262.89 52.07 0)
+			(at 256.54 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 262.89 71.12 0)
+		(property "Footprint" "SquantorNuclone:nuclone_small_LPC845"
+			(at 256.54 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7734,7 +7857,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 262.89 71.12 0)
+			(at 256.54 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7743,7 +7866,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 262.89 71.12 0)
+			(at 256.54 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8200,16 +8323,15 @@
 	)
 	(symbol
 		(lib_id "SquantorNuclone:nuclone_small_LPC845")
-		(at 262.89 33.02 0)
+		(at 256.54 30.48 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "937bd590-dbd1-44fd-8120-ff54f910e4bb")
 		(property "Reference" "U3"
-			(at 262.89 15.24 0)
+			(at 248.92 15.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8217,15 +8339,15 @@
 			)
 		)
 		(property "Value" "~"
-			(at 262.89 17.78 0)
+			(at 256.54 15.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 262.89 36.83 0)
+		(property "Footprint" "SquantorNuclone:nuclone_small_LPC845"
+			(at 256.54 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8234,7 +8356,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 262.89 36.83 0)
+			(at 256.54 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8243,7 +8365,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 262.89 36.83 0)
+			(at 256.54 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8691,32 +8813,32 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:D")
-		(at 242.57 24.13 180)
+		(lib_id "Device:R")
+		(at 44.45 128.27 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "a1e7c595-2018-49cd-9a9c-26fc0f437827")
-		(property "Reference" "D11"
-			(at 238.76 25.4 0)
+		(uuid "a18188ca-0c86-4cb0-abcb-bcc898eed3cc")
+		(property "Reference" "R10"
+			(at 48.26 129.54 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "D"
-			(at 245.11 25.4 0)
+		(property "Value" "10k"
+			(at 44.45 128.27 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 242.57 24.13 0)
+		(property "Footprint" "SquantorResistor:R_0603_hand"
+			(at 44.45 126.492 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8725,7 +8847,74 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 242.57 24.13 0)
+			(at 44.45 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 44.45 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "faa68612-d0d6-48eb-8431-2385afa250af")
+		)
+		(pin "1"
+			(uuid "d8b073a0-ec89-4336-b45d-bb90760cc9a0")
+		)
+		(instances
+			(project "POC_temp_control"
+				(path "/646d9e91-59b4-4865-a2fc-29780ed32563"
+					(reference "R10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D")
+		(at 236.22 21.59 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a1e7c595-2018-49cd-9a9c-26fc0f437827")
+		(property "Reference" "D11"
+			(at 232.41 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "D"
+			(at 238.76 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "SquantorDiodes:SOD-123F-hand"
+			(at 236.22 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 236.22 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8734,7 +8923,7 @@
 			)
 		)
 		(property "Description" "Diode"
-			(at 242.57 24.13 0)
+			(at 236.22 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8743,7 +8932,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 242.57 24.13 0)
+			(at 236.22 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8752,7 +8941,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 242.57 24.13 0)
+			(at 236.22 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8839,6 +9028,73 @@
 			(project ""
 				(path "/646d9e91-59b4-4865-a2fc-29780ed32563"
 					(reference "D10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 24.13 128.27 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b255526f-11f9-4fef-967b-77e3b4b3f5c6")
+		(property "Reference" "R9"
+			(at 27.94 129.54 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "5k6"
+			(at 24.13 128.27 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "SquantorResistor:R_0603_hand"
+			(at 24.13 126.492 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 24.13 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 24.13 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "573bd671-a616-46c0-a054-a8973639ab77")
+		)
+		(pin "1"
+			(uuid "d35d6b25-bc7e-4eea-9015-fa63b5eb01d8")
+		)
+		(instances
+			(project "POC_temp_control"
+				(path "/646d9e91-59b4-4865-a2fc-29780ed32563"
+					(reference "R9")
 					(unit 1)
 				)
 			)
