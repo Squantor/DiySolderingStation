@@ -24,7 +24,7 @@ SECTIONS {
     _boot2_start = .;
     KEEP(*(.boot.entry))
     . = 256-4;
-    LONG(0xDEADBEEF) /* Insert dummy CRC */
+    LONG(BOOTLOADER_CRC) /* Insert dummy CRC */
     _boot2_end = .;
   } > flash
 

@@ -26,5 +26,7 @@ MEMORY
   core1Stack (rwx) : ORIGIN = 0x20041000, LENGTH = 4k
 }
 
+BOOTLOADER_CRC = 0x7427b4A2; /* Computed CRC by bin2uf2*/
+
 /* Include main link script. Note: it will be searched in -L paths. */
 INCLUDE linkscript_rp2040.ld

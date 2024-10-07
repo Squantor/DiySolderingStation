@@ -4,7 +4,7 @@
 
 # settings for the MCU target
 #
-# Version: 20230718
+# Version: 20241004
 
 ifndef $(PROJECT)_MCU
 $(error Project MCU is not defined!)
