@@ -10,12 +10,6 @@
 #ifndef POC_TEMP_SENSE_NUCLONE_HPP
 #define POC_TEMP_SENSE_NUCLONE_HPP
 
-#define CLOCK_XTAL (12'000'000u)
-#define CLOCK_EXT_IN (0u)
-#define CLOCK_CPU (30'000'000u)
-#define CLOCK_AHB (30'000'000u)
-#define CLOCK_MAIN (60'000'000u)
-
 #include <nxp/libmcu_LPC845M301BD48_hal.hpp>
 
 #define TICKS_PER_S 100
@@ -83,6 +77,13 @@ extern libMcuLL::syscon::syscon<libMcuHw::sysconAddress> sysconPeripheral;
 extern libMcuLL::systick::systick<libMcuHw::systickAddress> systickPeripheral;
 extern libMcuHal::usart::uartSync<libMcuHw::usart0Address, libMcuHw::nvicAddress, char, 128> usartPeripheral;
 extern libMcuLL::adc::adc<libMcuHw::adc0Address> adcPeripheral;
+inline constexpr libMcuHw::clock::clockConfig<
+  libMcuHw::clock::clockInputSources::XTAL, 12'000'000u, 30'000'000u, libMcuHw::clock::periSource::MAIN,
+  libMcuHw::clock::periSource::MAIN, libMcuHw::clock::periSource::MAIN, libMcuHw::clock::periSource::MAIN,
+  libMcuHw::clock::periSource::MAIN, libMcuHw::clock::periSource::MAIN, libMcuHw::clock::periSource::MAIN,
+  libMcuHw::clock::periSource::MAIN, libMcuHw::clock::periSource::MAIN, libMcuHw::clock::periSource::MAIN,
+  libMcuHw::clock::periSource::SYS_PLL>
+  diySolderClockConfig;
 
 extern volatile std::uint32_t ticks;  // amount of ticks passed sinds startup
 

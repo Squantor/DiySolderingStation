@@ -76,29 +76,16 @@ void boardInit(void) {
   gpioPeripheral.output(mux2s1Pin);
   gpioPeripheral.output(mux2s2Pin);
   // setup crystal oscillator
-  sysconPeripheral.setSysOscControl(libMcuHw::syscon::SYSOSCCTRL::NO_BYPASS | libMcuHw::syscon::SYSOSCCTRL::FREQ_1_20MHz);
-
-  libMcuLL::adc::adc<libMcuHw::adc0Address> adcPeripheral;
-  libMcu::sw::delay(3000);
-  // setup PLL
-  sysconPeripheral.selectPllClock(libMcuLL::syscon::pllClockSources::EXT);
-  sysconPeripheral.depowerPeripherals(libMcuLL::syscon::powerOptions::SYSPLL);
-  sysconPeripheral.setSystemPllControl(4, libMcuLL::syscon::pllPostDivider::DIV_4);
-  sysconPeripheral.powerPeripherals(libMcuLL::syscon::powerOptions::SYSPLL);
-  while (sysconPeripheral.getSystemPllStatus() == 0)
-    ;
-  sysconPeripheral.setSystemClockDivider(2);
-  // switch mainclock
-  sysconPeripheral.selectMainPllClock(libMcuLL::syscon::mainClockPllSources::SYSPLL);
+  libMcuHw::clock::configureClocks<sysconPeripheral, diySolderClockConfig>();
   // setup systick
-  systickPeripheral.init(CLOCK_CPU / TICKS_PER_S);
+  systickPeripheral.init(diySolderClockConfig.systemFreq / TICKS_PER_S);
   systickPeripheral.start(systickIsrLambda);
   // setup UART
   sysconPeripheral.peripheralClockSource(libMcuLL::syscon::clockSourceSelects::UART0, libMcuLL::syscon::clockSources::MAIN);
-  usartPeripheral.init(115200);
+  usartPeripheral.init<diySolderClockConfig>(115200);
   nvicPeripheral.enable(libMcuHw::interrupts::uart0);
   // setup ADC
-  adcPeripheral.init(100000);
+  adcPeripheral.init<diySolderClockConfig>(100000);
 }
 
 bool isMainsPresent(void) {
