@@ -15621,7 +15621,7 @@
 		(uuid "207ae416-9eb0-48ac-9ce6-087bede425fb")
 	)
 	(label "COM1"
-		(at 142.24 26.67 0)
+		(at 142.24 29.21 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -16380,7 +16380,7 @@
 		(uuid "71dbb83f-1191-4be4-8bca-bfa95e94e503")
 	)
 	(label "COM2"
-		(at 142.24 31.75 0)
+		(at 142.24 24.13 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -16864,7 +16864,7 @@
 		(uuid "a1fa692a-5e19-4e36-b1b0-ded735197ebc")
 	)
 	(label "TC2"
-		(at 142.24 24.13 0)
+		(at 142.24 31.75 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -17172,7 +17172,7 @@
 		(uuid "bf728d34-2435-40da-a876-b79577b439d0")
 	)
 	(label "TC1"
-		(at 142.24 29.21 0)
+		(at 142.24 26.67 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
