@@ -549,8 +549,8 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.6,
-        "via_diameter": 1.0,
-        "via_drill": 0.6,
+        "via_diameter": 0.7,
+        "via_drill": 0.3,
         "wire_width": 6
       },
       {
@@ -569,6 +569,23 @@
         "via_diameter": 0.7,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "highPower",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 1.0,
+        "via_diameter": 1.4,
+        "via_drill": 1.0,
+        "wire_width": 6
       }
     ],
     "meta": {
@@ -576,7 +593,36 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "Power",
+        "pattern": "/VA8V+"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/VA4.5V-"
+      },
+      {
+        "netclass": "highPower",
+        "pattern": "/LOAD"
+      },
+      {
+        "netclass": "highPower",
+        "pattern": "/AC1"
+      },
+      {
+        "netclass": "highPower",
+        "pattern": "/AC2"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/VD3.3V+"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/GND"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
