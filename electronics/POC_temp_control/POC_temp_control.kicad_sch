@@ -8671,12 +8671,6 @@
 		(uuid "136f974a-4ff4-4e3c-b365-e09c53a5dfda")
 	)
 	(junction
-		(at 281.94 35.56)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1c2bbb59-7843-464e-ab3f-a496743d3126")
-	)
-	(junction
 		(at 102.87 170.18)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8945,12 +8939,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "91adcbb7-170f-4479-a1dd-7aebc72474d6")
-	)
-	(junction
-		(at 227.33 33.02)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9ab35037-caaa-438b-89b1-dac3366110ed")
 	)
 	(junction
 		(at 57.15 81.28)
@@ -10314,16 +10302,6 @@
 		)
 		(uuid "27e1cbcf-fb60-4d7d-926b-1fa3abece5a7")
 	)
-	(wire
-		(pts
-			(xy 238.76 33.02) (xy 245.11 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "28228dd2-8e2b-4f72-8902-47588315a572")
-	)
 	(polyline
 		(pts
 			(xy 104.14 120.65) (xy 104.14 137.16)
@@ -10816,16 +10794,6 @@
 	)
 	(wire
 		(pts
-			(xy 227.33 22.86) (xy 227.33 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3e76a492-e2e8-43ce-a9bf-360dea10ae40")
-	)
-	(wire
-		(pts
 			(xy 177.8 20.32) (xy 179.07 20.32)
 		)
 		(stroke
@@ -11233,16 +11201,6 @@
 			(type default)
 		)
 		(uuid "5133cf25-e1e4-4f89-9664-b4d586ab3292")
-	)
-	(wire
-		(pts
-			(xy 245.11 22.86) (xy 227.33 22.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "515ff386-1854-43e3-b7c6-dfc66dfb1c6a")
 	)
 	(polyline
 		(pts
@@ -11693,16 +11651,6 @@
 			(type default)
 		)
 		(uuid "6727c6ca-3b48-4eda-9068-e63c9fe8de29")
-	)
-	(wire
-		(pts
-			(xy 231.14 38.1) (xy 227.33 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "685ac404-d431-4811-9a13-25837f0a40ac")
 	)
 	(wire
 		(pts
@@ -12516,16 +12464,6 @@
 	)
 	(wire
 		(pts
-			(xy 267.97 35.56) (xy 274.32 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "93a5decc-e274-4be1-bccf-8e0edc24704e")
-	)
-	(wire
-		(pts
 			(xy 96.52 57.15) (xy 99.06 57.15)
 		)
 		(stroke
@@ -13096,16 +13034,6 @@
 	)
 	(wire
 		(pts
-			(xy 227.33 38.1) (xy 227.33 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ae260750-c887-4e47-bfd7-fdef0f9c2d04")
-	)
-	(wire
-		(pts
 			(xy 171.45 72.39) (xy 175.26 72.39)
 		)
 		(stroke
@@ -13646,16 +13574,6 @@
 	)
 	(wire
 		(pts
-			(xy 281.94 35.56) (xy 281.94 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c94ed590-95cc-4fc6-a357-d23c62aa8fe5")
-	)
-	(wire
-		(pts
 			(xy 171.45 52.07) (xy 172.72 52.07)
 		)
 		(stroke
@@ -13793,16 +13711,6 @@
 			(type default)
 		)
 		(uuid "cecf0938-73a0-45c0-8b77-da0f79ad1f59")
-	)
-	(wire
-		(pts
-			(xy 227.33 33.02) (xy 231.14 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cee83f9a-85bb-4153-a86b-1f60eb18d83f")
 	)
 	(wire
 		(pts
@@ -14144,16 +14052,6 @@
 		)
 		(uuid "dabb9251-72e8-48a7-b834-42b9bd58969f")
 	)
-	(wire
-		(pts
-			(xy 281.94 22.86) (xy 281.94 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "db65dcaf-469c-4171-9719-7c54b9bf8289")
-	)
 	(polyline
 		(pts
 			(xy 81.28 13.97) (xy 13.97 13.97)
@@ -14243,16 +14141,6 @@
 			(type default)
 		)
 		(uuid "df003711-de3e-47ce-baac-a4c5f534a6f5")
-	)
-	(wire
-		(pts
-			(xy 267.97 38.1) (xy 274.32 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dfa85115-d9d3-4050-8aa4-9ebace8a6df2")
 	)
 	(wire
 		(pts
@@ -14353,16 +14241,6 @@
 			(type default)
 		)
 		(uuid "e29a1f5b-52e3-46f9-8761-e10b27b8c4ed")
-	)
-	(wire
-		(pts
-			(xy 267.97 22.86) (xy 281.94 22.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e29bf6a0-e6b0-45ea-9c82-c6201ce100ca")
 	)
 	(polyline
 		(pts
@@ -14683,16 +14561,6 @@
 			(type default)
 		)
 		(uuid "efa061f1-5a5f-4ed2-a126-80231d71d0b0")
-	)
-	(wire
-		(pts
-			(xy 238.76 38.1) (xy 245.11 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f0bf93af-3231-4af0-840d-c780178528ae")
 	)
 	(wire
 		(pts
@@ -15306,7 +15174,6 @@
 	)
 	(label "TC_FILT"
 		(at 275.59 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15317,7 +15184,6 @@
 	)
 	(label "GND"
 		(at 30.48 100.33 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15328,7 +15194,6 @@
 	)
 	(label "VD3.3V+"
 		(at 127 147.32 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15339,7 +15204,6 @@
 	)
 	(label "VD3.3V+"
 		(at 93.98 48.26 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15350,7 +15214,6 @@
 	)
 	(label "VA8V+"
 		(at 191.77 87.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15361,7 +15224,6 @@
 	)
 	(label "I2C_SCL"
 		(at 245.11 35.56 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15372,7 +15234,6 @@
 	)
 	(label "VA3.3V+"
 		(at 129.54 17.78 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15383,7 +15244,6 @@
 	)
 	(label "GND"
 		(at 55.88 69.85 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15394,7 +15254,6 @@
 	)
 	(label "GND"
 		(at 91.44 176.53 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15405,7 +15264,6 @@
 	)
 	(label "GND"
 		(at 267.97 22.86 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15416,7 +15274,6 @@
 	)
 	(label "LOAD2"
 		(at 142.24 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15427,7 +15284,6 @@
 	)
 	(label "TC1"
 		(at 142.24 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15438,7 +15294,6 @@
 	)
 	(label "VA3.3V+"
 		(at 246.38 116.84 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15449,7 +15304,6 @@
 	)
 	(label "GND"
 		(at 57.15 20.32 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15458,9 +15312,8 @@
 		)
 		(uuid "108995fe-87e6-41f6-8da9-2724d7836429")
 	)
-	(label "+5VD"
+	(label "VD5V+"
 		(at 231.14 118.11 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15471,7 +15324,6 @@
 	)
 	(label "GND"
 		(at 66.04 33.02 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15482,7 +15334,6 @@
 	)
 	(label "VA4.9V+"
 		(at 31.75 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15493,7 +15344,6 @@
 	)
 	(label "LOAD"
 		(at 261.62 114.3 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15504,7 +15354,6 @@
 	)
 	(label "AC1"
 		(at 19.05 147.32 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15515,7 +15364,6 @@
 	)
 	(label "GND"
 		(at 163.83 100.33 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15526,7 +15374,6 @@
 	)
 	(label "VA4.5V-"
 		(at 184.15 64.77 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15537,7 +15384,6 @@
 	)
 	(label "TC2"
 		(at 92.71 87.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15548,7 +15394,6 @@
 	)
 	(label "VD5V+"
 		(at 69.85 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15559,7 +15404,6 @@
 	)
 	(label "SW_G1"
 		(at 55.88 144.78 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15570,7 +15414,6 @@
 	)
 	(label "I2C_SDA"
 		(at 267.97 33.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15581,7 +15424,6 @@
 	)
 	(label "+5VD"
 		(at 30.48 73.66 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15592,7 +15434,6 @@
 	)
 	(label "GND"
 		(at 135.89 132.08 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15603,7 +15444,6 @@
 	)
 	(label "LEAK_FILT"
 		(at 267.97 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15614,7 +15454,6 @@
 	)
 	(label "I2C_SCL"
 		(at 245.11 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15625,7 +15464,6 @@
 	)
 	(label "COM1"
 		(at 142.24 29.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15636,7 +15474,6 @@
 	)
 	(label "VD3.3V+"
 		(at 113.03 170.18 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15647,7 +15484,6 @@
 	)
 	(label "GND"
 		(at 54.61 104.14 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15658,7 +15494,6 @@
 	)
 	(label "VA8V+"
 		(at 57.15 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15669,7 +15504,6 @@
 	)
 	(label "I2C_SCL"
 		(at 265.43 151.13 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15680,7 +15514,6 @@
 	)
 	(label "MUX_S0"
 		(at 105.41 45.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15691,7 +15524,6 @@
 	)
 	(label "MUX_S1"
 		(at 105.41 48.26 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15702,7 +15534,6 @@
 	)
 	(label "MUX_S2"
 		(at 138.43 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15713,7 +15544,6 @@
 	)
 	(label "MUX_S0"
 		(at 245.11 33.02 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15724,7 +15554,6 @@
 	)
 	(label "LOAD1"
 		(at 92.71 92.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15735,7 +15564,6 @@
 	)
 	(label "VA+"
 		(at 59.69 113.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15746,7 +15574,6 @@
 	)
 	(label "AC2"
 		(at 135.89 124.46 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15757,7 +15584,6 @@
 	)
 	(label "!UI_INT"
 		(at 245.11 30.48 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15768,7 +15594,6 @@
 	)
 	(label "VD3.3V+"
 		(at 93.98 43.18 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15779,7 +15604,6 @@
 	)
 	(label "SW_G1"
 		(at 49.53 152.4 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15790,7 +15614,6 @@
 	)
 	(label "LEAK_AMP"
 		(at 252.73 86.36 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15801,7 +15624,6 @@
 	)
 	(label "VD5V+"
 		(at 127 144.78 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15812,7 +15634,6 @@
 	)
 	(label "GND"
 		(at 262.89 132.08 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15823,7 +15644,6 @@
 	)
 	(label "GND"
 		(at 231.14 120.65 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15834,7 +15654,6 @@
 	)
 	(label "SW_G2"
 		(at 29.21 181.61 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15845,7 +15664,6 @@
 	)
 	(label "VA3.3V+"
 		(at 130.81 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15856,7 +15674,6 @@
 	)
 	(label "VA8V+"
 		(at 191.77 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15867,7 +15684,6 @@
 	)
 	(label "GND"
 		(at 92.71 163.83 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15878,7 +15694,6 @@
 	)
 	(label "GND"
 		(at 236.22 161.29 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15889,7 +15704,6 @@
 	)
 	(label "SW_G2"
 		(at 55.88 173.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15900,7 +15714,6 @@
 	)
 	(label "!UI_INT"
 		(at 127 157.48 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15911,7 +15724,6 @@
 	)
 	(label "VA3.3V+"
 		(at 63.5 104.14 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15922,7 +15734,6 @@
 	)
 	(label "VA+"
 		(at 43.18 104.14 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15933,7 +15744,6 @@
 	)
 	(label "TC-DIFF"
 		(at 171.45 72.39 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15944,7 +15754,6 @@
 	)
 	(label "I2C_SDA"
 		(at 265.43 156.21 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15955,7 +15764,6 @@
 	)
 	(label "LOAD2"
 		(at 95.25 124.46 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15966,7 +15774,6 @@
 	)
 	(label "LEAK-DIFF"
 		(at 163.83 49.53 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15977,7 +15784,6 @@
 	)
 	(label "GND"
 		(at 118.11 17.78 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15988,7 +15794,6 @@
 	)
 	(label "SW_S2"
 		(at 62.23 181.61 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -15999,7 +15804,6 @@
 	)
 	(label "GND"
 		(at 163.83 54.61 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16010,7 +15814,6 @@
 	)
 	(label "MUX_S1"
 		(at 267.97 35.56 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16021,7 +15824,6 @@
 	)
 	(label "VA4.5V-"
 		(at 184.15 87.63 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16032,7 +15834,6 @@
 	)
 	(label "VA4.5V-"
 		(at 186.69 16.51 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16043,7 +15844,6 @@
 	)
 	(label "MUX_S2"
 		(at 245.11 38.1 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16054,7 +15854,6 @@
 	)
 	(label "AC_P1"
 		(at 29.21 142.24 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16065,7 +15864,6 @@
 	)
 	(label "SW_S2"
 		(at 35.56 189.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16076,7 +15874,6 @@
 	)
 	(label "MUX_EN"
 		(at 114.3 34.29 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16087,7 +15884,6 @@
 	)
 	(label "VA4.5V-"
 		(at 121.92 49.53 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16098,7 +15894,6 @@
 	)
 	(label "LOAD1"
 		(at 95.25 127 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16109,7 +15904,6 @@
 	)
 	(label "VA3.3V+"
 		(at 139.7 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16120,7 +15914,6 @@
 	)
 	(label "AC1"
 		(at 135.89 129.54 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16131,7 +15924,6 @@
 	)
 	(label "VD+"
 		(at 45.72 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16142,7 +15934,6 @@
 	)
 	(label "VA3.3V+"
 		(at 231.14 123.19 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16153,7 +15944,6 @@
 	)
 	(label "VD+"
 		(at 33.02 68.58 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16164,7 +15954,6 @@
 	)
 	(label "TC+DIFF"
 		(at 114.3 26.67 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16175,7 +15964,6 @@
 	)
 	(label "LEAK_FILT"
 		(at 259.08 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16186,7 +15974,6 @@
 	)
 	(label "VA3.3V+"
 		(at 46.99 115.57 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16197,7 +15984,6 @@
 	)
 	(label "VBUS"
 		(at 267.97 20.32 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16208,7 +15994,6 @@
 	)
 	(label "MUX_S0"
 		(at 138.43 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16219,7 +16004,6 @@
 	)
 	(label "GND"
 		(at 129.54 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16230,7 +16014,6 @@
 	)
 	(label "VD3.3V+"
 		(at 93.98 50.8 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16241,7 +16024,6 @@
 	)
 	(label "GND"
 		(at 240.03 101.6 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16252,7 +16034,6 @@
 	)
 	(label "LOAD_SEN"
 		(at 163.83 95.25 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16263,7 +16044,6 @@
 	)
 	(label "GND"
 		(at 134.62 114.3 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16274,7 +16054,6 @@
 	)
 	(label "LOAD2"
 		(at 92.71 115.57 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16285,7 +16064,6 @@
 	)
 	(label "LEAK+DIFF"
 		(at 271.78 119.38 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16296,7 +16074,6 @@
 	)
 	(label "GND"
 		(at 273.05 101.6 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16307,7 +16084,6 @@
 	)
 	(label "GND"
 		(at 66.04 25.4 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16318,7 +16094,6 @@
 	)
 	(label "VD3.3V+"
 		(at 233.68 74.93 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16329,7 +16104,6 @@
 	)
 	(label "GND"
 		(at 245.11 22.86 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16340,7 +16114,6 @@
 	)
 	(label "VA4.5V-"
 		(at 114.3 69.85 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16351,7 +16124,6 @@
 	)
 	(label "I2C_SCL"
 		(at 127 154.94 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16362,7 +16134,6 @@
 	)
 	(label "TC-DIFF"
 		(at 114.3 59.69 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16373,7 +16144,6 @@
 	)
 	(label "VA4.5V-"
 		(at 231.14 130.81 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16384,7 +16154,6 @@
 	)
 	(label "COM2"
 		(at 142.24 24.13 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16395,7 +16164,6 @@
 	)
 	(label "VD3.3V+"
 		(at 113.03 140.97 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16406,7 +16174,6 @@
 	)
 	(label "GND"
 		(at 91.44 147.32 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16417,7 +16184,6 @@
 	)
 	(label "LOAD_SEN"
 		(at 273.05 134.62 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16428,7 +16194,6 @@
 	)
 	(label "VD3.3V+"
 		(at 245.11 46.99 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16439,7 +16204,6 @@
 	)
 	(label "SW_G1"
 		(at 29.21 152.4 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16450,7 +16214,6 @@
 	)
 	(label "MUX_S1"
 		(at 138.43 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16461,7 +16224,6 @@
 	)
 	(label "I2C_SDA"
 		(at 245.11 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16472,7 +16234,6 @@
 	)
 	(label "VA+"
 		(at 19.05 81.28 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16483,7 +16244,6 @@
 	)
 	(label "GND"
 		(at 24.13 123.19 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16494,7 +16254,6 @@
 	)
 	(label "GND"
 		(at 114.3 72.39 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16505,7 +16264,6 @@
 	)
 	(label "GND"
 		(at 92.71 193.04 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16516,7 +16274,6 @@
 	)
 	(label "GND"
 		(at 114.3 39.37 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16527,7 +16284,6 @@
 	)
 	(label "COM2"
 		(at 92.71 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16538,7 +16294,6 @@
 	)
 	(label "GND"
 		(at 46.99 110.49 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16549,7 +16304,6 @@
 	)
 	(label "TC2"
 		(at 142.24 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16560,7 +16314,6 @@
 	)
 	(label "LOAD_DIFF"
 		(at 199.39 97.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16571,7 +16324,6 @@
 	)
 	(label "SW_LOAD_1"
 		(at 113.03 152.4 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16582,7 +16334,6 @@
 	)
 	(label "AC2"
 		(at 19.05 171.45 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16593,7 +16344,6 @@
 	)
 	(label "FB5V"
 		(at 55.88 59.69 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16604,7 +16354,6 @@
 	)
 	(label "VA8V+"
 		(at 208.28 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16615,7 +16364,6 @@
 	)
 	(label "GND"
 		(at 58.42 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16626,7 +16374,6 @@
 	)
 	(label "GND"
 		(at 248.92 161.29 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16637,7 +16384,6 @@
 	)
 	(label "SW_LOAD_2"
 		(at 113.03 181.61 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16648,7 +16394,6 @@
 	)
 	(label "TC_FILT"
 		(at 245.11 67.31 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16659,7 +16404,6 @@
 	)
 	(label "LOAD"
 		(at 88.9 130.81 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16670,7 +16414,6 @@
 	)
 	(label "GND"
 		(at 246.38 133.35 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16681,7 +16424,6 @@
 	)
 	(label "ZCD"
 		(at 267.97 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16692,7 +16434,6 @@
 	)
 	(label "GND"
 		(at 276.86 147.32 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16703,7 +16444,6 @@
 	)
 	(label "GND"
 		(at 55.88 100.33 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16714,7 +16454,6 @@
 	)
 	(label "VA8V+"
 		(at 194.31 16.51 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16725,7 +16464,6 @@
 	)
 	(label "GND"
 		(at 41.91 33.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16736,7 +16474,6 @@
 	)
 	(label "VD3.3V+"
 		(at 267.97 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16747,7 +16484,6 @@
 	)
 	(label "VD3.3V+"
 		(at 278.13 160.02 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16758,7 +16494,6 @@
 	)
 	(label "GND_SEN"
 		(at 262.89 134.62 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16769,7 +16504,6 @@
 	)
 	(label "LEAK+DIFF"
 		(at 163.83 52.07 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16780,7 +16514,6 @@
 	)
 	(label "VA4.5V-"
 		(at 184.15 41.91 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16791,7 +16524,6 @@
 	)
 	(label "VD5V+"
 		(at 232.41 20.32 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16802,7 +16534,6 @@
 	)
 	(label "VA+"
 		(at 53.34 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16813,7 +16544,6 @@
 	)
 	(label "I2C_SDA"
 		(at 127 152.4 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16824,7 +16554,6 @@
 	)
 	(label "LOAD_DIFF"
 		(at 234.95 86.36 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16835,7 +16564,6 @@
 	)
 	(label "VA+"
 		(at 76.2 17.78 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16846,7 +16574,6 @@
 	)
 	(label "VD3.3V+"
 		(at 93.98 45.72 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16857,7 +16584,6 @@
 	)
 	(label "AC2"
 		(at 19.05 142.24 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16868,7 +16594,6 @@
 	)
 	(label "TC2"
 		(at 142.24 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16879,7 +16604,6 @@
 	)
 	(label "COM1"
 		(at 232.41 146.05 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16890,7 +16614,6 @@
 	)
 	(label "LEAK_AMP"
 		(at 177.8 20.32 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16901,7 +16624,6 @@
 	)
 	(label "GND"
 		(at 71.12 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16912,7 +16634,6 @@
 	)
 	(label "VD+"
 		(at 76.2 33.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16923,7 +16644,6 @@
 	)
 	(label "COM2"
 		(at 44.45 171.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16934,7 +16654,6 @@
 	)
 	(label "TC_AMP"
 		(at 201.93 22.86 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16945,7 +16664,6 @@
 	)
 	(label "MUX_EN"
 		(at 105.41 43.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16956,7 +16674,6 @@
 	)
 	(label "LEAK_DIFF"
 		(at 168.91 26.67 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16967,7 +16684,6 @@
 	)
 	(label "NEUT"
 		(at 24.13 27.94 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16978,7 +16694,6 @@
 	)
 	(label "GND"
 		(at 210.82 26.67 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16989,7 +16704,6 @@
 	)
 	(label "VA4.5V-"
 		(at 110.49 17.78 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17000,7 +16714,6 @@
 	)
 	(label "GND"
 		(at 22.86 60.96 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17011,7 +16724,6 @@
 	)
 	(label "VD+"
 		(at 231.14 115.57 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17022,7 +16734,6 @@
 	)
 	(label "CASE_GND"
 		(at 262.89 128.27 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17033,7 +16744,6 @@
 	)
 	(label "VA4.5V-"
 		(at 30.48 104.14 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17044,7 +16754,6 @@
 	)
 	(label "GND"
 		(at 245.11 49.53 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17055,7 +16764,6 @@
 	)
 	(label "LEAK-DIFF"
 		(at 271.78 116.84 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17066,7 +16774,6 @@
 	)
 	(label "VA8V+"
 		(at 191.77 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17077,7 +16784,6 @@
 	)
 	(label "LOAD_FILT"
 		(at 241.3 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17088,7 +16794,6 @@
 	)
 	(label "SW_S1"
 		(at 35.56 160.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17099,7 +16804,6 @@
 	)
 	(label "GND"
 		(at 267.97 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17110,7 +16814,6 @@
 	)
 	(label "LOAD1"
 		(at 142.24 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17121,7 +16824,6 @@
 	)
 	(label "SW_G2"
 		(at 49.53 181.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17132,7 +16834,6 @@
 	)
 	(label "COM2"
 		(at 245.11 146.05 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17143,7 +16844,6 @@
 	)
 	(label "TC1"
 		(at 92.71 105.41 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17154,7 +16854,6 @@
 	)
 	(label "VD3.3V+"
 		(at 245.11 17.78 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17165,7 +16864,6 @@
 	)
 	(label "VA4.5V-"
 		(at 114.3 36.83 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17176,7 +16874,6 @@
 	)
 	(label "TC1"
 		(at 142.24 26.67 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17187,7 +16884,6 @@
 	)
 	(label "VD+"
 		(at 58.42 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17198,7 +16894,6 @@
 	)
 	(label "GND"
 		(at 163.83 77.47 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17209,7 +16904,6 @@
 	)
 	(label "VA-"
 		(at 76.2 25.4 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17220,7 +16914,6 @@
 	)
 	(label "COM1"
 		(at 92.71 107.95 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17231,7 +16924,6 @@
 	)
 	(label "GND"
 		(at 265.43 153.67 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17242,7 +16934,6 @@
 	)
 	(label "LOAD"
 		(at 273.05 132.08 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17253,7 +16944,6 @@
 	)
 	(label "GND"
 		(at 257.81 101.6 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17264,7 +16954,6 @@
 	)
 	(label "MUX_S2"
 		(at 138.43 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17275,7 +16964,6 @@
 	)
 	(label "VA+"
 		(at 44.45 81.28 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17286,7 +16974,6 @@
 	)
 	(label "VD3.3V+"
 		(at 257.81 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17297,7 +16984,6 @@
 	)
 	(label "VA-"
 		(at 19.05 104.14 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17308,7 +16994,6 @@
 	)
 	(label "GND"
 		(at 66.04 17.78 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17319,7 +17004,6 @@
 	)
 	(label "VD3.3V+"
 		(at 91.44 179.07 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17330,7 +17014,6 @@
 	)
 	(label "AC2"
 		(at 106.68 101.6 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17341,7 +17024,6 @@
 	)
 	(label "VD3.3V+"
 		(at 240.03 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17352,7 +17034,6 @@
 	)
 	(label "TC+DIFF"
 		(at 171.45 74.93 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17363,7 +17044,6 @@
 	)
 	(label "POWER_SENSE"
 		(at 267.97 27.94 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17374,7 +17054,6 @@
 	)
 	(label "MUX_EN"
 		(at 114.3 67.31 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17385,7 +17064,6 @@
 	)
 	(label "AC1"
 		(at 135.89 127 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17396,7 +17074,6 @@
 	)
 	(label "MUX_S1"
 		(at 138.43 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17407,7 +17084,6 @@
 	)
 	(label "LINE"
 		(at 24.13 25.4 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17418,7 +17094,6 @@
 	)
 	(label "VD+"
 		(at 22.86 49.53 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17429,7 +17104,6 @@
 	)
 	(label "GND"
 		(at 127 149.86 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17440,7 +17114,6 @@
 	)
 	(label "GND"
 		(at 27.94 59.69 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17451,7 +17124,6 @@
 	)
 	(label "VA-"
 		(at 53.34 35.56 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17462,7 +17134,6 @@
 	)
 	(label "GND"
 		(at 231.14 133.35 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17473,7 +17144,6 @@
 	)
 	(label "AC_P2"
 		(at 29.21 171.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17484,7 +17154,6 @@
 	)
 	(label "VA4.9V+"
 		(at 231.14 128.27 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17495,7 +17164,6 @@
 	)
 	(label "TC_AMP"
 		(at 270.51 86.36 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17506,7 +17174,6 @@
 	)
 	(label "VD3.3V+"
 		(at 233.68 77.47 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17517,7 +17184,6 @@
 	)
 	(label "GND_SEN"
 		(at 163.83 97.79 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17528,7 +17194,6 @@
 	)
 	(label "MUX_S2"
 		(at 105.41 50.8 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17539,7 +17204,6 @@
 	)
 	(label "GND"
 		(at 116.84 116.84 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17550,7 +17214,6 @@
 	)
 	(label "AC1"
 		(at 19.05 176.53 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17561,7 +17224,6 @@
 	)
 	(label "LOAD_FILT"
 		(at 245.11 62.23 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17572,7 +17234,6 @@
 	)
 	(label "COM1"
 		(at 44.45 142.24 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17583,7 +17244,6 @@
 	)
 	(label "VD3.3V+"
 		(at 134.62 86.36 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17594,7 +17254,6 @@
 	)
 	(label "LEAK_DIFF"
 		(at 199.39 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17605,7 +17264,6 @@
 	)
 	(label "VA8V+"
 		(at 231.14 125.73 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17616,7 +17274,6 @@
 	)
 	(label "POWER_SENSE"
 		(at 38.1 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17627,7 +17284,6 @@
 	)
 	(label "CASE_GND"
 		(at 140.97 185.42 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17638,7 +17294,6 @@
 	)
 	(label "MUX_EN"
 		(at 267.97 38.1 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17649,7 +17304,6 @@
 	)
 	(label "VD3.3V+"
 		(at 273.05 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17660,7 +17314,6 @@
 	)
 	(label "GND"
 		(at 168.91 24.13 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17671,7 +17324,6 @@
 	)
 	(label "TC_DIFF"
 		(at 207.01 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17682,7 +17334,6 @@
 	)
 	(label "MUX_S0"
 		(at 138.43 34.29 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17693,7 +17344,6 @@
 	)
 	(label "GND"
 		(at 86.36 187.96 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17704,7 +17354,6 @@
 	)
 	(label "SW_S1"
 		(at 62.23 152.4 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17715,7 +17364,6 @@
 	)
 	(label "GND"
 		(at 86.36 158.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17726,7 +17374,6 @@
 	)
 	(label "VD3.3V+"
 		(at 267.97 17.78 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17737,7 +17384,6 @@
 	)
 	(label "ZCD"
 		(at 134.62 102.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17748,7 +17394,6 @@
 	)
 	(label "VBUS"
 		(at 245.11 20.32 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17759,7 +17404,6 @@
 	)
 	(label "FB5V"
 		(at 27.94 62.23 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17770,7 +17414,6 @@
 	)
 	(label "VD3.3V+"
 		(at 269.24 147.32 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17781,7 +17424,6 @@
 	)
 	(label "VD3.3V+"
 		(at 91.44 149.86 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17792,7 +17434,6 @@
 	)
 	(label "TC_DIFF"
 		(at 213.36 29.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17803,7 +17444,6 @@
 	)
 	(label "VA3.3V+"
 		(at 129.54 21.59 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20707,73 +20347,6 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 278.13 38.1 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "255dae36-4688-41d5-a653-0d73497e2368")
-		(property "Reference" "R95"
-			(at 278.13 40.64 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10K"
-			(at 278.13 38.1 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "SquantorResistor:R_0603_hand"
-			(at 278.13 39.878 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 278.13 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 278.13 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "9521aede-04a7-431b-9430-845ac586259d")
-		)
-		(pin "1"
-			(uuid "03e31698-6f13-464b-b303-3fa1cc71bbcd")
-		)
-		(instances
-			(project "POC_temp_control"
-				(path "/646d9e91-59b4-4865-a2fc-29780ed32563"
-					(reference "R95")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
 		(at 102.87 144.78 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -22375,73 +21948,6 @@
 			(project "POC_temp_control"
 				(path "/646d9e91-59b4-4865-a2fc-29780ed32563"
 					(reference "C19")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 234.95 38.1 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "51e183b3-2d2c-4dfb-935c-e8e2fd632dce")
-		(property "Reference" "R92"
-			(at 229.87 39.37 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10K"
-			(at 234.95 38.1 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "SquantorResistor:R_0603_hand"
-			(at 234.95 39.878 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 234.95 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 234.95 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "3a58c34c-16e9-43eb-a318-519fee1d8813")
-		)
-		(pin "1"
-			(uuid "72ba4450-69ac-4ead-b2f4-5d7bf867637c")
-		)
-		(instances
-			(project "POC_temp_control"
-				(path "/646d9e91-59b4-4865-a2fc-29780ed32563"
-					(reference "R92")
 					(unit 1)
 				)
 			)
@@ -28916,73 +28422,6 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 278.13 35.56 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c289fa76-0de9-42d3-9614-f059b45981f5")
-		(property "Reference" "R94"
-			(at 278.13 33.02 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10K"
-			(at 278.13 35.56 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "SquantorResistor:R_0603_hand"
-			(at 278.13 37.338 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 278.13 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 278.13 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "2e8e3455-ec9d-48ef-ad99-141d98375828")
-		)
-		(pin "1"
-			(uuid "3b3e0f2a-9e79-447f-a7e2-8b603a2e5daa")
-		)
-		(instances
-			(project "POC_temp_control"
-				(path "/646d9e91-59b4-4865-a2fc-29780ed32563"
-					(reference "R94")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
 		(at 134.62 57.15 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -29530,73 +28969,6 @@
 			(project "POC_temp_control"
 				(path "/646d9e91-59b4-4865-a2fc-29780ed32563"
 					(reference "C25")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 234.95 33.02 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d25e5aec-00b7-44fb-9ab2-2e135d8b45e0")
-		(property "Reference" "R91"
-			(at 229.87 34.29 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10K"
-			(at 234.95 33.02 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "SquantorResistor:R_0603_hand"
-			(at 234.95 34.798 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 234.95 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 234.95 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "bc9f135e-73c1-42a8-9420-0ab79b498885")
-		)
-		(pin "1"
-			(uuid "efbdf3ce-77d0-401b-8e48-98ad02d4d254")
-		)
-		(instances
-			(project "POC_temp_control"
-				(path "/646d9e91-59b4-4865-a2fc-29780ed32563"
-					(reference "R91")
 					(unit 1)
 				)
 			)
