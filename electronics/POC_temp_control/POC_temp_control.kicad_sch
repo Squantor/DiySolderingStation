@@ -9253,10 +9253,6 @@
 		(uuid "a8df5497-1a3d-4776-9ce9-b3f9197c2806")
 	)
 	(no_connect
-		(at 245.11 69.85)
-		(uuid "af7bbb34-9765-4d41-82de-b3d1147c202e")
-	)
-	(no_connect
 		(at 92.71 110.49)
 		(uuid "b392c29e-ec12-4445-a8f4-45cc49f2f23a")
 	)
@@ -9279,10 +9275,6 @@
 	(no_connect
 		(at 179.07 69.85)
 		(uuid "f4b1ce24-e8bd-420e-9c28-cd4e6d6dfb47")
-	)
-	(no_connect
-		(at 267.97 69.85)
-		(uuid "fb4d7f4f-c6c6-446f-946a-16093de3acda")
 	)
 	(no_connect
 		(at 179.07 92.71)
@@ -15422,7 +15414,7 @@
 		)
 		(uuid "1de620d6-31c4-4127-b889-e8d59cc039b2")
 	)
-	(label "+5VD"
+	(label "VD5V+"
 		(at 30.48 73.66 180)
 		(effects
 			(font
@@ -15551,6 +15543,16 @@
 			(justify right bottom)
 		)
 		(uuid "268e5558-3848-4ba6-9357-4c41780dc98b")
+	)
+	(label "SW_LOAD_1"
+		(at 267.97 69.85 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "27280aea-ccba-455b-9686-56a054cd194e")
 	)
 	(label "LOAD1"
 		(at 92.71 92.71 0)
@@ -17182,6 +17184,16 @@
 		)
 		(uuid "dc653a4f-70ec-443d-8606-6e38ef5da289")
 	)
+	(label "SW_LOAD_2"
+		(at 245.11 69.85 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "dd451f57-af4d-49d9-a1ea-4849e978c1b5")
+	)
 	(label "GND_SEN"
 		(at 163.83 97.79 180)
 		(effects
@@ -18362,7 +18374,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole"
+		(property "Value" "M3"
 			(at 139.7 180.34 0)
 			(effects
 				(font
@@ -18426,7 +18438,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole"
+		(property "Value" "M3"
 			(at 139.7 175.2599 0)
 			(effects
 				(font
@@ -21841,7 +21853,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole"
+		(property "Value" "M3"
 			(at 139.7 191.7699 0)
 			(effects
 				(font
@@ -22040,7 +22052,7 @@
 				)
 			)
 		)
-		(property "Value" "MountingHole"
+		(property "Value" "M3"
 			(at 146.05 186.69 90)
 			(effects
 				(font
@@ -23561,7 +23573,7 @@
 				)
 			)
 		)
-		(property "Value" "A5+"
+		(property "Value" "A5-"
 			(at 86.36 64.77 0)
 			(effects
 				(font
@@ -27422,7 +27434,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "GRN"
+		(property "Value" "Power On"
 			(at 246.38 127 90)
 			(effects
 				(font
@@ -28859,7 +28871,7 @@
 				)
 			)
 		)
-		(property "Value" "A7+"
+		(property "Value" "A7-"
 			(at 86.36 62.23 0)
 			(effects
 				(font
