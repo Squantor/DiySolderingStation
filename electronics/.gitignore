@@ -23,3 +23,5 @@ plots-*/
 *_plots_*/
 *_plots/
 *.zip
+bom/
+*.pos
