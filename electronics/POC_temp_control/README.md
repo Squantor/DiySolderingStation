@@ -8,10 +8,8 @@ Most circuits here are copied/adapted from the [reverse engineered CD-2BC](https
 * Pin 0_12: Bootloader pin connected to switch with 10K pullup and 100nF capacitor, switch impedance is 100Ohm.
 ## TODO's
 Still some things need to be done:
-* schematic entry 
-* PCB layout
 * Review with one night in between
-* Produce at [OSHPARK](https://oshpark.com/)
+* Produce at [Aisler](https://aisler.net/)
 * Assemble
 * Test & characterise
 * update Readme.md with pictures and BOM
