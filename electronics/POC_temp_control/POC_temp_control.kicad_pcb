@@ -303,9 +303,9 @@
 				)
 			)
 		)
-		(property "Value" "D"
-			(at -3.5 0.45 90)
-			(layer "F.Fab")
+		(property "Value" "A7"
+			(at -3.6 0.45 90)
+			(layer "F.SilkS")
 			(uuid "91df75a4-1a20-4694-ab85-ae7074393f4d")
 			(effects
 				(font
@@ -5788,7 +5788,7 @@
 		(descr "diodes inc SOD-123F hand soldering optimized")
 		(tags "SOD-123F handsoldering")
 		(property "Reference" "D5"
-			(at -3.35 0.7 90)
+			(at -3.5 0.7 90)
 			(layer "F.SilkS")
 			(uuid "3e60f9ed-15c3-412b-bea1-7b0ffdf3fbac")
 			(effects
@@ -5798,9 +5798,9 @@
 				)
 			)
 		)
-		(property "Value" "D"
-			(at 0 1.8 90)
-			(layer "F.Fab")
+		(property "Value" "A7"
+			(at -3.5 -0.6 90)
+			(layer "F.SilkS")
 			(uuid "26584235-ee70-4cb3-a527-c0cff37a63e3")
 			(effects
 				(font
@@ -7068,9 +7068,9 @@
 				)
 			)
 		)
-		(property "Value" "D"
-			(at 3.15 -0.6 90)
-			(layer "F.Fab")
+		(property "Value" "A7"
+			(at 3.4 -0.5 90)
+			(layer "F.SilkS")
 			(uuid "bf6ff07b-e26d-484a-892e-de0ef55acc24")
 			(effects
 				(font
@@ -11931,7 +11931,7 @@
 		(descr "diodes inc SOD-123F hand soldering optimized")
 		(tags "SOD-123F handsoldering")
 		(property "Reference" "D4"
-			(at 3.4 -0.6 90)
+			(at 3.5 -0.6 90)
 			(layer "F.SilkS")
 			(uuid "245be9c4-051f-4653-9d86-dbf7ed6684ba")
 			(effects
@@ -11941,9 +11941,9 @@
 				)
 			)
 		)
-		(property "Value" "D"
-			(at 0 1.8 90)
-			(layer "F.Fab")
+		(property "Value" "A7"
+			(at 3.6 0.6 90)
+			(layer "F.SilkS")
 			(uuid "88f80574-904e-4b8f-bc33-15020eb2e303")
 			(effects
 				(font
@@ -26411,7 +26411,7 @@
 		(descr "diodes inc SOD-123F hand soldering optimized")
 		(tags "SOD-123F handsoldering")
 		(property "Reference" "D3"
-			(at -3.35 0.65 90)
+			(at -3.5 0.65 90)
 			(layer "F.SilkS")
 			(uuid "506d6e7b-0320-4904-88e1-ce9454bc2698")
 			(effects
@@ -26421,9 +26421,9 @@
 				)
 			)
 		)
-		(property "Value" "D"
-			(at 0 1.8 90)
-			(layer "F.Fab")
+		(property "Value" "A7"
+			(at -3.5 -0.5 90)
+			(layer "F.SilkS")
 			(uuid "83c5f0f2-11e0-40f4-a166-397c85e1312d")
 			(effects
 				(font
@@ -28668,7 +28668,7 @@
 		(descr "SOT23 3 pin, Microchip name OT")
 		(tags "Microchip SOT23 OT")
 		(property "Reference" "U10"
-			(at 0 -2.6 0)
+			(at -1.5 2.5 0)
 			(layer "F.SilkS")
 			(uuid "832f7dff-9290-4012-babe-2f8da131291c")
 			(effects
@@ -28678,9 +28678,9 @@
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 0 2.4 0)
-			(layer "F.Fab")
+		(property "Value" "BL24C02F"
+			(at -0.6 -2.5 0)
+			(layer "F.SilkS")
 			(uuid "fbb716e9-2883-42e2-9fbc-2c03140466d1")
 			(effects
 				(font
@@ -30052,7 +30052,7 @@
 				)
 			)
 		)
-		(property "Value" "D"
+		(property "Value" "A7"
 			(at 0 1.8 0)
 			(layer "F.Fab")
 			(uuid "254e1ce9-9c3f-4824-96cb-1dca35136d03")
@@ -30494,7 +30494,7 @@
 		(descr "diodes inc SOD-123F hand soldering optimized")
 		(tags "SOD-123F handsoldering")
 		(property "Reference" "D6"
-			(at 3.35 -0.75 90)
+			(at 3.5 -0.75 90)
 			(layer "F.SilkS")
 			(uuid "0fff1cc3-26be-4e9b-bd63-3ceb043b5fff")
 			(effects
@@ -30504,9 +30504,9 @@
 				)
 			)
 		)
-		(property "Value" "D"
-			(at 0 1.8 90)
-			(layer "F.Fab")
+		(property "Value" "A7"
+			(at 3.6 0.6 90)
+			(layer "F.SilkS")
 			(uuid "b74c233d-784c-4d84-a09b-3f460479a813")
 			(effects
 				(font
@@ -45533,7 +45533,7 @@
 		(path "/00000000-0000-0000-0000-00005ee13678")
 		(sheetname "Root")
 		(sheetfile "POC_temp_control.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom allow_missing_courtyard)
+		(attr exclude_from_pos_files allow_missing_courtyard)
 		(fp_poly
 			(pts
 				(xy 0.555814 2.531069) (xy 0.639635 2.086445) (xy 0.94892 1.958947) (xy 1.258206 1.831449) (xy 1.629246 2.083754)
@@ -45835,7 +45835,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "20240927"
+		(property "Value" "20240504"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.SilkS")

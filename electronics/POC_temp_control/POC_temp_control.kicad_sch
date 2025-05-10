@@ -14576,7 +14576,7 @@
 	)
 	(wire
 		(pts
-			(xy 278.13 160.02) (xy 281.94 160.02)
+			(xy 265.43 160.02) (xy 281.94 160.02)
 		)
 		(stroke
 			(width 0)
@@ -16485,7 +16485,7 @@
 		(uuid "963790c8-9a15-459f-9ebb-fd6a457a1602")
 	)
 	(label "VD3.3V+"
-		(at 278.13 160.02 180)
+		(at 265.43 160.02 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22516,7 +22516,7 @@
 				)
 			)
 		)
-		(property "Value" "D"
+		(property "Value" "A7"
 			(at 54.61 19.05 0)
 			(effects
 				(font
@@ -24509,7 +24509,7 @@
 				)
 			)
 		)
-		(property "Value" "D"
+		(property "Value" "A7"
 			(at 50.8 40.64 0)
 			(effects
 				(font
@@ -25274,7 +25274,7 @@
 				)
 			)
 		)
-		(property "Value" "D"
+		(property "Value" "A7"
 			(at 54.61 33.02 0)
 			(effects
 				(font
@@ -26507,7 +26507,7 @@
 				)
 			)
 		)
-		(property "Value" "D"
+		(property "Value" "A7"
 			(at 54.61 25.4 0)
 			(effects
 				(font
@@ -26993,7 +26993,7 @@
 				)
 			)
 		)
-		(property "Value" "D"
+		(property "Value" "A7"
 			(at 238.76 21.59 0)
 			(effects
 				(font
@@ -28785,7 +28785,7 @@
 				)
 			)
 		)
-		(property "Value" "D"
+		(property "Value" "A7"
 			(at 50.8 34.29 0)
 			(effects
 				(font
@@ -29683,8 +29683,8 @@
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 273.05 148.59 0)
+		(property "Value" "BL24C02F"
+			(at 273.05 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30108,7 +30108,7 @@
 				)
 			)
 		)
-		(property "Value" "D"
+		(property "Value" "A7"
 			(at 54.61 26.67 0)
 			(effects
 				(font
