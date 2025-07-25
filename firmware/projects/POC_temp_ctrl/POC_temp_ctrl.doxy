@@ -1,0 +1,5 @@
+# doxygen settings to override from the default config
+PROJECT_NAME = "LPC845M301HI48 tests"
+OUTPUT_DIRECTORY = documentation/tests_LPC845M301HI48
+INCLUDE_PATH = tests_LPC845M301HI48/inc libMcull/inc
+INPUT = tests_LPC845M301HI48/src tests_LPC845M301HI48/inc

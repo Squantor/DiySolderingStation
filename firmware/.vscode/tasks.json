@@ -31,5 +31,20 @@
       "group": "build",
       "problemMatcher": "$gcc"
     },
+    {
+      "label": "build debug temperature control POC",
+      "type": "shell",
+      "command": "compiledb make PROJECT=POC_temp_control CONFIG=debug -j28",
+      "group": "build",
+      "problemMatcher": "$gcc",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
   ]
 }

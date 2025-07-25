@@ -11,3 +11,4 @@ BASE_DIR := $(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
 include $(BASE_DIR)/projects/PC/PC.mak
 include $(BASE_DIR)/projects/unittests/unittests.mak
 include $(BASE_DIR)/projects/POC_temp_sens/POC_temp_sens.mak
+include $(BASE_DIR)/projects/POC_temp_ctrl/POC_temp_ctrl.mak
