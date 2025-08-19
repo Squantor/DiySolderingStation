@@ -9,20 +9,20 @@
  */
 #include <POC_temp_control_nuclone.hpp>
 
-libmcull::iocon::Iocon<libmcuhw::kIoconAddress> ioconPeripheral;
-libmcull::swm::Swm<libmcuhw::kSwmAddress> swmPeriperhal;
-libmcull::gpio::Gpio<libmcuhw::kGpioAddress> gpioPeripheral;
-libmcull::syscon::Syscon<libmcuhw::kSysconAddress> sysconPeripheral;
-libmcull::systick::Systick<libmcuhw::kSystickAddress> systickPeripheral;
-libmcull::nvic::Nvic<libmcuhw::kNvicAddress, libmcuhw::kScbAddress> nvicPeripheral;
+libmcull::iocon::Iocon<libmcuhw::IoconAddress> ioconPeripheral;
+libmcull::swm::Swm<libmcuhw::SwmAddress> swmPeriperhal;
+libmcull::gpio::Gpio<libmcuhw::GpioAddress> gpioPeripheral;
+libmcull::syscon::Syscon<libmcuhw::SysconAddress> sysconPeripheral;
+libmcull::systick::Systick<libmcuhw::SystickAddress> systickPeripheral;
+libmcull::nvic::Nvic<libmcuhw::NvicAddress, libmcuhw::ScbAddress> nvicPeripheral;
 libmcuhal::usart::UartInterrupt<char, 128> usartPeripheral;
-libmcull::adc::Adc<libmcuhw::kAdc0Address> adcPeripheral;
+libmcull::adc::Adc<libmcuhw::Adc0Address> adcPeripheral;
 
 volatile std::uint32_t ticks;
 
 extern "C" {
 void SysTick_Handler(void) {
-  systickPeripheral.isr();
+  systickPeripheral.Isr();
 }
 
 void USART0_IRQHandler(void) {
@@ -79,11 +79,11 @@ void boardInit(void) {
   // libmcuhw::clock::configureClocks<sysconPeripheral, diySolderClockConfig>();
   // setup systick
   // systickPeripheral.init(diySolderClockConfig.systemFreq / TICKS_PER_S);
-  systickPeripheral.start(systickIsrLambda);
+  systickPeripheral.Start(systickIsrLambda);
   // setup UART
   sysconPeripheral.PeripheralClockSource(libmcull::syscon::ClockSourceSelects::Uart0, libmcull::syscon::ClockSources::Main);
   // usartPeripheral.init<diySolderClockConfig>(115200);
-  nvicPeripheral.enable(libmcuhw::Interrupts::kUart0);
+  nvicPeripheral.Enable(libmcuhw::Interrupts::Uart0);
   // setup ADC
   // adcPeripheral.Init<diySolderClockConfig>(100000);
 }
