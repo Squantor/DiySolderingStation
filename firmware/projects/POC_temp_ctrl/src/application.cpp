@@ -14,14 +14,16 @@
 
 namespace application {
 
-squLib::console<usartPeripheral> commandConsole;
+squLib::console<usart_peripheral> commandConsole;
 squLib::commandValueStack<8, commandConsole> commandValues;
 squLib::commandInterpreter<commandHandlers, commandValues, commandConsole> commandInterpreter;
 squLib::commandlineSimple<80, commandConsole, commandInterpreter> commandline;
 
 void application::init() {
+  usart_peripheral.Claim();
   commandConsole.print("DIY soldering station POC temperature sensing\n");
 }
+
 void application::progress() {
   static std::uint32_t currentTicks = ticks;
   if (currentTicks + 100 < ticks) {
@@ -29,9 +31,9 @@ void application::progress() {
     currentTicks = ticks;
   }
   // echo characters
-  if (usartPeripheral.receiveDataAvailable() > 0) {
+  if (usart_peripheral.GetReceiveLevel() > 0) {
     static std::array<char, 1> data;
-    usartPeripheral.read(data);
+    usart_peripheral.Receive(data);
     commandline.input(data);
   }
   // state handling

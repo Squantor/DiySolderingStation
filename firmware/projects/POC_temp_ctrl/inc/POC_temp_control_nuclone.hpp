@@ -61,29 +61,28 @@ constexpr pinMux2s2Type mux2s2Pin;
 constexpr pinTcAmpType TcAmpPin;
 // port instances
 constexpr portMuxType muxPort;
-
 // function instances
 constexpr functionXtalInType xtalInFunction;
 constexpr functionXtalOutType xtalOutFunction;
 constexpr functionUartDebugTxType uartDebugTxFunction;
 constexpr functionUartDebugRxType uartDebugRxFunction;
 constexpr functionAdcTcAmpType adcTcAmpFunction;
-
-// peripheral externs
+// Clock configurations
+constexpr inline libmcuhw::clock::McuClockConfig<libmcuhw::clock::ClockInputSources::XTAL, 12'000'000u, 30'000'000u>
+  nuclone_clock_config;
+constexpr inline libmcuhw::clock::PeriClockConfig<nuclone_clock_config, libmcuhw::clock::PeriSelect::UART0,
+                                                  libmcuhw::clock::PeriSource::MAIN>
+  uart_0_clock_config;
+// Low level peripheral externs
 extern libmcull::iocon::Iocon<libmcuhw::IoconAddress> ioconPeripheral;
 extern libmcull::swm::Swm<libmcuhw::SwmAddress> swmPeriperhal;
 extern libmcull::gpio::Gpio<libmcuhw::GpioAddress> gpioPeripheral;
-extern libmcull::syscon::Syscon<libmcuhw::SysconAddress> sysconPeripheral;
+extern libmcull::syscon::Syscon<libmcuhw::SysconAddress> syscon_peripheral;
 extern libmcull::systick::Systick<libmcuhw::SystickAddress> systickPeripheral;
-extern libmcuhal::usart::UartInterrupt<char, 128> usartPeripheral;
 extern libmcull::adc::Adc<libmcuhw::Adc0Address> adcPeripheral;
-/*inline constexpr libmcuhw::clock::ClockConfig<
-  libmcuhw::clock::clockInputSources::XTAL, 12'000'000u, 30'000'000u, libmcuhw::clock::periSource::MAIN,
-  libmcuhw::clock::periSource::MAIN, libmcuhw::clock::periSource::MAIN, libmcuhw::clock::periSource::MAIN,
-  libmcuhw::clock::periSource::MAIN, libmcuhw::clock::periSource::MAIN, libmcuhw::clock::periSource::MAIN,
-  libmcuhw::clock::periSource::MAIN, libmcuhw::clock::periSource::MAIN, libmcuhw::clock::periSource::MAIN,
-  libmcuhw::clock::periSource::SYS_PLL>
-  diySolderClockConfig;*/
+extern libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 128> ll_usart_peripheral;
+// Hal peripheral externs
+extern libmcuhal::usart::UartInterrupt<ll_usart_peripheral, char> usart_peripheral;
 
 extern volatile std::uint32_t ticks;  // amount of ticks passed sinds startup
 

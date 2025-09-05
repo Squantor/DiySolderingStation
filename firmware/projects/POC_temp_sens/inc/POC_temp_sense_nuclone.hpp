@@ -73,9 +73,9 @@ constexpr functionAdcTcAmpType adcTcAmpFunction;
 extern libMcuLL::iocon::iocon<libMcuHw::ioconAddress> ioconPeripheral;
 extern libMcuLL::swm::swm<libMcuHw::swmAddress> swmPeriperhal;
 extern libMcuLL::gpio::gpio<libMcuHw::gpioAddress> gpioPeripheral;
-extern libMcuLL::syscon::syscon<libMcuHw::sysconAddress> sysconPeripheral;
+extern libMcuLL::syscon::syscon<libMcuHw::sysconAddress> syscon_peripheral;
 extern libMcuLL::systick::systick<libMcuHw::systickAddress> systickPeripheral;
-extern libMcuHal::usart::uartSync<libMcuHw::usart0Address, libMcuHw::nvicAddress, char, 128> usartPeripheral;
+extern libMcuHal::usart::uartSync<libMcuHw::usart0Address, libMcuHw::nvicAddress, char, 128> usart_peripheral;
 extern libMcuLL::adc::adc<libMcuHw::adc0Address> adcPeripheral;
 inline constexpr libMcuHw::clock::clockConfig<
   libMcuHw::clock::clockInputSources::XTAL, 12'000'000u, 30'000'000u, libMcuHw::clock::periSource::MAIN,

@@ -25,10 +25,10 @@
       "preLaunchTask": "build debug unittests",
     },
     {
-      "name": "debug debug temperature sensing POC",
+      "name": "debug debug temperature control POC",
       "cwd": "${workspaceRoot}",
       "gdbPath": "/usr/bin/gdb-multiarch",
-      "executable": "${workspaceFolder}/bin/POC_temp_sense/debug/POC_temp_sense.elf",
+      "executable": "${workspaceFolder}/bin/POC_temp_control/debug/POC_temp_control.elf",
       "request": "launch",
       "type": "cortex-debug",
       "servertype": "bmp",
@@ -41,7 +41,7 @@
         "compare-sections"
       ],
       "preRestartCommands": [],
-      "preLaunchTask": "build debug temperature sensing POC",
+      "preLaunchTask": "build debug temperature control POC",
       "svdFile": "${workspaceFolder}/libraries/libMcu/svd/nxp/LPC845.svd",
       "debuggerArgs": [],
     },

@@ -14,7 +14,7 @@
 
 namespace application {
 
-squLib::console<usartPeripheral> commandConsole;
+squLib::console<usart_peripheral> commandConsole;
 squLib::commandValueStack<8, commandConsole> commandValues;
 squLib::commandInterpreter<commandHandlers, commandValues, commandConsole> commandInterpreter;
 squLib::commandlineSimple<80, commandConsole, commandInterpreter> commandline;
@@ -29,9 +29,9 @@ void application::progress() {
     currentTicks = ticks;
   }
   // echo characters
-  if (usartPeripheral.receiveDataAvailable() > 0) {
+  if (usart_peripheral.receiveDataAvailable() > 0) {
     static std::array<char, 1> data;
-    usartPeripheral.read(data);
+    usart_peripheral.read(data);
     commandline.input(data);
   }
   // state handling

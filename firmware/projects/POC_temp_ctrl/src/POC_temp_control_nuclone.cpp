@@ -12,11 +12,13 @@
 libmcull::iocon::Iocon<libmcuhw::IoconAddress> ioconPeripheral;
 libmcull::swm::Swm<libmcuhw::SwmAddress> swmPeriperhal;
 libmcull::gpio::Gpio<libmcuhw::GpioAddress> gpioPeripheral;
-libmcull::syscon::Syscon<libmcuhw::SysconAddress> sysconPeripheral;
+libmcull::syscon::Syscon<libmcuhw::SysconAddress> syscon_peripheral;
 libmcull::systick::Systick<libmcuhw::SystickAddress> systickPeripheral;
 libmcull::nvic::Nvic<libmcuhw::NvicAddress, libmcuhw::ScbAddress> nvicPeripheral;
-libmcuhal::usart::UartInterrupt<char, 128> usartPeripheral;
 libmcull::adc::Adc<libmcuhw::Adc0Address> adcPeripheral;
+libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 128> ll_usart_peripheral;
+
+libmcuhal::usart::UartInterrupt<ll_usart_peripheral, char> usart_peripheral;
 
 volatile std::uint32_t ticks;
 
@@ -26,7 +28,7 @@ void SysTick_Handler(void) {
 }
 
 void USART0_IRQHandler(void) {
-  // usartPeripheral.isr();
+  ll_usart_peripheral.InterruptHandler();
 }
 }
 
@@ -37,8 +39,8 @@ auto systickIsrLambda = []() {
 void boardInit(void) {
   ticks = 0;
   // clock, power and reset enables/clears
-  sysconPeripheral.PowerPeripherals(libmcull::syscon::power_options::SysOsc | libmcull::syscon::power_options::Adc);
-  sysconPeripheral.EnablePeripheralClocks(
+  syscon_peripheral.PowerPeripherals(libmcull::syscon::power_options::SysOsc | libmcull::syscon::power_options::Adc);
+  syscon_peripheral.EnablePeripheralClocks(
     libmcull::syscon::peripheral_clocks_0::Swm | libmcull::syscon::peripheral_clocks_0::Iocon |
       libmcull::syscon::peripheral_clocks_0::Gpio0 | libmcull::syscon::peripheral_clocks_0::Gpio1 |
       libmcull::syscon::peripheral_clocks_0::Uart0 | libmcull::syscon::peripheral_clocks_0::Adc,
@@ -76,13 +78,13 @@ void boardInit(void) {
   gpioPeripheral.SetOutput(mux2s1Pin);
   gpioPeripheral.SetOutput(mux2s2Pin);
   // setup crystal oscillator
-  // libmcuhw::clock::configureClocks<sysconPeripheral, diySolderClockConfig>();
+  syscon_peripheral.ConfigureMcuClocks<nuclone_clock_config>();
   // setup systick
-  // systickPeripheral.init(diySolderClockConfig.systemFreq / TICKS_PER_S);
+  systickPeripheral.Init(nuclone_clock_config.GetSystemFreq() / TICKS_PER_S);
   systickPeripheral.Start(systickIsrLambda);
   // setup UART
-  sysconPeripheral.PeripheralClockSource(libmcull::syscon::ClockSourceSelects::Uart0, libmcull::syscon::ClockSources::Main);
-  // usartPeripheral.init<diySolderClockConfig>(115200);
+  usart_peripheral.Init<uart_0_clock_config>(115200);
+  syscon_peripheral.PeripheralClockSource(libmcull::syscon::ClockSourceSelects::Uart0, libmcull::syscon::ClockSources::Main);
   nvicPeripheral.Enable(libmcuhw::Interrupts::Uart0);
   // setup ADC
   // adcPeripheral.Init<diySolderClockConfig>(100000);

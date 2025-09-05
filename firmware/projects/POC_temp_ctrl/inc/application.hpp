@@ -39,7 +39,7 @@ class application {
   applicationState state;
 };
 
-extern squLib::console<usartPeripheral> commandConsole;
+extern squLib::console<usart_peripheral> commandConsole;
 extern squLib::commandValueStack<8, commandConsole> commandValues;
 extern squLib::commandInterpreter<commandHandlers, commandValues, commandConsole> commandInterpreter;
 extern application controller;
