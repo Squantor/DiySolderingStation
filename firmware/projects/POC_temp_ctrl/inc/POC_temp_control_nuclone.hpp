@@ -12,7 +12,7 @@
 
 #include <nxp/libmcu_LPC845M301BD48_hal.hpp>
 
-#define TICKS_PER_S 100
+#define TICKS_PER_S 1000
 
 // pin types
 // Crystal osillator pins

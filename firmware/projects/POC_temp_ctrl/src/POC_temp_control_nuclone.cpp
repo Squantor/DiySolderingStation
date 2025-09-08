@@ -32,7 +32,10 @@ void USART0_IRQHandler(void) {
   ll_usart_peripheral.InterruptHandler();
 }
 
-void PIN_INT0_IRQHandler(void) {}
+void PIN_INT0_IRQHandler(void) {
+  pinint_peripheral.ClearChannel(libmcull::pin_int::InterruptPins::PintSel0);
+  libmcull::nop();
+}
 }
 
 auto systickIsrLambda = []() {
@@ -46,7 +49,8 @@ void BoardInit(void) {
   syscon_peripheral.EnablePeripheralClocks(
     libmcull::syscon::peripheral_clocks_0::Swm | libmcull::syscon::peripheral_clocks_0::Iocon |
       libmcull::syscon::peripheral_clocks_0::Gpio0 | libmcull::syscon::peripheral_clocks_0::Gpio1 |
-      libmcull::syscon::peripheral_clocks_0::Uart0 | libmcull::syscon::peripheral_clocks_0::Adc,
+      libmcull::syscon::peripheral_clocks_0::Uart0 | libmcull::syscon::peripheral_clocks_0::Adc |
+      libmcull::syscon::peripheral_clocks_0::GpioInt,
     0);
   // setup pins
   iocon_peripheral.Setup(pin_xtal_in, libmcull::iocon::PullModes::Inactive);
@@ -91,10 +95,12 @@ void BoardInit(void) {
   usart_peripheral.Init<uart_0_clock_config>(115200);
   syscon_peripheral.PeripheralClockSource(libmcull::syscon::ClockSourceSelects::Uart0, libmcull::syscon::ClockSources::Main);
   nvicPeripheral.Enable(libmcuhw::Interrupts::Uart0);
+  nvicPeripheral.Enable(libmcuhw::Interrupts::Pinint0);
   // setup ADC
   // adcPeripheral.Init<diySolderClockConfig>(100000);
   // setup interrupt pin
   syscon_peripheral.SetInterruptPin(pin_zero_cross, libmcull::syscon::InterruptPins::PintSel0);
+  pinint_peripheral.EnableChannel(libmcull::pin_int::InterruptPins::PintSel0, libmcull::pin_int::EdgeSettings::Falling);
 }
 
 bool IsMainsPresent(void) {
