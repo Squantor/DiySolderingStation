@@ -39,19 +39,19 @@ void application::progress() {
   // state handling
   switch (state) {
     case applicationState::usbPowered:
-      if (isMainsPresent())
+      if (IsMainsPresent())
         state = applicationState::ready;
       break;
     case applicationState::ready:
-      if (!isMainsPresent())
+      if (!IsMainsPresent())
         setUsbPoweredState();
       break;
     case applicationState::operating:
-      if (!isMainsPresent())
+      if (!IsMainsPresent())
         setUsbPoweredState();
       break;
     case applicationState::error:
-      if (!isMainsPresent())
+      if (!IsMainsPresent())
         setUsbPoweredState();
       break;
 
@@ -62,7 +62,7 @@ void application::progress() {
 }
 
 void application::setUsbPoweredState() {
-  setSafeUsbPowered();
+  SetSafeUsbPowered();
   state = applicationState::usbPowered;
 }
 }  // namespace application

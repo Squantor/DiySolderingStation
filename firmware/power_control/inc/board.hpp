@@ -24,35 +24,35 @@ SOFTWARE.
 #ifndef BOARD_HPP
 #define BOARD_HPP
 
-#define TICKS_PER_S         (100)
+#define TICKS_PER_S (100)
 
-#define IOCON_XTAL_IN       IOCON_PIO8
-#define IOCON_XTAL_OUT      IOCON_PIO9
+#define IOCON_XTAL_IN IOCON_PIO8
+#define IOCON_XTAL_OUT IOCON_PIO9
 
-#define IOCON_UART_TX       IOCON_PIO13
-#define PIN_UART_TX         (13u)
-#define IOCON_UART_RX       IOCON_PIO17
-#define PIN_UART_RX         (17u)
+#define IOCON_UART_TX IOCON_PIO13
+#define PIN_UART_TX (13u)
+#define IOCON_UART_RX IOCON_PIO17
+#define PIN_UART_RX (17u)
 
 #define IOCON_ZEROCROSS_DET IOCON_PIO15
-#define PIN_ZEROCROSS_DET   (15u)
+#define PIN_ZEROCROSS_DET (15u)
 
-#define IOCON_SSR_CTRL      IOCON_PIO7
-#define PIN_SSR_CTRL        (7u)
+#define IOCON_SSR_CTRL IOCON_PIO7
+#define PIN_SSR_CTRL (7u)
 
-#define UART_DEBUG          LPC_USART0
-#define UART_BAUD_RATE      (115200u)
+#define UART_DEBUG LPC_USART0
+#define UART_BAUD_RATE (115200u)
 
-#define PININT_ZEROCROSS    (0u)
+#define PININT_ZEROCROSS (0u)
 
-#define CLOCK_MAIN_SOURCE   SYSCTL_MAINCLKSRC_PLLOUT
-#define CLOCK_XTAL          (12000000u)
-#define CLOCK_EXT_IN        (0u)
-#define CLOCK_CPU           (30000000u)
-#define CLOCK_AHB           (30000000u)
-#define CLOCK_MAIN          (60000000u)
+#define CLOCK_MAIN_SOURCE SYSCTL_MAINCLKSRC_PLLOUT
+#define CLOCK_XTAL (12000000u)
+#define CLOCK_EXT_IN (0u)
+#define CLOCK_CPU (30000000u)
+#define CLOCK_AHB (30000000u)
+#define CLOCK_MAIN (60000000u)
 
-void boardInit(void);
+void BoardInit(void);
 void boardSsrSetState(bool state);
 
 #endif

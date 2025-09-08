@@ -9,13 +9,13 @@
  */
 #include <POC_temp_control_nuclone.hpp>
 
-libmcull::iocon::Iocon<libmcuhw::IoconAddress> ioconPeripheral;
-libmcull::swm::Swm<libmcuhw::SwmAddress> swmPeriperhal;
-libmcull::gpio::Gpio<libmcuhw::GpioAddress> gpioPeripheral;
+libmcull::iocon::Iocon<libmcuhw::IoconAddress> iocon_peripheral;
+libmcull::swm::Swm<libmcuhw::SwmAddress> swm_periperhal;
+libmcull::gpio::Gpio<libmcuhw::GpioAddress> gpio_peripheral;
 libmcull::syscon::Syscon<libmcuhw::SysconAddress> syscon_peripheral;
-libmcull::systick::Systick<libmcuhw::SystickAddress> systickPeripheral;
+libmcull::systick::Systick<libmcuhw::SystickAddress> systick_peripheral;
 libmcull::nvic::Nvic<libmcuhw::NvicAddress, libmcuhw::ScbAddress> nvicPeripheral;
-libmcull::adc::Adc<libmcuhw::Adc0Address> adcPeripheral;
+libmcull::adc::Adc<libmcuhw::Adc0Address> adc_peripheral;
 libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 128> ll_usart_peripheral;
 
 libmcuhal::usart::UartInterrupt<ll_usart_peripheral, char> usart_peripheral;
@@ -24,7 +24,7 @@ volatile std::uint32_t ticks;
 
 extern "C" {
 void SysTick_Handler(void) {
-  systickPeripheral.Isr();
+  systick_peripheral.Isr();
 }
 
 void USART0_IRQHandler(void) {
@@ -36,7 +36,7 @@ auto systickIsrLambda = []() {
   ticks = ticks + 1;
 };
 
-void boardInit(void) {
+void BoardInit(void) {
   ticks = 0;
   // clock, power and reset enables/clears
   syscon_peripheral.PowerPeripherals(libmcull::syscon::power_options::SysOsc | libmcull::syscon::power_options::Adc);
@@ -46,42 +46,42 @@ void boardInit(void) {
       libmcull::syscon::peripheral_clocks_0::Uart0 | libmcull::syscon::peripheral_clocks_0::Adc,
     0);
   // setup pins
-  ioconPeripheral.Setup(xtalInPin, libmcull::iocon::PullModes::Inactive);
-  ioconPeripheral.Setup(xtalOutPin, libmcull::iocon::PullModes::Inactive);
-  ioconPeripheral.Setup(bootloadPin, libmcull::iocon::PullModes::Pullup);
-  ioconPeripheral.Setup(debugUartRxPin, libmcull::iocon::PullModes::Pullup);
-  ioconPeripheral.Setup(debugUartTxPin, libmcull::iocon::PullModes::Inactive);
-  ioconPeripheral.Setup(PowerDetectPin, libmcull::iocon::PullModes::Inactive);
-  ioconPeripheral.Setup(mux1s0Pin, libmcull::iocon::PullModes::Inactive);
-  ioconPeripheral.Setup(mux1s1Pin, libmcull::iocon::PullModes::Inactive);
-  ioconPeripheral.Setup(mux1s2Pin, libmcull::iocon::PullModes::Inactive);
-  ioconPeripheral.Setup(mux2s0Pin, libmcull::iocon::PullModes::Inactive);
-  ioconPeripheral.Setup(mux2s1Pin, libmcull::iocon::PullModes::Inactive);
-  ioconPeripheral.Setup(mux2s2Pin, libmcull::iocon::PullModes::Inactive);
-  ioconPeripheral.Setup(TcAmpPin, libmcull::iocon::PullModes::Inactive);
-  swmPeriperhal.Setup(xtalInPin, xtalInFunction);
-  swmPeriperhal.Setup(xtalOutPin, xtalOutFunction);
-  swmPeriperhal.Setup(debugUartRxPin, uartDebugRxFunction);
-  swmPeriperhal.Setup(debugUartTxPin, uartDebugTxFunction);
-  swmPeriperhal.Setup(TcAmpPin, adcTcAmpFunction);
-  gpioPeripheral.SetInput(PowerDetectPin);
-  gpioPeripheral.SetLow(mux1s0Pin);
-  gpioPeripheral.SetLow(mux1s1Pin);
-  gpioPeripheral.SetLow(mux1s2Pin);
-  gpioPeripheral.SetLow(mux2s0Pin);
-  gpioPeripheral.SetLow(mux2s1Pin);
-  gpioPeripheral.SetLow(mux2s2Pin);
-  gpioPeripheral.SetOutput(mux1s0Pin);
-  gpioPeripheral.SetOutput(mux1s1Pin);
-  gpioPeripheral.SetOutput(mux1s2Pin);
-  gpioPeripheral.SetOutput(mux2s0Pin);
-  gpioPeripheral.SetOutput(mux2s1Pin);
-  gpioPeripheral.SetOutput(mux2s2Pin);
+  iocon_peripheral.Setup(pin_xtal_in, libmcull::iocon::PullModes::Inactive);
+  iocon_peripheral.Setup(pin_xtal_out, libmcull::iocon::PullModes::Inactive);
+  iocon_peripheral.Setup(pin_bootload, libmcull::iocon::PullModes::Pullup);
+  iocon_peripheral.Setup(pin_debug_uart_rx, libmcull::iocon::PullModes::Pullup);
+  iocon_peripheral.Setup(pin_debug_uart_tx, libmcull::iocon::PullModes::Inactive);
+  iocon_peripheral.Setup(pin_power_detect, libmcull::iocon::PullModes::Inactive);
+  iocon_peripheral.Setup(pin_mux1s0, libmcull::iocon::PullModes::Inactive);
+  iocon_peripheral.Setup(pin_mux1s1, libmcull::iocon::PullModes::Inactive);
+  iocon_peripheral.Setup(pin_mux1s2, libmcull::iocon::PullModes::Inactive);
+  iocon_peripheral.Setup(pin_mux2s0, libmcull::iocon::PullModes::Inactive);
+  iocon_peripheral.Setup(pin_mux2s1, libmcull::iocon::PullModes::Inactive);
+  iocon_peripheral.Setup(pin_mux2s2, libmcull::iocon::PullModes::Inactive);
+  iocon_peripheral.Setup(pin_tc_amp, libmcull::iocon::PullModes::Inactive);
+  swm_periperhal.Setup(pin_xtal_in, function_xtal_in);
+  swm_periperhal.Setup(pin_xtal_out, function_xtal_out);
+  swm_periperhal.Setup(pin_debug_uart_rx, function_debug_uart_rx);
+  swm_periperhal.Setup(pin_debug_uart_tx, function_debug_uart_tx);
+  swm_periperhal.Setup(pin_tc_amp, function_adc_tc_amp);
+  gpio_peripheral.SetInput(pin_power_detect);
+  gpio_peripheral.SetLow(pin_mux1s0);
+  gpio_peripheral.SetLow(pin_mux1s1);
+  gpio_peripheral.SetLow(pin_mux1s2);
+  gpio_peripheral.SetLow(pin_mux2s0);
+  gpio_peripheral.SetLow(pin_mux2s1);
+  gpio_peripheral.SetLow(pin_mux2s2);
+  gpio_peripheral.SetOutput(pin_mux1s0);
+  gpio_peripheral.SetOutput(pin_mux1s1);
+  gpio_peripheral.SetOutput(pin_mux1s2);
+  gpio_peripheral.SetOutput(pin_mux2s0);
+  gpio_peripheral.SetOutput(pin_mux2s1);
+  gpio_peripheral.SetOutput(pin_mux2s2);
   // setup crystal oscillator
   syscon_peripheral.ConfigureMcuClocks<nuclone_clock_config>();
   // setup systick
-  systickPeripheral.Init(nuclone_clock_config.GetSystemFreq() / TICKS_PER_S);
-  systickPeripheral.Start(systickIsrLambda);
+  systick_peripheral.Init(nuclone_clock_config.GetSystemFreq() / TICKS_PER_S);
+  systick_peripheral.Start(systickIsrLambda);
   // setup UART
   usart_peripheral.Init<uart_0_clock_config>(115200);
   syscon_peripheral.PeripheralClockSource(libmcull::syscon::ClockSourceSelects::Uart0, libmcull::syscon::ClockSources::Main);
@@ -90,21 +90,21 @@ void boardInit(void) {
   // adcPeripheral.Init<diySolderClockConfig>(100000);
 }
 
-bool isMainsPresent(void) {
-  std::uint32_t state{gpioPeripheral.GetState(PowerDetectPin)};
+bool IsMainsPresent(void) {
+  std::uint32_t state{gpio_peripheral.GetState(pin_power_detect)};
   return state == 1u ? true : false;
 }
 
-void setSafeUsbPowered(void) {
-  setMultiplexers(0, 0);
+void SetSafeUsbPowered(void) {
+  SetMultiplexers(0, 0);
 }
 
-void setMultiplexers(std::uint32_t mux1, std::uint32_t mux2) {
-  uint32_t mask{mux1s0Pin.gpioPinMask | mux1s1Pin.gpioPinMask | mux1s2Pin.gpioPinMask | mux2s0Pin.gpioPinMask |
-                mux2s1Pin.gpioPinMask | mux2s2Pin.gpioPinMask};
+void SetMultiplexers(std::uint32_t mux1, std::uint32_t mux2) {
+  uint32_t mask{pin_mux1s0.gpioPinMask | pin_mux1s1.gpioPinMask | pin_mux1s2.gpioPinMask | pin_mux2s0.gpioPinMask |
+                pin_mux2s1.gpioPinMask | pin_mux2s2.gpioPinMask};
   // clamp mux values
   mux1 = mux1 & 0x7;
   mux2 = mux2 & 0x7;
-  uint32_t portValue{(mux1 << mux1s0Pin.gpioPinIndex) | (mux2 << mux2s0Pin.gpioPinIndex)};
-  gpioPeripheral.SetPort(muxPort, portValue, mask);
+  uint32_t portValue{(mux1 << pin_mux1s0.gpioPinIndex) | (mux2 << pin_mux2s0.gpioPinIndex)};
+  gpio_peripheral.SetPort(port_mux, portValue, mask);
 }

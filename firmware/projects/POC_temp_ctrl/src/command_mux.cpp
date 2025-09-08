@@ -29,7 +29,7 @@ squLib::results mux(std::span<const char> commandLine) {
   }
   std::uint32_t value1 = commandValues.pop().value_or(0);
   std::uint32_t value2 = commandValues.pop().value_or(0);
-  setMultiplexers(value1, value2);
+  SetMultiplexers(value1, value2);
   return squLib::results::ok;
 }
 
