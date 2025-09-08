@@ -16,6 +16,7 @@ libmcull::syscon::Syscon<libmcuhw::SysconAddress> syscon_peripheral;
 libmcull::systick::Systick<libmcuhw::SystickAddress> systick_peripheral;
 libmcull::nvic::Nvic<libmcuhw::NvicAddress, libmcuhw::ScbAddress> nvicPeripheral;
 libmcull::adc::Adc<libmcuhw::Adc0Address> adc_peripheral;
+libmcull::pin_int::Pinint<libmcuhw::PinintAddress> pinint_peripheral;
 libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 128> ll_usart_peripheral;
 
 libmcuhal::usart::UartInterrupt<ll_usart_peripheral, char> usart_peripheral;
@@ -30,6 +31,8 @@ void SysTick_Handler(void) {
 void USART0_IRQHandler(void) {
   ll_usart_peripheral.InterruptHandler();
 }
+
+void PIN_INT0_IRQHandler(void) {}
 }
 
 auto systickIsrLambda = []() {
@@ -51,13 +54,14 @@ void BoardInit(void) {
   iocon_peripheral.Setup(pin_bootload, libmcull::iocon::PullModes::Pullup);
   iocon_peripheral.Setup(pin_debug_uart_rx, libmcull::iocon::PullModes::Pullup);
   iocon_peripheral.Setup(pin_debug_uart_tx, libmcull::iocon::PullModes::Inactive);
-  iocon_peripheral.Setup(pin_power_detect, libmcull::iocon::PullModes::Inactive);
+  iocon_peripheral.Setup(pin_power_detect, libmcull::iocon::PullModes::Inactive, libmcuhw::iocon::PIO::HYS);
   iocon_peripheral.Setup(pin_mux1s0, libmcull::iocon::PullModes::Inactive);
   iocon_peripheral.Setup(pin_mux1s1, libmcull::iocon::PullModes::Inactive);
   iocon_peripheral.Setup(pin_mux1s2, libmcull::iocon::PullModes::Inactive);
   iocon_peripheral.Setup(pin_mux2s0, libmcull::iocon::PullModes::Inactive);
   iocon_peripheral.Setup(pin_mux2s1, libmcull::iocon::PullModes::Inactive);
   iocon_peripheral.Setup(pin_mux2s2, libmcull::iocon::PullModes::Inactive);
+  iocon_peripheral.Setup(pin_zero_cross, libmcull::iocon::PullModes::Inactive, libmcuhw::iocon::PIO::HYS);
   iocon_peripheral.Setup(pin_tc_amp, libmcull::iocon::PullModes::Inactive);
   swm_periperhal.Setup(pin_xtal_in, function_xtal_in);
   swm_periperhal.Setup(pin_xtal_out, function_xtal_out);
@@ -65,6 +69,7 @@ void BoardInit(void) {
   swm_periperhal.Setup(pin_debug_uart_tx, function_debug_uart_tx);
   swm_periperhal.Setup(pin_tc_amp, function_adc_tc_amp);
   gpio_peripheral.SetInput(pin_power_detect);
+  gpio_peripheral.SetInput(pin_zero_cross);
   gpio_peripheral.SetLow(pin_mux1s0);
   gpio_peripheral.SetLow(pin_mux1s1);
   gpio_peripheral.SetLow(pin_mux1s2);
@@ -88,6 +93,8 @@ void BoardInit(void) {
   nvicPeripheral.Enable(libmcuhw::Interrupts::Uart0);
   // setup ADC
   // adcPeripheral.Init<diySolderClockConfig>(100000);
+  // setup interrupt pin
+  syscon_peripheral.SetInterruptPin(pin_zero_cross, libmcull::syscon::InterruptPins::PintSel0);
 }
 
 bool IsMainsPresent(void) {

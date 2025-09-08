@@ -34,7 +34,7 @@ using PinMux1s2Type = libmcuhw::Pin<libmcuhw::IoPorts::Port1, libmcuhw::IoPins::
 using PinMux2s0Type = libmcuhw::Pin<libmcuhw::IoPorts::Port1, libmcuhw::IoPins::Pin05>;
 using PinMux2s1Type = libmcuhw::Pin<libmcuhw::IoPorts::Port1, libmcuhw::IoPins::Pin06>;
 using PinMux2s2Type = libmcuhw::Pin<libmcuhw::IoPorts::Port1, libmcuhw::IoPins::Pin07>;
-// Zerocross detection pin
+// Zerocross detection pin, 10K pulldown, open PNP emitter to 3.3V
 using PinZeroCross = libmcuhw::Pin<libmcuhw::IoPorts::Port0, libmcuhw::IoPins::Pin17>;
 // differential amplifier ADC pin
 using PinTcAmpType = libmcuhw::Pin<libmcuhw::IoPorts::Port0, libmcuhw::IoPins::Pin07>;
@@ -59,7 +59,7 @@ constexpr PinMux1s2Type pin_mux1s2;
 constexpr PinMux2s0Type pin_mux2s0;
 constexpr PinMux2s1Type pin_mux2s1;
 constexpr PinMux2s2Type pin_mux2s2;
-constexpr PinZeroCross zero_cross_pin;
+constexpr PinZeroCross pin_zero_cross;
 constexpr PinTcAmpType pin_tc_amp;
 // port instances
 constexpr PortMuxType port_mux;
@@ -83,6 +83,7 @@ extern libmcull::gpio::Gpio<libmcuhw::GpioAddress> gpio_peripheral;
 extern libmcull::syscon::Syscon<libmcuhw::SysconAddress> syscon_peripheral;
 extern libmcull::systick::Systick<libmcuhw::SystickAddress> systick_peripheral;
 extern libmcull::adc::Adc<libmcuhw::Adc0Address> adc_peripheral;
+extern libmcull::pin_int::Pinint<libmcuhw::PinintAddress> pinint_peripheral;
 extern libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 128> ll_usart_peripheral;
 // Hal peripheral externs
 extern libmcuhal::usart::UartInterrupt<ll_usart_peripheral, char> usart_peripheral;
