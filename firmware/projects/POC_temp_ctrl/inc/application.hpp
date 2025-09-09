@@ -18,31 +18,36 @@
 
 namespace application {
 
-enum class applicationState : std::uint8_t {
+enum class ApplicationState : std::uint8_t {
   usbPowered, /*!< USB powered only */
   ready,      /*!< fully powered and ready */
   operating,  /*!< an iron is heating */
   error       /*!< error state */
 };
 
-class application {
+enum class Results : std::uint8_t {
+  NoError = static_cast<std::uint8_t>(libmcu::Results::NoError),
+  Error = static_cast<std::uint8_t>(libmcu::Results::Error),
+};
+
+class Application {
  public:
-  application() : state{applicationState::usbPowered} {}
-  void init();
-  void progress();
-  applicationState getState() {
+  Application() : state{ApplicationState::usbPowered} {}
+  [[nodiscard]] Results Init();
+  [[nodiscard]] Results Progress();
+  ApplicationState GetState() {
     return state;
   }
 
  private:
-  void setUsbPoweredState();
-  applicationState state;
+  void SetUsbPoweredState();
+  ApplicationState state;
 };
 
-extern squLib::console<usart_peripheral> commandConsole;
-extern squLib::commandValueStack<8, commandConsole> commandValues;
-extern squLib::commandInterpreter<commandHandlers, commandValues, commandConsole> commandInterpreter;
-extern application controller;
+extern squLib::console<usart_peripheral> command_console;
+extern squLib::commandValueStack<8, command_console> command_values;
+extern squLib::commandInterpreter<commandHandlers, command_values, command_console> command_interpreter;
+extern Application controller;
 
 }  // namespace application
 

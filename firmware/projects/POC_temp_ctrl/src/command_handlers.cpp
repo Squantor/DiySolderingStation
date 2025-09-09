@@ -22,7 +22,7 @@ squLib::commandHandler hexNumHandler{"0x0?", "Any hex unsigned integer will get 
 
 squLib::results helpFunction(std::span<const char> commandLine) {
   (void)commandLine;
-  commandInterpreter.printHelp();
+  command_interpreter.printHelp();
   return squLib::results::ok;
 }
 

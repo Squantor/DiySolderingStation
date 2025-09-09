@@ -15,25 +15,25 @@ namespace application {
 
 squLib::results stat(std::span<const char> commandLine) {
   (void)commandLine;
-  switch (controller.getState()) {
-    case applicationState::usbPowered:
-      commandConsole.print("Powered only by USB\n");
+  switch (controller.GetState()) {
+    case ApplicationState::usbPowered:
+      command_console.print("Powered only by USB\n");
       break;
 
-    case applicationState::ready:
-      commandConsole.print("System fully operational\n");
+    case ApplicationState::ready:
+      command_console.print("System fully operational\n");
       break;
 
-    case applicationState::operating:
-      commandConsole.print("Power stage is operating\n");
+    case ApplicationState::operating:
+      command_console.print("Power stage is operating\n");
       break;
 
-    case applicationState::error:
-      commandConsole.print("We are in an error state\n");
+    case ApplicationState::error:
+      command_console.print("We are in an error state\n");
       break;
 
     default:
-      commandConsole.print("Unknown state!\n");
+      command_console.print("Unknown state!\n");
       break;
   }
   return squLib::results::ok;

@@ -19,12 +19,12 @@ squLib::commandHandler dupHandler{"dup", "Duplicates top of the stack\n", dup};
 
 squLib::results dup(std::span<const char> commandLine) {
   (void)commandLine;
-  if (commandValues.size() == 0) {
-    commandConsole.print("Stack is empty\n");
+  if (command_values.size() == 0) {
+    command_console.print("Stack is empty\n");
     return squLib::results::error;
   }
-  commandValues.dup();
-  commandConsole.print("\n");
+  command_values.dup();
+  command_console.print("\n");
   return squLib::results::ok;
 }
 

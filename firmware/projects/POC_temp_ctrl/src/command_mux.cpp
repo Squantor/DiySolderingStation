@@ -19,16 +19,16 @@ squLib::commandHandler muxHandler{"mux", "Sets up the multiplexer, needs 2 stack
 
 squLib::results mux(std::span<const char> commandLine) {
   (void)commandLine;
-  if (commandValues.size() < 2) {
-    commandConsole.print("Insufficient elments on the operand stack\n");
+  if (command_values.size() < 2) {
+    command_console.print("Insufficient elments on the operand stack\n");
     return squLib::results::error;
   }
-  if (controller.getState() == applicationState::usbPowered) {
-    commandConsole.print("cant switch when running on USB power\n");
+  if (controller.GetState() == ApplicationState::usbPowered) {
+    command_console.print("cant switch when running on USB power\n");
     return squLib::results::error;
   }
-  std::uint32_t value1 = commandValues.pop().value_or(0);
-  std::uint32_t value2 = commandValues.pop().value_or(0);
+  std::uint32_t value1 = command_values.pop().value_or(0);
+  std::uint32_t value2 = command_values.pop().value_or(0);
   SetMultiplexers(value1, value2);
   return squLib::results::ok;
 }

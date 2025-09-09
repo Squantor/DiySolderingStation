@@ -14,17 +14,18 @@
 
 namespace application {
 
-squLib::console<usart_peripheral> commandConsole;
-squLib::commandValueStack<8, commandConsole> commandValues;
-squLib::commandInterpreter<commandHandlers, commandValues, commandConsole> commandInterpreter;
-squLib::commandlineSimple<80, commandConsole, commandInterpreter> commandline;
+squLib::console<usart_peripheral> command_console;
+squLib::commandValueStack<8, command_console> command_values;
+squLib::commandInterpreter<commandHandlers, command_values, command_console> command_interpreter;
+squLib::commandlineSimple<80, command_console, command_interpreter> commandline;
 
-void application::init() {
+Results Application::Init() {
   usart_peripheral.Claim();
-  commandConsole.print("DIY soldering station POC temperature sensing\n");
+  command_console.print("DIY soldering station POC temperature sensing\n");
+  return Results::NoError;
 }
 
-void application::progress() {
+Results Application::Progress() {
   static std::uint32_t currentTicks = ticks;
   if (currentTicks + 100 < ticks) {
     // Print("test:\t", currentTicks, "\t", print::Hex{currentTicks}, "\n");
@@ -38,31 +39,33 @@ void application::progress() {
   }
   // state handling
   switch (state) {
-    case applicationState::usbPowered:
+    case ApplicationState::usbPowered:
       if (IsMainsPresent())
-        state = applicationState::ready;
+        state = ApplicationState::ready;
       break;
-    case applicationState::ready:
+    case ApplicationState::ready:
       if (!IsMainsPresent())
-        setUsbPoweredState();
+        SetUsbPoweredState();
       break;
-    case applicationState::operating:
+    case ApplicationState::operating:
       if (!IsMainsPresent())
-        setUsbPoweredState();
+        SetUsbPoweredState();
       break;
-    case applicationState::error:
+    case ApplicationState::error:
       if (!IsMainsPresent())
-        setUsbPoweredState();
+        SetUsbPoweredState();
       break;
 
     default:
-      commandConsole.print("Unknown state!!!");
+      command_console.print("Unknown state!!!");
+      return Results::Error;
       break;
   }
+  return Results::NoError;
 }
 
-void application::setUsbPoweredState() {
+void Application::SetUsbPoweredState() {
   SetSafeUsbPowered();
-  state = applicationState::usbPowered;
+  state = ApplicationState::usbPowered;
 }
 }  // namespace application

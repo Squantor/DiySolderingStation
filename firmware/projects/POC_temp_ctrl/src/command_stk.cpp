@@ -19,11 +19,11 @@ squLib::commandHandler stkHandler{"stk", "Prints stack values\n", printStack};
 
 squLib::results printStack(std::span<const char> commandLine) {
   (void)commandLine;
-  if (commandValues.size() == 0)
-    commandConsole.print("Stack is empty\n");
-  for (std::size_t i = 0; i < commandValues.topOfStack; i++) {
-    std::int32_t value{commandValues.valueStack[i]};
-    commandConsole.print("Index : ", i, " value : ", squLib::Dec{value}, "\n");
+  if (command_values.size() == 0)
+    command_console.print("Stack is empty\n");
+  for (std::size_t i = 0; i < command_values.topOfStack; i++) {
+    std::int32_t value{command_values.valueStack[i]};
+    command_console.print("Index : ", i, " value : ", squLib::Dec{value}, "\n");
   }
   return squLib::results::ok;
 }

@@ -19,12 +19,12 @@ squLib::commandHandler dropHandler{"drop", "Drops top of stack\n", drop};
 
 squLib::results drop(std::span<const char> commandLine) {
   (void)commandLine;
-  if (commandValues.size() == 0) {
-    commandConsole.print("Stack is empty\n");
+  if (command_values.size() == 0) {
+    command_console.print("Stack is empty\n");
     return squLib::results::error;
   }
-  commandValues.drop();
-  commandConsole.print("\n");
+  command_values.drop();
+  command_console.print("\n");
   return squLib::results::ok;
 }
 
