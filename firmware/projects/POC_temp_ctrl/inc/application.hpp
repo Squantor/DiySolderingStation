@@ -15,6 +15,17 @@
 #include <command_value_stack.hpp>
 #include <command_handlers.hpp>
 #include <console.hpp>
+#include <zerocross.hpp>
+
+/**
+ * @brief application wide result/return values
+ * @note this is a subset of libmcu::Results
+ * This is defined in the global namespace for now as it is used application wide
+ */
+enum class Results : std::uint8_t {
+  NoError = static_cast<std::uint8_t>(libmcu::Results::NoError),
+  Error = static_cast<std::uint8_t>(libmcu::Results::Error),
+};
 
 namespace application {
 
@@ -23,11 +34,6 @@ enum class ApplicationState : std::uint8_t {
   ready,      /*!< fully powered and ready */
   operating,  /*!< an iron is heating */
   error       /*!< error state */
-};
-
-enum class Results : std::uint8_t {
-  NoError = static_cast<std::uint8_t>(libmcu::Results::NoError),
-  Error = static_cast<std::uint8_t>(libmcu::Results::Error),
 };
 
 class Application {
@@ -48,6 +54,7 @@ extern squLib::console<usart_peripheral> command_console;
 extern squLib::commandValueStack<8, command_console> command_values;
 extern squLib::commandInterpreter<commandHandlers, command_values, command_console> command_interpreter;
 extern Application controller;
+extern ZeroCross zerocross;
 
 }  // namespace application
 

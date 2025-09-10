@@ -5,8 +5,8 @@
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * @file command handlers definitions
- * @brief central gathering spot for all command handlers
+ * @file command_mux.cpp
+ * @brief command handler for setting up the multiplexer
  */
 #include <commands.hpp>
 #include <application.hpp>

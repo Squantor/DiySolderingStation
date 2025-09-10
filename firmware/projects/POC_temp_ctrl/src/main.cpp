@@ -16,11 +16,11 @@ Application controller;
 
 int main() {
   BoardInit();
-  application::Results result = application::controller.Init();
-  if (result != application::Results::NoError) {
+  Results result = application::controller.Init();
+  if (result != Results::NoError) {
     application::command_console.print("Failed to initialize application\n");
   }
-  while (result == application::Results::NoError) {
+  while (result == Results::NoError) {
     result = application::controller.Progress();
   }
   application::command_console.print("Application mainloop exited with error code %hhu\n", static_cast<std::uint8_t>(result));

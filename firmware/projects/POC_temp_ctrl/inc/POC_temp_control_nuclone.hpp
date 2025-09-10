@@ -12,8 +12,6 @@
 
 #include <nxp/libmcu_LPC845M301BD48_hal.hpp>
 
-#define TICKS_PER_S 1000
-
 // pin types
 // Crystal osillator pins
 using PinXtalInType = libmcuhw::Pin<libmcuhw::IoPorts::Port0, libmcuhw::IoPins::Pin08>;
@@ -46,6 +44,7 @@ using FunctionUartDebugTxType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFun
 using FunctionUartDebugRxType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFunctions::Uart0RxIn>;
 using FunctionAdcTcAmpType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFunctions::Adc0In>;
 
+constexpr std::uint32_t ticks_per_second = 1000;
 // pin instances
 constexpr PinXtalInType pin_xtal_in;
 constexpr PinXtalOutType pin_xtal_out;

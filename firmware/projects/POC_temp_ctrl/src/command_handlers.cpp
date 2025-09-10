@@ -5,7 +5,7 @@
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * @file command handlers definitions
+ * @file command_handlers.cpp
  * @brief central gathering spot for all command handlers
  */
 #include <command_handlers.hpp>
@@ -26,8 +26,9 @@ squLib::results helpFunction(std::span<const char> commandLine) {
   return squLib::results::ok;
 }
 
-std::array<squLib::commandHandler, 10> commandHandlerTable{helpHandler, numberHandler, hexNumHandler, stkHandler, emptyHandler,
-                                                           dropHandler, dupHandler,    statHandler,   muxHandler, tcHandler};
+std::array<squLib::commandHandler, 11> commandHandlerTable{helpHandler,  numberHandler, hexNumHandler,    stkHandler,
+                                                           emptyHandler, dropHandler,   dupHandler,       statHandler,
+                                                           muxHandler,   tcHandler,     zerocross_handler};
 std::span<const squLib::commandHandler> commandHandlers{commandHandlerTable};
 
 }  // namespace application

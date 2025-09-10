@@ -5,8 +5,8 @@
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * @file command handlers definitions
- * @brief central gathering spot for all command handlers
+ * @file command_stk.cpp
+ * @brief command handler for printing stack
  */
 #include <commands.hpp>
 #include <application.hpp>

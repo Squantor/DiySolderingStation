@@ -5,8 +5,8 @@
  * For conditions of distribution and use, see LICENSE file
  */
 /**
- * @file command handlers definitions
- * @brief central gathering spot for all command handlers
+ * @file command_tc.cpp
+ * @brief command handler for thermocouple measurement
  */
 #include <commands.hpp>
 #include <application.hpp>

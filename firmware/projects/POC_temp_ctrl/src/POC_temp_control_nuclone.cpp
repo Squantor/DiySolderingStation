@@ -8,6 +8,7 @@
  * @brief board support code for temperature sensing proof of concept board
  */
 #include <POC_temp_control_nuclone.hpp>
+#include <application.hpp>
 
 libmcull::iocon::Iocon<libmcuhw::IoconAddress> iocon_peripheral;
 libmcull::swm::Swm<libmcuhw::SwmAddress> swm_periperhal;
@@ -34,7 +35,7 @@ void USART0_IRQHandler(void) {
 
 void PIN_INT0_IRQHandler(void) {
   pinint_peripheral.ClearChannel(libmcull::pin_int::InterruptPins::PintSel0);
-  libmcull::nop();
+  application::zerocross.Update();
 }
 }
 
@@ -89,7 +90,7 @@ void BoardInit(void) {
   // setup crystal oscillator
   syscon_peripheral.ConfigureMcuClocks<nuclone_clock_config>();
   // setup systick
-  systick_peripheral.Init(nuclone_clock_config.GetSystemFreq() / TICKS_PER_S);
+  systick_peripheral.Init(nuclone_clock_config.GetSystemFreq() / ticks_per_second);
   systick_peripheral.Start(systickIsrLambda);
   // setup UART
   usart_peripheral.Init<uart_0_clock_config>(115200);

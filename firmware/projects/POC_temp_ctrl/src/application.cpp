@@ -11,6 +11,7 @@
 #include <application.hpp>
 #include <cmdline_simple.hpp>
 #include <console.hpp>
+#include <zerocross.hpp>
 
 namespace application {
 
@@ -18,10 +19,12 @@ squLib::console<usart_peripheral> command_console;
 squLib::commandValueStack<8, command_console> command_values;
 squLib::commandInterpreter<commandHandlers, command_values, command_console> command_interpreter;
 squLib::commandlineSimple<80, command_console, command_interpreter> commandline;
+ZeroCross zerocross;
 
 Results Application::Init() {
   usart_peripheral.Claim();
   command_console.print("DIY soldering station POC temperature sensing\n");
+  zerocross.Init();
   return Results::NoError;
 }
 
@@ -37,23 +40,23 @@ Results Application::Progress() {
     usart_peripheral.Receive(data);
     commandline.input(data);
   }
+  // power control
+  zerocross.Progress(ticks, ticks_per_second);
   // state handling
   switch (state) {
     case ApplicationState::usbPowered:
-      if (IsMainsPresent())
+      if (IsMainsPresent() && zerocross.Detected())
         state = ApplicationState::ready;
       break;
     case ApplicationState::ready:
-      if (!IsMainsPresent())
+      if (!IsMainsPresent() || !zerocross.Detected())
         SetUsbPoweredState();
       break;
     case ApplicationState::operating:
-      if (!IsMainsPresent())
+      if (!IsMainsPresent() || !zerocross.Detected())
         SetUsbPoweredState();
       break;
     case ApplicationState::error:
-      if (!IsMainsPresent())
-        SetUsbPoweredState();
       break;
 
     default:
