@@ -34,6 +34,9 @@ using PinMux2s1Type = libmcuhw::Pin<libmcuhw::IoPorts::Port1, libmcuhw::IoPins::
 using PinMux2s2Type = libmcuhw::Pin<libmcuhw::IoPorts::Port1, libmcuhw::IoPins::Pin07>;
 // Zerocross detection pin, 10K pulldown, open PNP emitter to 3.3V
 using PinZeroCross = libmcuhw::Pin<libmcuhw::IoPorts::Port0, libmcuhw::IoPins::Pin17>;
+// Power control pins
+using PinPowerControl1 = libmcuhw::Pin<libmcuhw::IoPorts::Port1, libmcuhw::IoPins::Pin06>;
+using PinPowerControl2 = libmcuhw::Pin<libmcuhw::IoPorts::Port1, libmcuhw::IoPins::Pin05>;
 // differential amplifier ADC pin
 using PinTcAmpType = libmcuhw::Pin<libmcuhw::IoPorts::Port0, libmcuhw::IoPins::Pin07>;
 
@@ -59,6 +62,8 @@ constexpr PinMux2s0Type pin_mux2s0;
 constexpr PinMux2s1Type pin_mux2s1;
 constexpr PinMux2s2Type pin_mux2s2;
 constexpr PinZeroCross pin_zero_cross;
+constexpr PinPowerControl1 pin_power_control1;
+constexpr PinPowerControl2 pin_power_control2;
 constexpr PinTcAmpType pin_tc_amp;
 // port instances
 constexpr PortMuxType port_mux;
@@ -109,5 +114,17 @@ void SetMultiplexers(std::uint32_t mux1, std::uint32_t mux2);
  * This entails setting muxes to 0, power stage to 0 and resetting power control states
  */
 void SetSafeUsbPowered(void);
+
+/**
+ * @brief Set Power control 1 pin
+ * @param on true for high, false for low
+ */
+void SetPowerControl1(bool on);
+
+/**
+ * @brief Set Power control 2 pin
+ * @param on true for high, false for low
+ */
+void SetPowerControl2(bool on);
 
 #endif

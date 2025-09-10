@@ -81,12 +81,16 @@ void BoardInit(void) {
   gpio_peripheral.SetLow(pin_mux2s0);
   gpio_peripheral.SetLow(pin_mux2s1);
   gpio_peripheral.SetLow(pin_mux2s2);
+  gpio_peripheral.SetLow(pin_power_control1);
+  gpio_peripheral.SetLow(pin_power_control2);
   gpio_peripheral.SetOutput(pin_mux1s0);
   gpio_peripheral.SetOutput(pin_mux1s1);
   gpio_peripheral.SetOutput(pin_mux1s2);
   gpio_peripheral.SetOutput(pin_mux2s0);
   gpio_peripheral.SetOutput(pin_mux2s1);
   gpio_peripheral.SetOutput(pin_mux2s2);
+  gpio_peripheral.SetOutput(pin_power_control1);
+  gpio_peripheral.SetOutput(pin_power_control2);
   // setup crystal oscillator
   syscon_peripheral.ConfigureMcuClocks<nuclone_clock_config>();
   // setup systick
@@ -121,4 +125,12 @@ void SetMultiplexers(std::uint32_t mux1, std::uint32_t mux2) {
   mux2 = mux2 & 0x7;
   uint32_t portValue{(mux1 << pin_mux1s0.gpioPinIndex) | (mux2 << pin_mux2s0.gpioPinIndex)};
   gpio_peripheral.SetPort(port_mux, portValue, mask);
+}
+
+void SetPowerControl1(bool on) {
+  gpio_peripheral.SetState(pin_power_control1, on);
+}
+
+void SetPowerControl2(bool on) {
+  gpio_peripheral.SetState(pin_power_control2, on);
 }
