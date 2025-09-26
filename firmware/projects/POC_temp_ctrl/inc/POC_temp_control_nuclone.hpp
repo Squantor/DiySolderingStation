@@ -74,6 +74,8 @@ constexpr FunctionUartDebugTxType function_debug_uart_tx;
 constexpr FunctionUartDebugRxType function_debug_uart_rx;
 constexpr FunctionAdcTcAmpType function_adc_tc_amp;
 
+// configuration constants
+
 // Clock configurations
 constexpr inline libmcuhw::clock::McuClockConfig<libmcuhw::clock::ClockInputSources::XTAL, 12'000'000u, 30'000'000u>
   nuclone_clock_config;

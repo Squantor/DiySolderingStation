@@ -53,6 +53,7 @@ void BoardInit(void) {
       libmcull::syscon::peripheral_clocks_0::Uart0 | libmcull::syscon::peripheral_clocks_0::Adc |
       libmcull::syscon::peripheral_clocks_0::GpioInt,
     0);
+  syscon_peripheral.SetIoconGlitchFiltDivider(libmcull::syscon::IoconGlitchFilters::Filter6, 255);
   // setup pins
   iocon_peripheral.Setup(pin_xtal_in, libmcull::iocon::PullModes::Inactive);
   iocon_peripheral.Setup(pin_xtal_out, libmcull::iocon::PullModes::Inactive);
@@ -66,7 +67,8 @@ void BoardInit(void) {
   iocon_peripheral.Setup(pin_mux2s0, libmcull::iocon::PullModes::Inactive);
   iocon_peripheral.Setup(pin_mux2s1, libmcull::iocon::PullModes::Inactive);
   iocon_peripheral.Setup(pin_mux2s2, libmcull::iocon::PullModes::Inactive);
-  iocon_peripheral.Setup(pin_zero_cross, libmcull::iocon::PullModes::Inactive, libmcuhw::iocon::PIO::HYS);
+  iocon_peripheral.Setup(pin_zero_cross, libmcull::iocon::PullModes::Inactive,
+                         libmcuhw::iocon::PIO::HYS | libmcuhw::iocon::PIO::IOCONCLKDIV6 | libmcuhw::iocon::PIO::CYCLES3);
   iocon_peripheral.Setup(pin_tc_amp, libmcull::iocon::PullModes::Inactive);
   swm_periperhal.Setup(pin_xtal_in, function_xtal_in);
   swm_periperhal.Setup(pin_xtal_out, function_xtal_out);
@@ -91,7 +93,7 @@ void BoardInit(void) {
   gpio_peripheral.SetOutput(pin_mux2s2);
   gpio_peripheral.SetOutput(pin_power_control1);
   gpio_peripheral.SetOutput(pin_power_control2);
-  // setup crystal oscillator
+  // setup crystal oscillator and PLL
   syscon_peripheral.ConfigureMcuClocks<nuclone_clock_config>();
   // setup systick
   systick_peripheral.Init(nuclone_clock_config.GetSystemFreq() / ticks_per_second);
