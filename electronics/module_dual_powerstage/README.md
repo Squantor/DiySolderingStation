@@ -2,8 +2,6 @@
 Small module to test out the JBC style power switch. This is used as a patch for existing boards so no respin is needed right away.
 ## TODO's
 Still some things need to be done:
-* schematic entry 
-* PCB layout
 * Review with one night in between
 * Produce at [Aisler](https://aisler.net)
 * Assemble
