@@ -11,6 +11,8 @@
 #define POC_TEMP_SENSE_NUCLONE_HPP
 
 #include <nxp/libmcu_LPC845M301BD48_hal.hpp>
+#include <drivers/SH1106_i2c.hpp>
+#include <drivers/SH1106/SH1106_conf_gen_128x64.hpp>
 
 // pin types
 // Crystal osillator pins
@@ -39,6 +41,9 @@ using PinPowerControl1 = libmcuhw::Pin<libmcuhw::IoPorts::Port1, libmcuhw::IoPin
 using PinPowerControl2 = libmcuhw::Pin<libmcuhw::IoPorts::Port1, libmcuhw::IoPins::Pin05>;
 // differential amplifier ADC pin
 using PinTcAmpType = libmcuhw::Pin<libmcuhw::IoPorts::Port0, libmcuhw::IoPins::Pin07>;
+// I2C pins
+using PinI2cSclType = libmcuhw::Pin<libmcuhw::IoPorts::Port0, libmcuhw::IoPins::Pin10>;
+using PinI2cSdaType = libmcuhw::Pin<libmcuhw::IoPorts::Port0, libmcuhw::IoPins::Pin11>;
 
 // function types
 using FunctionXtalInType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFunctions::XtalIn>;
@@ -46,6 +51,8 @@ using FunctionXtalOutType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFunctio
 using FunctionUartDebugTxType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFunctions::Uart0TxOut>;
 using FunctionUartDebugRxType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFunctions::Uart0RxIn>;
 using FunctionAdcTcAmpType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFunctions::Adc0In>;
+using FunctionI2CSclType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFunctions::I2c0SclInOut>;
+using FunctionI2CSdaType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFunctions::I2c0SdaInOut>;
 
 constexpr std::uint32_t ticks_per_second = 1000;
 // pin instances
@@ -65,6 +72,8 @@ constexpr PinZeroCross pin_zero_cross;
 constexpr PinPowerControl1 pin_power_control1;
 constexpr PinPowerControl2 pin_power_control2;
 constexpr PinTcAmpType pin_tc_amp;
+constexpr PinI2cSclType pin_i2c_scl;
+constexpr PinI2cSdaType pin_i2c_sda;
 // port instances
 constexpr PortMuxType port_mux;
 // function instances
@@ -73,8 +82,11 @@ constexpr FunctionXtalOutType function_xtal_out;
 constexpr FunctionUartDebugTxType function_debug_uart_tx;
 constexpr FunctionUartDebugRxType function_debug_uart_rx;
 constexpr FunctionAdcTcAmpType function_adc_tc_amp;
+constexpr FunctionI2CSclType function_i2c_scl;
+constexpr FunctionI2CSdaType function_i2c_sda;
 
 // configuration constants
+constexpr inline libmcuhal::I2cDeviceAddress sh1106_display_address{0x78};
 
 // Clock configurations
 constexpr inline libmcuhw::clock::McuClockConfig<libmcuhw::clock::ClockInputSources::XTAL, 12'000'000u, 30'000'000u>
@@ -82,6 +94,9 @@ constexpr inline libmcuhw::clock::McuClockConfig<libmcuhw::clock::ClockInputSour
 constexpr inline libmcuhw::clock::PeriClockConfig<nuclone_clock_config, libmcuhw::clock::PeriSelect::UART0,
                                                   libmcuhw::clock::PeriSource::MAIN>
   uart_0_clock_config;
+constexpr inline libmcuhw::clock::PeriClockConfig<nuclone_clock_config, libmcuhw::clock::PeriSelect::I2C0,
+                                                  libmcuhw::clock::PeriSource::MAIN>
+  i2c_0_clock_config;
 // Low level peripheral externs
 extern libmcull::iocon::Iocon<libmcuhw::IoconAddress> iocon_peripheral;
 extern libmcull::swm::Swm<libmcuhw::SwmAddress> swm_periperhal;
@@ -91,8 +106,13 @@ extern libmcull::systick::Systick<libmcuhw::SystickAddress> systick_peripheral;
 extern libmcull::adc::Adc<libmcuhw::Adc0Address> adc_peripheral;
 extern libmcull::pin_int::Pinint<libmcuhw::PinintAddress> pinint_peripheral;
 extern libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 128> ll_usart_peripheral;
+extern libmcull::i2c::I2cInterrupt<libmcuhw::I2c0Address> ll_i2c_peripheral;
 // Hal peripheral externs
 extern libmcuhal::usart::UartInterrupt<ll_usart_peripheral, char> usart_peripheral;
+extern libmcuhal::i2c::I2cInterrupt<ll_i2c_peripheral> i2c_peripheral;
+// driver externs
+extern libMcuDriver::SH1106::generic128x64 display_config;
+extern libMcuDriver::SH1106::SH1106<i2c_peripheral, sh1106_display_address, display_config> display;
 
 extern volatile std::uint32_t ticks;  // amount of ticks passed sinds startup
 

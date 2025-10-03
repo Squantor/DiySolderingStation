@@ -19,8 +19,13 @@ libmcull::nvic::Nvic<libmcuhw::NvicAddress, libmcuhw::ScbAddress> nvicPeripheral
 libmcull::adc::Adc<libmcuhw::Adc0Address> adc_peripheral;
 libmcull::pin_int::Pinint<libmcuhw::PinintAddress> pinint_peripheral;
 libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 128> ll_usart_peripheral;
+libmcull::i2c::I2cInterrupt<libmcuhw::I2c0Address> ll_i2c_peripheral;
 
 libmcuhal::usart::UartInterrupt<ll_usart_peripheral, char> usart_peripheral;
+libmcuhal::i2c::I2cInterrupt<ll_i2c_peripheral> i2c_peripheral;
+
+libMcuDriver::SH1106::generic128x64 display_config;
+libMcuDriver::SH1106::SH1106<i2c_peripheral, sh1106_display_address, display_config> display;
 
 volatile std::uint32_t ticks;
 
@@ -37,6 +42,10 @@ void PIN_INT0_IRQHandler(void) {
   pinint_peripheral.ClearChannel(libmcull::pin_int::InterruptPins::PintSel0);
   application::zerocross.Update();
 }
+
+void I2C0_IRQHandler(void) {
+  ll_i2c_peripheral.InterruptHandler();
+}
 }
 
 auto systickIsrLambda = []() {
@@ -51,7 +60,7 @@ void BoardInit(void) {
     libmcull::syscon::peripheral_clocks_0::Swm | libmcull::syscon::peripheral_clocks_0::Iocon |
       libmcull::syscon::peripheral_clocks_0::Gpio0 | libmcull::syscon::peripheral_clocks_0::Gpio1 |
       libmcull::syscon::peripheral_clocks_0::Uart0 | libmcull::syscon::peripheral_clocks_0::Adc |
-      libmcull::syscon::peripheral_clocks_0::GpioInt,
+      libmcull::syscon::peripheral_clocks_0::GpioInt | libmcull::syscon::peripheral_clocks_0::I2c0,
     0);
   syscon_peripheral.SetIoconGlitchFiltDivider(libmcull::syscon::IoconGlitchFilters::Filter6, 255);
   // setup pins
@@ -70,11 +79,15 @@ void BoardInit(void) {
   iocon_peripheral.Setup(pin_zero_cross, libmcull::iocon::PullModes::Inactive,
                          libmcuhw::iocon::PIO::HYS | libmcuhw::iocon::PIO::IOCONCLKDIV6 | libmcuhw::iocon::PIO::CYCLES3);
   iocon_peripheral.Setup(pin_tc_amp, libmcull::iocon::PullModes::Inactive);
+  iocon_peripheral.Setup(pin_i2c_scl, libmcull::iocon::I2cModes::Standard);
+  iocon_peripheral.Setup(pin_i2c_sda, libmcull::iocon::I2cModes::Standard);
   swm_periperhal.Setup(pin_xtal_in, function_xtal_in);
   swm_periperhal.Setup(pin_xtal_out, function_xtal_out);
   swm_periperhal.Setup(pin_debug_uart_rx, function_debug_uart_rx);
   swm_periperhal.Setup(pin_debug_uart_tx, function_debug_uart_tx);
   swm_periperhal.Setup(pin_tc_amp, function_adc_tc_amp);
+  swm_periperhal.Setup(pin_i2c_scl, function_i2c_scl);
+  swm_periperhal.Setup(pin_i2c_sda, function_i2c_sda);
   gpio_peripheral.SetInput(pin_power_detect);
   gpio_peripheral.SetInput(pin_zero_cross);
   gpio_peripheral.SetLow(pin_mux1s0);
@@ -102,12 +115,17 @@ void BoardInit(void) {
   usart_peripheral.Init<uart_0_clock_config>(115200);
   syscon_peripheral.PeripheralClockSource(libmcull::syscon::ClockSourceSelects::Uart0, libmcull::syscon::ClockSources::Main);
   nvicPeripheral.Enable(libmcuhw::Interrupts::Uart0);
-  nvicPeripheral.Enable(libmcuhw::Interrupts::Pinint0);
   // setup ADC
   // adcPeripheral.Init<diySolderClockConfig>(100000);
+  // setup I2C
+  i2c_peripheral.Init<i2c_0_clock_config>(400000, 100);
+  syscon_peripheral.PeripheralClockSource(libmcull::syscon::ClockSourceSelects::I2c0, libmcull::syscon::ClockSources::Main);
+  nvicPeripheral.Enable(libmcuhw::Interrupts::I2c0);
   // setup interrupt pin
   syscon_peripheral.SetInterruptPin(pin_zero_cross, libmcull::syscon::InterruptPins::PintSel0);
   pinint_peripheral.EnableChannel(libmcull::pin_int::InterruptPins::PintSel0, libmcull::pin_int::EdgeSettings::Falling);
+  nvicPeripheral.Enable(libmcuhw::Interrupts::Pinint0);
+  // setup display
 }
 
 bool IsMainsPresent(void) {

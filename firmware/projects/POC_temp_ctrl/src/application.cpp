@@ -23,6 +23,7 @@ ZeroCross zerocross;
 
 Results Application::Init() {
   usart_peripheral.Claim();
+  display.init();
   command_console.print("DIY soldering station POC temperature sensing\n");
   zerocross.Init();
   return Results::NoError;
