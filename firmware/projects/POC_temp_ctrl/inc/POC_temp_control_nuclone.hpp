@@ -86,7 +86,7 @@ constexpr FunctionI2CSclType function_i2c_scl;
 constexpr FunctionI2CSdaType function_i2c_sda;
 
 // configuration constants
-constexpr inline libmcuhal::I2cDeviceAddress sh1106_display_address{0x78};
+constexpr inline libmcuhal::I2cDeviceAddress sh1106_display_address{0x3C};
 
 // Clock configurations
 constexpr inline libmcuhw::clock::McuClockConfig<libmcuhw::clock::ClockInputSources::XTAL, 12'000'000u, 30'000'000u>
