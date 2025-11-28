@@ -26,9 +26,9 @@ squLib::results helpFunction(std::span<const char> commandLine) {
   return squLib::results::ok;
 }
 
-std::array<squLib::commandHandler, 11> commandHandlerTable{helpHandler,  numberHandler, hexNumHandler,    stkHandler,
-                                                           emptyHandler, dropHandler,   dupHandler,       statHandler,
-                                                           muxHandler,   tcHandler,     zerocross_handler};
+std::array<squLib::commandHandler, 12> commandHandlerTable{helpHandler,  numberHandler, hexNumHandler,     stkHandler,
+                                                           emptyHandler, dropHandler,   dupHandler,        statHandler,
+                                                           muxHandler,   tcHandler,     zerocross_handler, disp_handler};
 std::span<const squLib::commandHandler> commandHandlers{commandHandlerTable};
 
 }  // namespace application

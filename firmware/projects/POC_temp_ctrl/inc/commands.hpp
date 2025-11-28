@@ -22,6 +22,7 @@ extern squLib::commandHandler statHandler;
 extern squLib::commandHandler muxHandler;
 extern squLib::commandHandler tcHandler;
 extern squLib::commandHandler zerocross_handler;
+extern squLib::commandHandler disp_handler;
 }  // namespace application
 
 #endif
