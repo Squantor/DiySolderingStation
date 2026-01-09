@@ -12,13 +12,12 @@ For conditions of distribution and use, see LICENSE file
 #define BUTTON_HANDLER_HPP
 
 #include "event_handler.hpp"
+#include "application.hpp"
 
 namespace application {
 class ButtonHandler : public EventHandler {
  public:
-  void HandleEvent(EventData event) {
-    (void)event;
-  }
+  void HandleEvent(EventData event);
 };
 
 }  // namespace application

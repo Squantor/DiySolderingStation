@@ -28,6 +28,7 @@ $(PROJ_DIR)/src/command_tc.cpp \
 $(PROJ_DIR)/src/command_zerocross.cpp \
 $(PROJ_DIR)/src/command_disp.cpp \
 $(PROJ_DIR)/src/zerocross.cpp \
+$(PROJ_DIR)/src/button_handler.cpp \
 $(PROJ_DIR)/src/$(BOARD).cpp
 $(NAME)_INCLUDES := -I$(PROJ_DIR)/inc -Icommon/inc
 
