@@ -12,6 +12,8 @@
 #include <cmdline_simple.hpp>
 #include <console.hpp>
 #include <zerocross.hpp>
+#include <event_dispatch.hpp>
+#include <button_handler.hpp>
 
 namespace application {
 
@@ -20,6 +22,11 @@ squLib::commandValueStack<8, command_console> command_values;
 squLib::commandInterpreter<commandHandlers, command_values, command_console> command_interpreter;
 squLib::commandlineSimple<80, command_console, command_interpreter> commandline;
 ZeroCross zerocross;
+ButtonHandler button_handler;
+
+std::array<const EventHandlerPair, 1> event_handlers = {EventHandlerPair{&button_handler, Events::Button}};
+
+EventDispatcher event_dispatcher(event_handlers);
 
 Results Application::Init() {
   usart_peripheral.Claim();
