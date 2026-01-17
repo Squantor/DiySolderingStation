@@ -8461,7 +8461,7 @@
 	(footprint "SquantorLabels:Label_Generic"
 		(layer "B.Cu")
 		(uuid "00000000-0000-0000-0000-00005ee12051")
-		(at 173.985 55.5 180)
+		(at 183 57.7 180)
 		(descr "Label for general purpose use")
 		(tags "Label")
 		(property "Reference" "N2"
@@ -8477,7 +8477,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "20250926"
+		(property "Value" "20260118"
 			(at 0 0 0)
 			(layer "B.SilkS")
 			(uuid "b6bcc3cf-50de-4a33-bc41-678825c1ecf2")
@@ -8534,7 +8534,7 @@
 	(footprint "Symbol:OSHW-Symbol_6.7x6mm_SilkScreen"
 		(layer "B.Cu")
 		(uuid "00000000-0000-0000-0000-00005ee12086")
-		(at 173.985 51.8 180)
+		(at 183 54 180)
 		(descr "Open Source Hardware Symbol")
 		(tags "Logo Symbol OSHW")
 		(property "Reference" "N1"
