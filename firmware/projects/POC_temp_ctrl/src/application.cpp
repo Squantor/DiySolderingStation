@@ -29,8 +29,6 @@ std::array<const EventHandlerPair, 1> event_handlers = {EventHandlerPair{&button
 EventDispatcher event_dispatcher(event_handlers);
 
 Results Application::Init() {
-  usart_peripheral.Claim();
-  display.Init();
   command_console.print("DIY soldering station POC temperature sensing\n");
   zerocross.Init();
   return Results::NoError;

@@ -10,6 +10,9 @@
 #include <POC_temp_control_nuclone.hpp>
 #include <application.hpp>
 
+libmcu::I2cDeviceAddress SH1106_i2c_address{0x3C};
+libmcu::I2cDeviceAddress PCF8574_i2c_address{0x27};
+
 libmcull::iocon::Iocon<libmcuhw::IoconAddress> iocon_peripheral;
 libmcull::swm::Swm<libmcuhw::SwmAddress> swm_periperhal;
 libmcull::gpio::Gpio<libmcuhw::GpioAddress> gpio_peripheral;
@@ -21,11 +24,13 @@ libmcull::pin_int::Pinint<libmcuhw::PinintAddress> pinint_peripheral;
 libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 128> ll_usart_peripheral;
 libmcull::i2c::I2cInterrupt<libmcuhw::I2c0Address> ll_i2c_peripheral;
 
-libmcuhal::usart::UartInterrupt<ll_usart_peripheral, char> usart_peripheral;
-libmcuhal::i2c::I2cInterrupt<ll_i2c_peripheral> i2c_peripheral;
+libmcuhal::usart::Uart<ll_usart_peripheral, char> usart_peripheral;
+libmcuhal::i2c::I2c<ll_i2c_peripheral> i2c_peripheral;
 
-libMcuDriver::SH1106::generic128x64 display_config;
-libMcuDriver::SH1106::SH1106<i2c_peripheral, sh1106_display_address, display_config> display;
+libmcudrv::SH1106::Generic128x64 display_config;
+libmcudrv::SH1106::SH1106<i2c_peripheral, SH1106_i2c_address, display_config, libmcull::Assert_bkpt> display;
+libmcudrv::PCF8574::PCF8574<i2c_peripheral, PCF8574_i2c_address> ui_port_expander;
+libmcumid::Gfx_display<display> application_display;
 
 volatile std::uint32_t ticks;
 
@@ -126,6 +131,7 @@ void BoardInit(void) {
   pinint_peripheral.EnableChannel(libmcull::pin_int::InterruptPins::PintSel0, libmcull::pin_int::EdgeSettings::Falling);
   nvicPeripheral.Enable(libmcuhw::Interrupts::Pinint0);
   // setup display
+  display.init();
 }
 
 bool IsMainsPresent(void) {

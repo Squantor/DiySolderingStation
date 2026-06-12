@@ -12,7 +12,9 @@
 
 #include <nxp/libmcu_LPC845M301BD48_hal.hpp>
 #include <drivers/SH1106_i2c.hpp>
-#include <drivers/SH1106/SH1106_conf_gen_128x64.hpp>
+#include <drivers/PCF8574.hpp>
+#include <mid/gfx_display.hpp>
+#include <mid/fonts/8x8.hpp>
 
 // pin types
 // Crystal osillator pins
@@ -86,7 +88,8 @@ constexpr FunctionI2CSclType function_i2c_scl;
 constexpr FunctionI2CSdaType function_i2c_sda;
 
 // configuration constants
-constexpr inline libmcu::I2cDeviceAddress sh1106_display_address{0x3C};
+extern libmcu::I2cDeviceAddress SH1106_i2c_address;
+extern libmcu::I2cDeviceAddress PCF8574_i2c_address;
 
 // Clock configurations
 constexpr inline libmcuhw::clock::McuClockConfig<libmcuhw::clock::ClockInputSources::XTAL, 12'000'000u, 30'000'000u>
@@ -108,11 +111,13 @@ extern libmcull::pin_int::Pinint<libmcuhw::PinintAddress> pinint_peripheral;
 extern libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 128> ll_usart_peripheral;
 extern libmcull::i2c::I2cInterrupt<libmcuhw::I2c0Address> ll_i2c_peripheral;
 // Hal peripheral externs
-extern libmcuhal::usart::UartInterrupt<ll_usart_peripheral, char> usart_peripheral;
-extern libmcuhal::i2c::I2cInterrupt<ll_i2c_peripheral> i2c_peripheral;
+extern libmcuhal::usart::Uart<ll_usart_peripheral, char> usart_peripheral;
+extern libmcuhal::i2c::I2c<ll_i2c_peripheral> i2c_peripheral;
 // driver externs
-extern libMcuDriver::SH1106::generic128x64 display_config;
-extern libMcuDriver::SH1106::SH1106<i2c_peripheral, sh1106_display_address, display_config> display;
+extern libmcudrv::SH1106::Generic128x64 display_config;
+extern libmcudrv::SH1106::SH1106<i2c_peripheral, SH1106_i2c_address, display_config, libmcull::Assert_bkpt> display;
+extern libmcudrv::PCF8574::PCF8574<i2c_peripheral, PCF8574_i2c_address> ui_port_expander;
+extern libmcumid::Gfx_display<display> application_display;
 
 extern volatile std::uint32_t ticks;  // amount of ticks passed sinds startup
 
