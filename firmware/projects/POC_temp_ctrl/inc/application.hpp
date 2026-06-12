@@ -16,6 +16,7 @@
 #include <command_handlers.hpp>
 #include <console.hpp>
 #include <zerocross.hpp>
+#include <event_dispatch.hpp>
 
 /**
  * @brief application wide result/return values
@@ -23,38 +24,39 @@
  * This is defined in the global namespace for now as it is used application wide
  */
 enum class Results : std::uint8_t {
-  NoError = static_cast<std::uint8_t>(libmcu::Results::NoError),
-  Error = static_cast<std::uint8_t>(libmcu::Results::Error),
+  no_error = static_cast<std::uint8_t>(libmcu::Results::NoError),
+  error = static_cast<std::uint8_t>(libmcu::Results::Error),
 };
 
 namespace application {
 
-enum class ApplicationState : std::uint8_t {
-  usbPowered, /*!< USB powered only */
-  ready,      /*!< fully powered and ready */
-  operating,  /*!< an iron is heating */
-  error       /*!< error state */
+enum class Application_state : std::uint8_t {
+  usb_powered, /*!< USB powered only */
+  ready,       /*!< fully powered and ready */
+  operating,   /*!< an iron is heating */
+  error        /*!< error state */
 };
 
 class Application {
  public:
-  Application() : state{ApplicationState::usbPowered} {}
-  [[nodiscard]] Results Init();
-  [[nodiscard]] Results Progress();
-  ApplicationState GetState() {
+  Application() : state{Application_state::usb_powered} {}
+  [[nodiscard]] Results init();
+  [[nodiscard]] Results progress();
+  Application_state get_state() {
     return state;
   }
 
  private:
-  void SetUsbPoweredState();
-  ApplicationState state;
+  void set_usb_powered_state();
+  Application_state state;
 };
 
 extern squLib::console<usart_peripheral> command_console;
-extern squLib::commandValueStack<8, command_console> command_values;
-extern squLib::commandInterpreter<commandHandlers, command_values, command_console> command_interpreter;
+extern squLib::Command_value_stack<8, command_console> command_values;
+extern squLib::Command_interpreter<command_handlers, command_values, command_console> command_interpreter;
 extern Application controller;
-extern ZeroCross zerocross;
+extern Zero_cross zero_cross;
+extern Event_dispatcher event_dispatcher;
 
 }  // namespace application
 

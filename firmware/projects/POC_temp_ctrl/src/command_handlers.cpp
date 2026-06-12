@@ -14,21 +14,20 @@
 
 namespace application {
 
-squLib::results helpFunction(std::span<const char> commandLine);
+squLib::results help_function(std::span<const char>);
 
-squLib::commandHandler helpHandler{"help", "Prints out all help commands\n", helpFunction};
-squLib::commandHandler numberHandler{"0??", "Any integer will get pushed on the stack\n", nullptr};
-squLib::commandHandler hexNumHandler{"0x0?", "Any hex unsigned integer will get pushed on the stack\n", nullptr};
+squLib::Command_handler help_handler{"help", "Prints out all help commands\n", help_function};
+squLib::Command_handler number_handler{"0??", "Any integer will get pushed on the stack\n", nullptr};
+squLib::Command_handler hex_num_handler{"0x0?", "Any hex unsigned integer will get pushed on the stack\n", nullptr};
 
-squLib::results helpFunction(std::span<const char> commandLine) {
-  (void)commandLine;
+squLib::results help_function(std::span<const char>) {
   command_interpreter.printHelp();
   return squLib::results::ok;
 }
 
-std::array<squLib::commandHandler, 13> commandHandlerTable{
-  helpHandler, numberHandler, hexNumHandler, stkHandler,        emptyHandler, dropHandler,   dupHandler,
-  statHandler, muxHandler,    tcHandler,     zerocross_handler, disp_handler, button_handler};
-std::span<const squLib::commandHandler> commandHandlers{commandHandlerTable};
+std::array<squLib::Command_handler, 12> command_handler_table{help_handler,  number_handler, hex_num_handler,   stk_handler,
+                                                              empty_handler, drop_handler,   dup_handler,       stat_handler,
+                                                              mux_handler,   tc_handler,     zerocross_handler, button_handler};
+std::span<const squLib::Command_handler> command_handlers{command_handler_table};
 
 }  // namespace application

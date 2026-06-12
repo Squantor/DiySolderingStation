@@ -16,6 +16,7 @@ $(NAME)_DEFINES +=
 $(NAME)_LIBS := libMcu squantorLibC squantorLibEmbedded
 $(NAME)_FILES := $(PROJ_DIR)/src/main.cpp \
 $(PROJ_DIR)/src/application.cpp \
+$(PROJ_DIR)/src/application_font.cpp \
 $(PROJ_DIR)/src/command_handlers.cpp \
 common/src/parse_digit.cpp \
 $(PROJ_DIR)/src/command_stk.cpp \
@@ -26,7 +27,6 @@ $(PROJ_DIR)/src/command_stat.cpp \
 $(PROJ_DIR)/src/command_mux.cpp \
 $(PROJ_DIR)/src/command_tc.cpp \
 $(PROJ_DIR)/src/command_zerocross.cpp \
-$(PROJ_DIR)/src/command_disp.cpp \
 $(PROJ_DIR)/src/zerocross.cpp \
 $(PROJ_DIR)/src/button_handler.cpp \
 $(PROJ_DIR)/src/$(BOARD).cpp

@@ -13,12 +13,11 @@
 
 namespace application {
 
-squLib::results dup(std::span<const char> commandLine);
+squLib::results dup(std::span<const char>);
 
-squLib::commandHandler dupHandler{"dup", "Duplicates top of the stack\n", dup};
+squLib::Command_handler dup_handler{"dup", "Duplicates top of the stack\n", dup};
 
-squLib::results dup(std::span<const char> commandLine) {
-  (void)commandLine;
+squLib::results dup(std::span<const char>) {
   if (command_values.size() == 0) {
     command_console.print("Stack is empty\n");
     return squLib::results::error;

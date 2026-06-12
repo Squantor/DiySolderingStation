@@ -15,9 +15,9 @@ For conditions of distribution and use, see LICENSE file
 #include "application.hpp"
 
 namespace application {
-class ButtonHandler : public EventHandler {
+class Button_handler : public Event_handler {
  public:
-  void HandleEvent(EventData event);
+  void handle_event(Event_data event);
 };
 
 }  // namespace application

@@ -13,12 +13,11 @@
 
 namespace application {
 
-squLib::results printStack(std::span<const char> commandLine);
+squLib::results printStack(std::span<const char>);
 
-squLib::commandHandler stkHandler{"stk", "Prints stack values\n", printStack};
+squLib::Command_handler stk_handler{"stk", "Prints stack values\n", printStack};
 
-squLib::results printStack(std::span<const char> commandLine) {
-  (void)commandLine;
+squLib::results printStack(std::span<const char>) {
   if (command_values.size() == 0)
     command_console.print("Stack is empty\n");
   for (std::size_t i = 0; i < command_values.topOfStack; i++) {

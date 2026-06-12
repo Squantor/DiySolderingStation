@@ -13,23 +13,22 @@
 
 namespace application {
 
-squLib::results mux(std::span<const char> commandLine);
+squLib::results mux(std::span<const char>);
 
-squLib::commandHandler muxHandler{"mux", "Sets up the multiplexer, needs 2 stack elements and power needs to be present\n", mux};
+squLib::Command_handler mux_handler{"mux", "Sets up the multiplexer, needs 2 stack elements and power needs to be present\n", mux};
 
-squLib::results mux(std::span<const char> commandLine) {
-  (void)commandLine;
+squLib::results mux(std::span<const char>) {
   if (command_values.size() < 2) {
     command_console.print("Insufficient elments on the operand stack\n");
     return squLib::results::error;
   }
-  if (controller.GetState() == ApplicationState::usbPowered) {
+  if (controller.get_state() == Application_state::usb_powered) {
     command_console.print("cant switch when running on USB power\n");
     return squLib::results::error;
   }
   std::uint32_t value1 = command_values.pop().value_or(0);
   std::uint32_t value2 = command_values.pop().value_or(0);
-  SetMultiplexers(value1, value2);
+  set_multiplexers(value1, value2);
   return squLib::results::ok;
 }
 

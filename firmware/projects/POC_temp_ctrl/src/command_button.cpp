@@ -13,8 +13,7 @@
 
 namespace application {
 
-squLib::results button(std::span<const char> commandLine) {
-  (void)commandLine;
+squLib::results button(std::span<const char>) {
   if (command_values.size() != 1) {
     command_console.print("Need one element on stack, element is button press index\n");
     return squLib::results::error;

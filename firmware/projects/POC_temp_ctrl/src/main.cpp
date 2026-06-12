@@ -15,13 +15,14 @@ Application controller;
 }
 
 int main() {
-  BoardInit();
-  Results result = application::controller.Init();
-  if (result != Results::NoError) {
+  board_init();
+  Results result = application::controller.init();
+  if (result != Results::no_error) {
     application::command_console.print("Failed to initialize application\n");
   }
-  while (result == Results::NoError) {
-    result = application::controller.Progress();
+  while (result == Results::no_error) {
+    board_progress();
+    result = application::controller.progress();
   }
   application::command_console.print("Application mainloop exited with error code %hhu\n", static_cast<std::uint8_t>(result));
   LIBMCULL_BKPT(0x11);

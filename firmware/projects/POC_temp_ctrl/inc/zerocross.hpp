@@ -12,19 +12,19 @@
 #define ZEROCROSS_HPP
 #include <cstdint>
 
-class ZeroCross {
+class Zero_cross {
  public:
-  ZeroCross() = default;
-  ~ZeroCross() = default;
+  Zero_cross() = default;
+  ~Zero_cross() = default;
 
-  void Init() {
+  void init() {
     current_ticks = 0;
     zero_crosses = 0;
     zero_cross_count = 0;
     is_ac_power_present = false;
   }
 
-  void Progress(std::uint32_t ticks, std::uint32_t ticks_per_second) {
+  void progress(std::uint32_t ticks, std::uint32_t ticks_per_second) {
     if (current_ticks + ticks_per_second < ticks) {
       current_ticks = ticks;
       if (zero_crosses > 95 && zero_crosses < 105)
@@ -36,14 +36,14 @@ class ZeroCross {
     }
   }
 
-  bool Detected() {
+  bool is_detected() {
     return is_ac_power_present;
   }
 
   /**
    * @brief We have detected a zero crossing
    */
-  void Update() {
+  void update() {
     zero_crosses = zero_crosses + 1;
   }
   std::uint32_t zero_cross_count;  // amount of zerocrosses

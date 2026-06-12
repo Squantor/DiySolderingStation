@@ -13,15 +13,15 @@
 
 namespace application {
 
-squLib::results ZeroCross(std::span<const char>) {
-  if (!zerocross.Detected()) {
+squLib::results Zero_cross(std::span<const char>) {
+  if (!zero_cross.is_detected()) {
     command_console.print("zerocrosses not detected\n");
     return squLib::results::error;
   }
-  command_console.print(zerocross.zero_cross_count, " zerocrosses detected\n");
+  command_console.print(zero_cross.zero_cross_count, " zerocrosses detected\n");
   return squLib::results::ok;
 }
 
-squLib::commandHandler zerocross_handler{"zc", "zero crossing detection statistics\n", ZeroCross};
+squLib::Command_handler zerocross_handler{"zc", "zero crossing detection statistics\n", Zero_cross};
 
 }  // namespace application

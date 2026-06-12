@@ -22,7 +22,7 @@
 
 namespace squLib {
 template <std::size_t stackSize, auto &consoleDriver>
-struct commandValueStack {
+struct Command_value_stack {
   /**
    * @brief resets stack state to empty
    */

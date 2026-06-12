@@ -20,8 +20,8 @@
 
 namespace squLib {
 
-template <std::span<const commandHandler> &commandTable, auto &numberParser, auto &consoleDriver>
-struct commandInterpreter {
+template <std::span<const Command_handler> &commandTable, auto &numberParser, auto &consoleDriver>
+struct Command_interpreter {
   results handle(std::span<const char> command) {
     if (command.size() == 0)
       return results::error;
@@ -33,7 +33,7 @@ struct commandInterpreter {
     }
 
     // find command
-    for (const commandHandler &element : commandTable) {
+    for (const Command_handler &element : commandTable) {
       std::size_t commandIndex = 0;
       while ((command[commandIndex] == element.commandString[commandIndex]) && (element.commandString[commandIndex] != '\0'))
         commandIndex++;
@@ -45,7 +45,7 @@ struct commandInterpreter {
   }
 
   void printHelp() {
-    for (const commandHandler &element : commandTable) {
+    for (const Command_handler &element : commandTable) {
       consoleDriver.write(element.commandString);
       consoleDriver.write(" :\t");
       consoleDriver.write(element.helpString);

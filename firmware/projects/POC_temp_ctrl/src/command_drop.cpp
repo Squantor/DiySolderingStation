@@ -13,12 +13,11 @@
 
 namespace application {
 
-squLib::results drop(std::span<const char> commandLine);
+squLib::results drop(std::span<const char>);
 
-squLib::commandHandler dropHandler{"drop", "Drops top of stack\n", drop};
+squLib::Command_handler drop_handler{"drop", "Drops top of stack\n", drop};
 
-squLib::results drop(std::span<const char> commandLine) {
-  (void)commandLine;
+squLib::results drop(std::span<const char>) {
   if (command_values.size() == 0) {
     command_console.print("Stack is empty\n");
     return squLib::results::error;

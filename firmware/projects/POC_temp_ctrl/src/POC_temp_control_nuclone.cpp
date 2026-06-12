@@ -21,35 +21,51 @@ libmcull::systick::Systick<libmcuhw::SystickAddress> systick_peripheral;
 libmcull::nvic::Nvic<libmcuhw::NvicAddress, libmcuhw::ScbAddress> nvicPeripheral;
 libmcull::adc::Adc<libmcuhw::Adc0Address> adc_peripheral;
 libmcull::pin_int::Pinint<libmcuhw::PinintAddress> pinint_peripheral;
-libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 128> ll_usart_peripheral;
+libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 1024> ll_usart_peripheral;
 libmcull::i2c::I2cInterrupt<libmcuhw::I2c0Address> ll_i2c_peripheral;
 
 libmcuhal::usart::Uart<ll_usart_peripheral, char> usart_peripheral;
-libmcuhal::i2c::I2c<ll_i2c_peripheral> i2c_peripheral;
+libmcuhal::i2c::I2c<ll_i2c_peripheral, 40> i2c_peripheral;  // need 40 transactions due to display config load
 
 libmcudrv::SH1106::Generic128x64 display_config;
-libmcudrv::SH1106::SH1106<i2c_peripheral, SH1106_i2c_address, display_config, libmcull::Assert_bkpt> display;
+libmcudrv::SH1106::SH1106<i2c_peripheral, SH1106_i2c_address, display_config, libmcull::Assert_bkpt> ui_display;
 libmcudrv::PCF8574::PCF8574<i2c_peripheral, PCF8574_i2c_address> ui_port_expander;
-libmcumid::Gfx_display<display> application_display;
+libmcumid::Gfx_display<ui_display> application_display;
 
 volatile std::uint32_t ticks;
 
 extern "C" {
+/**
+ * @brief systick interrupt handler
+ */
 void SysTick_Handler(void) {
   systick_peripheral.Isr();
 }
-
+/**
+ * @brief usart interrupt handler
+ */
 void USART0_IRQHandler(void) {
   ll_usart_peripheral.InterruptHandler();
 }
-
-void PIN_INT0_IRQHandler(void) {
-  pinint_peripheral.ClearChannel(libmcull::pin_int::InterruptPins::PintSel0);
-  application::zerocross.Update();
-}
-
+/**
+ * @brief i2c interrupt handler
+ */
 void I2C0_IRQHandler(void) {
   ll_i2c_peripheral.InterruptHandler();
+}
+/**
+ * @brief zerocross interrupt handler
+ */
+void PIN_INT0_IRQHandler(void) {
+  pinint_peripheral.ClearChannel(libmcull::pin_int::InterruptPins::PintSel0);
+  application::zero_cross.update();
+}
+/**
+ * @brief I2C port expander interrupt handler
+ */
+void PIN_INT1_IRQHandler(void) {
+  pinint_peripheral.ClearChannel(ui_button_intchan);
+  ui_port_expander.Isr();
 }
 }
 
@@ -57,7 +73,7 @@ auto systickIsrLambda = []() {
   ticks = ticks + 1;
 };
 
-void BoardInit(void) {
+void board_init(void) {
   ticks = 0;
   // clock, power and reset enables/clears
   syscon_peripheral.PowerPeripherals(libmcull::syscon::power_options::SysOsc | libmcull::syscon::power_options::Adc);
@@ -83,6 +99,8 @@ void BoardInit(void) {
   iocon_peripheral.Setup(pin_mux2s2, libmcull::iocon::PullModes::Inactive);
   iocon_peripheral.Setup(pin_zero_cross, libmcull::iocon::PullModes::Inactive,
                          libmcuhw::iocon::PIO::HYS | libmcuhw::iocon::PIO::IOCONCLKDIV6 | libmcuhw::iocon::PIO::CYCLES3);
+  iocon_peripheral.Setup(pin_ui_button_int, libmcull::iocon::PullModes::Inactive,
+                         libmcuhw::iocon::PIO::HYS | libmcuhw::iocon::PIO::IOCONCLKDIV6 | libmcuhw::iocon::PIO::CYCLES3);
   iocon_peripheral.Setup(pin_tc_amp, libmcull::iocon::PullModes::Inactive);
   iocon_peripheral.Setup(pin_i2c_scl, libmcull::iocon::I2cModes::Standard);
   iocon_peripheral.Setup(pin_i2c_sda, libmcull::iocon::I2cModes::Standard);
@@ -95,6 +113,7 @@ void BoardInit(void) {
   swm_periperhal.Setup(pin_i2c_sda, function_i2c_sda);
   gpio_peripheral.SetInput(pin_power_detect);
   gpio_peripheral.SetInput(pin_zero_cross);
+  gpio_peripheral.SetInput(pin_ui_button_int);
   gpio_peripheral.SetLow(pin_mux1s0);
   gpio_peripheral.SetLow(pin_mux1s1);
   gpio_peripheral.SetLow(pin_mux1s2);
@@ -126,24 +145,38 @@ void BoardInit(void) {
   i2c_peripheral.Init<i2c_0_clock_config>(400000, 100);
   syscon_peripheral.PeripheralClockSource(libmcull::syscon::ClockSourceSelects::I2c0, libmcull::syscon::ClockSources::Main);
   nvicPeripheral.Enable(libmcuhw::Interrupts::I2c0);
-  // setup interrupt pin
-  syscon_peripheral.SetInterruptPin(pin_zero_cross, libmcull::syscon::InterruptPins::PintSel0);
-  pinint_peripheral.EnableChannel(libmcull::pin_int::InterruptPins::PintSel0, libmcull::pin_int::EdgeSettings::Falling);
-  nvicPeripheral.Enable(libmcuhw::Interrupts::Pinint0);
-  // setup display
-  display.init();
+  // setup interrupt pins
+  syscon_peripheral.SetInterruptPin(pin_zero_cross, zero_cross_intpin);
+  pinint_peripheral.EnableChannel(zero_cross_intchan, libmcull::pin_int::EdgeSettings::Falling);
+  syscon_peripheral.SetInterruptPin(pin_ui_button_int, ui_button_intpin);
+  pinint_peripheral.EnableChannel(ui_button_intchan, libmcull::pin_int::EdgeSettings::Falling);
+  nvicPeripheral.Enable(libmcuhw::Interrupts::Pinint0);  // todo make a nice definition for it
+  nvicPeripheral.Enable(libmcuhw::Interrupts::Pinint1);
+  // initialize all display devices
+  // short delay for display
+  while (ticks < 10)
+    ;
+  ui_port_expander.Init();
+  ui_display.init();
 }
 
-bool IsMainsPresent(void) {
+void board_progress(void) {
+  usart_peripheral.Progress();
+  i2c_peripheral.Progress();
+  ui_display.Progress();
+  ui_port_expander.Progress();
+}
+
+bool is_mains_present(void) {
   std::uint32_t state{gpio_peripheral.GetState(pin_power_detect)};
   return state == 1u ? true : false;
 }
 
-void SetSafeUsbPowered(void) {
-  SetMultiplexers(0, 0);
+void set_safe_usb_powered(void) {
+  set_multiplexers(0, 0);
 }
 
-void SetMultiplexers(std::uint32_t mux1, std::uint32_t mux2) {
+void set_multiplexers(std::uint32_t mux1, std::uint32_t mux2) {
   uint32_t mask{pin_mux1s0.gpioPinMask | pin_mux1s1.gpioPinMask | pin_mux1s2.gpioPinMask | pin_mux2s0.gpioPinMask |
                 pin_mux2s1.gpioPinMask | pin_mux2s2.gpioPinMask};
   // clamp mux values
@@ -153,10 +186,10 @@ void SetMultiplexers(std::uint32_t mux1, std::uint32_t mux2) {
   gpio_peripheral.SetPort(port_mux, portValue, mask);
 }
 
-void SetPowerControl1(bool on) {
+void set_power_control_1(bool on) {
   gpio_peripheral.SetState(pin_power_control1, on);
 }
 
-void SetPowerControl2(bool on) {
+void set_power_control_2(bool on) {
   gpio_peripheral.SetState(pin_power_control2, on);
 }

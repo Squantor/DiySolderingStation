@@ -33,20 +33,20 @@ squLib::results zagFunc(std::span<const char> commandLine) {
 }
 squLib::results helpFunc(std::span<const char> commandLine);
 
-squLib::commandHandler fooCmdHandle{"foo", "fooing the foo\n", fooFunc};
-squLib::commandHandler barCmdHandle{"bar", "barring the bar\n", barFunc};
-squLib::commandHandler zagCmdHandle{"zag", "zagging the zag\n", zagFunc};
-squLib::commandHandler helpCmdHandle{"help", "Prints available commands\n", helpFunc};
+squLib::Command_handler fooCmdHandle{"foo", "fooing the foo\n", fooFunc};
+squLib::Command_handler barCmdHandle{"bar", "barring the bar\n", barFunc};
+squLib::Command_handler zagCmdHandle{"zag", "zagging the zag\n", zagFunc};
+squLib::Command_handler helpCmdHandle{"help", "Prints available commands\n", helpFunc};
 
-std::array<const squLib::commandHandler, 4> commandHandlerArray{helpCmdHandle, fooCmdHandle, barCmdHandle, zagCmdHandle};
-std::span<const squLib::commandHandler> commandHandlers{commandHandlerArray};
+std::array<const squLib::Command_handler, 4> commandHandlerArray{helpCmdHandle, fooCmdHandle, barCmdHandle, zagCmdHandle};
+std::span<const squLib::Command_handler> commandHandlers{commandHandlerArray};
 static mocks::charDevice<200> charDeviceMock;
 
-squLib::commandInterpreter<commandHandlers, charDeviceMock> commandInterpreterDut;
+squLib::Command_interpreter<commandHandlers, charDeviceMock> commandInterpreterDut;
 
 squLib::results helpFunc(std::span<const char> commandLine) {
   (void)commandLine;
-  commandInterpreterDut.printHelp();
+  commandInterpreterDut.print_help();
   helpCounter = helpCounter + 1;
   return squLib::results::ok;
 }

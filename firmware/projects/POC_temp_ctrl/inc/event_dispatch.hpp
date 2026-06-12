@@ -14,45 +14,45 @@ For conditions of distribution and use, see LICENSE file
 #include "events.hpp"
 #include "event_handler.hpp"
 
-struct EventHandlerPair {
-  EventHandler *handler;
+struct Event_handler_pair {
+  Event_handler *handler;
   Events event;
 };
 
-class EventDispatcher {
+class Event_dispatcher {
  public:
-  EventDispatcher(std::span<const EventHandlerPair> event_handlers) : handlers(event_handlers) {}
+  Event_dispatcher(std::span<const Event_handler_pair> event_handlers) : handlers(event_handlers) {}
 
-  void Reset() {
+  void reset() {
     queue.reset();
   }
 
-  std::size_t GetEventCount() {
+  std::size_t get_event_count() {
     return queue.get_level();
   }
 
-  void PostEvent(EventData event) {
+  void post_event(Event_data event) {
     queue.push_front(event);
   }
 
   /**
    * @brief Processes events that are pending
    */
-  void Process() {
+  void process() {
     if (queue.get_level() > 0) {
-      EventData event;
+      Event_data event;
       queue.pop_back(event);
-      for (const EventHandlerPair &handler : handlers) {
+      for (const Event_handler_pair &handler : handlers) {
         if (handler.event == event.event) {
-          handler.handler->HandleEvent(event);
+          handler.handler->handle_event(event);
         }
       }
     }
   }
 
  private:
-  libmcu::Ring_buffer<EventData, 10> queue;
-  std::span<const EventHandlerPair> handlers;
+  libmcu::Ring_buffer<Event_data, 10> queue;
+  std::span<const Event_handler_pair> handlers;
 };
 
 #endif

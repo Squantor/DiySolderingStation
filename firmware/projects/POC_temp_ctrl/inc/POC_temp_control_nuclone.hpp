@@ -46,6 +46,8 @@ using PinTcAmpType = libmcuhw::Pin<libmcuhw::IoPorts::Port0, libmcuhw::IoPins::P
 // I2C pins
 using PinI2cSclType = libmcuhw::Pin<libmcuhw::IoPorts::Port0, libmcuhw::IoPins::Pin10>;
 using PinI2cSdaType = libmcuhw::Pin<libmcuhw::IoPorts::Port0, libmcuhw::IoPins::Pin11>;
+// User interface button change interrupt pin with pull up resistor
+using Pin_button_expander_type = libmcuhw::Pin<libmcuhw::IoPorts::Port0, libmcuhw::IoPins::Pin28>;
 
 // function types
 using FunctionXtalInType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFunctions::XtalIn>;
@@ -76,6 +78,7 @@ constexpr PinPowerControl2 pin_power_control2;
 constexpr PinTcAmpType pin_tc_amp;
 constexpr PinI2cSclType pin_i2c_scl;
 constexpr PinI2cSdaType pin_i2c_sda;
+constexpr Pin_button_expander_type pin_ui_button_int;
 // port instances
 constexpr PortMuxType port_mux;
 // function instances
@@ -86,6 +89,11 @@ constexpr FunctionUartDebugRxType function_debug_uart_rx;
 constexpr FunctionAdcTcAmpType function_adc_tc_amp;
 constexpr FunctionI2CSclType function_i2c_scl;
 constexpr FunctionI2CSdaType function_i2c_sda;
+// interrupt pin channel definitions
+constexpr libmcull::syscon::InterruptPins zero_cross_intpin = libmcull::syscon::InterruptPins::PintSel0;
+constexpr libmcull::pin_int::InterruptPins zero_cross_intchan = libmcull::pin_int::InterruptPins::PintSel0;
+constexpr libmcull::syscon::InterruptPins ui_button_intpin = libmcull::syscon::InterruptPins::PintSel1;
+constexpr libmcull::pin_int::InterruptPins ui_button_intchan = libmcull::pin_int::InterruptPins::PintSel1;
 
 // configuration constants
 extern libmcu::I2cDeviceAddress SH1106_i2c_address;
@@ -108,50 +116,58 @@ extern libmcull::syscon::Syscon<libmcuhw::SysconAddress> syscon_peripheral;
 extern libmcull::systick::Systick<libmcuhw::SystickAddress> systick_peripheral;
 extern libmcull::adc::Adc<libmcuhw::Adc0Address> adc_peripheral;
 extern libmcull::pin_int::Pinint<libmcuhw::PinintAddress> pinint_peripheral;
-extern libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 128> ll_usart_peripheral;
+extern libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 1024> ll_usart_peripheral;
 extern libmcull::i2c::I2cInterrupt<libmcuhw::I2c0Address> ll_i2c_peripheral;
 // Hal peripheral externs
 extern libmcuhal::usart::Uart<ll_usart_peripheral, char> usart_peripheral;
-extern libmcuhal::i2c::I2c<ll_i2c_peripheral> i2c_peripheral;
+extern libmcuhal::i2c::I2c<ll_i2c_peripheral, 40> i2c_peripheral;
 // driver externs
 extern libmcudrv::SH1106::Generic128x64 display_config;
-extern libmcudrv::SH1106::SH1106<i2c_peripheral, SH1106_i2c_address, display_config, libmcull::Assert_bkpt> display;
+extern libmcudrv::SH1106::SH1106<i2c_peripheral, SH1106_i2c_address, display_config, libmcull::Assert_bkpt> ui_display;
 extern libmcudrv::PCF8574::PCF8574<i2c_peripheral, PCF8574_i2c_address> ui_port_expander;
-extern libmcumid::Gfx_display<display> application_display;
+extern libmcumid::Gfx_display<ui_display> application_display;
 
-extern volatile std::uint32_t ticks;  // amount of ticks passed sinds startup
+extern volatile std::uint32_t ticks;             // amount of ticks passed sinds startup
+extern volatile std::uint32_t zerocross_counts;  // amount of zerocrosses passed sinds startup
 
-void BoardInit(void);
+/**
+ * @brief initialize the board
+ */
+void board_init(void);
+/**
+ * @brief Progress all hardware peripherals
+ */
+void board_progress(void);
 /**
  * @brief checks if mains power is present
  * @return true mains power present
  * @return false mains power not present
  */
-bool IsMainsPresent(void);
+bool is_mains_present(void);
 
 /**
  * @brief Set the iron pin multiplexers
  * @param mux1 mux value, see HSI for what pins these are
  * @param mux2 mux value, see HSI for what pins these are
  */
-void SetMultiplexers(std::uint32_t mux1, std::uint32_t mux2);
+void set_multiplexers(std::uint32_t mux1, std::uint32_t mux2);
 
 /**
  * @brief Setup hardware to be safe when USB powered
  * This entails setting muxes to 0, power stage to 0 and resetting power control states
  */
-void SetSafeUsbPowered(void);
+void set_safe_usb_powered(void);
 
 /**
  * @brief Set Power control 1 pin
  * @param on true for high, false for low
  */
-void SetPowerControl1(bool on);
+void set_power_control_1(bool on);
 
 /**
  * @brief Set Power control 2 pin
  * @param on true for high, false for low
  */
-void SetPowerControl2(bool on);
+void set_power_control_2(bool on);
 
 #endif

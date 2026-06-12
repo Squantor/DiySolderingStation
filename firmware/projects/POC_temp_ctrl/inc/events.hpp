@@ -15,28 +15,30 @@ For conditions of distribution and use, see LICENSE file
 
 /** @brief Possible events
  */
-enum class Events : uint8_t {
-  None,   /*!< No event */
-  Button, /*!< Button event */
+enum class Events : std::uint8_t {
+  none,    /*!< No event */
+  button,  /*!< Button event */
+  seconds, /*!< Second event */
 };
 
-enum class Button : uint8_t {
-  Button0Down, /*!< Button 0 down */
-  Button0Up,   /*!< Button 0 up */
-  Button1Down, /*!< Button 1 down */
-  Button1Up,   /*!< Button 1 up */
-  Button2Down, /*!< Button 2 down */
-  Button2Up,   /*!< Button 2 up */
-  Button3Down, /*!< Button 3 down */
-  Button3Up,   /*!< Button 3 up */
-  Button4Down, /*!< Button 4 down */
-  Button4Up,   /*!< Button 4 up */
+enum class Button : std::uint8_t {
+  down_0, /*!< Button 0 down */
+  up_0,   /*!< Button 0 up */
+  down_1, /*!< Button 1 down */
+  up_1,   /*!< Button 1 up */
+  down_2, /*!< Button 2 down */
+  up_2,   /*!< Button 2 up */
+  down_3, /*!< Button 3 down */
+  up_3,   /*!< Button 3 up */
+  down_4, /*!< Button 4 down */
+  up_4,   /*!< Button 4 up */
 };
 
-struct EventData {
+struct Event_data {
   Events event;
   union {
     Button button;
+    std::uint32_t seconds;
   };
 };
 

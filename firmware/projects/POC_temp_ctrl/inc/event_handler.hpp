@@ -13,8 +13,8 @@ For conditions of distribution and use, see LICENSE file
 
 #include "events.hpp"
 
-struct EventHandler {
-  virtual void HandleEvent(EventData event) = 0;
+struct Event_handler {
+  virtual void handle_event(Event_data event) = 0;
 };
 
 #endif

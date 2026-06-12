@@ -15,7 +15,7 @@
 
 static mocks::charDevice<200> charDeviceMock;
 
-squLib::commandValueStack<6, charDeviceMock> commandValueStackDut;
+squLib::Command_value_stack<6, charDeviceMock> commandValueStackDut;
 
 /**
  * @brief setup and initialisation

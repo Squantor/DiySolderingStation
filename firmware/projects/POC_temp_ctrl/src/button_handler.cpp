@@ -14,38 +14,38 @@ For conditions of distribution and use, see LICENSE file
 
 namespace application {
 
-void ButtonHandler::HandleEvent(EventData event) {
-  if (event.event != Events::Button)
+void Button_handler::handle_event(Event_data event) {
+  if (event.event != Events::button)
     return;
   switch (event.button) {
-    case Button::Button0Down:
+    case Button::down_0:
       command_console.print("Button 0 down\n");
       break;
-    case Button::Button0Up:
+    case Button::up_0:
       command_console.print("Button 0 up\n");
       break;
-    case Button::Button1Down:
+    case Button::down_1:
       command_console.print("Button 1 down\n");
       break;
-    case Button::Button1Up:
+    case Button::up_1:
       command_console.print("Button 1 up\n");
       break;
-    case Button::Button2Down:
+    case Button::down_2:
       command_console.print("Button 2 down\n");
       break;
-    case Button::Button2Up:
+    case Button::up_2:
       command_console.print("Button 2 up\n");
       break;
-    case Button::Button3Down:
+    case Button::down_3:
       command_console.print("Button 3 down\n");
       break;
-    case Button::Button3Up:
+    case Button::up_3:
       command_console.print("Button 3 up\n");
       break;
-    case Button::Button4Down:
+    case Button::down_4:
       command_console.print("Button 4 down\n");
       break;
-    case Button::Button4Up:
+    case Button::up_4:
       command_console.print("Button 4 up\n");
       break;
   }

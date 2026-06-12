@@ -15,7 +15,7 @@
 #include <results.hpp>
 
 namespace squLib {
-struct commandHandler {
+struct Command_handler {
   const char* commandString;
   const char* helpString;
   results (*handler)(std::span<const char> commandLine);

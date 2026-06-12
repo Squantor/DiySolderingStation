@@ -58,25 +58,25 @@ struct Chr {
 
 template <auto &charDevice>
 void toascii(const char *s) {
-  charDevice.Transmit(std::span{s, strlen(s)});
+  charDevice.write(std::span{s, strlen(s)});
 }
 
 template <auto &charDevice>
 void toascii(std::span<const char> buf) {
-  charDevice.Transmit(buf);
+  charDevice.write(buf);
 }
 
 template <auto &charDevice>
 void toascii(std::uint32_t num) {
   detail::putint(10, num, [](const auto ch) {
-    charDevice.Transmit(ch);
+    charDevice.write(ch);
   });
 }
 
 template <auto &charDevice>
 void toascii(Hex num) {
   detail::putint(16, num.v, [](const auto ch) {
-    charDevice.Transmit(ch);
+    charDevice.write(ch);
   });
 }
 
@@ -84,11 +84,11 @@ template <auto &charDevice>
 void toascii(Dec num) {
   int32_t value{num.v};
   if (value < 0) {
-    charDevice.Transmit('-');
+    charDevice.write('-');
     value = -value;
   }
   detail::putint(10, value, [](const auto ch) {
-    charDevice.Transmit(ch);
+    charDevice.write(ch);
   });
 }
 

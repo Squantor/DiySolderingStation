@@ -13,9 +13,8 @@
 
 namespace application {
 
-squLib::results tc(std::span<const char> commandLine) {
-  (void)commandLine;
-  if (controller.GetState() == ApplicationState::usbPowered) {
+squLib::results tc(std::span<const char>) {
+  if (controller.get_state() == Application_state::usb_powered) {
     command_console.print("cant measure TC when running on USB power\n");
     return squLib::results::error;
   }
@@ -25,6 +24,6 @@ squLib::results tc(std::span<const char> commandLine) {
   return squLib::results::ok;
 }
 
-squLib::commandHandler tcHandler{"tc", "Measures Thermocouple amplifier\n", tc};
+squLib::Command_handler tc_handler{"tc", "Measures Thermocouple amplifier\n", tc};
 
 }  // namespace application

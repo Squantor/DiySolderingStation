@@ -1,0 +1,77 @@
+/**
+ * SPDX-License-Identifier: MIT
+ *
+ * Copyright (c) 2026 Bart Bilos
+ * For conditions of distribution and use, see LICENSE file
+ *
+ * @file screen_main.hpp
+ * @brief Main screen definition
+ *
+ */
+#ifndef SCREEN_MAIN_HPP
+#define SCREEN_MAIN_HPP
+
+#include "user_interface_events.hpp"
+#include "event_handler.hpp"
+#include "user_interface.hpp"
+#include "mid/gfx_display.hpp"
+#include "application_font.hpp"
+#include "POC_temp_control_nuclone.hpp"
+
+template <auto &display>
+class Main_screen : public User_interface_screen<User_interface_events>, public Event_handler {
+ public:
+  Main_screen() : entry_count(0), seconds(0) {}
+  User_interface_actions handle_event(User_interface_events event) override {
+    User_interface_actions action = User_interface_actions::none;
+    switch (event) {
+      case User_interface_events::left_button_pressed:
+        action = User_interface_actions::previous_screen;
+        break;
+      case User_interface_events::right_button_pressed:
+        action = User_interface_actions::next_screen;
+        break;
+      default:
+        break;
+    }
+    render();
+    return action;
+  }
+  void activate() override final {
+    is_active = true;
+    entry_count++;
+    render();
+  }
+  void deactivate() override final {
+    is_active = false;
+  }
+  void handle_event(Event_data event) {
+    switch (event.event) {
+      case Events::seconds:
+        seconds = event.seconds;
+        break;
+
+      default:
+        break;
+    }
+    render();
+  }
+
+ private:
+  void render() {
+    if (is_active) {
+      libmcumid::Dec dec_entry_count{static_cast<std::int32_t>(seconds)};
+      display.clear();
+      display.print("Main screen\nturn on \n", application_font);
+      display.print("Seconds:", application_font);
+      display.print(dec_entry_count, application_font);
+      display.print("\n", application_font);
+      display.flip();
+    }
+  }
+  std::size_t entry_count;
+  std::size_t seconds = 0;
+  bool is_active;
+};
+
+#endif

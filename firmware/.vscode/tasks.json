@@ -18,23 +18,24 @@
       "problemMatcher": "$gcc"
     },
     {
-      "label": "build release temperature sensing POC",
-      "type": "shell",
-      "command": "compiledb make PROJECT=POC_temp_sense CONFIG=release_size -j28",
-      "group": "build",
-      "problemMatcher": "$gcc"
-    },
-    {
-      "label": "build debug temperature sensing POC",
-      "type": "shell",
-      "command": "compiledb make PROJECT=POC_temp_sense CONFIG=debug -j28",
-      "group": "build",
-      "problemMatcher": "$gcc"
-    },
-    {
       "label": "build debug temperature control POC",
       "type": "shell",
       "command": "compiledb make PROJECT=POC_temp_control CONFIG=debug -j28",
+      "group": "build",
+      "problemMatcher": "$gcc",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
+    {
+      "label": "build release temperature control POC",
+      "type": "shell",
+      "command": "compiledb make PROJECT=POC_temp_control CONFIG=release_size -j28",
       "group": "build",
       "problemMatcher": "$gcc",
       "presentation": {
