@@ -37,7 +37,7 @@ class charDevice {
    * @brief read some data from buffer
    * @param output data buffer to write to
    */
-  void read(std::span<char> output) {
+  void Receive(std::span<char> output) {
     for (char &element : output) {
       element = readBuffer[readIndex];
       readIndex = readIndex + 1;
@@ -47,15 +47,15 @@ class charDevice {
    * @brief write some data to buffer
    * @param input data to read from
    */
-  void write(const char &input) {
+  void Transmit(const char &input) {
     std::array<char, 1> inputBuffer{input};
-    write(inputBuffer);
+    Transmit(inputBuffer);
   }
   /**
    * @brief write some data to buffer
    * @param input data buffer to read from
    */
-  void write(std::span<const char> input) {
+  void Transmit(std::span<const char> input) {
     for (const char &element : input) {
       writeBuffer[writeIndex] = element;
       writeIndex = writeIndex + 1;
@@ -65,10 +65,10 @@ class charDevice {
    * @brief write some data to buffer
    * @param input C style string to read from
    */
-  void write(const char *input) {
+  void Transmit(const char *input) {
     std::size_t maxIndex = std::strlen(input);
     for (std::size_t index = 0; index < maxIndex; index++) {
-      write(input[index]);
+      Transmit(input[index]);
     }
   }
 

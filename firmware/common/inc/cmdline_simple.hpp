@@ -54,14 +54,14 @@ class commandlineSimple {
       case '\n':
       case '\r':
         if (bufferIndex != 0) {
-          consoleDriver.write(c);
+          consoleDriver.Transmit(c);
           results status = commandHandler.handle(std::span<char>(buffer).first(bufferIndex));
           if (status == results::notFound) {
-            consoleDriver.write("Unknown command : ");
-            consoleDriver.write(std::span<char>(buffer).first(bufferIndex));
-            consoleDriver.write("\n");
+            consoleDriver.Transmit("Unknown command : ");
+            consoleDriver.Transmit(std::span<char>(buffer).first(bufferIndex));
+            consoleDriver.Transmit("\n");
           } else if (status == results::notFound) {
-            consoleDriver.write("command error\n");
+            consoleDriver.Transmit("command error\n");
           };
           bufferIndex = 0;
         }
@@ -69,12 +69,12 @@ class commandlineSimple {
         break;
       case '\b':
         if (bufferIndex != 0) {
-          consoleDriver.write('\b');
-          consoleDriver.write(' ');
-          consoleDriver.write('\b');
+          consoleDriver.Transmit('\b');
+          consoleDriver.Transmit(' ');
+          consoleDriver.Transmit('\b');
           bufferIndex = bufferIndex - 1;
         } else
-          consoleDriver.write('\a');  // send a bell
+          consoleDriver.Transmit('\a');  // send a bell
         goto done;
         break;
 
@@ -85,7 +85,7 @@ class commandlineSimple {
     //   yes, parse and dont print
     //   done parsing and it is a ansi sequence? then handle it
     // nothing special to handle, normal char
-    consoleDriver.write(c);
+    consoleDriver.Transmit(c);
     buffer[bufferIndex] = c;
     bufferIndex = bufferIndex + 1;
   done:

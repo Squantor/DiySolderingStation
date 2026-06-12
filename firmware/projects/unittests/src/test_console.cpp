@@ -39,17 +39,17 @@ MINUNIT_ADD(consoleWriteTest, consoleSetup, consoleTeardown) {
   std::array<char, 1> singleChar;
   std::array<char, 8> testString{"Gazonk\n"};
   singleChar[0] = 'F';
-  dutConsole.write(singleChar);
+  dutConsole.Transmit(singleChar);
   minUnitCheck(charDeviceMock.writeIndex == 1);
   singleChar[0] = '\n';
-  dutConsole.write(singleChar);
+  dutConsole.Transmit(singleChar);
   minUnitCheck(charDeviceMock.writeIndex == 2);
   minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "F\n", 2) == 0);
   charDeviceMock.reset();
-  dutConsole.write(std::span<char>(testString).first(3u));
-  dutConsole.write(std::span<char>(testString).first(6u));
+  dutConsole.Transmit(std::span<char>(testString).first(3u));
+  dutConsole.Transmit(std::span<char>(testString).first(6u));
   minUnitCheck(charDeviceMock.writeIndex == 9);
-  dutConsole.write(std::span<char>(testString).first(7u));
+  dutConsole.Transmit(std::span<char>(testString).first(7u));
   minUnitCheck(charDeviceMock.writeIndex == 16);
   minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "GazGazonkGazonk\n", 16) == 0);
 }
@@ -61,17 +61,17 @@ MINUNIT_ADD(consoleReadTest, consoleSetup, consoleTeardown) {
   std::array<char, 1> singleChar;
   std::array<char, 7> testString;
   memcpy(charDeviceMock.readBuffer.data(), "Gazonk\n", 7);
-  dutConsole.read(singleChar);
+  dutConsole.Receive(singleChar);
   minUnitCheck(singleChar[0] == 'G');
   minUnitCheck(charDeviceMock.readIndex == 1);
-  dutConsole.read(singleChar);
+  dutConsole.Receive(singleChar);
   minUnitCheck(singleChar[0] == 'a');
   minUnitCheck(charDeviceMock.readIndex == 2);
-  dutConsole.read(std::span<char>(testString).first(3));
+  dutConsole.Receive(std::span<char>(testString).first(3));
   minUnitCheck(std::memcmp(testString.data(), "zon", 3) == 0);
   minUnitCheck(charDeviceMock.readIndex == 5);
   charDeviceMock.readIndex = 0;
-  dutConsole.read(testString);
+  dutConsole.Receive(testString);
   minUnitCheck(charDeviceMock.readIndex == 7);
   minUnitCheck(std::memcmp(testString.data(), "Gazonk\n", 7) == 0);
 }

@@ -26,20 +26,20 @@ struct console {
    * @brief read from console
    * @param output buffer to put read console data in
    */
-  void read(std::span<char> output) {
-    driver.read(output);
+  void Receive(std::span<char> output) {
+    driver.Receive(output);
   }
-  constexpr void write(const char *s) {
+  constexpr void Transmit(const char *s) {
     std::size_t maxIndex = strlen(s);
     for (std::size_t index = 0; index < maxIndex; index++) {
-      driver.write(s[index]);
+      driver.Transmit(s[index]);
     }
   }
-  constexpr void write(std::span<const char> s) {
-    driver.write(s);
+  constexpr void Transmit(std::span<const char> s) {
+    driver.Transmit(s);
   }
-  constexpr void write(const char &c) {
-    driver.write(c);
+  constexpr void Transmit(const char &c) {
+    driver.Transmit(c);
   }
 
   template <typename... Ts>

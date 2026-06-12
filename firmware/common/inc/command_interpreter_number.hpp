@@ -28,7 +28,7 @@ struct Command_interpreter {
     // handle number
     char c = command[0];
     if ((isdigit(c) == true) || (c == '-')) {
-      consoleDriver.write("\n");
+      consoleDriver.Transmit("\n");
       return numberParser.push(command);
     }
 
@@ -46,9 +46,9 @@ struct Command_interpreter {
 
   void printHelp() {
     for (const Command_handler &element : commandTable) {
-      consoleDriver.write(element.commandString);
-      consoleDriver.write(" :\t");
-      consoleDriver.write(element.helpString);
+      consoleDriver.Transmit(element.commandString);
+      consoleDriver.Transmit(" :\t");
+      consoleDriver.Transmit(element.helpString);
     }
   }
 };

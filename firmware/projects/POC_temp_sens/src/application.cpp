@@ -15,9 +15,9 @@
 namespace application {
 
 squLib::console<usart_peripheral> commandConsole;
-squLib::commandValueStack<8, commandConsole> commandValues;
-squLib::commandInterpreter<commandHandlers, commandValues, commandConsole> commandInterpreter;
-squLib::commandlineSimple<80, commandConsole, commandInterpreter> commandline;
+squLib::Command_value_stack<8, commandConsole> commandValues;
+squLib::Command_interpreter<commandHandlers, commandValues, commandConsole> commandInterpreter;
+squLib::Commandline_simple<80, commandConsole, commandInterpreter> commandline;
 
 void application::init() {
   commandConsole.print("DIY soldering station POC temperature sensing\n");

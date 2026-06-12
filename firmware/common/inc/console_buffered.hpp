@@ -40,7 +40,7 @@ class console {
    * @param output buffer to put read console data in
    */
   void read(std::span<char> output) {
-    ioDevice.read(output);
+    ioDevice.Receive(output);
   }
   /**
    * @brief Write data to console
@@ -59,13 +59,13 @@ class console {
   void write(std::span<const char> input) {
     for (const char &element : input) {
       if (writeIndex == N) {
-        ioDevice.write(writeBuffer);
+        ioDevice.Transmit(writeBuffer);
         writeIndex = 0;
       }
       writeBuffer[writeIndex] = element;
       writeIndex = writeIndex + 1;
       if (element == '\n') {
-        ioDevice.write(std::span<char>(writeBuffer).first(writeIndex));
+        ioDevice.Transmit(std::span<char>(writeBuffer).first(writeIndex));
         writeIndex = 0;
       }
     }

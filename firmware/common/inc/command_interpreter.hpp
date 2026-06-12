@@ -43,9 +43,9 @@ struct Command_interpreter {
 
   void print_help() {
     for (const Command_handler &element : commandTable) {
-      consoleDriver.write(element.commandString);
-      consoleDriver.write(" \t: ");
-      consoleDriver.write(element.helpString);
+      consoleDriver.Transmit(element.commandString);
+      consoleDriver.Transmit(" \t: ");
+      consoleDriver.Transmit(element.helpString);
     }
   }
 };
