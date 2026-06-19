@@ -15,8 +15,8 @@
 #include <command_value_stack.hpp>
 #include <command_handlers.hpp>
 #include <console.hpp>
-#include <zerocross.hpp>
 #include <event_dispatch.hpp>
+#include <power_ctrl.hpp>
 
 /**
  * @brief application wide result/return values
@@ -55,7 +55,7 @@ extern squLib::console<usart_peripheral> command_console;
 extern squLib::Command_value_stack<8, command_console> command_values;
 extern squLib::Command_interpreter<command_handlers, command_values, command_console> command_interpreter;
 extern Application controller;
-extern Zero_cross zero_cross;
+extern Power_ctrl solder_iron_power_ctrl;
 extern Event_dispatcher event_dispatcher;
 
 }  // namespace application
