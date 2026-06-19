@@ -23,7 +23,7 @@ extern squLib::Command_handler mux_handler;
 extern squLib::Command_handler tc_handler;
 extern squLib::Command_handler zerocross_handler;
 extern squLib::Command_handler disp_handler;
-extern squLib::Command_handler button_handler;
+extern squLib::Command_handler button_cmd;
 }  // namespace application
 
 #endif

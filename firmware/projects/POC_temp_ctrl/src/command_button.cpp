@@ -22,6 +22,6 @@ squLib::results button(std::span<const char>) {
   return squLib::results::ok;
 }
 
-squLib::commandHandler button_handler{"button", "Simulates button press\n", button};
+squLib::Command_handler button_cmd{"button", "Simulates button press\n", button};
 
 }  // namespace application

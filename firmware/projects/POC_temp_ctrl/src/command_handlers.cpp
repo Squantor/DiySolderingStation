@@ -27,7 +27,7 @@ squLib::results help_function(std::span<const char>) {
 
 std::array<squLib::Command_handler, 12> command_handler_table{help_handler,  number_handler, hex_num_handler,   stk_handler,
                                                               empty_handler, drop_handler,   dup_handler,       stat_handler,
-                                                              mux_handler,   tc_handler,     zerocross_handler, button_handler};
+                                                              mux_handler,   tc_handler,     zerocross_handler, button_cmd};
 std::span<const squLib::Command_handler> command_handlers{command_handler_table};
 
 }  // namespace application
