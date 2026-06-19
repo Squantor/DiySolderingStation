@@ -54,10 +54,11 @@ User_interface<Button, User_interface_events> user_interface{screens};
 // event handling definitions
 Buttons buttons{0xFF, event_dispatcher};
 Button_handler button_handler;
-std::array<const Event_handler_pair, 3> event_handlers = {
+std::array<const Event_handler_pair, 4> event_handlers = {
   Event_handler_pair{&button_handler, Events::button},
   Event_handler_pair{&user_interface, Events::button},
   Event_handler_pair{&main_screen, Events::seconds},
+  Event_handler_pair{&solder_iron_power_ctrl, Events::seconds},
 };
 Event_dispatcher event_dispatcher(event_handlers);
 

@@ -187,9 +187,9 @@ void set_multiplexers(std::uint32_t mux1, std::uint32_t mux2) {
 }
 
 void set_power_control_1(bool on) {
-  gpio_peripheral.SetState(pin_power_control1, on);
+  gpio_peripheral.SetState(pin_power_control1, !on);
 }
 
 void set_power_control_2(bool on) {
-  gpio_peripheral.SetState(pin_power_control2, on);
+  gpio_peripheral.SetState(pin_power_control2, !on);
 }
