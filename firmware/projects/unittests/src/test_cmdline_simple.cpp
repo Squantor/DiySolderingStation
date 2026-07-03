@@ -8,7 +8,7 @@
  * \file test_cmdline_simple.cpp
  * All tests for testing the simple commandline parser class
  */
-#include <MinUnit.h>
+#include <minunit.h>
 #include <stdint.h>
 #include <console.hpp>
 #include <mock_char_device.hpp>
@@ -43,11 +43,11 @@ MINUNIT_SETUP(cmdlineSimpleSetup) {
   dutCommandlineSimple.reset();
   charDeviceMock.reset();
   commandHandleMock.commandSize = 0;
-  minUnitPass();
+  MINUNIT_PASS();
 }
 
 MINUNIT_SETUP(cmdlineSimpleTeardown) {
-  minUnitPass();
+  MINUNIT_PASS();
 }
 
 /**
@@ -57,13 +57,13 @@ MINUNIT_ADD(testSingleCommand, cmdlineSimpleSetup, cmdlineSimpleTeardown) {
   std::array<char, 1> singleChar;
   singleChar[0] = 'F';
   dutCommandlineSimple.input(singleChar);
-  minUnitCheck(charDeviceMock.writeIndex == 1);
-  minUnitCheck(commandHandleMock.commandSize == 0);
+  MINUNIT_CHECK(charDeviceMock.writeIndex == 1);
+  MINUNIT_CHECK(commandHandleMock.commandSize == 0);
   singleChar[0] = '\n';
   dutCommandlineSimple.input(singleChar);
-  minUnitCheck(charDeviceMock.writeIndex == 2);
-  minUnitCheck(commandHandleMock.commandSize == 1);
-  minUnitCheck(std::memcmp(commandHandleMock.command.data(), "F", 1) == 0);
+  MINUNIT_CHECK(charDeviceMock.writeIndex == 2);
+  MINUNIT_CHECK(commandHandleMock.commandSize == 1);
+  MINUNIT_CHECK(std::memcmp(commandHandleMock.command.data(), "F", 1) == 0);
 }
 
 /**
@@ -72,10 +72,10 @@ MINUNIT_ADD(testSingleCommand, cmdlineSimpleSetup, cmdlineSimpleTeardown) {
 MINUNIT_ADD(testBackspaceHandling, cmdlineSimpleSetup, cmdlineSimpleTeardown) {
   std::array<char, 7> testString{"F\bC\bG\n"};
   dutCommandlineSimple.input(std::span<char>(testString).first(6));
-  minUnitCheck(charDeviceMock.writeIndex == 10);
-  minUnitCheck(std::memcmp(charDeviceMock.writeBuffer.data(), "F\b \bC\b \bG\n", 10) == 0);
-  minUnitCheck(commandHandleMock.commandSize == 1);
-  minUnitCheck(std::memcmp(commandHandleMock.command.data(), "G", 1) == 0);
+  MINUNIT_CHECK(charDeviceMock.writeIndex == 10);
+  MINUNIT_CHECK(std::memcmp(charDeviceMock.writeBuffer.data(), "F\b \bC\b \bG\n", 10) == 0);
+  MINUNIT_CHECK(commandHandleMock.commandSize == 1);
+  MINUNIT_CHECK(std::memcmp(commandHandleMock.command.data(), "G", 1) == 0);
 }
 
 // TODO ANSI up and down handling (previous and clear command)

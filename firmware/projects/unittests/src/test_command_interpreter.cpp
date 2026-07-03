@@ -7,7 +7,7 @@
 /**
  * @file test template
  */
-#include <MinUnit.h>
+#include <minunit.h>
 #include <command_interpreter.hpp>
 #include <mock_char_device.hpp>
 
@@ -60,14 +60,14 @@ MINUNIT_SETUP(commandInterpreterSetup) {
   zagCounter = 0;
   helpCounter = 0;
   charDeviceMock.reset();
-  minUnitPass();
+  MINUNIT_PASS();
 }
 
 /**
  * @brief Teardown
  */
 MINUNIT_TEARDOWN(commandInterpreterTeardown) {
-  minUnitPass();
+  MINUNIT_PASS();
 }
 
 /**
@@ -78,14 +78,14 @@ MINUNIT_ADD(commandInterpreterCommandParse, commandInterpreterSetup, commandInte
   std::array<const char, 6> InvalidCmd{"blorp"};
   std::array<const char, 4> validCmd1{"foo"};
   std::array<const char, 4> validCmd2{"zag"};
-  minUnitCheck(commandInterpreterDut.handle(singleChar) == squLib::results::notFound);
-  minUnitCheck(commandInterpreterDut.handle(InvalidCmd) == squLib::results::notFound);
-  minUnitCheck(fooCounter == 0);
-  minUnitCheck(commandInterpreterDut.handle(validCmd1) == squLib::results::ok);
-  minUnitCheck(fooCounter == 1);
-  minUnitCheck(zagCounter == 0);
-  minUnitCheck(commandInterpreterDut.handle(validCmd2) == squLib::results::ok);
-  minUnitCheck(zagCounter == 1);
+  MINUNIT_CHECK(commandInterpreterDut.handle(singleChar) == squLib::results::notFound);
+  MINUNIT_CHECK(commandInterpreterDut.handle(InvalidCmd) == squLib::results::notFound);
+  MINUNIT_CHECK(fooCounter == 0);
+  MINUNIT_CHECK(commandInterpreterDut.handle(validCmd1) == squLib::results::ok);
+  MINUNIT_CHECK(fooCounter == 1);
+  MINUNIT_CHECK(zagCounter == 0);
+  MINUNIT_CHECK(commandInterpreterDut.handle(validCmd2) == squLib::results::ok);
+  MINUNIT_CHECK(zagCounter == 1);
 }
 
 /**
@@ -93,11 +93,11 @@ MINUNIT_ADD(commandInterpreterCommandParse, commandInterpreterSetup, commandInte
  */
 MINUNIT_ADD(commandInterpreterPrintHelp, commandInterpreterSetup, commandInterpreterTeardown) {
   std::array<const char, 5> helpCmd{"help"};
-  minUnitCheck(commandInterpreterDut.handle(helpCmd) == squLib::results::ok);
-  minUnitCheck(std::strlen(charDeviceMock.writeBuffer.data()) == 102);
-  minUnitCheck(std::strcmp(charDeviceMock.writeBuffer.data(),
-                           "help \t: Prints available commands\n"
-                           "foo \t: fooing the foo\n"
-                           "bar \t: barring the bar\n"
-                           "zag \t: zagging the zag\n") == 0);
+  MINUNIT_CHECK(commandInterpreterDut.handle(helpCmd) == squLib::results::ok);
+  MINUNIT_CHECK(std::strlen(charDeviceMock.writeBuffer.data()) == 102);
+  MINUNIT_CHECK(std::strcmp(charDeviceMock.writeBuffer.data(),
+                            "help \t: Prints available commands\n"
+                            "foo \t: fooing the foo\n"
+                            "bar \t: barring the bar\n"
+                            "zag \t: zagging the zag\n") == 0);
 }

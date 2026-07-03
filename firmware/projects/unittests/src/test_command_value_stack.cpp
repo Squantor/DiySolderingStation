@@ -7,7 +7,7 @@
 /**
  * @file Tests for command value stack interpreter
  */
-#include <MinUnit.h>
+#include <minunit.h>
 #include <array>
 #include <results.hpp>
 #include <command_value_stack.hpp>
@@ -23,53 +23,53 @@ squLib::Command_value_stack<6, charDeviceMock> commandValueStackDut;
 MINUNIT_SETUP(commandValueStackSetup) {
   charDeviceMock.reset();
   commandValueStackDut.reset();
-  minUnitPass();
+  MINUNIT_PASS();
 }
 
 /**
  * @brief Teardown
  */
 MINUNIT_TEARDOWN(commandValueStackTeardown) {
-  minUnitPass();
+  MINUNIT_PASS();
 }
 
 /**
  * @brief testing adding and removing elements on the stack
  */
 MINUNIT_ADD(testPushAndPop, commandValueStackSetup, commandValueStackTeardown) {
-  minUnitCheck(commandValueStackDut.size() == 0);
+  MINUNIT_CHECK(commandValueStackDut.size() == 0);
   commandValueStackDut.push(1234);
-  minUnitCheck(commandValueStackDut.size() == 1);
+  MINUNIT_CHECK(commandValueStackDut.size() == 1);
   std::optional<std::int32_t> value1 = commandValueStackDut.pop();
-  minUnitCheck(commandValueStackDut.size() == 0);
-  minUnitCheck(value1.has_value() == true);
-  minUnitCheck(*value1 == 1234);
+  MINUNIT_CHECK(commandValueStackDut.size() == 0);
+  MINUNIT_CHECK(value1.has_value() == true);
+  MINUNIT_CHECK(*value1 == 1234);
   std::optional<std::int32_t> value2 = commandValueStackDut.pop();
-  minUnitCheck(value2.has_value() == false);
+  MINUNIT_CHECK(value2.has_value() == false);
 }
 
 MINUNIT_ADD(testDropAndDup, commandValueStackSetup, commandValueStackTeardown) {
   commandValueStackDut.push(1234);
   commandValueStackDut.push(5678);
-  minUnitCheck(commandValueStackDut.size() == 2);
+  MINUNIT_CHECK(commandValueStackDut.size() == 2);
   commandValueStackDut.dup();
-  minUnitCheck(commandValueStackDut.size() == 3);
+  MINUNIT_CHECK(commandValueStackDut.size() == 3);
   commandValueStackDut.dup();
-  minUnitCheck(commandValueStackDut.size() == 4);
+  MINUNIT_CHECK(commandValueStackDut.size() == 4);
   commandValueStackDut.drop();
-  minUnitCheck(commandValueStackDut.size() == 3);
+  MINUNIT_CHECK(commandValueStackDut.size() == 3);
   std::optional<std::int32_t> value;
   value = commandValueStackDut.pop();
-  minUnitCheck(value.has_value() == true);
-  minUnitCheck(*value == 5678);
+  MINUNIT_CHECK(value.has_value() == true);
+  MINUNIT_CHECK(*value == 5678);
   value = commandValueStackDut.pop();
-  minUnitCheck(value.has_value() == true);
-  minUnitCheck(*value == 5678);
+  MINUNIT_CHECK(value.has_value() == true);
+  MINUNIT_CHECK(*value == 5678);
   value = commandValueStackDut.pop();
-  minUnitCheck(value.has_value() == true);
-  minUnitCheck(*value == 1234);
+  MINUNIT_CHECK(value.has_value() == true);
+  MINUNIT_CHECK(*value == 1234);
   value = commandValueStackDut.pop();
-  minUnitCheck(value.has_value() == false);
+  MINUNIT_CHECK(value.has_value() == false);
 }
 
 MINUNIT_ADD(testPushString, commandValueStackSetup, commandValueStackTeardown) {
@@ -77,22 +77,22 @@ MINUNIT_ADD(testPushString, commandValueStackSetup, commandValueStackTeardown) {
   std::span<const char> value1234{"1234"};
   std::span<const char> value89AB{"0x89AB"};
   std::span<const char> valueMinus5678{"-5678"};
-  minUnitCheck(commandValueStackDut.push(value1234.subspan(0, 4)) == squLib::results::ok);
-  minUnitCheck(commandValueStackDut.push(value89AB.subspan(0, 6)) == squLib::results::ok);
-  minUnitCheck(commandValueStackDut.push(valueMinus5678.subspan(0, 5)) == squLib::results::ok);
-  minUnitCheck(commandValueStackDut.size() == 3);
+  MINUNIT_CHECK(commandValueStackDut.push(value1234.subspan(0, 4)) == squLib::results::ok);
+  MINUNIT_CHECK(commandValueStackDut.push(value89AB.subspan(0, 6)) == squLib::results::ok);
+  MINUNIT_CHECK(commandValueStackDut.push(valueMinus5678.subspan(0, 5)) == squLib::results::ok);
+  MINUNIT_CHECK(commandValueStackDut.size() == 3);
   std::optional<std::int32_t> value;
   value = commandValueStackDut.pop();
-  minUnitCheck(value.has_value() == true);
-  minUnitCheck(*value == -5678);
+  MINUNIT_CHECK(value.has_value() == true);
+  MINUNIT_CHECK(*value == -5678);
   value = commandValueStackDut.pop();
-  minUnitCheck(value.has_value() == true);
-  minUnitCheck(*value == 35243);
+  MINUNIT_CHECK(value.has_value() == true);
+  MINUNIT_CHECK(*value == 35243);
   value = commandValueStackDut.pop();
-  minUnitCheck(value.has_value() == true);
-  minUnitCheck(*value == 1234);
+  MINUNIT_CHECK(value.has_value() == true);
+  MINUNIT_CHECK(*value == 1234);
   value = commandValueStackDut.pop();
-  minUnitCheck(value.has_value() == false);
+  MINUNIT_CHECK(value.has_value() == false);
 }
 
 // TODO: test forth primitives swap rot over

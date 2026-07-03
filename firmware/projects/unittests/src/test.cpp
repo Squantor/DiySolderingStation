@@ -7,32 +7,32 @@
 /**
  * @file test template
  */
-#include <MinUnit.h>
+#include <minunit.h>
 
 /**
  * @brief setup and initialisation
  */
 MINUNIT_SETUP(testSetup) {
-  minUnitPass();
+  MINUNIT_PASS();
 }
 
 /**
  * @brief Teardown
  */
 MINUNIT_TEARDOWN(testTeardown) {
-  minUnitPass();
+  MINUNIT_PASS();
 }
 
 /**
  * @brief Test 1
  */
 MINUNIT_ADD(test1, testSetup, testTeardown) {
-  minUnitPass();
+  MINUNIT_PASS();
 }
 
 /**
  * @brief Test 2 with no setup/teardowns
  */
 MINUNIT_ADD(test2, nullptr, nullptr) {
-  minUnitPass();
+  MINUNIT_PASS();
 }

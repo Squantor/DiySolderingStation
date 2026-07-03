@@ -8,21 +8,19 @@
  * @brief main unittest entry point
  */
 #include <cstdio>
-#include <MinUnit.h>
+#include <minunit.h>
 
-#pragma GCC diagnostic ignored "-Wunused-parameter"
-
-void minunitReport(const char* string) {
+void minunit_report(const char* string) {
   printf("%s", string);
 }
 
-int main() {
-  minunitRun();
-  if (minunitTestState.failures != 0) {
-    minunitReport("Test failures detected\n");
+int main(int, char*[]) {
+  minunit_run();
+  if (minunit_test_state.failures != 0) {
+    minunit_report("Test failures detected\n");
   } else {
-    minunitReport("All tests passed\n");
+    minunit_report("All tests passed\n");
   }
-  printf("executed %d tests with %d checks where %d failed\n", minunitTestState.executed, minunitTestState.checks,
-         minunitTestState.failures);
+  printf("executed %d tests with %d checks where %d failed\n", minunit_test_state.executed, minunit_test_state.checks,
+         minunit_test_state.failures);
 }
