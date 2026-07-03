@@ -23,7 +23,9 @@ $(PROJ_DIR)/src/test_ansi_parse.cpp \
 $(PROJ_DIR)/src/test_command_interpreter.cpp \
 $(PROJ_DIR)/src/test_command_value_stack.cpp \
 common/src/parse_digit.cpp \
-$(PROJ_DIR)/src/test.cpp
+$(PROJ_DIR)/src/test.cpp \
+common/src/solder_iron_controller.cpp \
+$(PROJ_DIR)/src/solder_iron_controller.cpp
 $(NAME)_INCLUDES := -I$(PROJ_DIR)/inc -Icommon/inc
 $(NAME)_PREBUILD_SCRIPT := $(PROJ_DIR)/prebuild.sh
 $(NAME)_POSTBUILD_SCRIPT := $(PROJ_DIR)/postbuild.sh
