@@ -12,7 +12,7 @@
 	url = git@github.com:Squantor/squantorLibEmbedded.git
 [submodule "firmware/libraries/squantorMinUnit"]
 	path = firmware/libraries/squantorMinUnit
-	url = git@github.com:Squantor/squantorMinUnit.git
+	url = ssh://git@codeberg.org/Squantor/squantorMinUnit.git
 [submodule "firmware/libraries/squantorLibC"]
 	path = firmware/libraries/squantorLibC
 	url = git@github.com:Squantor/squantorLibC.git
