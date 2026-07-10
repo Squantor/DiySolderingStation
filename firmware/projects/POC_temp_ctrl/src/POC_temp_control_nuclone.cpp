@@ -57,7 +57,7 @@ void I2C0_IRQHandler(void) {
  * @brief zerocross interrupt handler
  */
 void PIN_INT0_IRQHandler(void) {
-  application::solder_iron_power_ctrl.zero_cross_isr();
+  application::solder_iron_controller.zero_cross_isr();
   pinint_peripheral.ClearChannel(libmcull::pin_int::InterruptPins::PintSel0);
 }
 /**

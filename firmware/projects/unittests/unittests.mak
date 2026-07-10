@@ -14,16 +14,15 @@ $(NAME)_DEFINES := -DMINUNIT_MAX_TESTS=1000
 $(NAME)_LIBS := squantorMinUnit
 $(NAME)_FILES := $(PROJ_DIR)/src/main.cpp \
 common/src/cmdline_simple.cpp \
-$(PROJ_DIR)/src/test_cmdline_simple.cpp \
+$(PROJ_DIR)/src/cmdline_simple.cpp \
 common/src/ansi_parse.cpp \
+$(PROJ_DIR)/src/ansi_parse.cpp \
 common/src/toascii.cpp \
-$(PROJ_DIR)/src/test_console_buffered.cpp \
-$(PROJ_DIR)/src/test_console.cpp \
-$(PROJ_DIR)/src/test_ansi_parse.cpp \
-$(PROJ_DIR)/src/test_command_interpreter.cpp \
-$(PROJ_DIR)/src/test_command_value_stack.cpp \
+$(PROJ_DIR)/src/console_buffered.cpp \
+$(PROJ_DIR)/src/console.cpp \
+$(PROJ_DIR)/src/command_interpreter.cpp \
+$(PROJ_DIR)/src/command_value_stack.cpp \
 common/src/parse_digit.cpp \
-$(PROJ_DIR)/src/test.cpp \
 common/src/solder_iron_controller.cpp \
 $(PROJ_DIR)/src/solder_iron_controller.cpp
 $(NAME)_INCLUDES := -I$(PROJ_DIR)/inc -Icommon/inc

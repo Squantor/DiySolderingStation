@@ -28,8 +28,7 @@ $(PROJ_DIR)/src/command_mux.cpp \
 $(PROJ_DIR)/src/command_tc.cpp \
 $(PROJ_DIR)/src/command_zerocross.cpp \
 $(PROJ_DIR)/src/command_button.cpp \
-$(PROJ_DIR)/src/zerocross.cpp \
-common/src/power_ctrl.cpp \
+common/src/solder_iron_controller.cpp \
 $(PROJ_DIR)/src/button_handler.cpp \
 $(PROJ_DIR)/src/POC_temp_control_hal.cpp \
 $(PROJ_DIR)/src/$(BOARD).cpp

@@ -22,7 +22,7 @@
 #include <menu_item_value_dummy.hpp>
 #include <menu_item_exit.hpp>
 #include <menu_item_contrast.hpp>
-#include <power_ctrl.hpp>
+#include <solder_iron_controller.hpp>
 #include <POC_temp_control_hal.hpp>
 
 namespace application {
@@ -34,7 +34,7 @@ squLib::Command_interpreter<command_handlers, command_values, command_console> c
 squLib::commandlineSimple<80, command_console, command_interpreter> commandline;
 
 POC_temp_control_hal iron_hal(4);
-Power_ctrl solder_iron_power_ctrl(iron_hal);
+Solder_iron_controller solder_iron_controller(iron_hal);
 
 // User interface definitions
 Menu_item_contrast contrast_menu_item;
@@ -60,7 +60,7 @@ std::array<const Event_handler_pair, 4> event_handlers = {
   Event_handler_pair{&button_handler, Events::button},
   Event_handler_pair{&user_interface, Events::button},
   Event_handler_pair{&main_screen, Events::seconds},
-  Event_handler_pair{&solder_iron_power_ctrl, Events::seconds},
+  Event_handler_pair{&solder_iron_controller, Events::seconds},
 };
 Event_dispatcher event_dispatcher(event_handlers);
 
@@ -71,7 +71,7 @@ auto button_call_lambda = [](std::uint8_t port_data) {
 Results Application::init() {
   command_console.print("DIY soldering station POC temperature sensing\n");
   ui_port_expander.RegisterCallback(button_call_lambda);
-  solder_iron_power_ctrl.init();
+  solder_iron_controller.init();
   // before we initialize display we need to make sure the screen is properly setup
   while (ui_display.state != libmcu::States::Idle) {
     board_progress();
@@ -94,19 +94,19 @@ Results Application::progress() {
     commandline.input(data);
   }
   // zerocrossing detection
-  solder_iron_power_ctrl.progress(ticks, ticks_per_second);
+  solder_iron_controller.progress(ticks, ticks_per_second);
   // state handling
   switch (state) {
     case Application_state::usb_powered:
-      if (is_mains_present() && solder_iron_power_ctrl.is_power_present())
+      if (is_mains_present() && solder_iron_controller.is_power_present())
         state = Application_state::ready;
       break;
     case Application_state::ready:
-      if (!is_mains_present() || !solder_iron_power_ctrl.is_power_present())
+      if (!is_mains_present() || !solder_iron_controller.is_power_present())
         set_usb_powered_state();
       break;
     case Application_state::operating:
-      if (!is_mains_present() || !solder_iron_power_ctrl.is_power_present())
+      if (!is_mains_present() || !solder_iron_controller.is_power_present())
         set_usb_powered_state();
       break;
     case Application_state::error:

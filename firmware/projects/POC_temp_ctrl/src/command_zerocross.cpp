@@ -14,11 +14,11 @@
 namespace application {
 
 squLib::results Zero_cross(std::span<const char>) {
-  if (!solder_iron_power_ctrl.is_power_present()) {
+  if (!solder_iron_controller.is_power_present()) {
     command_console.print("zerocrosses not detected\n");
     return squLib::results::error;
   }
-  command_console.print(solder_iron_power_ctrl.zero_cross_count, " zerocrosses detected\n");
+  command_console.print(solder_iron_controller.zero_cross_count, " zerocrosses detected\n");
   return squLib::results::ok;
 }
 

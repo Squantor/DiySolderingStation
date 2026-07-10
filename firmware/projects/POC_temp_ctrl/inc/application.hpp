@@ -16,7 +16,7 @@
 #include <command_handlers.hpp>
 #include <console.hpp>
 #include <event_dispatch.hpp>
-#include <power_ctrl.hpp>
+#include <solder_iron_controller.hpp>
 
 /**
  * @brief application wide result/return values
@@ -55,7 +55,7 @@ extern squLib::console<usart_peripheral> command_console;
 extern squLib::Command_value_stack<8, command_console> command_values;
 extern squLib::Command_interpreter<command_handlers, command_values, command_console> command_interpreter;
 extern Application controller;
-extern Power_ctrl solder_iron_power_ctrl;
+extern Solder_iron_controller solder_iron_controller;
 extern Event_dispatcher event_dispatcher;
 
 }  // namespace application
