@@ -69,8 +69,9 @@ void PIN_INT1_IRQHandler(void) {
 }
 }
 
-auto systickIsrLambda = []() {
+auto systick_isr_lambda = []() {
   ticks = ticks + 1;
+  application::solder_iron_controller.systick_isr(ticks);
 };
 
 void board_init(void) {
@@ -134,7 +135,7 @@ void board_init(void) {
   syscon_peripheral.ConfigureMcuClocks<nuclone_clock_config>();
   // setup systick
   systick_peripheral.Init(nuclone_clock_config.GetSystemFreq() / ticks_per_second);
-  systick_peripheral.Start(systickIsrLambda);
+  systick_peripheral.Start(systick_isr_lambda);
   // setup UART
   usart_peripheral.Init<uart_0_clock_config>(115200);
   syscon_peripheral.PeripheralClockSource(libmcull::syscon::ClockSourceSelects::Uart0, libmcull::syscon::ClockSources::Main);

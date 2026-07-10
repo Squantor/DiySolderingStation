@@ -15,13 +15,18 @@ void Solder_iron_controller::init(void) {
   zero_crosses = 0;
   zero_cross_count = 0;
   is_ac_power_present = false;
-  demo_value = 0;
   set_safe_state();
 }
 
-void Solder_iron_controller::progress(std::uint32_t ticks, std::uint32_t ticks_per_second) {
-  if (current_ticks + ticks_per_second < ticks) {
-    current_ticks = ticks;
+void Solder_iron_controller::progress() {}
+
+bool Solder_iron_controller::is_power_present(void) {
+  return is_ac_power_present;
+}
+
+void Solder_iron_controller::systick_isr(std::uint32_t current_tick) {
+  if (current_ticks + ticks_per_second < current_tick) {
+    current_ticks = current_tick;
     if (zero_crosses > 95 && zero_crosses < 105)
       is_ac_power_present = true;
     else {
@@ -31,10 +36,6 @@ void Solder_iron_controller::progress(std::uint32_t ticks, std::uint32_t ticks_p
     zero_cross_count = zero_crosses;
     zero_crosses = 0;
   }
-}
-
-bool Solder_iron_controller::is_power_present(void) {
-  return is_ac_power_present;
 }
 
 void Solder_iron_controller::zero_cross_isr(void) {
@@ -69,18 +70,5 @@ void Solder_iron_controller::handle_event(Event_data event) {
   static std::uint32_t second_counter = 0;
   if (event.event == Events::seconds) {
     second_counter++;
-    if (second_counter > 0) {
-      second_counter = 0;
-      if (is_ac_power_present) {
-        demo_value += 2;
-        if (demo_value > 100) {
-          demo_value = 0;
-        }
-        set_power(0, demo_value);
-        set_power(1, demo_value);
-      } else {
-        demo_value = 0;
-      }
-    }
   }
 }

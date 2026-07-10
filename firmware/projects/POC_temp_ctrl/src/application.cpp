@@ -22,6 +22,7 @@
 #include <menu_item_value_dummy.hpp>
 #include <menu_item_exit.hpp>
 #include <menu_item_contrast.hpp>
+#include <menu_item_power_out.hpp>
 #include <solder_iron_controller.hpp>
 #include <POC_temp_control_hal.hpp>
 
@@ -34,16 +35,15 @@ squLib::Command_interpreter<command_handlers, command_values, command_console> c
 squLib::commandlineSimple<80, command_console, command_interpreter> commandline;
 
 POC_temp_control_hal iron_hal(4);
-Solder_iron_controller solder_iron_controller(iron_hal);
+Solder_iron_controller solder_iron_controller(iron_hal, ticks_per_second);
 
 // User interface definitions
 Menu_item_contrast contrast_menu_item;
-Menu_item_value_dummy first_menu_item(Menu_item_type::value, "First", 1);
-Menu_item_value_dummy second_menu_item(Menu_item_type::value, "Second", 2);
-Menu_item_value_dummy third_menu_item(Menu_item_type::value, "Third", 3);
+Menu_item_power_out power_out_first_menu_item(0);
+Menu_item_power_out power_out_second_menu_item(1);
 Menu_item_exit exit_menu;
 
-std::array<Menu_item* const, 5> menu_items = {&contrast_menu_item, &first_menu_item, &second_menu_item, &third_menu_item,
+std::array<Menu_item* const, 4> menu_items = {&contrast_menu_item, &power_out_first_menu_item, &power_out_second_menu_item,
                                               &exit_menu};
 
 Main_screen<application_display> main_screen;
@@ -94,7 +94,7 @@ Results Application::progress() {
     commandline.input(data);
   }
   // zerocrossing detection
-  solder_iron_controller.progress(ticks, ticks_per_second);
+  solder_iron_controller.progress();
   // state handling
   switch (state) {
     case Application_state::usb_powered:

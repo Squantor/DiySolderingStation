@@ -32,18 +32,17 @@ class Solder_iron_controller : public Event_handler {
  public:
   /**
    * @brief Construct a new Power_ctrl object
+   * @param tick_count ticks per second
    */
-  Solder_iron_controller(Solder_iron_hal_base &hal) : iron_hal(hal) {}
+  Solder_iron_controller(Solder_iron_hal_base &hal, std::uint32_t tick_count) : iron_hal(hal), ticks_per_second(tick_count) {}
   /**
    * @brief Initializes power control
    */
-  void init(void);
+  void init();
   /**
-   * @brief Updates power control
-   * @param ticks
-   * @param ticks_per_second
+   * @brief Updates power control for not timing critical things
    */
-  void progress(std::uint32_t ticks, std::uint32_t ticks_per_second);
+  void progress();
   /**
    * @brief Is power present
    * @return True for power is present
@@ -53,6 +52,11 @@ class Solder_iron_controller : public Event_handler {
    * @brief Call from zerocross interrupt
    */
   void zero_cross_isr(void);
+  /**
+   * @brief Call from systick interrupt
+   *
+   */
+  void systick_isr(std::uint32_t current_tick);
   /**
    * @brief Set power control to safe state
    */
@@ -69,11 +73,12 @@ class Solder_iron_controller : public Event_handler {
 
   volatile std::uint32_t zero_cross_count;  // amount of zerocrosses
  private:
+  Solder_iron_hal_base &iron_hal;
+  std::uint32_t ticks_per_second;
   std::uint32_t current_ticks;          // tick count when measured zero crosses
   volatile std::uint32_t zero_crosses;  // amount of zerocrosses detected
   bool is_ac_power_present;             // true if AC power is present
-  std::uint8_t demo_value;
-  Solder_iron_hal_base &iron_hal;
+
   std::array<std::uint8_t, 4> output_settings;
   std::array<std::int16_t, 4> output_error_accumulators;
 };

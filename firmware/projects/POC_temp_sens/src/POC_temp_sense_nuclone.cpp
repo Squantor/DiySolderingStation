@@ -30,7 +30,7 @@ void USART0_IRQHandler(void) {
 }
 }
 
-auto systickIsrLambda = []() {
+auto systick_isr_lambda = []() {
   ticks = ticks + 1;
 };
 
@@ -79,7 +79,7 @@ void boardInit(void) {
   libMcuHw::clock::configureClocks<syscon_peripheral, diySolderClockConfig>();
   // setup systick
   systickPeripheral.init(diySolderClockConfig.systemFreq / TICKS_PER_S);
-  systickPeripheral.start(systickIsrLambda);
+  systickPeripheral.start(systick_isr_lambda);
   // setup UART
   syscon_peripheral.peripheralClockSource(libMcuLL::syscon::clockSourceSelects::UART0, libMcuLL::syscon::clockSources::MAIN);
   usart_peripheral.init<diySolderClockConfig>(115200);
