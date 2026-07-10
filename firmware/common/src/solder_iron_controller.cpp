@@ -44,10 +44,10 @@ void Solder_iron_controller::zero_cross_isr(void) {
     for (std::size_t i = 0; i < iron_hal.get_iron_count(); i++) {
       output_error_accumulators[i] += output_settings[i];
       if (output_error_accumulators[i] >= 50) {
-        iron_hal.set_iron_output(i, false);
-        output_error_accumulators[i] = output_error_accumulators[i] - 100;
-      } else {
         iron_hal.set_iron_output(i, true);
+        output_error_accumulators[i] -= 100;
+      } else {
+        iron_hal.set_iron_output(i, false);
       }
     }
   }

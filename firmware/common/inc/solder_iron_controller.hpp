@@ -75,7 +75,7 @@ class Solder_iron_controller : public Event_handler {
   std::uint8_t demo_value;
   Solder_iron_hal_base &iron_hal;
   std::array<std::uint8_t, 4> output_settings;
-  std::array<std::int8_t, 4> output_error_accumulators;
+  std::array<std::int16_t, 4> output_error_accumulators;
 };
 
 #endif
