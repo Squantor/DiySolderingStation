@@ -23,6 +23,7 @@
 #include <menu_item_exit.hpp>
 #include <menu_item_contrast.hpp>
 #include <power_ctrl.hpp>
+#include <POC_temp_control_hal.hpp>
 
 namespace application {
 
@@ -32,7 +33,8 @@ squLib::Command_value_stack<8, command_console> command_values;
 squLib::Command_interpreter<command_handlers, command_values, command_console> command_interpreter;
 squLib::commandlineSimple<80, command_console, command_interpreter> commandline;
 
-Power_ctrl solder_iron_power_ctrl;
+POC_temp_control_hal iron_hal(4);
+Power_ctrl solder_iron_power_ctrl(iron_hal);
 
 // User interface definitions
 Menu_item_contrast contrast_menu_item;

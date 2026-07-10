@@ -8,7 +8,6 @@
  * @brief Soldering iron power control class implementation
  */
 #include "power_ctrl.hpp"
-#include <POC_temp_control_nuclone.hpp>
 
 void Power_ctrl::init(void) {
   current_ticks = 0;
@@ -16,8 +15,6 @@ void Power_ctrl::init(void) {
   zero_cross_count = 0;
   is_ac_power_present = false;
   demo_value = 0;
-  output_error_accumulator = 0;
-  output_setting = 0;
   set_safe_state();
 }
 
@@ -43,25 +40,28 @@ void Power_ctrl::zero_cross_isr(void) {
   zero_crosses = zero_crosses + 1;
   if (zero_crosses & 1) {
     // we only check every other zerocrossing
-    output_error_accumulator = output_error_accumulator + output_setting;
-    if (output_error_accumulator >= 50) {
-      set_power_control_1(true);
-      set_power_control_2(false);
-      output_error_accumulator = output_error_accumulator - 100;
-    } else {
-      set_power_control_1(false);
-      set_power_control_2(true);
+    for (std::size_t i = 0; i < iron_hal.get_iron_count(); i++) {
+      output_error_accumulators[i] += output_settings[i];
+      if (output_error_accumulators[i] >= 50) {
+        iron_hal.set_iron_output(i, false);
+        output_error_accumulators[i] = output_error_accumulators[i] - 100;
+      } else {
+        iron_hal.set_iron_output(i, true);
+      }
     }
   }
 }
 
 void Power_ctrl::set_safe_state() {
-  set_power_control_1(false);
-  set_power_control_2(false);
+  for (std::size_t i = 0; i < iron_hal.get_iron_count(); i++) {
+    output_error_accumulators[i] = 0;
+    output_settings[i] = 0;
+    iron_hal.set_iron_output(i, false);
+  }
 }
 
 void Power_ctrl::set_power(std::size_t channel, std::uint32_t percentage) {
-  output_setting = percentage;
+  output_settings[channel] = percentage;
 }
 
 void Power_ctrl::handle_event(Event_data event) {
@@ -76,6 +76,7 @@ void Power_ctrl::handle_event(Event_data event) {
           demo_value = 0;
         }
         set_power(0, demo_value);
+        set_power(1, demo_value);
       } else {
         demo_value = 0;
       }

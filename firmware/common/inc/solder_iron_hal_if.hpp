@@ -7,10 +7,11 @@
  *
  * @file solder_iron_hal_if.hpp
  * @brief solder iron hal interface class declaration
- * @copyright Copyright (c) 2026
  */
 #ifndef SOLDER_IRON_HAL_IF_HPP
 #define SOLDER_IRON_HAL_IF_HPP
+
+#include <cstdint>
 
 /**
  * @brief solder iron hal base class
@@ -23,6 +24,16 @@ struct Solder_iron_hal_base {
   Solder_iron_hal_base& operator=(const Solder_iron_hal_base&) = delete;
   Solder_iron_hal_base(Solder_iron_hal_base&&) = delete;
   Solder_iron_hal_base& operator=(Solder_iron_hal_base&&) = delete;
+  /**
+   * @brief Get the amount of irons connected to the solder iron controller
+   */
+  virtual std::size_t get_iron_count(void) = 0;
+  /**
+   * @brief Set the iron output state
+   * @param index Which iron to turn on/off
+   * @param on_state true for on, false for off
+   */
+  virtual void set_iron_output(std::size_t index, bool on_state) = 0;
 };
 
 #endif

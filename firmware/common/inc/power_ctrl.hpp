@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <array>
 #include "event_handler.hpp"
+#include <solder_iron_hal_if.hpp>
 
 namespace detail {
 struct Power_state {
@@ -30,7 +31,7 @@ class Power_ctrl : public Event_handler {
   /**
    * @brief Construct a new Power_ctrl object
    */
-  Power_ctrl() = default;
+  Power_ctrl(Solder_iron_hal_base &hal) : iron_hal(hal) {}
   /**
    * @brief Initializes power control
    */
@@ -70,8 +71,9 @@ class Power_ctrl : public Event_handler {
   volatile std::uint32_t zero_crosses;  // amount of zerocrosses detected
   bool is_ac_power_present;             // true if AC power is present
   std::uint8_t demo_value;
-  volatile std::int8_t output_error_accumulator;
-  std::int8_t output_setting;
+  Solder_iron_hal_base &iron_hal;
+  std::array<std::uint8_t, 4> output_settings;
+  std::array<std::int8_t, 4> output_error_accumulators;
 };
 
 #endif

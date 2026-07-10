@@ -1,11 +1,11 @@
-/*
+/**
  * SPDX-License-Identifier: MIT
  *
  * Copyright (c) 2024 Bart Bilos
  * For conditions of distribution and use, see LICENSE file
- */
-/**
- * @brief board support code for temperature sensing proof of concept board
+ *
+ * @file POC_temp_control_nuclone.cpp
+ * @brief board support code for power control proof of concept board
  */
 #include <POC_temp_control_nuclone.hpp>
 #include <application.hpp>
