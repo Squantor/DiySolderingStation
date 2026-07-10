@@ -15,4 +15,4 @@
 	url = ssh://git@codeberg.org/Squantor/squantorMinUnit.git
 [submodule "firmware/libraries/squantorLibC"]
 	path = firmware/libraries/squantorLibC
-	url = git@github.com:Squantor/squantorLibC.git
+	url = ssh://git@codeberg.org/Squantor/squantorLibC.git
