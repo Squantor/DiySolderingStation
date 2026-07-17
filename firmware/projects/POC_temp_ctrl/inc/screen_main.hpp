@@ -17,11 +17,12 @@
 #include "mid/gfx_display.hpp"
 #include "application_font.hpp"
 #include "POC_temp_control_nuclone.hpp"
+#include "solder_iron_controller.hpp"
 
 template <auto &display>
 class Main_screen : public User_interface_screen<User_interface_events>, public Event_handler {
  public:
-  Main_screen() : entry_count(0), seconds(0) {}
+  Main_screen(Solder_iron_controller &controller) : solder_iron_controller(controller) {}
   User_interface_actions handle_event(User_interface_events event) override {
     User_interface_actions action = User_interface_actions::none;
     switch (event) {
@@ -39,7 +40,6 @@ class Main_screen : public User_interface_screen<User_interface_events>, public 
   }
   void activate() override final {
     is_active = true;
-    entry_count++;
     render();
   }
   void deactivate() override final {
@@ -48,7 +48,6 @@ class Main_screen : public User_interface_screen<User_interface_events>, public 
   void handle_event(Event_data event) {
     switch (event.event) {
       case Events::seconds:
-        seconds = event.seconds;
         break;
 
       default:
@@ -60,18 +59,20 @@ class Main_screen : public User_interface_screen<User_interface_events>, public 
  private:
   void render() {
     if (is_active) {
-      libmcumid::Dec dec_entry_count{static_cast<std::int32_t>(seconds)};
+      libmcumid::Dec power_one{static_cast<std::int32_t>(solder_iron_controller.get_power(0))};
+      libmcumid::Dec power_two{static_cast<std::int32_t>(solder_iron_controller.get_power(1))};
       display.clear();
-      display.print("Main screen\nturn on \n", application_font);
-      display.print("Seconds:", application_font);
-      display.print(dec_entry_count, application_font);
+      display.print("Power 1: ", application_font);
+      display.print(power_one, application_font);
+      display.print("\n", application_font);
+      display.print("Power 2: ", application_font);
+      display.print(power_two, application_font);
       display.print("\n", application_font);
       display.flip();
     }
   }
-  std::size_t entry_count;
-  std::size_t seconds = 0;
   bool is_active;
+  Solder_iron_controller &solder_iron_controller;
 };
 
 #endif

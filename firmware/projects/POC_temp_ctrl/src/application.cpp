@@ -16,7 +16,6 @@
 #include <buttons.hpp>
 #include <user_interface.hpp>
 #include <screen_main.hpp>
-#include <screen_second.hpp>
 #include <screen_menu.hpp>
 #include <menu_item.hpp>
 #include <menu_item_value_dummy.hpp>
@@ -46,11 +45,10 @@ Menu_item_exit exit_menu;
 std::array<Menu_item* const, 4> menu_items = {&contrast_menu_item, &power_out_first_menu_item, &power_out_second_menu_item,
                                               &exit_menu};
 
-Main_screen<application_display> main_screen;
-Second_screen<application_display> second_screen;
+Main_screen<application_display> main_screen(solder_iron_controller);
 Menu_screen<application_display> menu_screen(menu_items);
 
-std::array<User_interface_screen<User_interface_events>*, 3> screens = {&main_screen, &second_screen, &menu_screen};
+std::array<User_interface_screen<User_interface_events>*, 2> screens = {&main_screen, &menu_screen};
 User_interface<Button, User_interface_events> user_interface{screens};
 
 // event handling definitions

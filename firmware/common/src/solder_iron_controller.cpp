@@ -66,6 +66,10 @@ void Solder_iron_controller::set_power(std::size_t channel, std::uint32_t percen
   output_settings[channel] = percentage;
 }
 
+std::uint32_t Solder_iron_controller::get_power(std::size_t channel) {
+  return output_settings[channel];
+}
+
 void Solder_iron_controller::handle_event(Event_data event) {
   static std::uint32_t second_counter = 0;
   if (event.event == Events::seconds) {
