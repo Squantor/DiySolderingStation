@@ -13,8 +13,13 @@
 #include <nxp/libmcu_LPC845M301BD48_hal.hpp>
 #include <drivers/SH1106_i2c.hpp>
 #include <drivers/PCF8574.hpp>
+#include <drivers/24xxx.hpp>
 #include <mid/gfx_display.hpp>
 #include <mid/fonts/8x8.hpp>
+
+// constants
+constexpr std::uint32_t ticks_per_second = 1000;
+constexpr std::size_t max_i2c_transactions = 48;
 
 // pin types
 // Crystal osillator pins
@@ -58,7 +63,6 @@ using FunctionAdcTcAmpType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFuncti
 using FunctionI2CSclType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFunctions::I2c0SclInOut>;
 using FunctionI2CSdaType = libmcuhw::swm::PinFunction<libmcuhw::swm::PinFunctions::I2c0SdaInOut>;
 
-constexpr std::uint32_t ticks_per_second = 1000;
 // pin instances
 constexpr PinXtalInType pin_xtal_in;
 constexpr PinXtalOutType pin_xtal_out;
@@ -95,9 +99,12 @@ constexpr libmcull::pin_int::InterruptPins zero_cross_intchan = libmcull::pin_in
 constexpr libmcull::syscon::InterruptPins ui_button_intpin = libmcull::syscon::InterruptPins::PintSel1;
 constexpr libmcull::pin_int::InterruptPins ui_button_intchan = libmcull::pin_int::InterruptPins::PintSel1;
 
-// configuration constants
+// variable externs
+extern volatile std::uint32_t ticks;             // amount of ticks passed sinds startup
+extern volatile std::uint32_t zerocross_counts;  // amount of zerocrosses passed sinds startup
 extern libmcu::I2cDeviceAddress SH1106_i2c_address;
 extern libmcu::I2cDeviceAddress PCF8574_i2c_address;
+extern libmcu::I2cDeviceAddress eeprom_24xxx_i2c_address;
 
 // Clock configurations
 constexpr inline libmcuhw::clock::McuClockConfig<libmcuhw::clock::ClockInputSources::XTAL, 12'000'000u, 30'000'000u>
@@ -120,15 +127,15 @@ extern libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 1024> ll_us
 extern libmcull::i2c::I2cInterrupt<libmcuhw::I2c0Address> ll_i2c_peripheral;
 // Hal peripheral externs
 extern libmcuhal::usart::Uart<ll_usart_peripheral, char> usart_peripheral;
-extern libmcuhal::i2c::I2c<ll_i2c_peripheral, 40> i2c_peripheral;
+extern libmcuhal::i2c::I2c<ll_i2c_peripheral, max_i2c_transactions> i2c_peripheral;
 // driver externs
 extern libmcudrv::SH1106::Generic128x64 display_config;
 extern libmcudrv::SH1106::SH1106<i2c_peripheral, SH1106_i2c_address, display_config, libmcull::Assert_bkpt> ui_display;
 extern libmcudrv::PCF8574::PCF8574<i2c_peripheral, PCF8574_i2c_address> ui_port_expander;
+extern libmcudrv::eeprom_24xxx::Generic_24xxx02 eeprom_24xxx_config;
+extern libmcudrv::eeprom_24xxx::Eeprom_24xxx<i2c_peripheral, eeprom_24xxx_i2c_address, eeprom_24xxx_config> eeprom_24xxx;
+// middleware externs
 extern libmcumid::Gfx_display<ui_display> application_display;
-
-extern volatile std::uint32_t ticks;             // amount of ticks passed sinds startup
-extern volatile std::uint32_t zerocross_counts;  // amount of zerocrosses passed sinds startup
 
 /**
  * @brief initialize the board

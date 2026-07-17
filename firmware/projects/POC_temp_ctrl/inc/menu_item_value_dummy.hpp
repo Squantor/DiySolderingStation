@@ -18,11 +18,11 @@ class Menu_item_value_dummy : public Menu_item {
   Menu_item_value_dummy(Menu_item_type menu_item_type, const char *menu_item_name, std::int32_t menu_value)
     : type(menu_item_type), name(menu_item_name), value(menu_value) {}
 
-  [[nodiscard]] Menu_item_type get_type() const noexcept override {
+  [[nodiscard]] Menu_item_type get_type() const noexcept final {
     return type;
   }
 
-  [[nodiscard]] const char *render(std::span<char> buffer) const noexcept override {
+  [[nodiscard]] const char *render(std::span<char> buffer) const noexcept final {
     libmcu::Mregel line(buffer);
     line.add(name);
     line.add(' ');
@@ -30,11 +30,11 @@ class Menu_item_value_dummy : public Menu_item {
     return line.c_str();
   }
 
-  void increment() noexcept override {
+  void increment() noexcept final {
     value++;
   }
 
-  void decrement() noexcept override {
+  void decrement() noexcept final {
     value--;
   }
 

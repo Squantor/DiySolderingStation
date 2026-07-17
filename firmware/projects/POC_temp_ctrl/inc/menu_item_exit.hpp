@@ -17,15 +17,15 @@
 
 class Menu_item_exit : public Menu_item {
  public:
-  Menu_item_type get_type() const noexcept override {
+  Menu_item_type get_type() const noexcept final {
     return Menu_item_type::exit;
   }
-  const char *render(std::span<char>) const noexcept override {
+  const char *render(std::span<char>) const noexcept final {
     return "Exit";
   }
 
-  void increment() noexcept override final {}
-  void decrement() noexcept override final {}
+  void increment() noexcept final {}
+  void decrement() noexcept final {}
 
  private:
 };

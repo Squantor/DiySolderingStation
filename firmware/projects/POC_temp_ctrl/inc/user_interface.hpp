@@ -28,7 +28,7 @@ struct User_interface : public Event_handler {
     screens[current_screen_index]->activate();
   }
 
-  void handle_event(Event_data event) override final {
+  void handle_event(Event_data event) final {
     User_interface_event_enum interface_event = User_interface_events::none;
     if (event.event == Events::button) {
       switch (event.button) {

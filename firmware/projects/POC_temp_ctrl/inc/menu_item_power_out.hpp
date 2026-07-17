@@ -18,11 +18,11 @@ class Menu_item_power_out : public Menu_item {
  public:
   Menu_item_power_out(std::size_t index) : type(Menu_item_type::value), iron_index(index), value(50) {}
 
-  [[nodiscard]] Menu_item_type get_type() const noexcept override {
+  [[nodiscard]] Menu_item_type get_type() const noexcept final {
     return type;
   }
 
-  [[nodiscard]] const char *render(std::span<char> buffer) const noexcept override {
+  [[nodiscard]] const char *render(std::span<char> buffer) const noexcept final {
     libmcu::Mregel line(buffer);
     line.add("Iron ");
     line.add(libmcu::Dec(static_cast<std::int32_t>(iron_index)));
@@ -31,13 +31,13 @@ class Menu_item_power_out : public Menu_item {
     return line.c_str();
   }
 
-  void increment() noexcept override final {
+  void increment() noexcept final {
     if (value < 100)
       value += 10;
     application::solder_iron_controller.set_power(iron_index, value);
   }
 
-  void decrement() noexcept override final {
+  void decrement() noexcept final {
     if (value > 0)
       value -= 10;
     application::solder_iron_controller.set_power(iron_index, value);

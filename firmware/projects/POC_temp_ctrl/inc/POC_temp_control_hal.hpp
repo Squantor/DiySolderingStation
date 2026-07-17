@@ -17,11 +17,11 @@ class POC_temp_control_hal : public Solder_iron_hal_base {
  public:
   POC_temp_control_hal(std::size_t count) : iron_count(count) {}
 
-  std::size_t get_iron_count(void) override {
+  std::size_t get_iron_count(void) final {
     return iron_count;
   }
 
-  void set_iron_output(std::size_t index, bool on_state) override;
+  void set_iron_output(std::size_t index, bool on_state) final;
 
  private:
   std::size_t iron_count;

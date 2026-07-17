@@ -70,6 +70,11 @@ Results Application::init() {
   command_console.print("DIY soldering station POC temperature sensing\n");
   ui_port_expander.RegisterCallback(button_call_lambda);
   solder_iron_controller.init();
+  while (eeprom_24xxx.state != libmcu::States::Idle) {
+    board_progress();
+  }
+  // settings init
+  // eeprom_24xxx.test();
   // before we initialize display we need to make sure the screen is properly setup
   while (ui_display.state != libmcu::States::Idle) {
     board_progress();

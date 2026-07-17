@@ -23,7 +23,7 @@ template <auto &display>
 class Main_screen : public User_interface_screen<User_interface_events>, public Event_handler {
  public:
   Main_screen(Solder_iron_controller &controller) : solder_iron_controller(controller) {}
-  User_interface_actions handle_event(User_interface_events event) override {
+  User_interface_actions handle_event(User_interface_events event) final {
     User_interface_actions action = User_interface_actions::none;
     switch (event) {
       case User_interface_events::left_button_pressed:
@@ -38,11 +38,11 @@ class Main_screen : public User_interface_screen<User_interface_events>, public 
     render();
     return action;
   }
-  void activate() override final {
+  void activate() final {
     is_active = true;
     render();
   }
-  void deactivate() override final {
+  void deactivate() final {
     is_active = false;
   }
   void handle_event(Event_data event) {

@@ -37,7 +37,7 @@ class Menu_screen : public User_interface_screen<User_interface_events>, public 
  public:
   Menu_screen(std::span<Menu_item *const> menu_items) : state(detail::Menu_screen_state::inactive), items(menu_items) {}
 
-  User_interface_actions handle_event(User_interface_events event) override final {
+  User_interface_actions handle_event(User_interface_events event) final {
     User_interface_actions action = User_interface_actions::none;
 
     switch (event) {
@@ -87,12 +87,12 @@ class Menu_screen : public User_interface_screen<User_interface_events>, public 
     render();
     return action;
   }
-  void activate() override final {
+  void activate() final {
     state = detail::Menu_screen_state::active;
     item_index = 0;
     render();
   }
-  void deactivate() override final {
+  void deactivate() final {
     state = detail::Menu_screen_state::inactive;
   }
   void handle_event(Event_data event) {

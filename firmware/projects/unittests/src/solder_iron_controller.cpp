@@ -24,11 +24,11 @@ struct Solder_iron_hal_mock : public Solder_iron_hal_base {
     set_iron_output_on_count.fill(0);
     set_iron_output_off_count.fill(0);
   }
-  std::size_t get_iron_count(void) override {
+  std::size_t get_iron_count(void) final {
     return 4;
   }
 
-  void set_iron_output(std::size_t index, bool on_state) override {
+  void set_iron_output(std::size_t index, bool on_state) final {
     if (on_state) {
       set_iron_output_on_count[index]++;
     } else {

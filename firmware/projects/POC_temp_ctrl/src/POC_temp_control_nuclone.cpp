@@ -8,10 +8,17 @@
  * @brief board support code for power control proof of concept board
  */
 #include <POC_temp_control_nuclone.hpp>
+#include <nxp/libmcu_LPC845M301BD48_hal.hpp>
+#include <drivers/SH1106_i2c.hpp>
+#include <drivers/PCF8574.hpp>
+#include <drivers/24xxx.hpp>
+#include <mid/gfx_display.hpp>
+#include <mid/fonts/8x8.hpp>
 #include <application.hpp>
 
 libmcu::I2cDeviceAddress SH1106_i2c_address{0x3C};
 libmcu::I2cDeviceAddress PCF8574_i2c_address{0x27};
+libmcu::I2cDeviceAddress eeprom_24xxx_i2c_address{0x50};
 
 libmcull::iocon::Iocon<libmcuhw::IoconAddress> iocon_peripheral;
 libmcull::swm::Swm<libmcuhw::SwmAddress> swm_periperhal;
@@ -25,11 +32,14 @@ libmcull::usart::UartInterrupt<libmcuhw::Usart0Address, char, 1024> ll_usart_per
 libmcull::i2c::I2cInterrupt<libmcuhw::I2c0Address> ll_i2c_peripheral;
 
 libmcuhal::usart::Uart<ll_usart_peripheral, char> usart_peripheral;
-libmcuhal::i2c::I2c<ll_i2c_peripheral, 40> i2c_peripheral;  // need 40 transactions due to display config load
+libmcuhal::i2c::I2c<ll_i2c_peripheral, max_i2c_transactions> i2c_peripheral;
 
 libmcudrv::SH1106::Generic128x64 display_config;
 libmcudrv::SH1106::SH1106<i2c_peripheral, SH1106_i2c_address, display_config, libmcull::Assert_bkpt> ui_display;
 libmcudrv::PCF8574::PCF8574<i2c_peripheral, PCF8574_i2c_address> ui_port_expander;
+libmcudrv::eeprom_24xxx::Generic_24xxx02 eeprom_24xxx_config;
+libmcudrv::eeprom_24xxx::Eeprom_24xxx<i2c_peripheral, eeprom_24xxx_i2c_address, eeprom_24xxx_config> eeprom_24xxx;
+
 libmcumid::Gfx_display<ui_display> application_display;
 
 volatile std::uint32_t ticks;
@@ -159,13 +169,15 @@ void board_init(void) {
     ;
   ui_port_expander.Init();
   ui_display.init();
+  eeprom_24xxx.init();
 }
 
 void board_progress(void) {
-  usart_peripheral.Progress();
-  i2c_peripheral.Progress();
-  ui_display.Progress();
-  ui_port_expander.Progress();
+  usart_peripheral.progress();
+  i2c_peripheral.progress();
+  ui_display.progress();
+  ui_port_expander.progress();
+  eeprom_24xxx.progress();
 }
 
 bool is_mains_present(void) {
