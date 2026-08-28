@@ -1,11 +1,10 @@
-/*
+/**
  * SPDX-License-Identifier: MIT
  *
  * Copyright (c) 2024 Bart Bilos
  * For conditions of distribution and use, see LICENSE file
- */
-/**
- * @file command handler class
+ *
+ * @file command_interpreter.hpp
  * @brief class for implementing a command handler
  */
 #ifndef COMMAND_INTERPRETER_HPP

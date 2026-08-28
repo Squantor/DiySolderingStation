@@ -1,10 +1,9 @@
-/*
+/**
  * SPDX-License-Identifier: MIT
  *
  * Copyright (c) 2024 Bart Bilos
  * For conditions of distribution and use, see LICENSE file
- */
-/**
+ *
  * @file results class
  * @brief various results that can be returned
  */

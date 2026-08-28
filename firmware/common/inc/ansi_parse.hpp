@@ -1,10 +1,10 @@
-/*
+/**
  * SPDX-License-Identifier: MIT
  *
  * Copyright (c) 2024 Bart Bilos
  * For conditions of distribution and use, see LICENSE file
- */
-/**
+ *
+ * @file ansi_parse.hpp
  * @brief ANSI sequence parser
  */
 #ifndef ANSI_PARSE_HPP

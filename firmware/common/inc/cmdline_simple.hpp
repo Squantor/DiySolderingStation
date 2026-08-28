@@ -1,11 +1,10 @@
-/*
+/**
  * SPDX-License-Identifier: MIT
  *
  * Copyright (c) 2024 Bart Bilos
  * For conditions of distribution and use, see LICENSE file
- */
-/**
- * @file commandline handler class with minimum functionality
+ *
+ * @file cmdline_simple.hpp
  * @brief commandline handler that handles backspaces and recalling previous commands
  */
 #ifndef CMDLINE_SIMPLE_HPP

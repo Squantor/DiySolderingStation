@@ -1,15 +1,14 @@
-/*
+/**
  * SPDX-License-Identifier: MIT
  *
  * Copyright (c) 2024 Bart Bilos
  * For conditions of distribution and use, see LICENSE file
- */
-/**
- * @file buffered character based console class
+ *
+ * @file console_buffered.hpp
  * @brief console that supports single line buffering and transfers
  */
-#ifndef CONSOLE_HPP
-#define CONSOLE_HPP
+#ifndef CONSOLE_BUFFERED_HPP
+#define CONSOLE_BUFFERED_HPP
 
 #include <cstdint>
 #include <array>

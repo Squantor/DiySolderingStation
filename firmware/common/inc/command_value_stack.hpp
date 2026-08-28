@@ -1,13 +1,12 @@
-/*
+/**
  * SPDX-License-Identifier: MIT
  *
  * Copyright (c) 2024 Bart Bilos
  * For conditions of distribution and use, see LICENSE file
- */
-/**
- * @file interprets ascii strings as numbers and maintains a stack definitions
+ *
+ * @file command_value_stack.hpp
  * @brief class that interprets ascii strings as numbers and maintains a stack
- * TODO: doxygen
+ * @todo doxygen
  */
 #ifndef COMMAND_VALUE_STACK_HPP
 #define COMMAND_VALUE_STACK_HPP

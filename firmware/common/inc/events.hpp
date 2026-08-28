@@ -1,12 +1,11 @@
-/*
-SPDX-License-Identifier: MIT
-
-Copyright (c) 2026 Bart Bilos
-For conditions of distribution and use, see LICENSE file
-*/
 /**
- * \file events.hpp
- * Event handler definitions
+ * SPDX-License-Identifier: MIT
+ *
+ * Copyright (c) 2026 Bart Bilos
+ * For conditions of distribution and use, see LICENSE file
+ *
+ * @file events.hpp
+ * @brief Event handler definitions
  */
 #ifndef EVENTS_HPP
 #define EVENTS_HPP

@@ -1,13 +1,12 @@
-/*
+/**
  * SPDX-License-Identifier: MIT
  *
  * Copyright (c) 2024 Bart Bilos
  * For conditions of distribution and use, see LICENSE file
- */
-/**
- * @file various type to ascii string converters definitions
+ *
+ * @file toascii.hpp
  * @brief various converters for various types to ascii spans/strings
- * TODO: documentation
+ * @todo documentation
  */
 #ifndef TOASCII_HPP
 #define TOASCII_HPP

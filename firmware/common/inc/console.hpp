@@ -1,11 +1,10 @@
-/*
+/**
  * SPDX-License-Identifier: MIT
  *
  * Copyright (c) 2024 Bart Bilos
  * For conditions of distribution and use, see LICENSE file
- */
-/**
- * @file character based console class
+ *
+ * @file cpnsole.hpp
  * @brief console with zero buffering and immediate passthrough
  */
 #ifndef CONSOLE_HPP
