@@ -40,7 +40,7 @@ struct Solder_iron_hal_mock : public Solder_iron_hal_base {
 };
 
 Solder_iron_hal_mock solder_iron_hal_mock;
-Solder_iron_controller solder_iron_controller_dut(solder_iron_hal_mock);
+Solder_iron_controller solder_iron_controller_dut(solder_iron_hal_mock, 100);
 
 MINUNIT_SETUP(solderIronControllerSetup) {
   solder_iron_hal_mock.init();

@@ -32,9 +32,10 @@ class Solder_iron_controller : public Event_handler {
  public:
   /**
    * @brief Construct a new Power_ctrl object
-   * @param tick_count ticks per second
+   * @param ticks_per_second ticks per second
    */
-  Solder_iron_controller(Solder_iron_hal_base &hal, std::uint32_t tick_count) : iron_hal(hal), ticks_per_second(tick_count) {}
+  Solder_iron_controller(Solder_iron_hal_base &hal, std::uint32_t ticks_per_second)
+    : iron_hal(hal), ticks_per_second(ticks_per_second) {}
   /**
    * @brief Initializes power control
    */
