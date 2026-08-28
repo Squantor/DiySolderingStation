@@ -11,7 +11,7 @@ PROJ_DIR := $(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
 NAME := unittests
 $(NAME)_TARGET := PC
 $(NAME)_DEFINES := -DMINUNIT_MAX_TESTS=1000
-$(NAME)_LIBS := squantorMinUnit
+$(NAME)_LIBS := squantorMinUnit libMcu
 $(NAME)_FILES := $(PROJ_DIR)/src/main.cpp \
 common/src/cmdline_simple.cpp \
 $(PROJ_DIR)/src/cmdline_simple.cpp \
@@ -24,7 +24,8 @@ $(PROJ_DIR)/src/command_interpreter.cpp \
 $(PROJ_DIR)/src/command_value_stack.cpp \
 common/src/parse_digit.cpp \
 common/src/solder_iron_controller.cpp \
-$(PROJ_DIR)/src/solder_iron_controller.cpp
+$(PROJ_DIR)/src/solder_iron_controller.cpp \
+$(PROJ_DIR)/src/settings_storage.cpp
 $(NAME)_INCLUDES := -I$(PROJ_DIR)/inc -Icommon/inc
 $(NAME)_PREBUILD_SCRIPT := $(PROJ_DIR)/prebuild.sh
 $(NAME)_POSTBUILD_SCRIPT := $(PROJ_DIR)/postbuild.sh
