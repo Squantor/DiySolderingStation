@@ -73,8 +73,6 @@ Results Application::init() {
   while (eeprom_24xxx.state != libmcu::States::Idle) {
     board_progress();
   }
-  // settings init
-  // eeprom_24xxx.test();
   // before we initialize display we need to make sure the screen is properly setup
   while (ui_display.state != libmcu::States::Idle) {
     board_progress();
