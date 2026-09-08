@@ -44,7 +44,13 @@ struct Settings_storage : public libmcu::NonBlocking {
       magic_version{magic_version},
       current_address{storage_driver.size()},
       search_address{0},
-      sequence_number{0} {}
+      sequence_number{0} {
+    std::size_t settings_record_size = sizeof(detail::Settings_storage_record<Application_settings>);
+    storage_stride = (storage_driver.page_size() * (settings_record_size / storage_driver.page_size()));
+    if (settings_record_size % storage_driver.page_size() != 0) {
+      storage_stride += storage_driver.page_size();
+    }
+  }
   /**
    * @brief Get current state
    * @return Current state
@@ -75,8 +81,40 @@ struct Settings_storage : public libmcu::NonBlocking {
   /**
    * @brief Save the settings passed on to the storage
    * @param settings Settings to save
+   * @return Result
    */
-  void save(Application_settings settings) {}
+  libmcu::Results save(Application_settings &settings) {
+    if (state != libmcu::States::Idle) {
+      return libmcu::Results::Busy;
+    }
+    current_address += storage_stride;
+    if (search_address >= storage_driver.size())
+      search_address = 0;
+    sequence_number++;
+    detail::Settings_storage_record<Application_settings> *record =
+      reinterpret_cast<detail::Settings_storage_record<Application_settings> *>(storage_buffer.data());
+    record->magic_version = magic_version;
+    record->sequence_number = sequence_number;
+    record->checksum = 0;
+    record->settings = settings;
+    storage_driver.write(current_address, storage_buffer, this);
+    state = libmcu::States::busy_writing;
+    return libmcu::Results::busy_writing;
+  }
+  /**
+   * @brief Load settings from storage
+   * @param settings Reference to settings
+   * @return Result
+   */
+  libmcu::Results load(Application_settings &settings) {
+    if (state != libmcu::States::Idle) {
+      return libmcu::Results::Busy;
+    }
+    settings_store = &settings;
+    storage_driver.read(current_address, storage_buffer, this);
+    state = libmcu::States::busy_reading;
+    return libmcu::Results::busy_reading;
+  }
   /**
    * @brief Progress processing of any operation
    */
@@ -102,15 +140,15 @@ struct Settings_storage : public libmcu::NonBlocking {
             reinterpret_cast<detail::Settings_storage_record<Application_settings> *>(storage_buffer.data());
 
           // analyze record
-          if (record->magic_version == magic_version) {
-            // check checksum
+          if ((record->magic_version == magic_version) && (record->checksum == storage_buf_checksum())) {
             // check sequence number, check also for wrapping
             // if all is fine, write to current address
             current_address = search_address;
           }
 
           // go to next page
-          search_address += storage_driver.page_size();
+          search_address += storage_stride;
+          // did we go to the end?
           if (search_address >= storage_driver.size()) {
             // did we find something?
             if (current_address != storage_driver.size()) {
@@ -119,14 +157,15 @@ struct Settings_storage : public libmcu::NonBlocking {
               state = libmcu::States::busy_reading;
             } else {
               // We did not, write default settings at address 0
+              //! @todo what if there is something already there?
               current_address = 0;
               for (auto &element : storage_buffer) {
                 element = 0;
               }
               record->magic_version = magic_version;
               record->sequence_number = 0;
-              record->checksum = 0;
               record->settings = *defaults_store;
+              record->checksum = storage_buf_checksum();
               storage_driver.write(current_address, storage_buffer, this);
               *settings_store = *defaults_store;
               state = libmcu::States::busy_writing;
@@ -162,8 +201,16 @@ struct Settings_storage : public libmcu::NonBlocking {
   std::uint8_t magic_version;
   std::size_t current_address;
   std::size_t search_address;
+  std::size_t storage_stride;
   std::uint8_t sequence_number;
-  //! @todo Stride for EEPROM?
+
+  std::uint16_t storage_buf_checksum() {
+    uint16_t sum = storage_buffer[0] + storage_buffer[1];
+    for (std::size_t i = 4; i < storage_buffer.size(); i++) {
+      sum += storage_buffer[i];
+    }
+    return sum;
+  }
 };
 
 #endif
