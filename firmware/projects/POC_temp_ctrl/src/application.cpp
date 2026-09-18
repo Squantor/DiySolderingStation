@@ -18,9 +18,9 @@
 #include <screen_main.hpp>
 #include <screen_menu.hpp>
 #include <menu_item.hpp>
-#include <menu_item_value_dummy.hpp>
 #include <menu_item_exit.hpp>
 #include <menu_item_contrast.hpp>
+#include <menu_item_save.hpp>
 #include <menu_item_power_out.hpp>
 #include <solder_iron_controller.hpp>
 #include <POC_temp_control_hal.hpp>
@@ -48,10 +48,11 @@ Settings_storage<POC_temp_control_settings, eeprom_24xxx> settings_storage(setti
 Menu_item_contrast contrast_menu_item;
 Menu_item_power_out power_out_first_menu_item(0);
 Menu_item_power_out power_out_second_menu_item(1);
+Menu_item_save save_menu_item;
 Menu_item_exit exit_menu;
 
-std::array<Menu_item* const, 4> menu_items = {&contrast_menu_item, &power_out_first_menu_item, &power_out_second_menu_item,
-                                              &exit_menu};
+std::array<Menu_item* const, 5> menu_items = {&contrast_menu_item, &power_out_first_menu_item, &power_out_second_menu_item,
+                                              &save_menu_item, &exit_menu};
 
 Main_screen<application_display> main_screen(solder_iron_controller);
 Menu_screen<application_display> menu_screen(menu_items);
@@ -90,6 +91,7 @@ Results Application::init() {
   while (ui_display.state != libmcu::States::Idle && timeout-- > 0) {
     board_progress();
   }
+  ui_display.contrast(application::current_settings.contrast);
   user_interface.init();
   if (timeout == 0) {
     command_console.print("Initialization failed\n");
@@ -144,4 +146,9 @@ void Application::set_usb_powered_state() {
   set_safe_usb_powered();
   state = Application_state::usb_powered;
 }
+
+void write_current_settings(void) {
+  settings_storage.save(current_settings);
+}
+
 }  // namespace application

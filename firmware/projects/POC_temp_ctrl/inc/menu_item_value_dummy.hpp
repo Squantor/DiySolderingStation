@@ -38,6 +38,8 @@ class Menu_item_value_dummy : public Menu_item {
     value--;
   }
 
+  void action() noexcept final {}
+
  private:
   const Menu_item_type type;
   const char *name;

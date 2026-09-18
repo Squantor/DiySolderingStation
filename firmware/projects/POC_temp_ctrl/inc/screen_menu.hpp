@@ -47,6 +47,8 @@ class Menu_screen : public User_interface_screen<User_interface_events>, public 
         } else if (state == detail::Menu_screen_state::selecting) {
           if (items[item_index]->get_type() == Menu_item_type::exit) {
             state = detail::Menu_screen_state::active;
+          } else if (items[item_index]->get_type() == Menu_item_type::action) {
+            items[item_index]->action();
           } else {
             state = detail::Menu_screen_state::entered;
           }

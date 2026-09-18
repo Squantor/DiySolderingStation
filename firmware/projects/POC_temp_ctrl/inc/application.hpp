@@ -17,6 +17,7 @@
 #include <console.hpp>
 #include <event_dispatch.hpp>
 #include <solder_iron_controller.hpp>
+#include <POC_temp_control_settings.hpp>
 
 /**
  * @brief application wide result/return values
@@ -51,12 +52,15 @@ class Application {
   Application_state state;
 };
 
+void write_current_settings(void);
+
 extern squLib::console<usart_peripheral> command_console;
 extern squLib::Command_value_stack<8, command_console> command_values;
 extern squLib::Command_interpreter<command_handlers, command_values, command_console> command_interpreter;
 extern Application controller;
 extern Solder_iron_controller solder_iron_controller;
 extern Event_dispatcher event_dispatcher;
+extern POC_temp_control_settings current_settings;
 
 }  // namespace application
 

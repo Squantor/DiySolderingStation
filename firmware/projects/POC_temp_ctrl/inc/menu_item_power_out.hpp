@@ -43,6 +43,8 @@ class Menu_item_power_out : public Menu_item {
     application::solder_iron_controller.set_power(iron_index, value);
   }
 
+  void action() noexcept final {}
+
  private:
   const Menu_item_type type;
   std::size_t iron_index;

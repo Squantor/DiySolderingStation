@@ -14,8 +14,9 @@
 #include <span>
 
 enum class Menu_item_type : std::uint8_t {
-  value, /*!< value item */
-  exit,  /*!< exit item */
+  value,  /*!< value item */
+  action, /*!< action item */
+  exit,   /*!< exit item */
 };
 
 class Menu_item {
@@ -27,6 +28,8 @@ class Menu_item {
   virtual void increment() noexcept = 0;
 
   virtual void decrement() noexcept = 0;
+
+  virtual void action() noexcept = 0;
 
  private:
 };

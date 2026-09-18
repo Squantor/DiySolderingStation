@@ -96,8 +96,8 @@ struct Settings_storage : public libmcu::NonBlocking {
       reinterpret_cast<detail::Settings_storage_record<Application_settings> *>(storage_buffer.data());
     record->magic_version = magic_version;
     record->sequence_number = sequence_number;
-    record->checksum = 0;
     record->settings = settings;
+    record->checksum = storage_buf_checksum();
     storage_driver.write(current_address, storage_buffer, this);
     state = libmcu::States::busy_writing;
     return libmcu::Results::busy_writing;
