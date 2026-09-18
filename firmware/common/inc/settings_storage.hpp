@@ -134,6 +134,7 @@ struct Settings_storage : public libmcu::NonBlocking {
   void callback(libmcu::Results result) final {
     (void)result;
     switch (state) {
+      // looking through EEPROM for the newest settings
       case libmcu::States::Initializing:
         if (result == libmcu::Results::NoError) {
           detail::Settings_storage_record<Application_settings> *record =
@@ -141,9 +142,16 @@ struct Settings_storage : public libmcu::NonBlocking {
 
           // analyze record
           if ((record->magic_version == magic_version) && (record->checksum == storage_buf_checksum())) {
-            // check sequence number, check also for wrapping
-            // if all is fine, write to current address
-            current_address = search_address;
+            if (sequence_number < record->sequence_number) {
+              sequence_number = record->sequence_number;
+              current_address = search_address;
+              *settings_store = record->settings;
+            } else if (sequence_number == 0xFF) {
+              // we where at the end of the sequence number, record lower one
+              sequence_number = record->sequence_number;
+              current_address = search_address;
+              *settings_store = record->settings;
+            }
           }
 
           // go to next page
@@ -163,7 +171,7 @@ struct Settings_storage : public libmcu::NonBlocking {
                 element = 0;
               }
               record->magic_version = magic_version;
-              record->sequence_number = 0;
+              record->sequence_number = 1;
               record->settings = *defaults_store;
               record->checksum = storage_buf_checksum();
               storage_driver.write(current_address, storage_buffer, this);

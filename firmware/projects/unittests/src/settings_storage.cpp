@@ -123,8 +123,8 @@ MINUNIT_ADD(settings_storage_init_empty, settings_storage_setup, settings_storag
   MINUNIT_CHECK(test_storage.value_three == 6);
   // check if default settings are written to address 0
   MINUNIT_CHECK(storage_buffer[0] == 0x32);
-  MINUNIT_CHECK(storage_buffer[1] == 0x00);
-  MINUNIT_CHECK(storage_buffer[2] == 0x41);
+  MINUNIT_CHECK(storage_buffer[1] == 0x01);
+  MINUNIT_CHECK(storage_buffer[2] == 0x42);
   MINUNIT_CHECK(storage_buffer[3] == 0x00);
   MINUNIT_CHECK(storage_buffer[4] == 0x04);
   MINUNIT_CHECK(storage_buffer[6] == 0x05);
@@ -149,7 +149,7 @@ MINUNIT_ADD(settings_storage_init_not_empty, settings_storage_setup, settings_st
   detail::Settings_storage_record<Test_storage>* record =
     reinterpret_cast<detail::Settings_storage_record<Test_storage>*>(settings_buffer.data());
   record->magic_version = 0x32;
-  record->sequence_number = 0;
+  record->sequence_number = 1;
   record->settings.value_one = 7;
   record->settings.value_two = 8;
   record->settings.value_three = 9;
