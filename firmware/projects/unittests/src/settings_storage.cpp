@@ -65,6 +65,10 @@ struct Storage_driver_mock {
     return storage_page_size;
   }
 
+  constexpr std::size_t page_count() const noexcept {
+    return storage_size / storage_page_size;
+  }
+
  private:
   std::span<std::uint8_t> storage;
   std::size_t storage_page_size;
@@ -162,15 +166,45 @@ MINUNIT_ADD(settings_storage_init_not_empty, settings_storage_setup, settings_st
     timeout_count--;
     storage_driver_dut.call_callback(libmcu::Results::NoError);
   }
-  // check if present settings are written to storage
+  // check if settings are retrieved properly
   MINUNIT_CHECK(test_storage.value_one == 7);
   MINUNIT_CHECK(test_storage.value_two == 8);
   MINUNIT_CHECK(test_storage.value_three == 9);
 }
 
 // test init with already present settings and wrapping sequence numbers
-// test init with some pages filled with different data, should skip those pages
-// test init with some pages filled with different data and wrapping sequence numbers
+MINUNIT_ADD(settings_storage_init_not_empty_wrapping, settings_storage_setup, settings_storage_teardown) {
+  std::size_t timeout_count = 1000;
+  Test_storage test_storage{1, 2, 3};
+  Test_storage test_storage_defaults{4, 5, 6};
+  detail::Settings_storage_record<Test_storage>* record =
+    reinterpret_cast<detail::Settings_storage_record<Test_storage>*>(settings_buffer.data());
+  record->magic_version = 0x32;
+  record->sequence_number = 0xFF;
+  record->settings.value_one = 7;
+  record->settings.value_two = 8;
+  record->settings.value_three = 9;
+  record->checksum = settings_buffer_checksum();
+  storage_driver_dut.write(32, settings_buffer);
+  record->magic_version = 0x32;
+  record->sequence_number = 0x1;
+  record->settings.value_one = 10;
+  record->settings.value_two = 11;
+  record->settings.value_three = 12;
+  record->checksum = settings_buffer_checksum();
+  storage_driver_dut.write(64, settings_buffer);
+  MINUNIT_CHECK(settings_storage_dut.get_state() == libmcu::States::Uninitialized);
+  settings_storage_dut.init(test_storage, test_storage_defaults);
+  while (timeout_count > 0 && settings_storage_dut.get_state() != libmcu::States::Idle) {
+    settings_storage_dut.progress();
+    timeout_count--;
+    storage_driver_dut.call_callback(libmcu::Results::NoError);
+  }
+  // check if settings are retrieved properly
+  MINUNIT_CHECK(test_storage.value_one == 10);
+  MINUNIT_CHECK(test_storage.value_two == 11);
+  MINUNIT_CHECK(test_storage.value_three == 12);
+}
 // test settings write and read
 MINUNIT_ADD(settings_storage_write, settings_storage_setup, settings_storage_teardown) {
   std::size_t timeout_count = 1000;
@@ -207,6 +241,73 @@ MINUNIT_ADD(settings_storage_write, settings_storage_setup, settings_storage_tea
 }
 
 // test settings write with wrapping sequence numbers
+MINUNIT_ADD(settings_storage_write_wrapped, settings_storage_setup, settings_storage_teardown) {
+  std::size_t timeout_count = 1000;
+  Test_storage test_storage{1, 2, 3};
+  Test_storage test_storage_defaults{4, 5, 6};
+  Test_storage test_storage_write{7, 8, 9};
+  detail::Settings_storage_record<Test_storage>* record =
+    reinterpret_cast<detail::Settings_storage_record<Test_storage>*>(settings_buffer.data());
+  record->magic_version = 0x32;
+  record->sequence_number = 0xFE;
+  record->settings.value_one = 42;
+  record->settings.value_two = 42;
+  record->settings.value_three = 42;
+  record->checksum = settings_buffer_checksum();
+  storage_driver_dut.write(96, settings_buffer);
+  MINUNIT_CHECK(settings_storage_dut.get_state() == libmcu::States::Uninitialized);
+  settings_storage_dut.init(test_storage, test_storage_defaults);
+  while (timeout_count > 0 && settings_storage_dut.get_state() != libmcu::States::Idle) {
+    settings_storage_dut.progress();
+    timeout_count--;
+    storage_driver_dut.call_callback(libmcu::Results::NoError);
+  }
+  MINUNIT_CHECK(test_storage.value_one == 42);
+  MINUNIT_CHECK(test_storage.value_two == 42);
+  MINUNIT_CHECK(test_storage.value_three == 42);
+  test_storage_write.value_one = 43;
+  test_storage_write.value_two = 43;
+  test_storage_write.value_three = 43;
+  settings_storage_dut.save(test_storage_write);
+  while (timeout_count > 0 && settings_storage_dut.get_state() != libmcu::States::Idle) {
+    settings_storage_dut.progress();
+    timeout_count--;
+    storage_driver_dut.call_callback(libmcu::Results::NoError);
+  }
+  test_storage_write.value_one = 44;
+  test_storage_write.value_two = 44;
+  test_storage_write.value_three = 44;
+  settings_storage_dut.save(test_storage_write);
+  while (timeout_count > 0 && settings_storage_dut.get_state() != libmcu::States::Idle) {
+    settings_storage_dut.progress();
+    timeout_count--;
+    storage_driver_dut.call_callback(libmcu::Results::NoError);
+  }
+  test_storage_write.value_one = 45;
+  test_storage_write.value_two = 45;
+  test_storage_write.value_three = 45;
+  settings_storage_dut.save(test_storage_write);
+  while (timeout_count > 0 && settings_storage_dut.get_state() != libmcu::States::Idle) {
+    settings_storage_dut.progress();
+    timeout_count--;
+    storage_driver_dut.call_callback(libmcu::Results::NoError);
+  }
+  // read settings
+  settings_storage_dut.load(test_storage);
+  while (timeout_count > 0 && settings_storage_dut.get_state() != libmcu::States::Idle) {
+    settings_storage_dut.progress();
+    timeout_count--;
+    storage_driver_dut.call_callback(libmcu::Results::NoError);
+  }
+  MINUNIT_CHECK(test_storage.value_one == 45);
+  MINUNIT_CHECK(test_storage.value_two == 45);
+  MINUNIT_CHECK(test_storage.value_three == 45);
+  // check sequence numbers if they are correct
+  MINUNIT_CHECK(storage_buffer[97] == 0xFE);
+  MINUNIT_CHECK(storage_buffer[113] == 0xFF);
+  MINUNIT_CHECK(storage_buffer[1] == 0x00);
+  MINUNIT_CHECK(storage_buffer[17] == 0x01);
+}
 // test errors with storage driver
 // test errors with CRC issues
 // create tests with big settings structure (more then one page)

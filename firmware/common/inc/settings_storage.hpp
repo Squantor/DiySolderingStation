@@ -46,8 +46,10 @@ struct Settings_storage : public libmcu::NonBlocking {
       search_address{0},
       sequence_number{0} {
     std::size_t settings_record_size = sizeof(detail::Settings_storage_record<Application_settings>);
+    // calculate stride depending on settings record size
     storage_stride = (storage_driver.page_size() * (settings_record_size / storage_driver.page_size()));
     if (settings_record_size % storage_driver.page_size() != 0) {
+      // add one more page worth to the stride to encompass remainder
       storage_stride += storage_driver.page_size();
     }
   }
@@ -88,8 +90,8 @@ struct Settings_storage : public libmcu::NonBlocking {
       return libmcu::Results::Busy;
     }
     current_address += storage_stride;
-    if (search_address >= storage_driver.size())
-      search_address = 0;
+    if (current_address >= storage_driver.size())
+      current_address = 0;
     sequence_number++;
     detail::Settings_storage_record<Application_settings> *record =
       reinterpret_cast<detail::Settings_storage_record<Application_settings> *>(storage_buffer.data());
@@ -166,7 +168,7 @@ struct Settings_storage : public libmcu::NonBlocking {
             } else {
               // We did not, write default settings at address 0
               //! @todo what if there is something already there?
-              current_address = 0;
+              current_address = search_address = 0;
               for (auto &element : storage_buffer) {
                 element = 0;
               }
