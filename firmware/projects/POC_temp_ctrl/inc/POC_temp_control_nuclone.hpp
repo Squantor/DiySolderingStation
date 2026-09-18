@@ -1,10 +1,10 @@
-/*
+/**
  * SPDX-License-Identifier: MIT
  *
  * Copyright (c) 2024 Bart Bilos
  * For conditions of distribution and use, see LICENSE file
- */
-/**
+ *
+ * @file POC_temp_control_nuclone.hpp
  * @brief board support code for temperature sensing proof of concept board
  */
 #ifndef POC_TEMP_SENSE_NUCLONE_HPP

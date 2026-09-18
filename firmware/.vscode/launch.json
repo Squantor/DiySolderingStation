@@ -31,6 +31,7 @@
       "executable": "${workspaceFolder}/bin/POC_temp_control/debug/POC_temp_control.elf",
       "request": "launch",
       "type": "cortex-debug",
+      // "runToEntryPoint": "main",
       "servertype": "bmp",
       "interface": "swd",
       "device": "LPC845",

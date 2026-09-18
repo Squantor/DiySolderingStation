@@ -24,6 +24,8 @@
 #include <menu_item_power_out.hpp>
 #include <solder_iron_controller.hpp>
 #include <POC_temp_control_hal.hpp>
+#include <POC_temp_control_settings.hpp>
+#include <settings_storage.hpp>
 
 namespace application {
 
@@ -35,6 +37,12 @@ squLib::commandlineSimple<80, command_console, command_interpreter> commandline;
 
 POC_temp_control_hal iron_hal(4);
 Solder_iron_controller solder_iron_controller(iron_hal, ticks_per_second);
+
+// settings storage definitions
+POC_temp_control_settings current_settings;
+POC_temp_control_settings default_settings{50};
+std::array<std::uint8_t, 16> settings_buffer;
+Settings_storage<POC_temp_control_settings, eeprom_24xxx> settings_storage(settings_buffer, 0x32);
 
 // User interface definitions
 Menu_item_contrast contrast_menu_item;
@@ -67,17 +75,27 @@ auto button_call_lambda = [](std::uint8_t port_data) {
 };
 
 Results Application::init() {
+  std::uint32_t timeout = 10000000;
   command_console.print("DIY soldering station POC temperature sensing\n");
   ui_port_expander.RegisterCallback(button_call_lambda);
   solder_iron_controller.init();
-  while (eeprom_24xxx.state != libmcu::States::Idle) {
+  while (eeprom_24xxx.state != libmcu::States::Idle && timeout-- > 0) {
+    board_progress();
+  }
+  settings_storage.init(current_settings, default_settings);
+  while (settings_storage.get_state() != libmcu::States::Idle && timeout-- > 0) {
     board_progress();
   }
   // before we initialize display we need to make sure the screen is properly setup
-  while (ui_display.state != libmcu::States::Idle) {
+  while (ui_display.state != libmcu::States::Idle && timeout-- > 0) {
     board_progress();
   }
   user_interface.init();
+  if (timeout == 0) {
+    command_console.print("Initialization failed\n");
+    while (1)
+      LIBMCULL_BKPT(0x11);
+  }
   return Results::no_error;
 }
 

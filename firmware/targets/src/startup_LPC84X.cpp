@@ -37,12 +37,6 @@ extern void (*__init_array_end[])(void);
 
 void Reset_Handler(void);
 
-// UM11029 3.5.2 ROM-based APIs, pointer to ROM table
-#define PTR_ROM_DRIVER_TABLE ((unsigned int *)(0x0F001FF8))
-// Variables to store addresses of idiv and udiv functions within MCU ROM
-unsigned int *pDivRom_idiv;
-unsigned int *pDivRom_uidiv;
-
 #if defined(__cplusplus)
 }  // extern "C"
 #endif
@@ -62,11 +56,13 @@ __attribute__((section(".romfunc"))) void Reset_Handler(void) {
   // Copy data section from flash to RAM
   src = &_flash_data;
   dst = &_data_start;
-  while (dst < &_data_end) *dst++ = *src++;
+  while (dst < &_data_end)
+    *dst++ = *src++;
 
   // Clear the bss section
   dst = &_bss_start;
-  while (dst < &_bss_end) *dst++ = 0;
+  while (dst < &_bss_end)
+    *dst++ = 0;
 
   // execute c++ constructors
   auto preInitFunc = __preinit_array_start;
@@ -79,13 +75,6 @@ __attribute__((section(".romfunc"))) void Reset_Handler(void) {
     (*initFunc)();
     initFunc++;
   }
-
-  // Get address of Integer division routines function table in ROM
-  unsigned int *div_ptr = (unsigned int *)((unsigned int *)*(PTR_ROM_DRIVER_TABLE))[4];
-  // Get addresses of integer divide routines in ROM
-  // These address are then used by the code in aeabi_romdiv_patch.s
-  pDivRom_idiv = (unsigned int *)div_ptr[0];
-  pDivRom_uidiv = (unsigned int *)div_ptr[1];
 
   // Reenable interrupts
   __asm volatile("cpsie i");

@@ -30,13 +30,12 @@ struct Settings_storage_record {
 /**
  * @brief Settings storage class
  * @tparam Application_settings structure to use for settings storage
- * @todo pass EEPROM class to settings storage
+ * @todo proper error handling with retries for the EEPROM can be busy at times
  */
 template <typename Application_settings, auto &storage_driver>
 struct Settings_storage : public libmcu::NonBlocking {
   /**
    * @brief Construct and initialize a new settings_storage object
-   * @todo add buffer for writing to storage driver
    */
   Settings_storage(std::span<std::uint8_t> storage_buffer, std::uint8_t magic_version)
     : state{libmcu::States::Uninitialized},
@@ -167,7 +166,6 @@ struct Settings_storage : public libmcu::NonBlocking {
               state = libmcu::States::busy_reading;
             } else {
               // We did not, write default settings at address 0
-              //! @todo what if there is something already there?
               current_address = search_address = 0;
               for (auto &element : storage_buffer) {
                 element = 0;
@@ -190,6 +188,8 @@ struct Settings_storage : public libmcu::NonBlocking {
       case libmcu::States::busy_writing:
         if (result == libmcu::Results::NoError) {
           state = libmcu::States::Idle;
+        } else {
+          state = libmcu::States::ErrorFatal;
         }
         break;
       case libmcu::States::busy_reading:
@@ -198,7 +198,10 @@ struct Settings_storage : public libmcu::NonBlocking {
             reinterpret_cast<detail::Settings_storage_record<Application_settings> *>(storage_buffer.data());
           *settings_store = record->settings;
           state = libmcu::States::Idle;
+        } else {
+          state = libmcu::States::ErrorFatal;
         }
+        break;
       default:
         break;
     }
